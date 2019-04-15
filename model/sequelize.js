@@ -9,6 +9,7 @@ const Sequelize = require('sequelize');
 const UserModel = require('./user');
 const SessionModel = require('./session');
 const EventModel = require('./event');
+const BookModel = require('./book');
 
 // Connect to the database
 let sequelizeObject = new Sequelize({
@@ -22,6 +23,7 @@ let sequelizeObject = new Sequelize({
 const User = UserModel(sequelizeObject, Sequelize);
 const Session = SessionModel(sequelizeObject, Sequelize);
 const Event = EventModel(sequelizeObject, Sequelize);
+const Book = BookModel(sequelizeObject, Sequelize);
 
 // User <-> Session relationship (Session has one column for the userID
 Session.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
@@ -30,6 +32,7 @@ Session.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
 exports.User = User;
 exports.Session = Session;
 exports.Event = Event;
+exports.Book = Book;
 
 // Exports the init function to initialize the DB before running the application
 exports.init = function(force) {
