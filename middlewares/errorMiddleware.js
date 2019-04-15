@@ -1,3 +1,5 @@
+"use strict";
+
 const Error = require('../utils/response');
 
 module.exports = {

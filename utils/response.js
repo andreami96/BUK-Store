@@ -1,3 +1,4 @@
+"use strict";
 /***
  * Class used to represent a generic response in the endpoints
  */
