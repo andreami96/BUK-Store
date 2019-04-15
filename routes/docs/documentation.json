@@ -119,8 +119,8 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "bookID": {
-                        "$ref": "#/components/schemas/Book/properties/bookID"
+                      "ISBN": {
+                        "$ref": "#/components/schemas/Book/properties/ISBN"
                       }
                     }
                   }
@@ -137,21 +137,21 @@
         }
       }
     },
-    "/books/{bookID}": {
+    "/books/{ISBN}": {
       "get": {
         "summary": "It retrieves the specified book",
-        "description": "Use this endpoint to retrieve the information about **_bookID_**",
+        "description": "Use this endpoint to retrieve the information about **_ISBN_**",
         "tags": [
           "Book"
         ],
         "parameters": [
           {
-            "name": "bookID",
+            "name": "ISBN",
             "in": "path",
             "description": "The identifier of the book",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/Book/properties/bookID"
+              "$ref": "#/components/schemas/Book/properties/ISBN"
             }
           }
         ],
@@ -178,21 +178,21 @@
         }
       }
     },
-    "/books/{bookID}/authors": {
+    "/books/{ISBN}/authors": {
       "get": {
         "summary": "It retrieves the authors of the specified book",
-        "description": "Use this endpoint to retrieve the authors' identifiers of **_bookID_**",
+        "description": "Use this endpoint to retrieve the authors' identifiers of **_ISBN_**",
         "tags": [
           "Book"
         ],
         "parameters": [
           {
-            "name": "bookID",
+            "name": "ISBN",
             "in": "path",
             "description": "The identifier of the book",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/Book/properties/bookID"
+              "$ref": "#/components/schemas/Book/properties/ISBN"
             }
           }
         ],
@@ -227,21 +227,21 @@
         }
       }
     },
-    "/books/{bookID}/events": {
+    "/books/{ISBN}/events": {
       "get": {
         "summary": "It retrieves the events related to the specified book",
-        "description": "Use this endpoint to retrieve the identifiers of the events related to **_bookID_**",
+        "description": "Use this endpoint to retrieve the identifiers of the events related to **_ISBN_**",
         "tags": [
           "Book"
         ],
         "parameters": [
           {
-            "name": "bookID",
+            "name": "ISBN",
             "in": "path",
             "description": "The identifier of the book",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/Book/properties/bookID"
+              "$ref": "#/components/schemas/Book/properties/ISBN"
             }
           }
         ],
@@ -276,21 +276,21 @@
         }
       }
     },
-    "/books/{bookID}/similarBooks": {
+    "/books/{ISBN}/similarBooks": {
       "get": {
         "summary": "It retrieves the books similar to the specified book",
-        "description": "Use this endpoint to retrieve the identifier of the books similar to **_bookID_**",
+        "description": "Use this endpoint to retrieve the identifier of the books similar to **_ISBN_**",
         "tags": [
           "Book"
         ],
         "parameters": [
           {
-            "name": "bookID",
+            "name": "ISBN",
             "in": "path",
             "description": "The identifier of the book",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/Book/properties/bookID"
+              "$ref": "#/components/schemas/Book/properties/ISBN"
             }
           }
         ],
@@ -304,8 +304,8 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "bookID": {
-                        "$ref": "#/components/schemas/Book/properties/bookID"
+                      "ISBN": {
+                        "$ref": "#/components/schemas/Book/properties/ISBN"
                       }
                     }
                   }
@@ -325,21 +325,21 @@
         }
       }
     },
-    "/books/{bookID}/reviews": {
+    "/books/{ISBN}/reviews": {
       "get": {
         "summary": "It retrieves the reviews of the specified book",
-        "description": "Use this endpoint to download the reviews related to **_bookID_**",
+        "description": "Use this endpoint to download the reviews related to **_ISBN_**",
         "tags": [
           "Book"
         ],
         "parameters": [
           {
-            "name": "bookID",
+            "name": "ISBN",
             "in": "path",
             "description": "The identifier of the book",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/Book/properties/bookID"
+              "$ref": "#/components/schemas/Book/properties/ISBN"
             }
           }
         ],
@@ -397,8 +397,8 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "bookID": {
-                        "$ref": "#/components/schemas/Book/properties/bookID"
+                      "ISBN": {
+                        "$ref": "#/components/schemas/Book/properties/ISBN"
                       }
                     }
                   }
@@ -650,8 +650,8 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "bookID": {
-                      "$ref": "#/components/schemas/Book/properties/bookID"
+                    "ISBN": {
+                      "$ref": "#/components/schemas/Book/properties/ISBN"
                     }
                   }
                 }
@@ -780,8 +780,8 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "bookID": {
-                      "$ref": "#/components/schemas/Book/properties/bookID"
+                    "ISBN": {
+                      "$ref": "#/components/schemas/Book/properties/ISBN"
                     }
                   }
                 }
@@ -910,8 +910,8 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "bookID": {
-                      "$ref": "#/components/schemas/Book/properties/bookID"
+                    "ISBN": {
+                      "$ref": "#/components/schemas/Book/properties/ISBN"
                     }
                   }
                 }
@@ -1248,7 +1248,7 @@
         ],
         "parameters": [
           {
-            "$ref": "#/components/parameters/bookID"
+            "$ref": "#/components/parameters/ISBN"
           }
         ],
         "responses": {
@@ -1384,8 +1384,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "bookID": {
-                  "$ref": "#/components/schemas/Book/properties/bookID"
+                "ISBN": {
+                  "$ref": "#/components/schemas/Book/properties/ISBN"
                 },
                 "quantity": {
                   "$ref": "#/components/schemas/Cart/items/properties/quantity"
@@ -1471,13 +1471,13 @@
           "$ref": "#/components/schemas/Reservation/properties/reservationID"
         }
       },
-      "bookID": {
-        "name": "bookID",
+      "ISBN": {
+        "name": "ISBN",
         "in": "query",
         "required": true,
         "description": "The identifier of the Book",
         "schema": {
-          "$ref": "#/components/schemas/Book/properties/bookID"
+          "$ref": "#/components/schemas/Book/properties/ISBN"
         }
       }
     },
@@ -1694,11 +1694,10 @@
         "type": "object",
         "description": "The book object which contains all the information about a book",
         "properties": {
-          "bookID": {
+          "ISBN": {
             "type": "string",
-            "description": "The id of the book using the UUIDv4 convention",
-            "format": "uuid",
-            "example": "75442486-0878-440c-9db1-a7006c25a39f"
+            "description": "The id of the book using the EAN convention",
+            "example": "9781848663268"
           },
           "title": {
             "type": "string",
@@ -1755,6 +1754,13 @@
             "readOnly": true,
             "minimum": 0,
             "example": 5
+          },
+          "price": {
+            "type": "number",
+            "description": "The price of the book, in euros",
+            "readOnly": true,
+            "minimum": 0,
+            "example": 9.99
           },
           "genre": {
             "$ref": "#/components/schemas/Genre"
@@ -1825,7 +1831,7 @@
             "example": "Meet the Author Joel Dicker at this event"
           },
           "presentedBook": {
-            "$ref": "#/components/schemas/Book/properties/bookID"
+            "$ref": "#/components/schemas/Book/properties/ISBN"
           }
         }
       },
@@ -1851,8 +1857,8 @@
             "readOnly": true,
             "example": "For book lovers The Truth About The Harry Quebert Affair is an ideal read as it is a book about a book about a book.  Marcus Goldman, author and protégé of the famous author Harry Quebert, is the narrator of this book.  We follow him from having had a very successful debut novel, to having writers block, to writing another bestseller about a murder that happened thirty three years ago and where the main suspect is none other that his friend and mentor Harry Quebert.  What is interesting is that the chapters go backwards, from chapter thirty one  to one  which reflects how the story unfolds, gradually going backwards to find out what really happened to Nola Kellergan."
           },
-          "bookID": {
-            "$ref": "#/components/schemas/Book/properties/bookID"
+          "ISBN": {
+            "$ref": "#/components/schemas/Book/properties/ISBN"
           }
         }
       },
@@ -1897,8 +1903,8 @@
           "type": "object",
           "description": "The object which has all the book inside the user's cart",
           "properties": {
-            "bookID": {
-              "$ref": "#/components/schemas/Book/properties/bookID"
+            "ISBN": {
+              "$ref": "#/components/schemas/Book/properties/ISBN"
             },
             "quantity": {
               "type": "integer",

@@ -41,24 +41,24 @@ const WrittenBy = WrittenByModel(sequelizeObject);
 Session.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
 
 // Book <-> Event Relationship (Event has one column for the bookID)
-Event.belongsTo(Book, {foreignKey: {name: 'bookID', allowNull: false}});
+Event.belongsTo(Book, {foreignKey: {name: 'ISBN', allowNull: false}});
 
 // Book <-> Book Relationship through SimilarTo
-Book.belongsToMany(Book, { as: 'Child', through: SimilarTo, foreignKey: 'ParentBookID' });
+Book.belongsToMany(Book, { as: 'Child', through: SimilarTo, foreignKey: 'ParentISBN' });
 
 // Cart Book & User Relationship
-Book.belongsToMany(User, { foreignKey: {name: 'bookID', allowNull: false}, through: Cart });
+Book.belongsToMany(User, { foreignKey: {name: 'ISBN', allowNull: false}, through: Cart });
 User.belongsToMany(Book, { foreignKey: {name: 'userID', allowNull: false}, through: Cart });
 
 // Reservation Book & User Relationship
 Reservation.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
-Reservation.belongsTo(Book, {foreignKey: {name: 'bookID', allowNull: false}});
+Reservation.belongsTo(Book, {foreignKey: {name: 'ISBN', allowNull: false}});
 
 // Review <-> Book Relationship (Review has one book)
-Review.belongsTo(Book, {foreignKey: {name: 'bookID', allowNull: false}});
+Review.belongsTo(Book, {foreignKey: {name: 'ISBN', allowNull: false}});
 
 // Book <-> Author Relationship
-Book.belongsToMany(Author, { foreignKey: {name: 'bookID', allowNull: false}, through: WrittenBy });
+Book.belongsToMany(Author, { foreignKey: {name: 'ISBN', allowNull: false}, through: WrittenBy });
 Author.belongsToMany(Book, { foreignKey: {name: 'authorID', allowNull: false}, through: WrittenBy });
 
 // Exports the created Objects

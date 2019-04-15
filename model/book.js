@@ -1,9 +1,12 @@
 module.exports = function (sequelize, type) {
     return sequelize.define('book', {
-        bookID: {
-            type: type.UUID,
+        ISBN: {
+            type: type.STRING,
             primaryKey: true,
-            defaultValue: type.UUIDV4
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
         },
         title: {
             type: type.STRING,
@@ -42,6 +45,13 @@ module.exports = function (sequelize, type) {
         },
         availableQuantity: {
             type: type.INTEGER,
+            allowNull: false,
+            validate: {
+                min: 0
+            }
+        },
+        price: {
+            type: type.FLOAT,
             allowNull: false,
             validate: {
                 min: 0
