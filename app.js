@@ -1,6 +1,6 @@
 "use strict";
 
-const SERVER_PORT = 80;
+const SERVER_PORT = 8080;
 let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
