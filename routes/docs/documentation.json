@@ -1787,6 +1787,24 @@
             "readOnly": true,
             "example": 1
           },
+          "address": {
+            "type": "string",
+            "description": "The address where the event will take place",
+            "readOnly": true,
+            "example": "Viale Romagna, 20133 Milano"
+          },
+          "latitude": {
+            "type": "number",
+            "description": "The latitude of the place",
+            "readOnly": true,
+            "example": 45.4687769
+          },
+          "longitude": {
+            "type": "number",
+            "description": "The longitude of the place",
+            "readOnly": true,
+            "example": 9.2238234
+          },
           "eventDate": {
             "type": "string",
             "format": "date",
