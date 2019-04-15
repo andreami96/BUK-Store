@@ -1,0 +1,17 @@
+# Node.js gitignore file
+
+
+# Ignore .idea folder
+.idea/
+
+# Ignore Node.js Modules
+node_modules/
+
+# Ignore the file used to download packages
+package-lock.json
+
+# Ignore test coverage files
+.nyc_output/
+
+# Ignore Mac OS file
+.DS_Store

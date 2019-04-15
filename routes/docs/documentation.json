@@ -1,0 +1,1981 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "0.5",
+    "title": "BUK Store",
+    "description": "This document presents the details of each endpoint used to perform requests in the BUK Store main server."
+  },
+  "servers": [
+    {
+      "url": "http://localhost/api/v1",
+      "description": "Main Server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Book",
+      "description": "Book related endpoints"
+    },
+    {
+      "name": "Event",
+      "description": "Event related endpoints"
+    },
+    {
+      "name": "Author",
+      "description": "Author related endpoints"
+    },
+    {
+      "name": "Theme",
+      "description": "Author related endpoints"
+    },
+    {
+      "name": "Genre",
+      "description": "Author related endpoints"
+    },
+    {
+      "name": "User",
+      "description": "User related operations"
+    },
+    {
+      "name": "Cart",
+      "description": "Operation related to the user's cart"
+    },
+    {
+      "name": "Reservation",
+      "description": "Operation related to the user's reservation"
+    },
+    {
+      "name": "Articles",
+      "description": "Article related endpoints"
+    }
+  ],
+  "paths": {
+    "/articles": {
+      "get": {
+        "summary": "It retrieves the articles present in one specific page",
+        "description": "Use this endpoint to retrieve the articles present in one specific page",
+        "tags": [
+          "Articles"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageName"
+          },
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GenericPage"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/books": {
+      "get": {
+        "summary": "It retrieves the books present in the Database",
+        "description": "Use this endpoint to know the books inside the application",
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          },
+          {
+            "$ref": "#/components/parameters/title"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "bookID": {
+                        "$ref": "#/components/schemas/Book/properties/bookID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/books/{bookID}": {
+      "get": {
+        "summary": "It retrieves the specified book",
+        "description": "Use this endpoint to retrieve the information about **_bookID_**",
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "name": "bookID",
+            "in": "path",
+            "description": "The identifier of the book",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Book/properties/bookID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/books/{bookID}/authors": {
+      "get": {
+        "summary": "It retrieves the authors of the specified book",
+        "description": "Use this endpoint to retrieve the authors' identifiers of **_bookID_**",
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "name": "bookID",
+            "in": "path",
+            "description": "The identifier of the book",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Book/properties/bookID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "authorID": {
+                        "$ref": "#/components/schemas/Author/properties/authorID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/books/{bookID}/events": {
+      "get": {
+        "summary": "It retrieves the events related to the specified book",
+        "description": "Use this endpoint to retrieve the identifiers of the events related to **_bookID_**",
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "name": "bookID",
+            "in": "path",
+            "description": "The identifier of the book",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Book/properties/bookID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "eventID": {
+                        "$ref": "#/components/schemas/Event/properties/eventID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/books/{bookID}/similarBooks": {
+      "get": {
+        "summary": "It retrieves the books similar to the specified book",
+        "description": "Use this endpoint to retrieve the identifier of the books similar to **_bookID_**",
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "name": "bookID",
+            "in": "path",
+            "description": "The identifier of the book",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Book/properties/bookID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "bookID": {
+                        "$ref": "#/components/schemas/Book/properties/bookID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/books/{bookID}/reviews": {
+      "get": {
+        "summary": "It retrieves the reviews of the specified book",
+        "description": "Use this endpoint to download the reviews related to **_bookID_**",
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "name": "bookID",
+            "in": "path",
+            "description": "The identifier of the book",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Book/properties/bookID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/bestSeller": {
+      "get": {
+        "summary": "Download the most sold books of the Buk Store",
+        "description": "Access to this endpoint to retrieve the identifiers of the book most purchased by the customers",
+        "tags": [
+          "Book"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/fromDate"
+          },
+          {
+            "$ref": "#/components/parameters/toDate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "bookID": {
+                        "$ref": "#/components/schemas/Book/properties/bookID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/events": {
+      "get": {
+        "summary": "It retrieves the events present in the Database",
+        "description": "Use this endpoint to know the scheduled events' identifiers",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/fromDate"
+          },
+          {
+            "$ref": "#/components/parameters/toDate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "eventID": {
+                        "$ref": "#/components/schemas/Event/properties/eventID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/events/{eventID}": {
+      "get": {
+        "summary": "It retrieves the information about the event",
+        "description": "Use this endpoint to retrieve useful information about **_eventID_**",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "eventID",
+            "in": "path",
+            "description": "The identifier of the event",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Event/properties/eventID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Event"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/events/{eventID}/book": {
+      "get": {
+        "summary": "It retrieves the information about the book shown at that event",
+        "description": "Use this endpoint to retrieve the actual book presented during  **_eventID_**",
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "name": "eventID",
+            "in": "path",
+            "description": "The identifier of the event",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Event/properties/eventID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Book"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/authors": {
+      "get": {
+        "summary": "It retrieves the authors present in the Database",
+        "description": "Use this endpoint to know the authors' identifiers stored in the application",
+        "tags": [
+          "Author"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "authorID": {
+                        "$ref": "#/components/schemas/Author/properties/authorID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/authors/{authorID}": {
+      "get": {
+        "summary": "It retrieves the information about a specific author",
+        "description": "Use this endpoint to retrieve useful information about the author associated to **_authorID_**",
+        "tags": [
+          "Author"
+        ],
+        "parameters": [
+          {
+            "name": "authorID",
+            "in": "path",
+            "description": "The identifier of the Author",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Author/properties/authorID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Author"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/authors/{authorID}/books": {
+      "get": {
+        "summary": "It retrieves the information about the books written by a specific author",
+        "description": "Use this endpoint to retrieve the identifier of the books written by **_authorID_**",
+        "tags": [
+          "Author"
+        ],
+        "parameters": [
+          {
+            "name": "authorID",
+            "in": "path",
+            "description": "The identifier of the Author",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Author/properties/authorID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bookID": {
+                      "$ref": "#/components/schemas/Book/properties/bookID"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/themes": {
+      "get": {
+        "summary": "Retrieves the books' themes from the Database",
+        "description": "Use this endpoint to know which are the themes identifier inside the application",
+        "tags": [
+          "Theme"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "themeID": {
+                        "$ref": "#/components/schemas/Theme/properties/themeID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/themes/{themeID}": {
+      "get": {
+        "summary": "It retrieves the information about the chosen theme",
+        "description": "Use this endpoint to retrieve information about **_themeID_**",
+        "tags": [
+          "Theme"
+        ],
+        "parameters": [
+          {
+            "name": "themeID",
+            "in": "path",
+            "description": "The identifier of the Theme",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Theme/properties/themeID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Theme"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/theme/{themeID}/books": {
+      "get": {
+        "summary": "It retrieves the information about the books associated to a specific theme",
+        "description": "Use this endpoint to retrieve the identifier of the books associated to **_themeID_**",
+        "tags": [
+          "Theme"
+        ],
+        "parameters": [
+          {
+            "name": "themeID",
+            "in": "path",
+            "description": "The identifier of the Theme",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Theme/properties/themeID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bookID": {
+                      "$ref": "#/components/schemas/Book/properties/bookID"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/genres": {
+      "get": {
+        "summary": "Retrieves the genres of the books stored inside the application",
+        "description": "Use this endpoint to retrieve the genres identifier inside the application",
+        "tags": [
+          "Genre"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "themeID": {
+                        "$ref": "#/components/schemas/Genre/properties/genreID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/genres/{genreID}": {
+      "get": {
+        "summary": "Get the information about the desired genre",
+        "description": "Use this endpoint to retrieve information about **_genreID_**",
+        "tags": [
+          "Genre"
+        ],
+        "parameters": [
+          {
+            "name": "genreID",
+            "in": "path",
+            "description": "The identifier of the Genre",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Genre/properties/genreID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Genre"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/genres/{genreID}/books": {
+      "get": {
+        "summary": "It retrieves the information about the books associated to a specified genre",
+        "description": "Use this endpoint to retrieve the identifier of the books associated to **_genreID_**",
+        "tags": [
+          "Genre"
+        ],
+        "parameters": [
+          {
+            "name": "genreID",
+            "in": "path",
+            "description": "The identifier of the Genre",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Genre/properties/genreID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bookID": {
+                      "$ref": "#/components/schemas/Book/properties/bookID"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/genres/{genreID}/themes": {
+      "get": {
+        "summary": "It retrieves the themes associated to a specific genre",
+        "description": "Use this endpoint to retrieve the identifier of the themes associated to **_genreID_**",
+        "tags": [
+          "Genre"
+        ],
+        "parameters": [
+          {
+            "name": "genreID",
+            "in": "path",
+            "description": "The identifier of the Genre",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Genre/properties/genreID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "themeID": {
+                        "$ref": "#/components/schemas/Theme/properties/themeID"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/signup": {
+      "post": {
+        "summary": "Endpoint used to register a new user",
+        "description": "Access to this endpoint to register a new user inside the application, passing as body his/her parameters",
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/signupBody"
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Endpoint used to login inside the Buk Store application",
+        "description": "Pass to this endpoint the email and the password to log in the application",
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/loginBody"
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "description": "The access token to use the locked endpoints",
+                      "example": "a26aa2ef2c11814d39fc17295c713f6f7c86f46b698c1641cbe9970877ef7043"
+                    },
+                    "user": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "summary": "Access to this endpoint to retrieve the user's information",
+        "description": "Make a request to this endpoint to retrieve the information of the user which is actually logged in",
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      },
+      "put": {
+        "summary": "Access to this endpoint to change the user's information",
+        "description": "Make a request to this endpoint to change the information of the user which is actually logged in",
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/signupBody"
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/me/cart": {
+      "get": {
+        "summary": "Access to this endpoint to retrieve the user's cart",
+        "description": "Send a request here to retrieve the information about the cart of the logged user",
+        "tags": [
+          "Cart"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new book to the user's cart",
+        "description": "Send the book identifier and the quantity to this endpoint in order to add the new book to the cart",
+        "tags": [
+          "Cart"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/cartBody"
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      },
+      "put": {
+        "summary": "Change the quantity of the specified book",
+        "description": "Send the book identifier and the new quantity to this endpoint in order to change the number of book inside the user's cart",
+        "tags": [
+          "Cart"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/cartBody"
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete the specified book from the user's cart",
+        "description": "Send the book identifier in order to delete that book from the logged in user cart",
+        "tags": [
+          "Cart"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/bookID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cart"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/me/reservation": {
+      "get": {
+        "summary": "Access to this endpoint to retrieve the user's reservations",
+        "description": "Send a request here to retrieve the information about the reservations of the logged user",
+        "tags": [
+          "Reservation"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reservation"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new reservation starting from the user's cart",
+        "description": "Use this endpoint to create a new order for the user taking the books from his/hers cart",
+        "tags": [
+          "Reservation"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Reservation"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "user_auth": {
+        "type": "apiKey",
+        "name": "X-API-KEY",
+        "in": "header"
+      }
+    },
+    "requestBodies": {
+      "signupBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        }
+      },
+      "loginBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "$ref": "#/components/schemas/User/properties/email"
+                },
+                "password": {
+                  "$ref": "#/components/schemas/User/properties/password"
+                }
+              }
+            }
+          }
+        }
+      },
+      "cartBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "bookID": {
+                  "$ref": "#/components/schemas/Book/properties/bookID"
+                },
+                "quantity": {
+                  "$ref": "#/components/schemas/Cart/items/properties/quantity"
+                }
+              }
+            }
+          }
+        }
+      },
+      "reservationBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "shippingLocation": {
+                  "$ref": "#/components/schemas/Reservation/properties/shippingLocation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "limit": {
+        "name": "limit",
+        "in": "query",
+        "description": "Limit the get response to the given value, default is 5",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "offset": {
+        "name": "offset",
+        "in": "query",
+        "description": "Offset the response for pagination purposes, default is 0",
+        "schema": {
+          "type": "integer"
+        }
+      },
+      "title": {
+        "name": "title",
+        "in": "query",
+        "description": "The name of the book to search",
+        "schema": {
+          "$ref": "#/components/schemas/Book/properties/title"
+        }
+      },
+      "pageName": {
+        "name": "pageName",
+        "in": "query",
+        "required": true,
+        "description": "The name of the page from which retrieves the articles",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "fromDate": {
+        "name": "from",
+        "in": "query",
+        "description": "The date from which the application starts to search, default value is today",
+        "schema": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "toDate": {
+        "name": "to",
+        "in": "query",
+        "description": "The final date until to search, default value is today",
+        "schema": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "reservationID": {
+        "name": "reservationID",
+        "in": "query",
+        "required": true,
+        "description": "The identifier of the reservation",
+        "schema": {
+          "$ref": "#/components/schemas/Reservation/properties/reservationID"
+        }
+      },
+      "bookID": {
+        "name": "bookID",
+        "in": "query",
+        "required": true,
+        "description": "The identifier of the Book",
+        "schema": {
+          "$ref": "#/components/schemas/Book/properties/bookID"
+        }
+      }
+    },
+    "responses": {
+      "NotFound": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "description": "The status code of the HTTP error",
+                  "example": 404
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A description of the error",
+                  "example": "File not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "NotAuth": {
+        "description": "Not Authorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "description": "The status code of the HTTP error",
+                  "example": 401
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A description of the error",
+                  "example": "The user cannot access to this endpoint"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Conflict": {
+        "description": "Conflict",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "description": "The status code of the HTTP error",
+                  "example": 409
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A description of the error",
+                  "example": "A user with this email already exists inside the Database"
+                }
+              }
+            }
+          }
+        }
+      },
+      "BadRequest": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "description": "The status code of the HTTP error",
+                  "example": 400
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A description of the error",
+                  "example": "The given parameters are wrong or bad written"
+                }
+              }
+            }
+          }
+        }
+      },
+      "InternalError": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statusCode": {
+                  "type": "integer",
+                  "description": "The status code of the HTTP error",
+                  "example": 500
+                },
+                "description": {
+                  "type": "string",
+                  "description": "A description of the error",
+                  "example": "Internal Server Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Genre": {
+        "type": "object",
+        "description": "The object which represents a genre inside the application",
+        "properties": {
+          "genreID": {
+            "type": "integer",
+            "description": "The identifier of the Genre",
+            "readOnly": true,
+            "example": 5
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of this Genre",
+            "readOnly": true,
+            "example": "Thriller"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this Genre",
+            "readOnly": true,
+            "example": "Thriller is a broad genre of literature, film and television, having numerous, often overlapping subgenres. Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety"
+          },
+          "picture": {
+            "type": "string",
+            "description": "The path in the server to retrieve the picture representatives of the Genre",
+            "readOnly": true,
+            "example": "/images/genres/thriller.png"
+          }
+        }
+      },
+      "Theme": {
+        "type": "object",
+        "description": "The object which represents a theme inside the application",
+        "properties": {
+          "themeID": {
+            "type": "integer",
+            "description": "The identifier of the Theme",
+            "readOnly": true,
+            "example": 5
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of this Theme",
+            "readOnly": true,
+            "example": "Crime fiction"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of this Theme",
+            "readOnly": true,
+            "example": "Crime fiction is a literary genre that fictionalises crimes, their detection, criminals, and their motives. It is usually distinguished from mainstream fiction and other genres such as historical fiction or science fiction, but the boundaries are indistinct."
+          },
+          "picture": {
+            "type": "string",
+            "description": "The path in the server to retrieve the picture representatives of the Theme",
+            "readOnly": true,
+            "example": "/images/themes/crime_fiction.png"
+          }
+        }
+      },
+      "Author": {
+        "type": "object",
+        "description": "The author object",
+        "properties": {
+          "authorID": {
+            "type": "integer",
+            "description": "The identiefier of the Author",
+            "readOnly": true,
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the Author",
+            "readOnly": true,
+            "example": "Joel"
+          },
+          "surname": {
+            "type": "string",
+            "description": "The identiefier of the Author",
+            "readOnly": true,
+            "example": "Dicker"
+          },
+          "bio": {
+            "type": "string",
+            "description": "A brief biography of the Author",
+            "readOnly": true,
+            "example": "Joël Dicker was born on 16 June 1985 in Geneva, Switzerland. He attended Geneva schools. At the age of 19, he enrolled at the Cours Florent in Paris. After one year he returned to Switzerland to attend law school, where he received his Masters of Law from the University of Geneva in 2010"
+          },
+          "picture": {
+            "type": "string",
+            "description": "The path in the server to retrieve the picture representatives of the Author",
+            "readOnly": true,
+            "example": "/images/authors/joel_dicker.png"
+          }
+        }
+      },
+      "Book": {
+        "type": "object",
+        "description": "The book object which contains all the information about a book",
+        "properties": {
+          "bookID": {
+            "type": "string",
+            "description": "The id of the book using the UUIDv4 convention",
+            "format": "uuid",
+            "example": "75442486-0878-440c-9db1-a7006c25a39f"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the book",
+            "readOnly": true,
+            "example": "The Truth About the Harry Quebert Affair"
+          },
+          "picture": {
+            "type": "string",
+            "description": "The path to the book picture",
+            "example": "/images/books/75442486-0878-440c-9db1-a7006c25a39f.png"
+          },
+          "factSheet": {
+            "type": "string",
+            "description": "A summary description of the book",
+            "readOnly": true,
+            "example": "The Truth About the Harry Quebert Affair is a novel by Swiss author Joël Dicker. It was published in the United States on 27 May 2014, by Penguin Books.[1] The original French version, La vérité sur l’affaire Harry Quebert, has sold more than one million copies"
+          },
+          "abstract": {
+            "type": "string",
+            "description": "An abstract of the book",
+            "readOnly": true,
+            "example": "The novel is set in a coastal New Hampshire town (called Aurora in the original version and Somerset in the English translation). The protagonist, Marcus Goldman, is a successful young novelist who needs inspiration for his next book. Marcus heads to New Hampshire to stay with his college professor, Harry Quebert, to focus on his writing. When the body of 15-year-old Nola Kellergan is found 33 years after she went missing and Quebert is accused of her murder, Marcus works to uncover the truth. The result of his investigation becomes his next book."
+          },
+          "authors": {
+            "type": "array",
+            "description": "The array of author of this book, from a minimum of 1 to a maximum of 4",
+            "items": {
+              "title": "Author",
+              "type": "object",
+              "description": "The most representative elements of an Author",
+              "properties": {
+                "authorID": {
+                  "$ref": "#/components/schemas/Author/properties/authorID"
+                },
+                "name": {
+                  "$ref": "#/components/schemas/Author/properties/name"
+                },
+                "surname": {
+                  "$ref": "#/components/schemas/Author/properties/surname"
+                }
+              }
+            }
+          },
+          "interview": {
+            "type": "string",
+            "description": "A short interview of the book's authors",
+            "readOnly": true,
+            "example": ""
+          },
+          "availableQuantity": {
+            "type": "integer",
+            "description": "The amount of books available in the shop",
+            "readOnly": true,
+            "minimum": 0,
+            "example": 5
+          },
+          "genre": {
+            "$ref": "#/components/schemas/Genre"
+          },
+          "theme": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "title": "Theme",
+              "description": "The most representative elements of a theme",
+              "properties": {
+                "themeID": {
+                  "$ref": "#/components/schemas/Theme/properties/themeID"
+                },
+                "title": {
+                  "$ref": "#/components/schemas/Theme/properties/title"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Event": {
+        "type": "object",
+        "description": "The object which represents an event of the Buk Store",
+        "properties": {
+          "eventID": {
+            "type": "integer",
+            "description": "The identifier of the event",
+            "readOnly": true,
+            "example": 1
+          },
+          "eventDate": {
+            "type": "string",
+            "format": "date",
+            "description": "When the event will take place",
+            "readOnly": true,
+            "example": "2019-04-07"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the event",
+            "readOnly": true,
+            "example": "Meet the Author"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the event",
+            "readOnly": true,
+            "example": "Meet the Author Joel Dicker at this event"
+          },
+          "presentedBook": {
+            "$ref": "#/components/schemas/Book/properties/bookID"
+          }
+        }
+      },
+      "Review": {
+        "type": "object",
+        "description": "The object which represents a review done by a critic",
+        "properties": {
+          "reviewID": {
+            "type": "integer",
+            "description": "The identifier of the review",
+            "readOnly": true,
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the review",
+            "readOnly": true,
+            "example": "A compelling and intriguing read"
+          },
+          "text": {
+            "type": "string",
+            "description": "The actual text of the review",
+            "readOnly": true,
+            "example": "For book lovers The Truth About The Harry Quebert Affair is an ideal read as it is a book about a book about a book.  Marcus Goldman, author and protégé of the famous author Harry Quebert, is the narrator of this book.  We follow him from having had a very successful debut novel, to having writers block, to writing another bestseller about a murder that happened thirty three years ago and where the main suspect is none other that his friend and mentor Harry Quebert.  What is interesting is that the chapters go backwards, from chapter thirty one  to one  which reflects how the story unfolds, gradually going backwards to find out what really happened to Nola Kellergan."
+          },
+          "bookID": {
+            "$ref": "#/components/schemas/Book/properties/bookID"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "description": "The object which represents a user inside the application",
+        "properties": {
+          "userID": {
+            "type": "string",
+            "description": "The identifier of the user in a UUIDv4 format",
+            "readOnly": true,
+            "example": "11bf5b37-e0b8-42e0-8dcf-dc8c4aefc000"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the user",
+            "example": "Pew"
+          },
+          "surname": {
+            "type": "string",
+            "description": "The surname of the user",
+            "example": "DiePie"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "The email of the user used to identify him/her",
+            "example": "kat@re6l.com"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "description": "The password of the user",
+            "writeOnly": true,
+            "example": "Sub2Pew!"
+          }
+        }
+      },
+      "Cart": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "description": "The object which has all the book inside the user's cart",
+          "properties": {
+            "bookID": {
+              "$ref": "#/components/schemas/Book/properties/bookID"
+            },
+            "quantity": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "The quantity of the chosen books inside the user's cart",
+              "example": 5
+            }
+          }
+        }
+      },
+      "Reservation": {
+        "type": "object",
+        "description": "The object which handles the reservation done by the user",
+        "properties": {
+          "reservationID": {
+            "type": "integer",
+            "description": "The identifier of the reservation",
+            "example": 97
+          },
+          "userID": {
+            "$ref": "#/components/schemas/User/properties/userID"
+          },
+          "shippingLocation": {
+            "type": "string",
+            "description": "The location where the books will be delivered",
+            "example": "Piazza Leonardo da Vinci 32"
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date",
+            "readOnly": true,
+            "description": "When the order was done",
+            "example": "2019-04-7"
+          },
+          "arrivalDate": {
+            "type": "string",
+            "format": "date",
+            "readOnly": true,
+            "description": "When the order will be delivered",
+            "example": "2019-04-14"
+          },
+          "order": {
+            "$ref": "#/components/schemas/Cart"
+          }
+        }
+      },
+      "GenericPage": {
+        "type": "object",
+        "description": "The object which contains the articles present inside a generic page",
+        "properties": {
+          "articleID": {
+            "type": "integer",
+            "description": "The identifier of the article inside the Database",
+            "readOnly": true,
+            "example": 3
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the article",
+            "readOnly": true,
+            "example": "When my product will be delivered?"
+          },
+          "text": {
+            "type": "string",
+            "description": "The text of the article",
+            "readOnly": true,
+            "example": "After 7 days starting from the purchase date"
+          },
+          "postDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The date when the article was inserted in the Database",
+            "readOnly": true,
+            "example": "2019-04-01"
+          },
+          "picture": {
+            "type": "string",
+            "description": "A path of a picture of this article",
+            "readOnly": true,
+            "example": "/images/articles/picture1.jpg"
+          },
+          "documentOrder": {
+            "type": "string",
+            "description": "The order in which the articles are presented inside the page",
+            "readOnly": true,
+            "example": "When my product will be delivered?"
+          },
+          "page": {
+            "type": "string",
+            "description": "The title of the page in which the article should be",
+            "readOnly": true,
+            "example": "FAQ"
+          }
+        }
+      }
+    }
+  }
+}
