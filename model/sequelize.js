@@ -10,9 +10,12 @@ const UserModel = require('./user');
 const SessionModel = require('./session');
 const EventModel = require('./event');
 const BookModel = require('./book');
+const AuthorModel = require('./author');
 const SimilarToModel = require('./similarTo');
 const CartModel = require('./cart');
 const ReservationModel = require('./reservation');
+const ReviewModel = require('./review');
+const WrittenByModel = require('./writtenBy');
 
 // Connect to the database
 let sequelizeObject = new Sequelize({
@@ -27,15 +30,18 @@ const User = UserModel(sequelizeObject, Sequelize);
 const Session = SessionModel(sequelizeObject, Sequelize);
 const Event = EventModel(sequelizeObject, Sequelize);
 const Book = BookModel(sequelizeObject, Sequelize);
+const Author = AuthorModel(sequelizeObject, Sequelize);
 const SimilarTo = SimilarToModel(sequelizeObject);
 const Cart = CartModel(sequelizeObject, Sequelize);
 const Reservation = ReservationModel(sequelizeObject, Sequelize);
+const Review = ReviewModel(sequelizeObject, Sequelize);
+const WrittenBy = WrittenByModel(sequelizeObject);
 
 // User <-> Session relationship (Session has one column for the userID
 Session.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
 
 // Book <-> Event Relationship (Event has one column for the bookID)
-Event.belongsTo(Book, {foreignKey: {name: 'userID', allowNull: false}});
+Event.belongsTo(Book, {foreignKey: {name: 'bookID', allowNull: false}});
 
 // Book <-> Book Relationship through SimilarTo
 Book.belongsToMany(Book, { as: 'Child', through: SimilarTo, foreignKey: 'ParentBookID' });
@@ -48,13 +54,23 @@ User.belongsToMany(Book, { foreignKey: {name: 'userID', allowNull: false}, throu
 Reservation.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
 Reservation.belongsTo(Book, {foreignKey: {name: 'bookID', allowNull: false}});
 
+// Review <-> Book Relationship (Review has one book)
+Review.belongsTo(Book, {foreignKey: {name: 'bookID', allowNull: false}});
+
+// Book <-> Author Relationship
+Book.belongsToMany(Author, { foreignKey: {name: 'bookID', allowNull: false}, through: WrittenBy });
+Author.belongsToMany(Book, { foreignKey: {name: 'authorID', allowNull: false}, through: WrittenBy });
+
 // Exports the created Objects
 exports.User = User;
 exports.Session = Session;
 exports.Event = Event;
 exports.Book = Book;
+exports.Author = Author;
 exports.SimilarTo = SimilarTo;
 exports.Cart = Cart;
+exports.Reservation = Reservation;
+exports.Review = Review;
 
 // Exports the init function to initialize the DB before running the application
 exports.init = function(force) {
