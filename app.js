@@ -30,9 +30,9 @@ app.use(handling_409);
 app.use(handling_500);
 
 // TODO Remove the comments when the database is ready to run
-//database.init(true)
-//    .then(() => {
+database.init(true)
+    .then(() => {
       app.listen(SERVER_PORT, () => {
         console.log("The BUK Server is now starting on port: " + SERVER_PORT);
       });
-//    });
+    });
