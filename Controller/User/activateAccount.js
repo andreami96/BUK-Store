@@ -16,5 +16,3 @@ exports.activateAccount = function (token) {
 
     });
 };
-
-exports.activateAccount("ca1201939b13716c");

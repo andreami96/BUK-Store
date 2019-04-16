@@ -34,7 +34,7 @@ exports.signUpNewUser = function (name, surname, email, password) {
             activationToken: token
         }).then( async () => {
             try {
-                await sendEmail(email, token);
+                sendEmail(email, token);
             } catch (e) {
                 console.log(e);
                 reject(new Response(500, 'Internal Server Error'));
