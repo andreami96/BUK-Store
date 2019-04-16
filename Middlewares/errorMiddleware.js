@@ -1,6 +1,6 @@
 "use strict";
 
-const Error = require('../utils/response');
+const Error = require('../Utils/response');
 
 module.exports = {
 

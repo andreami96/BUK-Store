@@ -2,10 +2,12 @@
 /**
  *  Configuration file for the database
  */
+const config = require('../Config/config');
+
 // Import Sequelize
 const Sequelize = require('sequelize');
 
-// Create the model objects from the single model files
+// Create the Model objects from the single Model files
 const UserModel = require('./User/user');
 const SessionModel = require('./User/session');
 const EventModel = require('./Event/event');
@@ -21,12 +23,7 @@ const ThemeModel = require('./Book/theme');
 const BookThemeModel = require('./Book/bookTheme');
 
 // Connect to the database
-let sequelizeObject = new Sequelize({
-    database: 'BUK_Database',
-    username: 'postgres',
-    password: 'admin',
-    dialect: 'postgres'
-});
+let sequelizeObject = new Sequelize(config.dbConfig);
 
 // Create the Object which will be used inside the whole application
 const User = UserModel(sequelizeObject, Sequelize);

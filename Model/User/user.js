@@ -34,6 +34,14 @@ module.exports = function (sequelize, type) {
             validate: {
                 len: {args: [6, 32], msg: 'Password should be of minimum length equals to 6 and maximum equals to 32'}
             }
+        },
+        activationToken: {
+            type: type.STRING,
+            allowNull: true,
+            validate: {
+                notEmpty: true,
+                len: {args: [16, 16], msg: 'Token should be of 32 character length'}
+            }
         }
     }, {
         timestamps: false

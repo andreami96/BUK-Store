@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost/api/v1",
+      "url": "http://localhost:8080/api/v1",
       "description": "Main Server"
     }
   ],
@@ -995,7 +995,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "The http status code of the request",
+                      "example": 201
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "A description of the response",
+                      "example": "User registered properly"
+                    }
+                  }
                 }
               }
             }
@@ -1012,10 +1024,60 @@
         }
       }
     },
+    "/activation/{activationToken}": {
+      "get": {
+        "summary": "Endpoint used to register a new user",
+        "description": "Access to this endpoint to activate a new user once the user is registered",
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "activationToken",
+            "in": "path",
+            "description": "The token sent by email to the user",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "The http status code of the request",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "A description of the response",
+                      "example": "User Activated"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
     "/login": {
       "post": {
         "summary": "Endpoint used to login inside the Buk Store application",
-        "description": "Pass to this endpoint the email and the password to log in the application",
+        "description": "Pass to this endpoint the email and the password to log in the application after he/she completed the activation phase",
         "tags": [
           "User"
         ],
@@ -1609,6 +1671,12 @@
             "description": "The title of this Genre",
             "readOnly": true,
             "example": "Thriller"
+          },
+          "mainGenre": {
+            "type": "string",
+            "description": "The class of Genre to which this one belongs to",
+            "readOnly": true,
+            "example": "Novel"
           },
           "description": {
             "type": "string",
