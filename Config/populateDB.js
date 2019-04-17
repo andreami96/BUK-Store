@@ -1,5 +1,5 @@
 const database = require('../Model/sequelize');
-const { User, Book, Genre, Theme, BookTheme } = database;
+const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event } = database;
 
 async function createUsers() {
 
@@ -73,6 +73,41 @@ async function createBookTheme() {
     })
 }
 
+async function createAuthors() {
+    await Author.create({
+        authorID: 1,
+        name: "Joël",
+        surname: "Dicker",
+        picture: "/authors/1.jpg",
+        biography: "Joël Dicker è nato il 16 giugno 1985 a Ginevra, nella zona francofona della Svizzera, " +
+            "figlio di una bibliotecaria e di un insegnante di francese, pronipote dell'avvocato e politico " +
+            "di estrema sinistra Jacques Dicker (1879-1942), ebreo russo emigrato in Svizzera e naturalizzato nel 1915. " +
+            "Dicker è cresciuto a Ginevra, frequentando il Collège Madame de Staël, senza tuttavia essere molto attratto dagli studi. " +
+            "All'età di 19 anni, ha preso lezioni di recitazione al Drama School in Cours Florent di Parigi. " +
+            "Un anno dopo è tornato a Ginevra per studiare legge presso l'Università di Ginevra, laureandosi nel 2010."
+    })
+}
+
+async function createWrittenBy() {
+    WrittenBy.create({
+        ISBN: "8845282678",
+        authorID: 1
+    })
+}
+
+async function createEvents() {
+    Event.create({
+        eventID: 1,
+        address: "Viale Romagna, 20133 Milano",
+        latitude: 45.4687769,
+        longitude: 9.2238234,
+        eventDate: "2019-04-07",
+        title: "Meet the Author",
+        description: "Meet the Author Joel Dicker at this event",
+        ISBN: "8845282678"
+    })
+}
+
 exports.createDatabase = function (force=false, populateItNow=false) {
 
     return new Promise( async (resolve, reject) => {
@@ -89,6 +124,9 @@ exports.createDatabase = function (force=false, populateItNow=false) {
             await createBooks();
             await createThemes();
             await createBookTheme();
+            await createAuthors();
+            await createWrittenBy();
+            await createEvents();
         }
         resolve();
     });
