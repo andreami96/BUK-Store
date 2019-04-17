@@ -7,8 +7,4 @@ let { headerHTML } = require('../../Middlewares/setHeaders');
 
 router.use(headerHTML);
 
-router.get('/', function (req, res) {
-    res.redirect('/index.html');
-});
-
 module.exports = router;

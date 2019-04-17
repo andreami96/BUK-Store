@@ -11,11 +11,16 @@ const loginRoute = require('./User/loginRoute');
 
 const meRoute = require('./User/meRoute');
 
+const booksRoute = require('./Book/booksRoute');
+
 router.use(headerJSON);
 
 router.use('/signup', signupRoute);
 router.use('/activation', activationRoute);
 router.use('/login', loginRoute);
+
 router.use('/me', meRoute);
+
+router.use('/books', booksRoute);
 
 module.exports = router;

@@ -6,7 +6,7 @@ let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
-let database = require('./Model/sequelize');
+let creator = require('./Config/populateDB');
 let { handling_400, handling_401, handling_404, handling_409, handling_500 } = require('./Middlewares/errorMiddleware');
 
 let app = express();
@@ -30,7 +30,7 @@ app.use(handling_409);
 app.use(handling_500);
 
 
-database.init(true)
+creator.createDatabase(true, true)
     .then(() => {
       app.listen(SERVER_PORT, () => {
         console.log("The BUK Server is now starting on port: " + SERVER_PORT);

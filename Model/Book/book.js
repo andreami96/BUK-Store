@@ -38,10 +38,7 @@ module.exports = function (sequelize, type) {
         },
         interview: {
             type: type.TEXT,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+            allowNull: false
         },
         availableQuantity: {
             type: type.INTEGER,

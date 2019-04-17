@@ -825,7 +825,7 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "themeID": {
+                      "genreID": {
                         "$ref": "#/components/schemas/Genre/properties/genreID"
                       }
                     }
@@ -1790,26 +1790,6 @@
             "readOnly": true,
             "example": "The novel is set in a coastal New Hampshire town (called Aurora in the original version and Somerset in the English translation). The protagonist, Marcus Goldman, is a successful young novelist who needs inspiration for his next book. Marcus heads to New Hampshire to stay with his college professor, Harry Quebert, to focus on his writing. When the body of 15-year-old Nola Kellergan is found 33 years after she went missing and Quebert is accused of her murder, Marcus works to uncover the truth. The result of his investigation becomes his next book."
           },
-          "authors": {
-            "type": "array",
-            "description": "The array of author of this book, from a minimum of 1 to a maximum of 4",
-            "items": {
-              "title": "Author",
-              "type": "object",
-              "description": "The most representative elements of an Author",
-              "properties": {
-                "authorID": {
-                  "$ref": "#/components/schemas/Author/properties/authorID"
-                },
-                "name": {
-                  "$ref": "#/components/schemas/Author/properties/name"
-                },
-                "surname": {
-                  "$ref": "#/components/schemas/Author/properties/surname"
-                }
-              }
-            }
-          },
           "interview": {
             "type": "string",
             "description": "A short interview of the book's authors",
@@ -1831,7 +1811,17 @@
             "example": 9.99
           },
           "genre": {
-            "$ref": "#/components/schemas/Genre"
+            "type": "object",
+            "title": "Genre",
+            "description": "The most representative elements of a theme",
+            "properties": {
+              "genreID": {
+                "$ref": "#/components/schemas/Genre/properties/genreID"
+              },
+              "title": {
+                "$ref": "#/components/schemas/Genre/properties/title"
+              }
+            }
           },
           "theme": {
             "type": "array",
