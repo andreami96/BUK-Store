@@ -54,7 +54,10 @@ exports.findAllBook = function (limit, offset, title) {
                 let booksArray = [];
 
                 for (let i = 0; i < bookList.length; i++)
-                    booksArray.push({ISBN: bookList[i].ISBN});
+                    booksArray.push({
+                        ISBN: bookList[i].ISBN,
+                        title: bookList[i].title
+                    });
 
                 resolve(booksArray);
             })

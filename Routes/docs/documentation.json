@@ -121,6 +121,9 @@
                     "properties": {
                       "ISBN": {
                         "$ref": "#/components/schemas/Book/properties/ISBN"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Book/properties/title"
                       }
                     }
                   }
@@ -1494,7 +1497,7 @@
         "in": "query",
         "description": "The name of the book to search",
         "schema": {
-          "$ref": "#/components/schemas/Book/properties/title"
+          "type": "string"
         }
       },
       "pageName": {
@@ -1765,7 +1768,7 @@
           "ISBN": {
             "type": "string",
             "description": "The id of the book using the EAN convention",
-            "example": "9781848663268"
+            "example": "8845282678"
           },
           "title": {
             "type": "string",

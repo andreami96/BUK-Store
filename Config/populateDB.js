@@ -1,5 +1,5 @@
 const database = require('../Model/sequelize');
-const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo } = database;
+const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review } = database;
 
 async function createUsers() {
 
@@ -138,6 +138,21 @@ async function createSimilarTo() {
     });
 }
 
+async function createReviews() {
+
+    Review.create({
+        reviewID: 1,
+        title: "A compelling and intriguing read",
+        text: "For book lovers The Truth About The Harry Quebert Affair is an ideal read as it is a book about a book about a book. " +
+            "Marcus Goldman, author and protégé of the famous author Harry Quebert, is the narrator of this book. " +
+            "We follow him from having had a very successful debut novel, to having writers block, " +
+            "to writing another bestseller about a murder that happened thirty three years ago and where the main suspect is none other that his friend and mentor Harry Quebert. " +
+            "What is interesting is that the chapters go backwards, from chapter thirty one to one which reflects how the story unfolds, " +
+            "gradually going backwards to find out what really happened to Nola Kellergan.",
+        ISBN: "8845282678"
+    });
+}
+
 async function createEvents() {
     Event.create({
         eventID: 1,
@@ -171,6 +186,7 @@ exports.createDatabase = function (force=false, populateItNow=false) {
             await createWrittenBy();
             await createEvents();
             await createSimilarTo();
+            await createReviews();
         }
         resolve();
     });

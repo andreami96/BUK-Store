@@ -7,6 +7,7 @@ const { findAllBook, findBookByISBN } = require('../../../Controller/Book/book')
 const { findAuthorsByISBN } = require('../../../Controller/BookAuthor/bookAuthor');
 const { findEventsByISBN } = require('../../../Controller/BookEvent/bookEvent');
 const { findBookSimilarToISBN } = require('../../../Controller/SimilarTo/similarTo');
+const { findReviewByISBN } = require('../../../Controller/Review/review');
 
 
 router.get('/', function (req, res, next) {
@@ -62,6 +63,18 @@ router.get('/:isbn/similarBooks', function (req, res, next) {
     findBookSimilarToISBN(req.params.isbn)
         .then( (bookArray) => {
             res.status(200).send(bookArray);
+        })
+        .catch( (err) => {
+            next(err);
+        })
+
+});
+
+router.get('/:isbn/reviews', function (req, res, next) {
+
+    findReviewByISBN(req.params.isbn)
+        .then( (reviewArray) => {
+            res.status(200).send(reviewArray);
         })
         .catch( (err) => {
             next(err);
