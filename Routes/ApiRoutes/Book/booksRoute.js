@@ -6,6 +6,7 @@ let router = express.Router();
 const { findAllBook, findBookByISBN } = require('../../../Controller/Book/book');
 const { findAuthorsByISBN } = require('../../../Controller/BookAuthor/bookAuthor');
 const { findEventsByISBN } = require('../../../Controller/BookEvent/bookEvent');
+const { findBookSimilarToISBN } = require('../../../Controller/SimilarTo/similarTo');
 
 
 router.get('/', function (req, res, next) {
@@ -49,6 +50,18 @@ router.get('/:isbn/events', function (req, res, next) {
     findEventsByISBN(req.params.isbn)
         .then( (eventArray) => {
             res.status(200).send(eventArray);
+        })
+        .catch( (err) => {
+            next(err);
+        })
+
+});
+
+router.get('/:isbn/similarBooks', function (req, res, next) {
+
+    findBookSimilarToISBN(req.params.isbn)
+        .then( (bookArray) => {
+            res.status(200).send(bookArray);
         })
         .catch( (err) => {
             next(err);

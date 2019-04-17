@@ -1,5 +1,5 @@
 const database = require('../Model/sequelize');
-const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event } = database;
+const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo } = database;
 
 async function createUsers() {
 
@@ -62,6 +62,32 @@ async function createBooks() {
         availableQuantity: 10,
         price: 8.41,
         genreID: 1
+    });
+
+    await Book.create({
+        ISBN: "9788893440615",
+        title: "Il libro dei Baltimore",
+        picture: "/books/9788893440615.jpeg",
+        factSheet: "Copertina flessibile: 592 pagine\n" +
+            "Editore: La nave di Teseo (29 settembre 2016)\n" +
+            "Collana: Oceani\n" +
+            "Lingua: Italiano",
+        abstract: "Sino al giorno della Tragedia, c'erano due famiglie Goldman. I Goldman di Baltimore e i Goldman di Montclair. " +
+            "Di quest'ultimo ramo fa parte Marcus Goldman, il protagonista di \"La verità sul caso Harry Quebert\". " +
+            "I Goldman di Montclair, New Jersey, sono una famiglia della classe media e abitano in un piccolo appartamento. " +
+            "I Goldman di Baltimore, invece, sono una famiglia ricca e vivono in una bellissima casa nel quartiere residenziale di Oak Park. " +
+            "A loro, alla loro prosperità, alla loro felicità, Marcus ha guardato con ammirazione sin da piccolo, " +
+            "quando lui e i suoi cugini, Hillel e Woody, amavano di uno stesso e intenso amore Alexandra. Otto anni " +
+            "dopo una misteriosa tragedia, Marcus decide di raccontare la storia della sua famiglia: torna con la memoria alla vita " +
+            "e al destino dei Goldman di Baltimore, alle vacanze in Florida e negli Hamptons, ai gloriosi anni di scuola. " +
+            "Ma c'è qualcosa, nella sua ricostruzione, che gli sfugge. Vede scorrere gli anni, scolorire la patina scintillante dei Baltimore, " +
+            "incrinarsi l'amicizia che sembrava eterna con Woody, Hillel e Alexandra. Fino al giorno della Tragedia. " +
+            "E da quel giorno Marcus è ossessionato da una domanda: cosa è veramente accaduto ai Goldman di Baltimore? " +
+            "Qual è il loro inconfessabile segreto?",
+        interview: "",
+        availableQuantity: 6,
+        price: 18.70,
+        genreID: 1
     })
 
 }
@@ -69,6 +95,11 @@ async function createBooks() {
 async function createBookTheme() {
     await BookTheme.create({
         ISBN: "8845282678",
+        themeID: 1
+    });
+
+    await BookTheme.create({
+        ISBN: "9788893440615",
         themeID: 1
     })
 }
@@ -92,7 +123,19 @@ async function createWrittenBy() {
     WrittenBy.create({
         ISBN: "8845282678",
         authorID: 1
-    })
+    });
+
+    WrittenBy.create({
+        ISBN: "9788893440615",
+        authorID: 1
+    });
+}
+
+async function createSimilarTo() {
+    SimilarTo.create({
+        ParentISBN: "9788893440615",
+        ChildISBN: "8845282678"
+    });
 }
 
 async function createEvents() {
@@ -127,6 +170,7 @@ exports.createDatabase = function (force=false, populateItNow=false) {
             await createAuthors();
             await createWrittenBy();
             await createEvents();
+            await createSimilarTo();
         }
         resolve();
     });
