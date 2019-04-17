@@ -1,7 +1,7 @@
-const { BookTheme } = require('../../Model/sequelize');
-const { findThemeByID } = require('../Theme/theme');
-const Response = require('../../Utils/response');
-const { isInt } = require('../../Utils/isInteger');
+const { BookTheme } = require('../../../Model/sequelize');
+const { findThemeByID } = require('../../Theme/theme');
+const Response = require('../../../Utils/response');
+const { isInt } = require('../../../Utils/isInteger');
 
 function findRawThemesByBookISBN(isbn) {
     return new Promise( (resolve, reject) => {

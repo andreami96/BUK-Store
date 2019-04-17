@@ -1,6 +1,6 @@
-const { WrittenBy } = require('../../Model/sequelize');
-const Response = require('../../Utils/response');
-const { isInt } = require('../../Utils/isInteger');
+const { WrittenBy } = require('../../../Model/sequelize');
+const Response = require('../../../Utils/response');
+const { isInt } = require('../../../Utils/isInteger');
 
 exports.findAuthorsByISBN = function (isbn) {
 

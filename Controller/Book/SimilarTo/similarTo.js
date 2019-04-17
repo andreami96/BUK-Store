@@ -1,6 +1,6 @@
-const { SimilarTo } = require('../../Model/sequelize');
-const Response = require('../../Utils/response');
-const { isInt } = require('../../Utils/isInteger');
+const { SimilarTo } = require('../../../Model/sequelize');
+const Response = require('../../../Utils/response');
+const { isInt } = require('../../../Utils/isInteger');
 
 exports.findBookSimilarToISBN = function (isbn) {
 

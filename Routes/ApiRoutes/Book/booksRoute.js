@@ -4,10 +4,10 @@ let express = require('express');
 let router = express.Router();
 
 const { findAllBook, findBookByISBN } = require('../../../Controller/Book/book');
-const { findAuthorsByISBN } = require('../../../Controller/BookAuthor/bookAuthor');
-const { findEventsByISBN } = require('../../../Controller/BookEvent/bookEvent');
-const { findBookSimilarToISBN } = require('../../../Controller/SimilarTo/similarTo');
-const { findReviewByISBN } = require('../../../Controller/Review/review');
+const { findAuthorsByISBN } = require('../../../Controller/Book/BookAuthor/bookAuthor');
+const { findEventsByISBN } = require('../../../Controller/Book/BookEvent/bookEvent');
+const { findBookSimilarToISBN } = require('../../../Controller/Book/SimilarTo/similarTo');
+const { findReviewByISBN } = require('../../../Controller/Book/Review/review');
 
 
 router.get('/', function (req, res, next) {

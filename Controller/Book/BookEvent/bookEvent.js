@@ -1,6 +1,6 @@
-const { Event } = require('../../Model/sequelize');
-const Response = require('../../Utils/response');
-const { isInt } = require('../../Utils/isInteger');
+const { Event } = require('../../../Model/sequelize');
+const Response = require('../../../Utils/response');
+const { isInt } = require('../../../Utils/isInteger');
 
 exports.findEventsByISBN = function (isbn) {
 

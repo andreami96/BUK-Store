@@ -1,6 +1,6 @@
-const { Review } = require('../../Model/sequelize');
-const Response = require('../../Utils/response');
-const { isInt } = require('../../Utils/isInteger');
+const { Review } = require('../../../Model/sequelize');
+const Response = require('../../../Utils/response');
+const { isInt } = require('../../../Utils/isInteger');
 
 exports.findReviewByISBN = function (isbn) {
     return new Promise( (resolve, reject) => {

@@ -13,6 +13,8 @@ const meRoute = require('./User/meRoute');
 
 const booksRoute = require('./Book/booksRoute');
 
+const eventRoute = require('./Event/eventRoute');
+
 router.use(headerJSON);
 
 router.use('/signup', signupRoute);
@@ -22,5 +24,7 @@ router.use('/login', loginRoute);
 router.use('/me', meRoute);
 
 router.use('/books', booksRoute);
+
+router.use('/events', eventRoute);
 
 module.exports = router;

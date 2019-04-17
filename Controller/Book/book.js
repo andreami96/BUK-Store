@@ -4,7 +4,7 @@ const { isInt } = require('../../Utils/isInteger');
 const Op = require('sequelize').Op;
 
 const { findGenreByID } = require('../Genre/genre');
-const { findThemesByBookISBN } = require('../ThemeBook/findThemeByBook');
+const { findThemesByBookISBN } = require('./ThemeBook/findThemeByBook');
 
 function findRawBooks(limit, offset, title) {
 
