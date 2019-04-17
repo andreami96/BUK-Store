@@ -445,6 +445,9 @@
                     "properties": {
                       "eventID": {
                         "$ref": "#/components/schemas/Event/properties/eventID"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Event/properties/title"
                       }
                     }
                   }
