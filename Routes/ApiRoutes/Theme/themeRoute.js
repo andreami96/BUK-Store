@@ -3,13 +3,12 @@
 let express = require('express');
 let router = express.Router();
 
-const { findGenreByID, findAllGenres } = require('../../../Controller/Genre/genre');
-const { findBookByGenre } = require('../../../Controller/Genre/GenreBook/genreBook');
-
+const { findThemeByID, findAllThemes } = require('../../../Controller/Theme/theme');
+const { findBooksByTheme } = require('../../../Controller/Theme/ThemeBook/themeBook');
 
 router.get('/', function (req, res, next) {
 
-    findAllGenres(req.query.limit, req.query.offset)
+    findAllThemes(req.query.limit, req.query.offset)
         .then( (genreList) => {
             return res.status(200).send(genreList);
         })
@@ -19,9 +18,9 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.get('/:genreID', function (req, res, next) {
+router.get('/:themeID', function (req, res, next) {
 
-    findGenreByID(req.params.genreID)
+    findThemeByID(req.params.themeID)
         .then( (event) => {
             return res.status(200).send(event);
         })
@@ -30,9 +29,9 @@ router.get('/:genreID', function (req, res, next) {
         });
 });
 
-router.get('/:genreID/books', function (req, res, next) {
+router.get('/:themeID/books', function (req, res, next) {
 
-    findBookByGenre(req.params.genreID)
+    findBooksByTheme(req.params.themeID)
         .then( (event) => {
             return res.status(200).send(event);
         })

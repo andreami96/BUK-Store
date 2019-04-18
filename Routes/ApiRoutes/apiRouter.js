@@ -22,6 +22,12 @@ const eventRoute = require('./Event/eventRoute');
 // Routes related to the Genre
 const genreRoute = require('./Genre/genreRoute');
 
+// Routes related to the Theme
+const themeRoute = require('./Theme/themeRoute');
+
+// Routes related to the Author
+const authorRoute = require('./Author/authorRoute');
+
 router.use(headerJSON);
 
 // Routes related to the user registration/login
@@ -40,5 +46,11 @@ router.use('/events', eventRoute);
 
 // Routes related to the Genre
 router.use('/genres', genreRoute);
+
+// Routes related to the Theme
+router.use('/themes', themeRoute);
+
+// Routes related to the Theme
+router.use('/authors', authorRoute);
 
 module.exports = router;

@@ -778,7 +778,7 @@
         }
       }
     },
-    "/theme/{themeID}/books": {
+    "/themes/{themeID}/books": {
       "get": {
         "summary": "It retrieves the information about the books associated to a specific theme",
         "description": "Use this endpoint to retrieve the identifier of the books associated to **_themeID_**",
@@ -1551,7 +1551,7 @@
       "fromDate": {
         "name": "from",
         "in": "query",
-        "description": "The date from which the application starts to search, default value is today",
+        "description": "The date from which the application starts to search, default value is today. Automatically, it is set up the 00**_h_**:00**_m_**:00**_s_** as starting time to search",
         "schema": {
           "type": "string",
           "format": "date"
@@ -1560,7 +1560,7 @@
       "toDate": {
         "name": "to",
         "in": "query",
-        "description": "The final date until to search, default value is today",
+        "description": "The final date until to search, default value is today. Automatically, it is set up the 23**_h_**:59**_m_**:59**_s_** as final time to search",
         "schema": {
           "type": "string",
           "format": "date"
