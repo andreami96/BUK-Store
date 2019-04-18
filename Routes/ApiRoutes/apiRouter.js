@@ -16,8 +16,11 @@ const meRoute = require('./User/meRoute');
 // Routes related to the Book
 const booksRoute = require('./Book/booksRoute');
 
-// Routes realted to the Event
+// Routes related to the Event
 const eventRoute = require('./Event/eventRoute');
+
+// Routes related to the Genre
+const genreRoute = require('./Genre/genreRoute');
 
 router.use(headerJSON);
 
@@ -32,7 +35,10 @@ router.use('/me', meRoute);
 // Routes related to the Book
 router.use('/books', booksRoute);
 
-// Routes realted to the Event
+// Routes related to the Event
 router.use('/events', eventRoute);
+
+// Routes related to the Genre
+router.use('/genres', genreRoute);
 
 module.exports = router;

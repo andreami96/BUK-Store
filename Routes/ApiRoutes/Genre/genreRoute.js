@@ -3,15 +3,14 @@
 let express = require('express');
 let router = express.Router();
 
-const { findAllEvents, findEventByID } = require('../../../Controller/Event/event');
-const { findBookByEventID } = require('../../../Controller/Event/EventBook/eventBook');
+const { findGenreByID, findAllGenres } = require('../../../Controller/Genre/genre');
 
 
 router.get('/', function (req, res, next) {
 
-    findAllEvents(req.query.from, req.query.to)
-        .then( (eventList) => {
-            return res.status(200).send(eventList);
+    findAllGenres(req.query.limit, req.query.offset)
+        .then( (genreList) => {
+            return res.status(200).send(genreList);
         })
         .catch( (err) => {
             next(err);
@@ -19,9 +18,9 @@ router.get('/', function (req, res, next) {
 
 });
 
-router.get('/:eventID', function (req, res, next) {
+router.get('/:genreID', function (req, res, next) {
 
-    findEventByID(req.params.eventID)
+    findGenreByID(req.params.genreID)
         .then( (event) => {
             return res.status(200).send(event);
         })
@@ -30,7 +29,7 @@ router.get('/:eventID', function (req, res, next) {
         });
 });
 
-router.get('/:eventID/book', function (req, res, next) {
+/*router.get('/:eventID/book', function (req, res, next) {
 
     findBookByEventID(req.params.eventID)
         .then( (event) => {
@@ -39,6 +38,6 @@ router.get('/:eventID/book', function (req, res, next) {
         .catch( (err) => {
             next(err);
         });
-});
+});*/
 
 module.exports = router;

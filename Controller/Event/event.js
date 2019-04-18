@@ -1,43 +1,8 @@
-const { Event } = require('../../Model/sequelize');
+const { findAllRawEvents, findRawEventByID } = require('./rawEvent');
 const Response = require('../../Utils/response');
 const { isInt } = require('../../Utils/isInteger');
-const Op = require('sequelize').Op;
-
-const { findBookByISBN } = require('../Book/book');
-
-function findRawEventByID(eventID) {
-    return Event.findOne({
-        where: { eventID: eventID }
-    });
-}
-
-function findAllRawEvents(fromDate, toDate) {
-
-    let option = {};
-
-    if (fromDate && !toDate)
-        option.where = {
-            eventDate: {
-                [Op.gte]: fromDate
-            }
-        };
-    else if (toDate && !fromDate)
-        option.where = {
-            eventDate: {
-                [Op.lt]: toDate
-            }
-        };
-    else if (fromDate && toDate)
-        option.where = {
-            eventDate: {
-                [Op.gte]: fromDate,
-                [Op.lt]: toDate
-            }
-        };
-
-    return Event.findAll(option);
-
-}
+const { isDate } = require('../../Utils/isDate');
+const { formatDate } = require('../../Utils/formatDate');
 
 exports.findEventByID = function (eventID) {
     return new Promise( (resolve, reject) => {
@@ -74,6 +39,15 @@ exports.findEventByID = function (eventID) {
 exports.findAllEvents = function (fromDate, toDate) {
     return new Promise( (resolve, reject) => {
 
+        if(!fromDate)
+            fromDate = formatDate(new Date());
+        if(!toDate)
+            toDate = formatDate(new Date());
+
+        if(!isDate(fromDate) || !isDate(toDate))
+            return reject(new Response(400, "The from or the to parameters are not correctly written. " +
+                "The accepted format is yyyy-mm-dd"));
+
         findAllRawEvents(fromDate, toDate)
             .then( (eventList) => {
 
@@ -93,29 +67,3 @@ exports.findAllEvents = function (fromDate, toDate) {
     });
 };
 
-exports.findBookByEventID = function (eventID) {
-
-    return new Promise( (resolve, reject) => {
-
-        if (!isInt(eventID))
-            return reject(new Response(400, "Event identifier should be an integer"));
-
-        findRawEventByID(eventID)
-            .then( async (event) => {
-
-                if(!event)
-                    return reject();
-
-                try {
-                    let book = await findBookByISBN(event.ISBN);
-                    resolve(book);
-                } catch (e) {
-                    reject(e);
-                }
-
-            })
-
-
-
-    });
-};

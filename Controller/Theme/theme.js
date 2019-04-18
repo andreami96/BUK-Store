@@ -1,12 +1,6 @@
-const { Theme } = require('../../Model/sequelize');
+const { findRawThemeByID } = require('./rawTheme');
 const Response = require('../../Utils/response');
 const { isInt } = require('../../Utils/isInteger');
-
-function findRawThemeByID(themeID) {
-    return Theme.findOne({
-        where: { themeID: themeID}
-    });
-}
 
 exports.findThemeByID = function (themeID) {
 

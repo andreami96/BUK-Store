@@ -211,6 +211,12 @@
                     "properties": {
                       "authorID": {
                         "$ref": "#/components/schemas/Author/properties/authorID"
+                      },
+                      "name": {
+                        "$ref": "#/components/schemas/Author/properties/name"
+                      },
+                      "surname": {
+                        "$ref": "#/components/schemas/Author/properties/surname"
                       }
                     }
                   }
@@ -260,6 +266,9 @@
                     "properties": {
                       "eventID": {
                         "$ref": "#/components/schemas/Event/properties/eventID"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Event/properties/title"
                       }
                     }
                   }
@@ -573,6 +582,12 @@
                     "properties": {
                       "authorID": {
                         "$ref": "#/components/schemas/Author/properties/authorID"
+                      },
+                      "name": {
+                        "$ref": "#/components/schemas/Author/properties/name"
+                      },
+                      "surname": {
+                        "$ref": "#/components/schemas/Author/properties/surname"
                       }
                     }
                   }
@@ -703,6 +718,9 @@
                     "properties": {
                       "themeID": {
                         "$ref": "#/components/schemas/Theme/properties/themeID"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Theme/properties/title"
                       }
                     }
                   }
@@ -784,10 +802,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "ISBN": {
-                      "$ref": "#/components/schemas/Book/properties/ISBN"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ISBN": {
+                        "$ref": "#/components/schemas/Book/properties/ISBN"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Book/properties/title"
+                      }
                     }
                   }
                 }
@@ -833,6 +857,9 @@
                     "properties": {
                       "genreID": {
                         "$ref": "#/components/schemas/Genre/properties/genreID"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Genre/properties/title"
                       }
                     }
                   }
@@ -882,7 +909,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "404": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/NotFound"
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -914,10 +941,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "ISBN": {
-                      "$ref": "#/components/schemas/Book/properties/ISBN"
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ISBN": {
+                        "$ref": "#/components/schemas/Book/properties/ISBN"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Book/properties/title"
+                      }
                     }
                   }
                 }
@@ -928,7 +961,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "404": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/NotFound"
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -966,6 +999,9 @@
                     "properties": {
                       "themeID": {
                         "$ref": "#/components/schemas/Theme/properties/themeID"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Theme/properties/title"
                       }
                     }
                   }
@@ -977,7 +1013,7 @@
             "$ref": "#/components/responses/BadRequest"
           },
           "404": {
-            "$ref": "#/components/responses/BadRequest"
+            "$ref": "#/components/responses/NotFound"
           },
           "500": {
             "$ref": "#/components/responses/InternalError"

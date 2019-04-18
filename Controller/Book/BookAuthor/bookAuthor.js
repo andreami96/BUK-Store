@@ -1,4 +1,5 @@
 const { WrittenBy } = require('../../../Model/sequelize');
+const { findRawAuthorByID } = require('../../Author/rawAuthor');
 const Response = require('../../../Utils/response');
 const { isInt } = require('../../../Utils/isInteger');
 
@@ -18,7 +19,7 @@ exports.findAuthorsByISBN = function (isbn) {
         WrittenBy.findAll({
             where: { ISBN: isbn }
         })
-            .then( (authors) => {
+            .then( async (authors) => {
                 // Create an array of author to be returned to the client
                 let authorArray = [];
 
@@ -27,10 +28,14 @@ exports.findAuthorsByISBN = function (isbn) {
                     reject();
 
                 // Push to the array the single author element
-                for(let i = 0; i < authors.length; i++)
+                for(let i = 0; i < authors.length; i++) {
+                    let tmpAuthor = await findRawAuthorByID(authors[i].authorID);
                     authorArray.push({
-                        authorID: authors[i].authorID
+                        authorID: tmpAuthor.authorID,
+                        name: tmpAuthor.name,
+                        surname: tmpAuthor.surname
                     });
+                }
                 resolve(authorArray);
             })
             .catch( (error) => {

@@ -1,52 +1,14 @@
-const { Book } = require('../../Model/sequelize');
 const Response = require('../../Utils/response');
 const { isInt } = require('../../Utils/isInteger');
-const Op = require('sequelize').Op;
 
-const { findGenreByID } = require('../Genre/genre');
-const { findThemesByBookISBN } = require('./ThemeBook/findThemeByBook');
-
-/**
- *  Private function to return the raw books array. Using the limit and offset it can be returned in a different way,
- *  for pagination purposes. Using the title, books with that string in their title are returned
- * @param limit
- * @param offset
- * @param title
- * @returns {Promise<Model<any, any>[]>}
- */
-function findRawBooks(limit, offset, title) {
-
-    // Construct the search option adding the limit, the offset and, if present, the title search option
-    let searchOption = {};
-
-    searchOption.limit = limit;
-    searchOption.offset = offset;
-
-    if(title)
-        searchOption.where = {
-            title: {
-                [Op.iLike]: "%" + title.toString() + "%"
-            }
-        };
-
-    return Book.findAll(searchOption)
-}
+const { findRawBooksByISBN, findRawBooks } = require('./rawBook');
+const { findRawGenreByID } = require('../Genre/rawGenre');
+const { findThemesByBookISBN } = require('./ThemeBook/findThemesByBook');
 
 /**
- *  Private function to return the raw book object given a ISBN
- * @param isbn
- * @returns {Promise<Model<any, any> | null> | Promise<Model<any, any>>}
- */
-function findRawBooksByISBN(isbn) {
-    return Book.findOne({
-        where: {
-            ISBN: isbn
-        }
-    });
-}
-
-/**
- *  Function used to retrieve all the book in a ready-to-send format to be sent to the client
+ *  Function used to retrieve all the book in a ready-to-send format to be sent to the client.
+ *  Using the limit and offset it can be returned in a different way, for pagination purposes.
+ *  Using the title, books with that string in their title are returned
  * @param limit
  * @param offset
  * @param title
@@ -119,7 +81,7 @@ exports.findBookByISBN = function (isbn) {
 
                 try {
                     // Retrieve the genre and the themes related to the found book
-                    genre = await findGenreByID(book.genreID);
+                    genre = await findRawGenreByID(book.genreID);
                     themes = await findThemesByBookISBN(isbn);
                 } catch (e) {
                     reject(e);

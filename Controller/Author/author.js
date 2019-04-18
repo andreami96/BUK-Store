@@ -1,17 +1,6 @@
-const { Author } = require('../../Model/sequelize');
+const { findRawAuthorByID } = require('./rawAuthor');
 const Response = require('../../Utils/response');
 const { isInt } = require('../../Utils/isInteger');
-
-/**
- * Function used to retrieve the author information given the authorID
- * @param authorID
- * @returns {Promise<Model<any, any> | null> | Promise<Model<any, any>>}
- */
-function findRawAuthorByID(authorID) {
-    return Author.findOne({
-        where: { authorID: authorID }
-    });
-}
 
 /**
  *  Function used in the other files to retrieve a ready-to-send with the author information
