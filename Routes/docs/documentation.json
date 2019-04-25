@@ -1492,7 +1492,7 @@
                   "$ref": "#/components/schemas/Book/properties/ISBN"
                 },
                 "quantity": {
-                  "$ref": "#/components/schemas/Cart/items/properties/quantity"
+                  "$ref": "#/components/schemas/Cart/properties/books/items/properties/quantity"
                 }
               }
             }
@@ -1998,19 +1998,30 @@
         }
       },
       "Cart": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "description": "The object which has all the book inside the user's cart",
-          "properties": {
-            "ISBN": {
-              "$ref": "#/components/schemas/Book/properties/ISBN"
-            },
-            "quantity": {
-              "type": "integer",
-              "minimum": 0,
-              "description": "The quantity of the chosen books inside the user's cart",
-              "example": 5
+        "type": "object",
+        "description": "The object which has all the book inside the user's cart",
+        "properties": {
+          "userID": {
+            "$ref": "#/components/schemas/User/properties/userID"
+          },
+          "books": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ISBN": {
+                  "$ref": "#/components/schemas/Book/properties/ISBN"
+                },
+                "title": {
+                  "$ref": "#/components/schemas/Book/properties/title"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "description": "The quantity of the chosen books inside the user's cart",
+                  "example": 5
+                }
+              }
             }
           }
         }
