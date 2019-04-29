@@ -20,6 +20,7 @@ const ReviewModel = require('./Book/review');
 const WrittenByModel = require('./Book/writtenBy');
 const GenreModel = require('./Book/genre');
 const ThemeModel = require('./Book/theme');
+const GenreThemeModel = require('./Book/genreTheme');
 const BookThemeModel = require('./Book/bookTheme');
 
 // Connect to the database
@@ -38,6 +39,7 @@ const Review = ReviewModel(sequelizeObject, Sequelize);
 const WrittenBy = WrittenByModel(sequelizeObject);
 const Genre = GenreModel(sequelizeObject, Sequelize);
 const Theme = ThemeModel(sequelizeObject, Sequelize);
+const GenreTheme = GenreThemeModel(sequelizeObject);
 const BookTheme = BookThemeModel(sequelizeObject);
 
 // User <-> Session relationship (Session has one column for the userID
@@ -71,6 +73,10 @@ Book.belongsTo(Genre, {foreignKey: {name: 'genreID', allowNull: false}});
 Book.belongsToMany(Theme, { foreignKey: {name: 'ISBN', allowNull: false}, through: BookTheme });
 Theme.belongsToMany(Book, { foreignKey: {name: 'themeID', allowNull: false}, through: BookTheme });
 
+// Genre <-> Theme Relationship
+Genre.belongsToMany(Theme, { foreignKey: {name: 'genreID', allowNull: false}, through: GenreTheme });
+Theme.belongsToMany(Genre, { foreignKey: {name: 'themeID', allowNull: false}, through: GenreTheme });
+
 // Exports the created Objects
 exports.User = User;
 exports.Session = Session;
@@ -84,6 +90,7 @@ exports.Reservation = Reservation;
 exports.Review = Review;
 exports.Genre = Genre;
 exports.Theme = Theme;
+exports.GenreTheme = GenreTheme;
 exports.BookTheme = BookTheme;
 
 // Exports the init function to initialize the DB before running the application

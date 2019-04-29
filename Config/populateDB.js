@@ -1,5 +1,5 @@
 const database = require('../Model/sequelize');
-const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review } = database;
+const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme } = database;
 
 async function createUsers() {
 
@@ -120,19 +120,19 @@ async function createAuthors() {
 }
 
 async function createWrittenBy() {
-    WrittenBy.create({
+    await WrittenBy.create({
         ISBN: "8845282678",
         authorID: 1
     });
 
-    WrittenBy.create({
+    await WrittenBy.create({
         ISBN: "9788893440615",
         authorID: 1
     });
 }
 
 async function createSimilarTo() {
-    SimilarTo.create({
+    await SimilarTo.create({
         ParentISBN: "9788893440615",
         ChildISBN: "8845282678"
     });
@@ -140,7 +140,7 @@ async function createSimilarTo() {
 
 async function createReviews() {
 
-    Review.create({
+    await Review.create({
         reviewID: 1,
         title: "A compelling and intriguing read",
         text: "For book lovers The Truth About The Harry Quebert Affair is an ideal read as it is a book about a book about a book. " +
@@ -154,7 +154,7 @@ async function createReviews() {
 }
 
 async function createEvents() {
-    Event.create({
+    await Event.create({
         eventID: 1,
         address: "Viale Romagna, 20133 Milano",
         latitude: 45.4687769,
@@ -163,6 +163,13 @@ async function createEvents() {
         title: "Meet the Author",
         description: "Meet the Author Joel Dicker at this event",
         ISBN: "8845282678"
+    })
+}
+
+async function createGenreThemes() {
+    await GenreTheme.create({
+        genreID: 1,
+        themeID: 1
     })
 }
 
@@ -187,6 +194,7 @@ exports.createDatabase = function (force=false, populateItNow=false) {
             await createEvents();
             await createSimilarTo();
             await createReviews();
+            await createGenreThemes();
         }
         resolve();
     });
