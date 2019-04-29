@@ -18,3 +18,19 @@ exports.findRawCartByUserID = function (userID) {
         });
     });
 };
+
+exports.deleteWholeCart = function (userID) {
+
+    return new Promise( (resolve, reject) => {
+        Cart.findAll({
+            where: {userID: userID}
+        }).then( (cart) => {
+            for(let i=0; i < cart.length; i++)
+                cart[i].destroy();
+            resolve();
+        }).catch( (err) => {
+            reject(err);
+        });
+    })
+
+}

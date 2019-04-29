@@ -57,7 +57,7 @@ User.belongsToMany(Book, { foreignKey: {name: 'userID', allowNull: false}, throu
 
 // Reservation Book & User Relationship
 Reservation.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
-Reservation.belongsTo(Book, {foreignKey: {name: 'ISBN', allowNull: false}});
+Reservation.belongsTo(Book, {foreignKey: {name: 'ISBN', allowNull: false, primaryKey: true}});
 
 // Review <-> Book Relationship (Review has one book)
 Review.belongsTo(Book, {foreignKey: {name: 'ISBN', allowNull: false}});

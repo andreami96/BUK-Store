@@ -1,9 +1,10 @@
 const database = require('../Model/sequelize');
-const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme } = database;
+const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme, Reservation } = database;
 
 async function createUsers() {
 
     await User.create({
+        id: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
         name: "NameProva",
         surname: "SurnameProva",
         email: "prova@example.com",
@@ -166,6 +167,28 @@ async function createEvents() {
     })
 }
 
+async function createReservation() {
+    await Reservation.create({
+        reservationID: 1,
+        shippingLocation: "Piazza Leonardo da Vinci 32",
+        orderDate: "2019-05-01",
+        arrivalDate: "2019-05-06",
+        quantity: 2,
+        userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
+        ISBN: "8845282678"
+    });
+
+    await Reservation.create({
+        reservationID: 1,
+        shippingLocation: "Piazza Leonardo da Vinci 32",
+        orderDate: "2019-05-01",
+        arrivalDate: "2019-05-06",
+        quantity: 5,
+        userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
+        ISBN: "9788893440615"
+    })
+}
+
 async function createGenreThemes() {
     await GenreTheme.create({
         genreID: 1,
@@ -195,6 +218,7 @@ exports.createDatabase = function (force=false, populateItNow=false) {
             await createSimilarTo();
             await createReviews();
             await createGenreThemes();
+            await createReservation();
         }
         resolve();
     });
