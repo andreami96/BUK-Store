@@ -159,11 +159,6 @@
     text-decoration: none;
 }
 
-.breadcrumb-item a{
-    color: black;
-    text-decoration: none;
-}
-
 .carousel-item .img-fluid {
     width:50%;
     height: auto;
