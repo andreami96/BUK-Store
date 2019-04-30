@@ -381,7 +381,7 @@
         }
       }
     },
-    "/bestSeller": {
+    "/books/bestSellers": {
       "get": {
         "summary": "Download the most sold books of the Buk Store",
         "description": "Access to this endpoint to retrieve the identifiers of the book most purchased by the customers",
@@ -411,6 +411,13 @@
                     "properties": {
                       "ISBN": {
                         "$ref": "#/components/schemas/Book/properties/ISBN"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Book/properties/title"
+                      },
+                      "booksSold": {
+                        "description": "Qunatity of books solded in the given period",
+                        "example": 14
                       }
                     }
                   }

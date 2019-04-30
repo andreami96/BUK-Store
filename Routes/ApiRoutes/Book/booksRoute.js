@@ -8,6 +8,7 @@ const { findAuthorsByISBN } = require('../../../Controller/Book/BookAuthor/bookA
 const { findEventsByISBN } = require('../../../Controller/Book/BookEvent/bookEvent');
 const { findBookSimilarToISBN } = require('../../../Controller/Book/SimilarTo/similarTo');
 const { findReviewByISBN } = require('../../../Controller/Book/Review/review');
+const { findBestSeller } = require('../../../Controller/Book/BestSeller/bestseller');
 
 
 router.get('/', function (req, res, next) {
@@ -20,6 +21,17 @@ router.get('/', function (req, res, next) {
             next(err);
         })
 
+});
+
+router.get('/bestSellers', function (req, res, next) {
+
+    findBestSeller(req.query.limit, req.query.from, req.query.to)
+        .then( (reviewArray) => {
+            res.status(200).send(reviewArray);
+        })
+        .catch( (err) => {
+            next(err);
+        })
 });
 
 router.get('/:isbn', function (req, res, next) {
