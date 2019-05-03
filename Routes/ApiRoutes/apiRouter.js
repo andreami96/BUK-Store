@@ -31,6 +31,9 @@ const authorRoute = require('./Author/authorRoute');
 // Routes related to the Cart of the User
 const cartRoute = require('./Cart/cartRoute');
 
+// Routes related to the Reservations
+const reservationRoute = require('./Reservation/reservationRoute');
+
 router.use(headerJSON);
 
 // Routes related to the user registration/login
@@ -58,5 +61,8 @@ router.use('/themes', themeRoute);
 
 // Routes related to the Theme
 router.use('/authors', authorRoute);
+
+// Routes related to the Reservations
+router.use('/me/reservations', reservationRoute);
 
 module.exports = router;

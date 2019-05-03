@@ -1,0 +1,188 @@
+body,html,.row-offcanvas {
+    height:100%;
+}
+
+#sidebar {
+    width: inherit;
+    min-width: 220px;
+    max-width: 220px;
+    background-color:#f5f5f5;
+    float: left;
+    height:100%;
+    position:relative;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+#main {
+    height:100%;
+    overflow:auto;
+}
+
+/*
+ * off Canvas sidebar
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+    .row-offcanvas {
+        position: relative;
+        -webkit-transition: all 0.25s ease-out;
+        -moz-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+        width:calc(100% + 220px);
+    }
+
+    .row-offcanvas-left
+    {
+        left: -220px;
+    }
+
+    .row-offcanvas-left.active {
+        left: 0;
+    }
+
+    .sidebar-offcanvas {
+        position: absolute;
+        top: 0;
+    }
+}
+
+.visible-xs. button:enabled{
+    color: whitesmoke; !important;
+}
+
+#sidebar-genres .nav-item .nav-link {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#sidebar-themes .nav-item .nav-link {
+    color: black;
+    text-decoration: none;
+}
+
+.card .card-img {
+    width: auto;
+    height: 10%;
+    overflow:hidden;
+}
+
+
+/* resets */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-auto-columns: 1fr 200px;
+}
+
+.content {
+    grid-column: 1;
+}
+
+
+.grid > * {
+    border: 0px; /* demo only */
+}
+
+/* Product Grid */
+
+body {
+    background: #fff;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 20px
+}
+
+ul.rig {
+    list-style: none;
+    font-size: 0px;
+    margin-left: -2.5%;
+    /* should match li left margin */
+}
+
+ul.rig li {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 0 2.5% 2.5%;
+    background: #fff;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    vertical-align: top;
+    box-shadow: 0 0 0px #000000;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+ul.rig li img {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+ul.rig li h3 {
+    margin: 0 0 10px;
+}
+
+ul.rig li p {
+    font-size: 1.0em;
+    line-height: 1.5em;
+    color: #000000;
+}
+
+
+/* class for 2 columns */
+
+ul.rig.columns-2 li {
+    width: 47.5%;
+    /* this value + 2.5 should = 50% */
+}
+
+
+/* class for 3 columns */
+
+ul.rig.columns-3 li {
+    width: 30.83%;
+    /* this value + 2.5 should = 33% */
+}
+
+
+/* class for 4 columns */
+
+ul.rig.columns-4 li {
+    width: 22.5%;
+    /* this value + 2.5 should = 25% */
+}
+
+@media (max-width: 680px) {
+    ul.grid-nav li {
+        display: inline-block;
+        margin: 0 0 5px;
+    }
+    ul.grid-nav li a {
+        display: inline-block;
+        margin: 0 0 5px;
+    }
+    ul.rig {
+        margin-left: 0;
+    }
+    ul.rig li {
+        width: 100% !important;
+        /* over-ride all li styles */
+        margin: 0 0 10px;
+    }
+}

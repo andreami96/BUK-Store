@@ -381,7 +381,7 @@
         }
       }
     },
-    "/bestSeller": {
+    "/books/bestSellers": {
       "get": {
         "summary": "Download the most sold books of the Buk Store",
         "description": "Access to this endpoint to retrieve the identifiers of the book most purchased by the customers",
@@ -411,6 +411,13 @@
                     "properties": {
                       "ISBN": {
                         "$ref": "#/components/schemas/Book/properties/ISBN"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Book/properties/title"
+                      },
+                      "booksSold": {
+                        "description": "Qunatity of books solded in the given period",
+                        "example": 14
                       }
                     }
                   }
@@ -1378,7 +1385,7 @@
         }
       }
     },
-    "/me/reservation": {
+    "/me/reservations": {
       "get": {
         "summary": "Access to this endpoint to retrieve the user's reservations",
         "description": "Send a request here to retrieve the information about the reservations of the logged user",
@@ -1423,6 +1430,9 @@
             "user_auth": []
           }
         ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/reservationBody"
+        },
         "responses": {
           "200": {
             "description": "Successfully Request",
@@ -2057,8 +2067,22 @@
             "description": "When the order will be delivered",
             "example": "2019-04-14"
           },
-          "order": {
-            "$ref": "#/components/schemas/Cart"
+          "books": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ISBN": {
+                  "$ref": "#/components/schemas/Book/properties/ISBN"
+                },
+                "title": {
+                  "$ref": "#/components/schemas/Book/properties/title"
+                },
+                "quantity": {
+                  "$ref": "#/components/schemas/Cart/properties/books/items/properties/quantity"
+                }
+              }
+            }
           }
         }
       },

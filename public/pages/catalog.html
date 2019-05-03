@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Catalog</title>
+
+    <!-- Latest compiled JavaScript -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="catalog.css" rel="stylesheet">
+    <link href="common.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="#">
+        <img src="../assets/images/buk_logo.jpg" width="70" height="30" alt="">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Catalog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link" href="#">My Account</a></li>
+        </ul>
+    </div>
+
+</nav>
+
+<!-- Breadcrumb
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb bg-white ml-4 mt-2">
+        <li class="breadcrumb-item active" aria-current="page">Catalog</li>
+    </ol>
+</nav> -->
+
+<!-- Sidebar and Catalog -->
+<div class="row-offcanvas row-offcanvas-left">
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar-offcanvas">
+        <div class="col-md-12 mt-3">
+            <h4>Genres</h4>
+            <ul class="nav nav-pills nav-stacked flex-column" id="sidebar-genres">
+                <li class="nav-item"><a class="nav-link" href="#">Romance</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Poetry</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Theatre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Non-Fiction</a></li>
+            </ul>
+            <hr>
+            <h4>Themes</h4>
+            <ul class="nav nav-pills nav-stacked flex-column" id="sidebar-themes">
+                <li class="nav-item"><a class="nav-link" href="#">Love</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">War</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Introspection</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Cars</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Illness</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Catalog -->
+    <div id="main">
+
+        <div class="col-md-12 mt-3">
+            <p class="visible-xs">
+                <button type="button" class="btn btn-sm bg-white" data-toggle="offcanvas"><i class="fa fa-caret-left fa-lg bg-black"></i></button>
+            </p>
+            <h2 class="ml-3">Catalog</h2>
+        </div>
+
+        <div class="grid">
+
+            <div class="content">
+                <ul class="rig columns-4">
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/american_spy.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/dark_matter.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/normal_people.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/the_gospel_of_loki.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/9788893440615.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/there_there.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/pieces_of_light.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/got_hc1.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                    <li>
+                        <a href="#"><img class="product-image" src="../assets/images/books/american_spy.jpg" alt="#"></a>
+                        <h4 class="mt-2">Book Title</h4>
+                        <i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star fa-2x"></i><i class="fa fa-star-half-o fa-2x"></i><i class="active fa fa-star-o fa-2x"></i>
+                        <p class="mt-1">Book description...</p>
+                        <div class="price"> $XX.XX</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small bg-dark pt-4 mt-3">
+    <div class="footer-copyright text-center py-3 text-white">Terms and Conditions or Whatever</div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="catalog.js"></script>
+
+</body>
+</html>
+

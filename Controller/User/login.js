@@ -1,5 +1,5 @@
 const { User, Session } = require('../../Model/sequelize');
-const Response = require('../../Utils/response');
+    const Response = require('../../Utils/response');
 const crypto = require('crypto');
 
 exports.login = function (email, password) {

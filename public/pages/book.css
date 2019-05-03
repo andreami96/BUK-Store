@@ -174,3 +174,7 @@
 .product-data {
     white-space: nowrap;
 }
+
+.product-data ul{
+    padding-left: 0;
+}
