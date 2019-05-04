@@ -160,17 +160,24 @@
 }
 
 .carousel-item .img-fluid {
-    width:50%;
-    height: auto;
+    height: 20rem;
+    width: auto;
     overflow:hidden;
 }
 
 .product .img-fluid {
-    width:90%;
+    width:100%;
     height: auto;
     overflow:hidden;
 }
 
+@media (max-width: 768px) {
+    .product .img-fluid {
+        width:60%;
+        height: auto;
+        overflow:hidden;
+    }
+}
 .product-data {
     white-space: nowrap;
 }

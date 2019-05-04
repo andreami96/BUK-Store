@@ -186,3 +186,9 @@ ul.rig.columns-4 li {
         margin: 0 0 10px;
     }
 }
+
+#book-catalog .img-fluid {
+    height: 20rem;
+    width: auto;
+    overflow: hidden;
+}
