@@ -5,7 +5,7 @@ html,body {
 .banner-primary {
     display: flex;
     position: relative;
-    height: 70vh;
+    height: 66vh;
     min-height: 400px;
     background-size: cover;
     background-position: center;
@@ -32,6 +32,7 @@ html,body {
 .navbar-nav {
     font-size: 13px;
     color: #fff;
+    align-items: center;
 }
 
 .solid-navbar {
@@ -40,6 +41,15 @@ html,body {
 
 .transparent-navbar {
     background: rgba(0,0,0,0);
+}
+
+.navbar-brand {
+    align-items: center;
+}
+
+.navbar-toggle {
+    border: 0px;
+    background: transparent;
 }
 
 .navbar-nav .nav-link {
@@ -63,11 +73,11 @@ html,body {
 }
 
 #notification-badge {
-    box-sizing: initial;
-    border-radius: 80%;
-    width: 1.7em;
-    height: 1.7em;
-    padding: 0.08em;
+    box-sizing: border-box;
+    border-radius: 50%;
+    width: 1.8em;
+    height: 1.8em;
+    padding: 1em 0.2em 0.2em;
     background: #ffd4a0;
     color: black;
     text-align: center;
@@ -79,33 +89,16 @@ html,body {
     left: 40px;
     bottom: 20px;
     text-align: center;
+
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding: 10%;
-}
 
-.event-info {
-    display: grid;
-    grid-template-rows: 2fr 1fr;
-}
 
-.event-info .event-book {
-    margin: 3em;
-    background-image: url("../images/books/Il-Mastro-e-Margherita-copertina-394x600.jpg");
-    background-size: contain;
-    background-position: center;
+#event-book{
+    height: 20em;
+    border: 1px solid rgba(212, 212, 212, 1);
+    border-bottom: 0;
     box-shadow: 0 10px 6px -6px black;
-}
-
-.event-info .event-details {
-    padding: 5%;
-}
-
-.event-decription{
-    padding: 5%;
 }
 
 #mapid {
@@ -113,6 +106,28 @@ html,body {
     min-height: 320px;
     /*background-color: burlywood;*/
 }
+
+.footer {
+    font-size: 9pt;
+    bottom: 0;
+    width: 100%;
+    min-height: 30vh;
+    background-color: #ebebeb;
+}
+
+.footer .fab {
+    font-size: 1.6em;
+    margin: 0.2em;
+}
+
+
+
+
+
+
+
+
+
 
 /*
 .navbar-brand {

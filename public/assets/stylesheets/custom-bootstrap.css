@@ -1,0 +1,26 @@
+.badge-primary {
+    box-sizing: border-box;
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 50%;
+    background-color: #ffd4a0;
+    color: black;
+    font-size: 0.9em;
+    font-weight: lighter;
+    text-align: center;
+    padding: 0.37em 0.37em 0.35em 0.35em;
+    margin: 0.4em;
+}
+
+.btn-primary {
+    background-color: white;
+    color: black;
+    border-radius: 0;
+    border-color: black;
+}
+
+.btn-primary:hover {
+    background-color: black;
+    border-color: black;
+}
+

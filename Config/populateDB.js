@@ -163,7 +163,8 @@ async function createEvents() {
         eventDate: "2019-04-07",
         title: "Meet the Author",
         description: "Meet the Author Joel Dicker at this event",
-        ISBN: "8845282678"
+        ISBN: "8845282678",
+        picture: "/events/prova-evento.jpeg"
     })
 }
 
