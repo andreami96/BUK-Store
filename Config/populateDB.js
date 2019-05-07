@@ -62,13 +62,17 @@ async function createBooks() {
         interview: "",
         availableQuantity: 10,
         price: 8.41,
-        genreID: 1
+        genreID: 1,
+        year: 2014,
+        editor: "Bompiani",
+        pageNumber: 779,
+        originalLanguage: "Francese"
     });
 
     await Book.create({
         ISBN: "9788893440615",
         title: "Il libro dei Baltimore",
-        picture: "/books/9788893440615.jpeg",
+        picture: "/books/9788893440615.jpg",
         factSheet: "Copertina flessibile: 592 pagine\n" +
             "Editore: La nave di Teseo (29 settembre 2016)\n" +
             "Collana: Oceani\n" +
@@ -88,7 +92,11 @@ async function createBooks() {
         interview: "",
         availableQuantity: 6,
         price: 18.70,
-        genreID: 1
+        genreID: 1,
+        year: 2016,
+        editor: "La nave di Teseo",
+        pageNumber: 592,
+        originalLanguage: "Francese"
     })
 
 }
@@ -175,7 +183,7 @@ async function createReservation() {
         arrivalDate: "2019-05-06",
         quantity: 2,
         userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
-        ISBN: "8845282678"
+        ISBN: "8845282678",
     });
 
     await Reservation.create({

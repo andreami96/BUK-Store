@@ -22,8 +22,29 @@ module.exports = function (sequelize, type) {
                 notEmpty: true
             }
         },
-        factSheet: {
-            type: type.TEXT,
+        year: {
+            type: type.INTEGER,
+            allowNull: false,
+            validate: {
+                min: 1000
+            }
+        },
+        pageNumber: {
+            type: type.INTEGER,
+            allowNull: false,
+            validate: {
+                min: 0
+            }
+        },
+        editor: {
+            type: type.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        originalLanguage: {
+            type: type.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true

@@ -97,6 +97,10 @@ exports.findBookByISBN = function (isbn) {
                     interview: book.interview,
                     availableQuantity: book.availableQuantity,
                     price: book.price,
+                    editor: book.editor,
+                    year: book.year,
+                    pageNumber: book.pageNumber,
+                    originalLanguage: book.originalLanguage,
                     genre: {
                         genreID: genre.genreID,
                         title: genre.title

@@ -1,6 +1,8 @@
-function retrieveBookByISBN(isbn) {
+function retrieveBookByISBN(url) {
 
     let xhttp = new XMLHttpRequest();
+
+    let isbn = url.substr(url.lastIndexOf('/') + 1);
 
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
@@ -10,6 +12,10 @@ function retrieveBookByISBN(isbn) {
 
             document.getElementById("price").innerText = response.price + " €";
             document.getElementById("isbn").innerHTML = "<b>ISBN: </b>" + response.ISBN;
+            document.getElementById("year").innerHTML = "<b>Year: </b>" + response.year;
+            document.getElementById("pages").innerHTML = "<b>Pages: </b>" + response.pageNumber;
+            document.getElementById("editor").innerHTML = "<b>Editor: </b>" + response.editor;
+            document.getElementById("originalLanguage").innerHTML = "<b>Original Language: </b>" + response.originalLanguage;
 
             document.getElementById("item-display").src = "../assets/images" + response.picture;
             console.log(response)

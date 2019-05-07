@@ -93,14 +93,14 @@
                     <div class="col-lg-2 product-data">
                         <ul style="list-style-type:none;">
                             <h5>Product Details</h5>
-                            <li><b>Year: </b>2015</li>
-                            <li><b>Pages: </b>605</li>
+                            <li id="year"></li>
+                            <li id="pages"></li>
                             <li id="isbn"></li>
-                            <li><b>Editor: </b>I Delfini</li>
-                            <li><b>Original Language: </b> French </li>
+                            <li id="editor"></li>
+                            <li id="originalLanguage"></li>
                         </ul>
                     </div>
-                    <script>retrieveBookByISBN(8845282678)</script>
+                    <script>retrieveBookByISBN(window.location.pathname)</script>
                 </div>
             </div>
         </div>
