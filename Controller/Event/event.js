@@ -35,6 +35,7 @@ exports.findEventByID = function (eventID) {
                     eventDate: event.eventDate.toString(),
                     title: event.title,
                     description: event.description,
+                    picture: event.picture,
                     presentedBook: event.ISBN
                 };
                 resolve(eventObject);

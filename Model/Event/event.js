@@ -38,6 +38,13 @@ module.exports = function (sequelize, type) {
             validate: {
                 notEmpty: true
             }
+        },
+        picture: {
+            type: type.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
         }
     }, {
         timestamps: false
