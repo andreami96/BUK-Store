@@ -4,52 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Catalog</title>
+    <title>Catalogue</title>
 
-    <!-- Latest compiled JavaScript -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap, Font Awesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="../assets/stylesheets/catalog.css" rel="stylesheet">
-    <link href="../assets/stylesheets/common.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="../assets/stylesheets/custom-bootstrap.css">
+    <link rel="stylesheet" href="../assets/stylesheets/common.css">
+    <link rel="stylesheet" href="../assets/stylesheets/catalogue.css">
 </head>
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-default navbar-expand-sm fixed-top">
 
-    <a class="navbar-brand" href="#">
-        <img src="../assets/images/buk_logo.jpg" width="70" height="30" alt="">
-    </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <i class="fas fa-bars" id="bars" aria-hidden="true"></i>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+    <div class="navbar-header mx-sm-auto">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/images/logo/logo.png" height="30" alt="BUK">
+        </a>
+    </div>
+    <div class="nav-item order-md-12 order-sm-1">
+        <a><span class="badge badge-primary">1</span></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Catalogo
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Catalog</a>
+                <a class="nav-link" href="#">Eventi</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="#">Autori</a>
             </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a class="nav-link" href="#">My Account</a></li>
+        <ul class="navbar-nav" id="right-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contatti</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Area personale</a>
+            </li>
         </ul>
     </div>
-
 </nav>
 
 <!-- Breadcrumb
@@ -168,13 +178,42 @@
 </div>
 
 <!-- Footer -->
-<footer class="page-footer font-small bg-dark pt-4 mt-3">
-    <div class="footer-copyright text-center py-3 text-white">Terms and Conditions or Whatever</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-md-4 col-sm-12 p-3">
+                <h6>About</h6>
+                <p>Founded in 2019 by MiChi Studios, BUK is an online book store developed for the Hypermedia course at Politecnico di Milano</p>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Address</h6>
+                <p>Viale Romagna 62<br>Buccinasco, Milano<br>United States of America</p>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Contact</h6>
+                <a href="#">Email us </a><br>
+                <a href="#">Phone +39 999999999</a>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Info</h6>
+                <a>FAQ</a>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Follow us</h6>
+                <a><i class="fab fa-facebook-f"></i></a>
+                <a><i class="fab fa-twitter"></i></a>
+                <a><i class="fab fa-instagram"></i></a>
+                <a><i class="fab fa-mastodon"></i></a>
+            </div>
+        </div>
+    </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- JQuery, Popper.js and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 <script src="../assets/js/catalog.js"></script>
 
 </body>

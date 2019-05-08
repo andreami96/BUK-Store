@@ -1,66 +1,38 @@
-let lastScrollTop = 0;
-
 jQuery(document).ready(function() {
-    // Show navbar when scrolling down
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 60) {
-            // solid navbar
-            $(".navbar").css({
-                "background-color": "rgba(255,255,255, 0.97)",
-                "border": "1px solid rgba(212, 212, 212, 0.97)"
-            });
-            $(".navbar-nav, .nav-link").css({
-                "color": "black"
-            })
-        } else {
-            // transparent navbar
-            $(".navbar").css({
-                "background-color": "",
-                "border": "1px solid rgba(212, 212, 212, 0)"
-            });
-            $(".navbar-nav, .nav-link").css({
-                "color": "white"
-            })
-        }
+
+    let url = window.location.pathname;
+    let eventID = url.substr(url.lastIndexOf('/') + 1);
+
+    $.get("http://localhost:8080/api/v1/events/" + eventID, function(data, status){
+        console.log(data);
+        $(".banner-primary").css('background-image', 'url("../assets/images' + data.picture + '")');
+        $("#event-title").text(data.title);
+        $.get("http://localhost:8080/api/v1/books/" + data.presentedBook, function (data, status) {
+            console.log(data);
+            $("#event-book").attr(
+                {"src": "../assets/images" + data.picture,
+                    "alt": data.title}
+            );
+        });
+        $.getScript('../assets/js/utils.js', function()
+        {
+            generateMap(data.latitude, data.longitude);
+        });
+
+        let eventDate = new Date(data.eventDate);
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        console.log(eventDate);
+        console.log(eventDate.getDate());
+        console.log(eventDate.getMonth());
+        console.log(eventDate.getTime());
+        $("#event-date").text(eventDate.getDate() + " " + months[eventDate.getMonth()]);
+        $("#event-time").text(toHHMM(eventDate.getHours(), eventDate.getMinutes()));
+        $("#event-location").text(data.address);
     });
 
-    // Show navbar when hovering over
-    $(".navbar").hover(function() {
-        // solid navbar
-        if ($(window).scrollTop() < 50) {
-            $(this).css({
-                "background-color": "rgba(255,255,255,0.97)",
-                "border": "1px solid rgb(212, 212, 212, 0.97)"
-            });
-            $(".navbar-nav, .nav-link").css({
-                "color": "black"
-            })
-        }
-        },function() {
-            // transparent navbar
-        if ($(window).scrollTop() < 50) {
-            $(".navbar").css({
-                "background-color": "",
-                "border": "1px solid rgba(212, 212, 212, 0)"
-            });
-            $(".navbar-nav, .nav-link").css({
-                "color": "white"
-            })
-        }
-        })
 });
 
-let mymap = L.map('mapid').setView([45.469, 9.18792], 16);
-mymap.scrollWheelZoom.disable();
-let marker = L.marker([45.469, 9.18792]).addTo(mymap);
-marker.bindPopup("<b>MiChi studios</b><br>Milan").openPopup();
-
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1IjoiYW5kcmVhbWkiLCJhIjoiY2p2NnNmZG41MDhraDN5cGZraGYyMW90MCJ9.BwlnUo82E8nuyjEEmuwHMw'
-}).addTo(mymap);
 
 
 
@@ -73,6 +45,17 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 
+
+
+
+
+
+
+
+
+
+
+/*45.469, 9.18792*/
 
 /* TODO: improve scrolling when reaching top and bottom of the page
 
