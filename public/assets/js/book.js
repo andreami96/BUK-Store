@@ -59,7 +59,7 @@ jQuery(document).ready(function() {
         console.log(status);
         console.log("==============================");
 
-        $("#author").text(response[0].name + ' ' + response[0].surname);
+        $("#author").text(data[0].name + ' ' + data[0].surname);
     });
 
 });
