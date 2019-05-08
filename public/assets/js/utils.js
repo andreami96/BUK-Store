@@ -36,7 +36,7 @@ function retrieveBookByISBN(url) {
     };
 
 //    xhttp.open("GET", "https://buk-store.herokuapp.com/api/v1/books/" + isbn + "/authors");
-//    xhttp.open("GET", "/api/v1/books/" + isbn + "/authors");
+    xhttp.open("GET", "/api/v1/books/" + isbn + "/authors");
     xhttp.send();
 
 }
