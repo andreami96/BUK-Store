@@ -24,7 +24,7 @@ const GenreThemeModel = require('./Book/genreTheme');
 const BookThemeModel = require('./Book/bookTheme');
 
 // Connect to the database
-let sequelizeObject = new Sequelize(config.dbConfig);
+let sequelizeObject = new Sequelize(process.env.DATABASE_URL, config.dbConfig);
 
 // Create the Object which will be used inside the whole application
 const User = UserModel(sequelizeObject, Sequelize);

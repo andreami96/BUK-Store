@@ -3,7 +3,10 @@
   "database": "BUK_Database",
   "username": "postgres",
   "password": "admin",
-  "dialect": "postgres"
+  "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": true
+    }
   },
 
   "emailConfig": {
