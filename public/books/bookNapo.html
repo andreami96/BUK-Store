@@ -16,7 +16,6 @@
     <link href="../assets/stylesheets/book.css" rel="stylesheet">
     <link href="../assets/stylesheets/common.css" rel="stylesheet">
 
-    <script type="text/javascript" src="../assets/js/utils.js"></script>
 
 </head>
 <body>
@@ -93,14 +92,13 @@
                     <div class="col-lg-2 product-data">
                         <ul style="list-style-type:none;">
                             <h5>Product Details</h5>
-                            <li id="year"></li>
-                            <li id="pages"></li>
-                            <li id="isbn"></li>
-                            <li id="editor"></li>
-                            <li id="originalLanguage"></li>
+                            <li id="year"><b>Year: </b></li>
+                            <li id="pages"><b>Pages: </b></li>
+                            <li id="isbn"><b>ISBN: </b></li>
+                            <li id="editor"><b>Editor: </b></li>
+                            <li id="originalLanguage"><b>Original Language: </b></li>
                         </ul>
                     </div>
-                    <script>retrieveBookByISBN(window.location.pathname)</script>
                 </div>
             </div>
         </div>
@@ -216,6 +214,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="../assets/js/book.js"></script>
+<script src="../assets/js/utils.js"></script>
 
 </body>
 </html>

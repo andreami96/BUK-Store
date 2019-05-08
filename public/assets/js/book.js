@@ -23,3 +23,34 @@ $('#carousel-similar-books').on('slide.bs.carousel', function (e) {
         }
     }
 });
+
+jQuery(document).ready(function() {
+
+    let url = window.location.pathname;
+    let isbn = url.substr(url.lastIndexOf('/') + 1);
+
+    $.get("/api/v1/books/" + isbn, function(data, status){
+        console.log(data);
+
+        $("#bookTitle").text(data.title);
+        $("#abstract").text(data.abstract);
+        $("#price").text(data.price + " €");
+        $("#isbn").text(data.ISBN);
+        $("#year").text(data.year);
+        $("#pages").text(data.pageNumber);
+        $("#editor").text(data.editor);
+        $("#originalLanguage").text(data.originalLanguage);
+
+        $("#item-display").attr(
+            {
+                "src": "../assets/images" + data.picture
+            }
+        );
+    });
+
+    $.get("/api/v1/books/" + isbn + "/authors", function (data, status) {
+        console.log(data);
+        $("#author").text(response[0].name + ' ' + response[0].surname);
+    });
+
+});
