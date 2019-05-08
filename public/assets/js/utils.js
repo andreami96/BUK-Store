@@ -22,7 +22,7 @@ function retrieveBookByISBN(url) {
         }
     };
 
-    xhttp.open("GET", "https://buk-store.herokuapp.com/api/v1/books/" + isbn);
+    xhttp.open("GET", "/api/v1/books/" + isbn);
     xhttp.send();
 
     xhttp = new XMLHttpRequest();
@@ -39,38 +39,6 @@ function retrieveBookByISBN(url) {
     xhttp.open("GET", "/api/v1/books/" + isbn + "/authors");
     xhttp.send();
 
-}
-
-function retrieveEventByEventID(url) {
-    let eventID = url.substr(url.lastIndexOf('/') + 1);
-
-    $.get("https://buk-store.herokuapp.com/api/v1/events/" + eventID, function(data, status){
-        console.log(data);
-        $(".banner-primary").css('background-image', 'url("../assets/images' + data.picture + '")');
-        $("#event-title").text(data.title);
-        $.get("https://buk-store.herokuapp.com/api/v1/books/" + data.presentedBook, function (data, status) {
-            console.log(data);
-            $("#event-book").attr(
-                {"src": "../assets/images" + data.picture,
-                "alt": data.title}
-                );
-        });
-        $.getScript('../assets/js/event.js', function()
-        {
-            generateMap(data.latitude, data.longitude);
-        });
-
-        let eventDate = new Date(data.eventDate);
-        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        console.log(eventDate);
-        console.log(eventDate.getDate());
-        console.log(eventDate.getMonth());
-        console.log(eventDate.getTime());
-        $("#event-date").text(eventDate.getDate() + " " + months[eventDate.getMonth()]);
-        $("#event-time").text(toHHMM(eventDate.getHours(), eventDate.getMinutes()));
-        $("#event-location").text(data.address);
-    });
 }
 
 function toHHMM(hours, minutes) {
