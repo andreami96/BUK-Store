@@ -22,7 +22,7 @@ function retrieveBookByISBN(url) {
         }
     };
 
-    xhttp.open("GET", "http://localhost:8080/api/v1/books/" + isbn);
+    xhttp.open("GET", "https://buk-store.herokuapp.com/api/v1/books/" + isbn);
     xhttp.send();
 
     xhttp = new XMLHttpRequest();
@@ -35,7 +35,7 @@ function retrieveBookByISBN(url) {
         }
     };
 
-    xhttp.open("GET", "http://localhost:8080/api/v1/books/" + isbn + "/authors");
+    xhttp.open("GET", "https://buk-store.herokuapp.com/api/v1/books/" + isbn + "/authors");
     xhttp.send();
 
 }
@@ -43,11 +43,11 @@ function retrieveBookByISBN(url) {
 function retrieveEventByEventID(url) {
     let eventID = url.substr(url.lastIndexOf('/') + 1);
 
-    $.get("http://localhost:8080/api/v1/events/" + eventID, function(data, status){
+    $.get("https://buk-store.herokuapp.com/api/v1/events/" + eventID, function(data, status){
         console.log(data);
         $(".banner-primary").css('background-image', 'url("../assets/images' + data.picture + '")');
         $("#event-title").text(data.title);
-        $.get("http://localhost:8080/api/v1/books/" + data.presentedBook, function (data, status) {
+        $.get("https://buk-store.herokuapp.com/api/v1/books/" + data.presentedBook, function (data, status) {
             console.log(data);
             $("#event-book").attr(
                 {"src": "../assets/images" + data.picture,
