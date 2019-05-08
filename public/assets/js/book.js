@@ -31,6 +31,7 @@ jQuery(document).ready(function() {
 
     $.get("/api/v1/books/" + isbn, function(data, status){
         console.log(data);
+        console.log(status);
 
         $("#bookTitle").text(data.title);
         $("#abstract").text(data.abstract);
@@ -50,6 +51,8 @@ jQuery(document).ready(function() {
 
     $.get("/api/v1/books/" + isbn + "/authors", function (data, status) {
         console.log(data);
+        console.log(status);
+
         $("#author").text(response[0].name + ' ' + response[0].surname);
     });
 
