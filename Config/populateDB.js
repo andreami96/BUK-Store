@@ -159,7 +159,7 @@ async function createReviews() {
             "What is interesting is that the chapters go backwards, from chapter thirty one to one which reflects how the story unfolds, " +
             "gradually going backwards to find out what really happened to Nola Kellergan.",
         ISBN: "8845282678"
-    });
+    })
 
     await Review.create({
         reviewID: 2,

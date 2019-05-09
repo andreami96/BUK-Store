@@ -33,6 +33,7 @@ jQuery(document).ready(function() {
         console.log(data);
 
         $("#bookTitle").text(data.title);
+        $("#breadcrumb-title").text(data.title);
         $("#abstract").text(data.abstract);
         $("#price").text(data.price + " €");
         $("#isbn").text(data.ISBN);
@@ -55,7 +56,7 @@ jQuery(document).ready(function() {
                 $("#author").append(el.name + ' ' + el.surname);
             else
                 $("#author").append(', ' + el.name + ' ' + el.surname);
-        })
+        });
     });
 
     $.get("/api/v1/books/" + isbn + "/reviews", function (data, status) {
@@ -66,7 +67,7 @@ jQuery(document).ready(function() {
                 $("#review-list").append("<li> <h6>" + el.title +"</h6>" + el.text + "</li>");
             else
                 $("#review-list").append(" <hr> <li> <h6>" + el.title +"</h6>" + el.text + "</li>");
-        })
+        });
 
-    })
+    });
 });

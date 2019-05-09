@@ -25,10 +25,10 @@ exports.findReviewByISBN = function (isbn) {
                 // Push into the array a formatted object with the review info
                 for (let i = 0; i < reviews.length; i++)
                     reviewArray.push({
-                        reviewID: reviews[0].reviewID,
-                        title: reviews[0].title,
-                        text: reviews[0].text,
-                        ISBN: reviews[0].ISBN
+                        reviewID: reviews[i].reviewID,
+                        title: reviews[i].title,
+                        text: reviews[i].text,
+                        ISBN: reviews[i].ISBN
                     });
 
                 resolve(reviewArray);
