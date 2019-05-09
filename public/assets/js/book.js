@@ -70,4 +70,27 @@ jQuery(document).ready(function() {
         });
 
     });
+
+    $.get("/api/v1/books/" + isbn + "/similarBooks", function (data, status) {
+        console.log(data);
+
+        data.forEach( function (el, index) {
+
+            $.get("/api/v1/books/" + el.ISBN, function (data, status) {
+                console.log(data);
+                let class_item;
+                if (index === 0)
+                    class_item = "class=\"carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active\"";
+                else
+                    class_item = "class=\"carousel-item col-12 col-sm-6 col-md-4 col-lg-3\"";
+
+                $("#carousel-listbox-similar-books").prepend(
+                    "<div " + class_item + " >" +
+                    "   <a href='/books/" + data.ISBN + "' >" +
+                    "   <img src='../assets/images" + data.picture + " ' class='img-fluid mx-auto d-block' href='#'>" +
+                    "</div>"
+                );
+            })
+        })
+    })
 });

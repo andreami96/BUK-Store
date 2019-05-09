@@ -145,6 +145,8 @@ async function createSimilarTo() {
         ParentISBN: "9788893440615",
         ChildISBN: "8845282678"
     });
+
+
 }
 
 async function createReviews() {

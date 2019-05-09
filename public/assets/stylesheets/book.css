@@ -189,3 +189,7 @@
 .product-data ul li p {
     display: inline;
 }
+
+.breadcrumb {
+    margin-top: 4rem;
+}

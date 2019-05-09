@@ -6,19 +6,21 @@
 
     <title>Book - book title </title>
 
-    <!-- Latest compiled JavaScript -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap, Leaflet, Font Awesome CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
 
-    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../assets/stylesheets/custom-bootstrap.css">
+    <link rel="stylesheet" href="../assets/stylesheets/common.css">
     <link href="../assets/stylesheets/book.css" rel="stylesheet">
-    <link href="../assets/stylesheets/common.css" rel="stylesheet">
+
 
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- Navigation
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <a class="navbar-brand" href="#">
@@ -49,11 +51,60 @@
         </ul>
     </div>
 
-</nav>
+</nav> -->
+<div class="banner-primary">
+    <div class="gradient-layer">
+        <nav class="navbar navbar-default navbar-expand-sm fixed-top">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+        <i class="fas fa-bars" id="bars" aria-hidden="true"></i>
+        </button>
+
+        <div class="navbar-header mx-sm-auto">
+            <a class="navbar-brand" href="#">
+            <img src="../assets/images/logo/logo.png" height="30" alt="BUK">
+            </a>
+        </div>
+        <div class="nav-item order-md-12 order-sm-1">
+            <a><span class="badge badge-primary">1</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catalogo
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+            </li>
+            <li class="nav-item active">
+            <a class="nav-link" href="#">Eventi</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Autori</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav" id="right-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="#">Contatti</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Area personale</a>
+            </li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+</div>
+
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb bg-white ml-4 mt-2">
+    <ol class="breadcrumb bg-white ml-4">
         <li class="breadcrumb-item"><a href="#">Catalog</a></li>
         <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-title"></li>
     </ol>
@@ -156,15 +207,9 @@
 <div class="top-content">
     <div class="container-fluid">
         <div id="carousel-similar-books" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                    <img src="../assets/images/books/american_spy.jpg" class="img-fluid mx-auto d-block" alt="img1">
-                </div>
+            <div id="carousel-listbox-similar-books" class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="../assets/images/books/dark_matter.jpg" class="img-fluid mx-auto d-block" alt="img2">
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="../assets/images/books/normal_people.jpg" class="img-fluid mx-auto d-block" alt="img3">
+                    <img src="../assets/images/books/normal_people.jpg" class="img-fluid mx-auto d-block" alt="img1">
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
                     <img src="../assets/images/books/the_gospel_of_loki.jpg" class="img-fluid mx-auto d-block" alt="img4">
@@ -177,9 +222,6 @@
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
                     <img src="../assets/images/books/got_hc1.jpg" class="img-fluid mx-auto d-block" alt="img7">
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="../assets/images/books/9788893440615.jpg" class="img-fluid mx-auto d-block" alt="img8">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carousel-similar-books" role="button" data-slide="prev">
@@ -196,8 +238,35 @@
 
 
 <!-- Footer -->
-<footer class="page-footer font-small bg-dark pt-4 mt-3">
-    <div class="footer-copyright text-center py-3 text-white">Terms and Conditions or Whatever</div>
+<footer class="footer mt-3">
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-md-4 col-sm-12 p-3">
+                <h6>About</h6>
+                <p>Founded in 2019 by MiChi Studios, BUK is an online book store developed for the Hypermedia course at Politecnico di Milano</p>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Address</h6>
+                <p>Viale Romagna 62<br>Buccinasco, Milano<br>United States of America</p>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Contact</h6>
+                <a href="#">Email us </a><br>
+                <a href="#">Phone +39 999999999</a>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Info</h6>
+                <a>FAQ</a>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Follow us</h6>
+                <a><i class="fab fa-facebook-f"></i></a>
+                <a><i class="fab fa-twitter"></i></a>
+                <a><i class="fab fa-instagram"></i></a>
+                <a><i class="fab fa-mastodon"></i></a>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
@@ -208,6 +277,7 @@
 
 <script src="../assets/js/book.js"></script>
 <script src="../assets/js/utils.js"></script>
+<script src="../assets/js/navbar.js"></script>
 
 </body>
 </html>
