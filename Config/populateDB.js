@@ -160,6 +160,22 @@ async function createReviews() {
             "gradually going backwards to find out what really happened to Nola Kellergan.",
         ISBN: "8845282678"
     });
+
+    await Review.create({
+        reviewID: 2,
+        title: "A really good book",
+        text: "I wasn't sure what to expect when I started reading this book. I did know it was an international best" +
+            " seller and it was translated from French. I was pleasantly surprised by it! I do think the book could have " +
+            "been edited a bit more. It's a mystery set in 2008. So the presidential election is at the backdrop of the " +
+            "main story. When you are reading it, you find that the mystery is a love story. But as it unfolds, you find " +
+            "out there is alot of trickery going on. At times, the investigation into what happened to Nola was very " +
+            "repetitive. Also, the bits between Marcus and his mother could have been cut out entirely as well as the parts" +
+            " about the 2008 presidential election. Neither really progressed the story. But I liked how Dicker wrote his " +
+            "characters and I did like the twists to the mystery. But I wasn't crazy how things were tied up neatly in a bow " +
+            "at the end. But I do think the mystery and the process of solving it and proving Harry innocent was engrossing. " +
+            "If you like mysteries and want something easy to read, I would recommend The Truth About the Harry Quebert Affair.",
+        ISBN: "8845282678"
+    });
 }
 
 async function createEvents() {

@@ -50,7 +50,23 @@ jQuery(document).ready(function() {
 
     $.get("/api/v1/books/" + isbn + "/authors", function (data, status) {
         console.log(data);
-        $("#author").text(data[0].name + ' ' + data[0].surname);
+        data.forEach(function (el, index) {
+            if (index === 0)
+                $("#author").append(el.name + ' ' + el.surname);
+            else
+                $("#author").append(', ' + el.name + ' ' + el.surname);
+        })
     });
 
+    $.get("/api/v1/books/" + isbn + "/reviews", function (data, status) {
+        console.log(data);
+        
+        data.forEach( function (el, index) {
+            if ( index === 0 )
+                $("#review-list").append("<li> <h6>" + el.title +"</h6>" + el.text + "</li>");
+            else
+                $("#review-list").append(" <hr> <li> <h6>" + el.title +"</h6>" + el.text + "</li>");
+        })
+
+    })
 });
