@@ -30,11 +30,7 @@ jQuery(document).ready(function() {
     let isbn = url.substr(url.lastIndexOf('/') + 1);
 
     $.get("/api/v1/books/" + isbn, function(data, status){
-        console.log("==============================");
         console.log(data);
-        console.log("==============================");
-        console.log(status);
-        console.log("==============================");
 
         $("#bookTitle").text(data.title);
         $("#abstract").text(data.abstract);
@@ -53,12 +49,7 @@ jQuery(document).ready(function() {
     });
 
     $.get("/api/v1/books/" + isbn + "/authors", function (data, status) {
-        console.log("==============================");
         console.log(data);
-        console.log("==============================");
-        console.log(status);
-        console.log("==============================");
-
         $("#author").text(data[0].name + ' ' + data[0].surname);
     });
 
