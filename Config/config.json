@@ -4,9 +4,9 @@
   "username": "postgres",
   "password": "admin",
   "dialect": "postgres",
-    "dialectOptions": {
-      "ssl": true
-    }
+  "dialectOptions": {
+    "ssl": true
+  }
   },
 
   "emailConfig": {

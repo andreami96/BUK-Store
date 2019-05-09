@@ -23,6 +23,12 @@ const ThemeModel = require('./Book/theme');
 const GenreThemeModel = require('./Book/genreTheme');
 const BookThemeModel = require('./Book/bookTheme');
 
+// Setup the correct configuration
+let dbParameters = config.dbConfig;
+if(!process.env.HEROKU)
+    dbParameters.dialectOptions.ssl = false;
+
+
 // Connect to the database
 let sequelizeObject = new Sequelize(process.env.DATABASE_URL, config.dbConfig);
 
