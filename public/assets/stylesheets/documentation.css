@@ -35,7 +35,7 @@
 
 /* The image */
 .banner-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://localhost:8080/assets/images/backend/server.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/backend/server.jpg");
 
     /* Set a specific height */
     height: 80vh;
