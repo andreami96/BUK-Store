@@ -1,0 +1,68 @@
+/* Nav Link */
+.navbar-custom {
+    font-size: 13px;
+    background-color: #fff;
+    align-items: center;
+}
+
+.navbar-custom .right-float {
+    float: right;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    color: rgba(0, 0, 0, 0.7);
+    border: 0;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(0, 0, 0, 1);
+    background-color: lightgray;
+}
+
+.active {
+    background-color: lightgray;
+}
+
+.container {
+    padding-top: 70px;
+}
+
+/*  ROW  */
+.row-height-test {
+    height: 1200px;
+}
+
+/* The image */
+.banner-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://localhost:8080/assets/images/backend/server.jpg");
+
+    /* Set a specific height */
+    height: 80vh;
+    padding-top: 70px;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* ALIGN CENTER */
+.align-center {
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    font-size: 9pt;
+    bottom: 0;
+    width: 100%;
+    min-height: 15vh;
+    background-color: #ebebeb;
+}
+
+.footer .fab {
+    font-size: 1.6em;
+    margin: 0.2em;
+}

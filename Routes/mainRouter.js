@@ -15,7 +15,7 @@ let api_router = require('./ApiRoutes/apiRouter');
 let static_router = require('./StaticRoutes/staticRouter');
 
 // Set the path of the docs, and handle that path with docs_route
-router.use('/docs', docs_route);
+router.use('/backend/swaggerui', docs_route);
 
 /**
  * Handle the paths for the API and for the STATIC pages, giving the responsibilities to the proper router
