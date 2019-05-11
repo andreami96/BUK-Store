@@ -53,6 +53,17 @@
     text-align: center;
 }
 
+/* UL DASH */
+ul.dashed {
+    list-style-type: none;
+}
+
+ul.dashed li:before {
+    content: '\2013';
+    position: absolute;
+    margin-left: -20px;
+}
+
 /* Footer */
 .footer {
     font-size: 9pt;
