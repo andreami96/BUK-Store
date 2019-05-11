@@ -64,6 +64,11 @@ ul.dashed li:before {
     margin-left: -20px;
 }
 
+/* Table COL */
+th.small-col {
+    width: 20%;
+}
+
 /* Footer */
 .footer {
     font-size: 9pt;
