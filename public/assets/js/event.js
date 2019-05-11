@@ -3,11 +3,11 @@ jQuery(document).ready(function() {
     let url = window.location.pathname;
     let eventID = url.substr(url.lastIndexOf('/') + 1);
 
-    $.get("https://buk-store.herokuapp.com/api/v1/events/" + eventID, function(data, status){
+    $.get("/api/v1/events/" + eventID, function(data, status){
         console.log(data);
         $(".banner-primary").css('background-image', 'url("../assets/images' + data.picture + '")');
         $("#event-title").text(data.title);
-        $.get("https://buk-store.herokuapp.com/api/v1/books/" + data.presentedBook, function (data, status) {
+        $.get("/api/v1/books/" + data.presentedBook, function (data, status) {
             console.log(data);
             $("#event-book").attr(
                 {"src": "../assets/images" + data.picture,

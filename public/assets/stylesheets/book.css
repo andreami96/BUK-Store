@@ -185,3 +185,11 @@
 .product-data ul{
     padding-left: 0;
 }
+
+.product-data ul li p {
+    display: inline;
+}
+
+.breadcrumb {
+    margin-top: 4rem;
+}

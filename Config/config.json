@@ -4,9 +4,9 @@
   "username": "postgres",
   "password": "admin",
   "dialect": "postgres",
-    "dialectOptions": {
-      "ssl": true
-    }
+  "dialectOptions": {
+    "ssl": true
+  }
   },
 
   "emailConfig": {
@@ -21,8 +21,8 @@
   },
 
   "emailContent": {
-    "subject": "FIRST MAIL",
-    "text": "Welcome to the BUK Store application. Thank you for your registering. To activate your account, follow this link: http://localhost:8080/api/v1/activation/{0}"
+    "subject": "Activate your BUK Store Account",
+    "text": "Welcome to the BUK Store application. Thank you for your registering. To activate your account, follow this link: https://buk-store.herokuapp.com/api/v1/activation/{0}"
 
   }
 }

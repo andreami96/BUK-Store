@@ -23,3 +23,74 @@ $('#carousel-similar-books').on('slide.bs.carousel', function (e) {
         }
     }
 });
+
+jQuery(document).ready(function() {
+
+    let url = window.location.pathname;
+    let isbn = url.substr(url.lastIndexOf('/') + 1);
+
+    $.get("/api/v1/books/" + isbn, function(data, status){
+        console.log(data);
+
+        $("#bookTitle").text(data.title);
+        $("#breadcrumb-title").text(data.title);
+        $("#abstract").text(data.abstract);
+        $("#price").text(data.price + " €");
+        $("#isbn").text(data.ISBN);
+        $("#year").text(data.year);
+        $("#pages").text(data.pageNumber);
+        $("#editor").text(data.editor);
+        $("#originalLanguage").text(data.originalLanguage);
+
+        $("#item-display").attr(
+            {
+                "src": "../assets/images" + data.picture
+            }
+        );
+    });
+
+    $.get("/api/v1/books/" + isbn + "/authors", function (data, status) {
+        console.log(data);
+        data.forEach(function (el, index) {
+            if (index === 0)
+                $("#author").append(el.name + ' ' + el.surname);
+            else
+                $("#author").append(', ' + el.name + ' ' + el.surname);
+        });
+    });
+
+    $.get("/api/v1/books/" + isbn + "/reviews", function (data, status) {
+        console.log(data);
+        
+        data.forEach( function (el, index) {
+            if ( index === 0 )
+                $("#review-list").append("<li> <h6>" + el.title +"</h6>" + el.text + "</li>");
+            else
+                $("#review-list").append(" <hr> <li> <h6>" + el.title +"</h6>" + el.text + "</li>");
+        });
+
+    });
+
+    $.get("/api/v1/books/" + isbn + "/similarBooks", function (data, status) {
+        console.log(data);
+
+        data.forEach( function (el, index) {
+
+            $.get("/api/v1/books/" + el.ISBN, function (data, status) {
+                console.log(data);
+                let class_item;
+                if (index === 0)
+                    class_item = "class=\"carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active\"";
+                else
+                    class_item = "class=\"carousel-item col-12 col-sm-6 col-md-4 col-lg-3\"";
+
+                $("#carousel-listbox-similar-books").prepend(
+                    "<div " + class_item + " >" +
+                    "   <a href='/books/" + data.ISBN + "' >" +
+                    "   <img src='../assets/images" + data.picture + " ' class='img-fluid mx-auto d-block' href='#'>" +
+                    "</div>"
+                );
+            })
+        })
+    })
+});
