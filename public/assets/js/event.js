@@ -22,14 +22,14 @@ jQuery(document).ready(function() {
         let eventDate = new Date(data.eventDate);
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        console.log(eventDate);
-        console.log(eventDate.getDate());
-        console.log(eventDate.getMonth());
-        console.log(eventDate.getTime());
         $("#event-date").text(eventDate.getDate() + " " + months[eventDate.getMonth()]);
         $("#event-time").text(toHHMM(eventDate.getHours(), eventDate.getMinutes()));
+
         $("#event-location").text(data.address);
+        $("#event-description").text(data.description);
     });
+
+
 
 });
 

@@ -1,0 +1,51 @@
+html,body {
+    height:100%;
+}
+
+.under-navbar {
+    height: 7em;
+}
+
+.genre-pic {
+    height: 12em;
+    background-position: center;
+    background-size: cover;
+}
+
+.genre-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.genre-box {
+    position: relative;
+    border: 1px solid rgb(212, 212, 212);
+}
+
+.genre-box span {
+    /* Make clickable the whole "genre-box" div */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+#novel-pic {
+    background-image: url("../images/genres/novel.jpg");
+}
+
+#essay-pic {
+    background-image: url("../images/genres/essay.png");
+}
+
+#poetry-pic {
+    background-image: url("../images/genres/poetry.jpg");
+}
+
+#theatre-pic {
+    background-image: url("../images/genres/theatre.jpg");
+}

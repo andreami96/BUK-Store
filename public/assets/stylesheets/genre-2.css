@@ -1,0 +1,52 @@
+html,body {
+    height:100%;
+}
+
+.under-navbar {
+    height: 7em;
+}
+
+.small-genre-column {
+    flex-direction: column;
+}
+
+.small-genre-box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(212, 212, 212);
+}
+
+.list-box {
+    display: flex;
+    flex-wrap: wrap;
+    /*flex-direction: column;*/
+}
+
+.list-box a {
+    border: 1px solid rgb(212, 212, 212);
+    flex-basis: 50%;
+}
+
+#novel-box {
+    background-color: hsla(0, 80%, 61%, 0.9);
+}
+
+#biography-box {
+    background-color: hsla(0, 80%, 63%, 0.9);
+}
+
+#fable-box {
+    background-color: hsla(0, 80%, 66%, 0.9);
+}
+
+#storiography-box {
+    background-color: hsla(0, 80%, 69%, 0.9);
+}
+
+#diary-box {
+    background-color: hsla(0, 80%, 72%, 0.9);
+}
+
+#prova-box {
+    background-color: hsla(0, 80%, 75%, 0.9);
+}
