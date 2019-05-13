@@ -26,11 +26,11 @@
     },
     {
       "name": "Theme",
-      "description": "Author related endpoints"
+      "description": "Theme related endpoints"
     },
     {
       "name": "Genre",
-      "description": "Author related endpoints"
+      "description": "Genre related endpoints"
     },
     {
       "name": "User",
@@ -70,7 +70,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -111,7 +111,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -160,7 +160,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -201,7 +201,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -256,7 +256,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -308,7 +308,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -357,7 +357,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -401,7 +401,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -451,7 +451,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -500,7 +500,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -541,7 +541,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -579,7 +579,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -631,7 +631,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -672,7 +672,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -715,7 +715,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -764,7 +764,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -805,7 +805,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -837,6 +837,93 @@
         }
       }
     },
+    "/mainGenres": {
+      "get": {
+        "summary": "Retrieves the main genres stored in the database",
+        "description": "Use this endpoint to retrieve the main literary genres in the database",
+        "tags": [
+          "Genre"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MainGenre"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/mainGenres/{mainGenreID}/genres": {
+      "get": {
+        "summary": "Retrieves the genres related to the specific main genre",
+        "description": "Use this endpoint to retrieve the genres related to the main genre",
+        "tags": [
+          "Genre"
+        ],
+        "parameters": [
+          {
+            "name": "mainGenreID",
+            "in": "path",
+            "description": "The identifier of the main genre",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/MainGenre/properties/mainGenreID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "genreID": {
+                        "$ref": "#/components/schemas/Genre/properties/genreID"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Genre/properties/title"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
     "/genres": {
       "get": {
         "summary": "Retrieves the genres of the books stored inside the application",
@@ -854,7 +941,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -903,7 +990,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -944,7 +1031,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -996,7 +1083,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1093,7 +1180,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1135,7 +1222,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1180,7 +1267,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1216,7 +1303,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1254,7 +1341,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1290,7 +1377,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1326,7 +1413,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1364,7 +1451,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1399,7 +1486,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1435,7 +1522,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully Request",
+            "description": "Successful Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1708,6 +1795,26 @@
       }
     },
     "schemas": {
+      "MainGenre": {
+        "type": "object",
+        "description": "The object which represents a main genre inside the application",
+        "properties": {
+          "mainGenreID": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
+          "title": {
+            "type": "string",
+            "example": "Novel",
+            "readOnly": true
+          },
+          "picture": {
+            "type": "string",
+            "example": "/images/mainGenres/novel.jpg"
+          }
+        }
+      },
       "Genre": {
         "type": "object",
         "description": "The object which represents a genre inside the application",

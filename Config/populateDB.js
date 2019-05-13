@@ -1,5 +1,5 @@
 const database = require('../Model/sequelize');
-const { User, Book, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme, Reservation } = database;
+const { User, Book, MainGenre, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme, Reservation } = database;
 
 async function createUsers() {
 
@@ -13,13 +13,23 @@ async function createUsers() {
     });
 }
 
+async function createMainGenres() {
+
+    await MainGenre.create({
+        mainGenreID: 1,
+        title: "Novel",
+        picture: "/images/mainGenres/novel.jpg"
+    });
+
+}
+
 async function createGenres() {
 
     await Genre.create({
         genreID: 1,
         title: "Thriller",
         picture: "/genres/thriller.jpg",
-        mainGenre: "Romanzo",
+        mainGenreID: 1,
         description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
             "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
             "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
@@ -235,6 +245,7 @@ exports.createDatabase = function (force=false, populateItNow=false) {
 
         if(populateItNow) {
             await createUsers();
+            await createMainGenres();
             await createGenres();
             await createBooks();
             await createThemes();

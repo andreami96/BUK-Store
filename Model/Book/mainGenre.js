@@ -1,6 +1,6 @@
 module.exports = function (sequelize, type) {
-    return sequelize.define('genre', {
-        genreID: {
+    return sequelize.define('mainGenre', {
+        mainGenreID: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true
@@ -14,13 +14,6 @@ module.exports = function (sequelize, type) {
         },
         picture: {
             type: type.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
-        },
-        description: {
-            type: type.TEXT,
             allowNull: false,
             validate: {
                 notEmpty: true

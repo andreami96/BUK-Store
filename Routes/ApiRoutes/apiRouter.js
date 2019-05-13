@@ -20,6 +20,7 @@ const booksRoute = require('./Book/booksRoute');
 const eventRoute = require('./Event/eventRoute');
 
 // Routes related to the Genre
+const mainGenreRoute = require('./MainGenre/mainGenreRoute');
 const genreRoute = require('./Genre/genreRoute');
 
 // Routes related to the Theme
@@ -54,6 +55,7 @@ router.use('/books', booksRoute);
 router.use('/events', eventRoute);
 
 // Routes related to the Genre
+router.use('/mainGenres', mainGenreRoute);
 router.use('/genres', genreRoute);
 
 // Routes related to the Theme

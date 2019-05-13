@@ -1,7 +1,7 @@
 const { Genre } = require('../../Model/sequelize');
 
 exports.findAllRawGenres = function(limit, offset) {
-    // Construct the search option adding the limit, the offset and, if present, the title search option
+    // Construct the search option adding the limit, the offset
     let searchOption = {};
 
     searchOption.limit = limit;

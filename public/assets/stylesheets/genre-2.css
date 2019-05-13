@@ -7,24 +7,36 @@ html,body {
 }
 
 .small-genre-column {
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 }
 
-.small-genre-box {
+.small-genre-card {
     display: flex;
     flex-direction: column;
     border: 1px solid rgb(212, 212, 212);
 }
 
-.list-box {
+.small-genre-card p {
+    font-style: italic;
+}
+
+.small-genre-list {
     display: flex;
     flex-wrap: wrap;
     /*flex-direction: column;*/
 }
 
-.list-box a {
-    border: 1px solid rgb(212, 212, 212);
+.small-genre-list a {
+    color: black;
+    text-decoration: none;
+    font-weight: lighter;
     flex-basis: 50%;
+}
+
+.small-genre-list a:hover {
+    color: #e5e5e5;
 }
 
 #novel-box {

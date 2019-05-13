@@ -35,17 +35,17 @@ html,body {
 }
 
 #novel-pic {
-    background-image: url("../images/genres/novel.jpg");
+    background-image: url("../images/mainGenres/novel.jpg");
 }
 
 #essay-pic {
-    background-image: url("../images/genres/essay.png");
+    background-image: url("../images/mainGenres/essay.png");
 }
 
 #poetry-pic {
-    background-image: url("../images/genres/poetry.jpg");
+    background-image: url("../images/mainGenres/poetry.jpg");
 }
 
 #theatre-pic {
-    background-image: url("../images/genres/theatre.jpg");
+    background-image: url("../images/mainGenres/theatre.jpg");
 }

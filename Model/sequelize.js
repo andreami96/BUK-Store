@@ -18,6 +18,7 @@ const CartModel = require('./User/cart');
 const ReservationModel = require('./User/reservation');
 const ReviewModel = require('./Book/review');
 const WrittenByModel = require('./Book/writtenBy');
+const MainGenreModel = require('./Book/mainGenre');
 const GenreModel = require('./Book/genre');
 const ThemeModel = require('./Book/theme');
 const GenreThemeModel = require('./Book/genreTheme');
@@ -43,6 +44,7 @@ const Cart = CartModel(sequelizeObject, Sequelize);
 const Reservation = ReservationModel(sequelizeObject, Sequelize);
 const Review = ReviewModel(sequelizeObject, Sequelize);
 const WrittenBy = WrittenByModel(sequelizeObject);
+const MainGenre = MainGenreModel(sequelizeObject, Sequelize);
 const Genre = GenreModel(sequelizeObject, Sequelize);
 const Theme = ThemeModel(sequelizeObject, Sequelize);
 const GenreTheme = GenreThemeModel(sequelizeObject);
@@ -79,6 +81,9 @@ Book.belongsTo(Genre, {foreignKey: {name: 'genreID', allowNull: false}});
 Book.belongsToMany(Theme, { foreignKey: {name: 'ISBN', allowNull: false}, through: BookTheme });
 Theme.belongsToMany(Book, { foreignKey: {name: 'themeID', allowNull: false}, through: BookTheme });
 
+// MainGenre <-> Genre Relationship
+Genre.belongsTo(MainGenre, {foreignKey: {name: 'mainGenreID', allowNull: false}});
+
 // Genre <-> Theme Relationship
 Genre.belongsToMany(Theme, { foreignKey: {name: 'genreID', allowNull: false}, through: GenreTheme });
 Theme.belongsToMany(Genre, { foreignKey: {name: 'themeID', allowNull: false}, through: GenreTheme });
@@ -94,6 +99,7 @@ exports.SimilarTo = SimilarTo;
 exports.Cart = Cart;
 exports.Reservation = Reservation;
 exports.Review = Review;
+exports.MainGenre = MainGenre;
 exports.Genre = Genre;
 exports.Theme = Theme;
 exports.GenreTheme = GenreTheme;
