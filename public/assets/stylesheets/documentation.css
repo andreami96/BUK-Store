@@ -33,12 +33,12 @@
     height: 1200px;
 }
 
-/* The image */
+/* The banner image */
 .banner-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/backend/server.jpg");
 
     /* Set a specific height */
-    height: 80vh;
+    height: 35em;
     padding-top: 70px;
 
     /* Position and center the image to scale nicely on all screens */
@@ -67,6 +67,11 @@ ul.dashed li:before {
 /* Table COL */
 th.small-col {
     width: 20%;
+}
+
+/* Diagram Images */
+.img-fluid {
+    max-width: 100%;
 }
 
 /* Footer */

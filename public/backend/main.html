@@ -270,11 +270,260 @@
                     by the user's web browser, and for that the frontend part of the application is written with
                     HTML, CSS and JavaScript, in this way the most common browsers can handle and render properly the
                     frontend of this application.
+                    <div class="row justify-content-center">
+                        <img src="../assets/images/backend/html_js_css.png" alt="HTML, CSS, JS" height="100">
+                    </div>
                     <br>
                     Focusing on the Server, it is developed using the famous Node.js framework and it is deployed on
                     a Heroku machine.
+                    <div class="row justify-content-center">
+                        <img src="../assets/images/backend/node.png" alt="node.js" height="100">
+                    </div>
+                    <br>
+                    The Server is divided into 4 main component, which are in charge of fulfill a specific function:
+                    <br><br>
+                    <div class="col-8 mx-auto">
+                        <img src="../assets/images/backend/server_schema.png" alt="HTML, CSS, JS" class="img-fluid mx-auto">
+                    </div>
+
+                    <br>
+                    As you can notice from the above diagram, the four part are the model, the controller, the route
+                    handler and a static part, used to serve the HTML; CSS or JavaScript files.
                 </div>
             </div>
+            <br>
+            <div class="row justify-content-start">
+                <div class="col-1">
+
+                </div>
+                <div class="col-11">
+                    <h4>The Model</h4>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    This is the core part of the data of BUK Store application. This module is in charge of creating the
+                    entire structure of the Database, both each one of the tables (which they will be described later
+                    in this document) and also the relationship between them.
+                    In the Model package of the application you can find various folders, each one contains the files
+                    which tells how the tables should be stored inside the PostgreSQL database.
+                    <br>
+                    Then you can find a special file called <kbd>sequelize.js</kbd>, which is the main entry point of all
+                    the Model. Each table is actually created in this file, and each relation is mapped here, thanks to the
+                    <i>Sequelize</i> instructions <kbd>table.belongsTo</kbd> or <kbd>table.belongsToMany</kbd>. This
+                    code is actually executed before the Server starts up, in this way it is assured that the Database is
+                    created before the application starts.
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row justify-content-start">
+                <div class="col-1">
+
+                </div>
+                <div class="col-11">
+                    <h4>The Controller</h4>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    The database is nothing without the controller, and the purpose of this module is exactly to fulfill
+                    the <i>REST API</i> specification, querying the Database to obtain results and to pack them into
+                    nice objects used to be sent to the client.
+                    <br>
+                    This module is divided into various categories, one for each request the Server can handle. In this
+                    files you will find 2 main types code, one used to actually query the Database to retrieve the information
+                    requested, and another one used to pack this data into JSON objects, which will be sent to the client
+                    by the Route Handler.
+                    <br>
+                    The controller is also responsible to check the parameters of the client's requests, in order to avoid
+                    some unpleasant behaviours, and is also responsible to check if the user is logged in or not (done
+                    inside the <kbd>checkAuthMiddleware</kbd> function), in order to properly handle the user's session,
+                    the user's cart and the user's books reservation
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row justify-content-start">
+                <div class="col-1">
+
+                </div>
+                <div class="col-11">
+                    <h4>The Route Handler</h4>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    This component is made thanks to the Express Framework, part of the Node.js suite. This part of the
+                    web application is the entry point for all the requests which come to the server.
+                    <br>
+                    The route handler component is implemented inside the <i>Route</i> package, which contains the entire
+                    set of function used to handle the endpoints of the API. All this function are the common ones
+                    used in the express environment:
+                    <br>
+                    <kbd>
+                        router.get('/', function(req, res, next) { ...code... });
+                    </kbd>
+                    <br>
+                    The Route Handler component, for the sake of maintainability, is splitted into 2 main javascript file,
+                    the <kbd>staticRouter.js</kbd> and the <kbd>apiRouter.js</kbd>, which are used to handle, respectively,
+                    the static pages and the API endpoints.
+                    More specifically, the Static Router is used to handle different URLs, and it only sends to the client
+                    the requested page, without any kind of rendering; while the API Router is used to fulfill the endpoints
+                    requests, giving back to the client the JSON object with the data requested.
+                    <br>
+                    To be more sure that no pages can be rendered from the server, actually there isn't any kind of
+                    component installed in our application which can be render a page (I.E. the <i>EJS</i> view engine),
+                    so the Server is only able either to retrieve static pages (HTML, CSS and JavaScript client side) or
+                    to construct JSON objects to be sent to the client through the API endpoints
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="row justify-content-start">
+                <div class="col-1">
+
+                </div>
+                <div class="col-11">
+                    <h3>API</h3>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    The whole architecture fulfill the <i>REST</i> API specification, indeed, as you can see from the
+                    <i>SwaggerUI</i> page, the only accepted request are GET, POST, PUT and DELETE. All the request made
+                    to the server will be responded by a JSON object (or an array of JSON objects), which contains
+                    either the data requested or an error message, which specifies the HTTP error code and a description
+                    of the occurred error. Each response gives one of the following HTTP code:
+                    <ul>
+                        <li>
+                            <b>200</b>: The request is successful, and the Server return a proper object
+                        </li>
+                        <li>
+                            <b>201</b>: The request is successful, and a new User is created inside the DB. You should
+                            received a mail by the Server with a activation link for that account
+                        </li>
+                        <li>
+                            <b>400</b>: The request isn't well written. Probably the parameters you have given either in the
+                            query part or in the body part aren't properly written, or maybe there is a required parameter
+                            which is actually missing
+                        </li>
+                        <li>
+                            <b>401</b>: This endpoint belongs to the protected one, so it is required the login before accessing
+                            this endpoint. If you receive this error, it means that either the login isn't successful or you
+                            are trying to access to a private endpoint without a valid session token
+                        </li>
+                        <li>
+                            <b>404</b>: The path specified in the URL doesn't exists
+                        </li>
+                        <li>
+                            <b>409</b>: There is a conflict inside the Database. This happens when you are trying to
+                            register a user which has the same email address of another user already registered in the
+                            application
+                        </li>
+                        <li>
+                            <b>500</b>: The Server has encountered an error during the processing of your request
+                        </li>
+                    </ul>
+                    To adhere more to the <i>REST API</i> specification, the HTTP verbs used in the BUK Store application
+                    have the usual "REST" meanings:
+                    <ul>
+                        <li><b>GET</b>: Request used to retrieve information from the Database, it is a Safe call (so it
+                        doesn't change the Data status) and it preserves the Idempotency property (so applied two times
+                        consequently retrieves the same result)</li>
+                        <li><b>POST</b>: Request used to create a new Datum inside the Database. In the BUK web app is used
+                        to create new user, to add a new product to the user's cart or to create a reservation for the current
+                        user. It isn't a safe call, since it changes the status of the DB, and of course it isn't idempontent,
+                        because two consequently call changes two times the status of the Database</li>
+                        <li><b>PUT</b>: Request used to change and update a Datum inside the Database. In our application, is
+                        used only to change a book inside the user's cart, in order to be able to change the quantity of
+                        desired books (this request isn't able to delete a book from the cart). The PUT request isn't a
+                        Safe call, since its purpose is to update a resource, but it is idempotent, since applied two times,
+                        of course with the same parameters, it update the same resource with the same values</li>
+                        <li><b>DELETE</b>: Request used to delete and a resource from the Database. In the app is used only
+                        when a user wants to delete a book inside his/hers cart. Of course this isn't a Safe call, as you
+                        can imagine, but it preserves the Idempotency property, since apply two times the DELETE to the same
+                        object doesn't delete the object twice, obviously</li>
+                    </ul>
+                    To have a more faithful implementation of the <i>REST</i> APIs, we have decided also to keep, as much
+                    as possible, the same name convention used in the <i>REST</i> specification, so a great number of endpoints
+                    follows the usual convention, such as <kbd>/api/v1/books</kbd> which retrieves all the books inside the
+                    database, or <kbd>/api/v1/authors/1/books</kbd>, which is used to retrieve the books written by the author
+                    with identifier 1. But, sometimes, some other endpoints are introduced, to be more specific, for instance
+                    there is the <kbd>/api/v1/me</kbd> endpoint used to retrieve the information about the the user which is
+                    actually logged in, or the <kbd>api/v1/me/cart</kbd>, which doesn't follow the usual name convention
+                    (in that case it should be carts, plural, not singular), but this decision was taken since each user
+                    as only one cart, so the singular emphasizes this concept.
+                    <br>
+                    Finally, the whole API system is designed in order to make the Server able to handle all the possible
+                    requests that a user can do, with the minimum amount of endpoints and the minimum amount of bandwidth
+                    wasting, so, for instance, when the books are requested, since the book object is quite large, and inside
+                    the database there can be hundreds of them, the decision made was to create the JSON object with the minimum
+                    amount of information (so, in this case, only the title and the ISBN), and to shift the responsibility of
+                    composing a bigger object to the more soecific endpoint <kbd>/api/v1/book/{ISBN}</kbd>, which is called
+                    only when all the book's information are required.
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row justify-content-start">
+                <div class="col-1">
+
+                </div>
+                <div class="col-11">
+                    <h4>OpenAPI Data Model</h4>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    The model objects used inside the API are the following:
+                    <ul class="dashed">
+                        <li><b>MainGenre</b>: Describes the Top Genre inside the Database (such as Novel or Poetry)</li>
+                        <li><b>Genre</b>: Describes the Sub Genre inside the Database (such as thriller novel)</li>
+                        <li><b>Theme</b>: Describes the themes inside the Database (such as love or friendship)</li>
+                        <li><b>Author</b>: Object used to describe the properties of an Author</li>
+                        <li><b>Book</b>: Object used to describe a book</li>
+                        <li><b>Event</b>: Object used to handle an event information</li>
+                        <li><b>Review</b>: Model which contains a review done by the critics</li>
+                        <li><b>User</b>: Model of an User inside the application</li>
+                        <li><b>Cart</b>: Object which handles the books inside a user's cart</li>
+                        <li><b>Reservation</b>: Model of a purchase of the user</li>
+                        <li><b>GenericPage</b>: TOBEDONE</li>
+                    </ul>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="row justify-content-start">
+                <div class="col-1">
+
+                </div>
+                <div class="col-11">
+                    <h3>Database Model</h3>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row justify-content-center">
+                <div class="col-10 mx-auto">
+                    <img src="../assets/images/backend/buk_er.jpg" class="img-fluid mx-auto" alt="ER Diagram">
+                </div>
+            </div>
+
+            <br>
 
         </div>
     </div>
