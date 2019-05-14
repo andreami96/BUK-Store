@@ -9,6 +9,9 @@ $(document).ready(function(){
             // Prevent default anchor click behavior
             event.preventDefault();
 
+            // Close the navbar
+            $('.navbar-toggler').click();
+
             // Store hash
             var hash = this.hash;
 
