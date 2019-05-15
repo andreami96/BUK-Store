@@ -9,7 +9,7 @@ const { isInt } = require('../../../Utils/isInteger');
 router.get('/:mainGenreID', function (req, res, next) {
 
     if(isInt(req.params.mainGenreID))
-        res.sendFile(path.join(__dirname, '../../../public/catalogue/mainGenres.html'));
+        res.sendFile(path.join(__dirname, '../../../public/catalogue/genres.html'));
     else
         next()
 });

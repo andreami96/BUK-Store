@@ -38,7 +38,7 @@ async function createMainGenres() {
         title: "Theatre",
         picture: "/images/mainGenres/theatre.jpg"
     });
-    
+
 }
 
 async function createGenres() {

@@ -42,7 +42,7 @@ function addMainGenreCard(genre, index) {
     }
 
     // Main column and inner row
-    $('#row-' + rowNumber).append(
+    $('#row-n' + rowNumber).append(
         $('<div>').addClass('col-md-6 px-5 py-3').append(
             $('<div>').addClass('row genre-box')
         )
@@ -66,16 +66,17 @@ function addMainGenreCard(genre, index) {
             })
         )
     }
-    $('#' + picIdHTML).css('background-image', 'url("..' + genre.picture + '")');
+    $('#' + picIdHTML).css('background-image', 'url("../assets' + genre.picture + '")');
 
     // Title
     $('.genre-box:last').append(
         $('<div>').addClass('col-8 genre-name').html(genre.title)
     );
 
+
     // Add anchor
     $('.genre-box:last').append(
-        $('<a>').attr('href', '#').append(  //TODO: update href value with correct path
+        $('<a>').attr('href', '/mainGenres/' + genre.mainGenreID).append(  //TODO: update href value with correct path
             $('<span>')
         )
     );
@@ -86,10 +87,10 @@ jQuery(document).ready(function() {
 
     $.get("/api/v1/mainGenres", function(data, status) {
         console.log(data);
-        let orderedGenres = quicksortGenres(data);
+        /*let orderedGenres = quicksortGenres(data);*/
 
-        for(let i = 0; i < orderedGenres.length; i++) {
-            addMainGenreCard(orderedGenres[i], i);
+        for(let i = 0; i < data.length; i++) {
+            addMainGenreCard(data[i], i);
         }
     })
 
