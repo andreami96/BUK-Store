@@ -21,6 +21,24 @@ async function createMainGenres() {
         picture: "/images/mainGenres/novel.jpg"
     });
 
+    await MainGenre.create({
+        mainGenreID: 2,
+        title: "Essay",
+        picture: "/images/mainGenres/essay.png"
+    });
+
+    await MainGenre.create({
+        mainGenreID: 3,
+        title: "Poetry",
+        picture: "/images/mainGenres/poetry.jpg"
+    });
+
+    await MainGenre.create({
+        mainGenreID: 4,
+        title: "Theatre",
+        picture: "/images/mainGenres/theatre.jpg"
+    });
+    
 }
 
 async function createGenres() {

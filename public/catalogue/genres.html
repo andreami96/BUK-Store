@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="../assets/stylesheets/custom-bootstrap.css">
     <link rel="stylesheet" href="../assets/stylesheets/common.css">
-    <link rel="stylesheet" href="../assets/stylesheets/genre.css">
+    <link rel="stylesheet" href="../assets/stylesheets/genres.css">
 </head>
 <body>
 
@@ -61,54 +61,89 @@
     </div>
 </nav>
 
-<div class="container-fluid under-navbar"></div>
+<div class="container-fluid" id="under-navbar"></div>
 
 <div class="container">
-    <div class="row px-3">
-        <div class="col-md-6 px-5 py-3">
-                <div class="row genre-box">
-                    <div class="col-md-4 col-sm-4 genre-pic order-sm-1 order-md-0" id="novel-pic">
-                    </div>
-                    <div class="col-md-8 col-sm-8 genre-name">
-                        Narrativa
-                    </div>
-                    <a href="#"><span></span></a>
-                </div>
-        </div>
-        <div class="col-md-6 px-5 py-3">
-                <div class="row genre-box">
-                    <div class="col-md-4 col-sm-4 genre-pic" id="essay-pic">
-                    </div>
-                    <div class="col-md-8 col-sm-8 genre-name">
-                        Saggistica
-                    </div>
-                    <a href="#"><span></span></a>
-                </div>
-        </div>
-    </div>
-    <div class="row px-3">
-        <div class="col-md-6 px-5 py-3">
-            <div class="row genre-box">
-                <div class="col-md-4 col-sm-4 genre-pic order-sm-1 order-md-0" id="poetry-pic">
-                </div>
-                <div class="col-md-8 col-sm-8 genre-name">
-                    Poesia
-                </div>
-                <a href="#"><span></span></a>
+    <div class="row" id="small-genre-box">
+            <div class="small-genre-card m-3 p-4" id="novel-box">
+                <h1>Novel</h1>
             </div>
-        </div>
-        <div class="col-md-6 px-5 py-3">
-            <div class="row genre-box">
-                <div class="col-md-4 col-sm-4 genre-pic" id="theatre-pic">
-                </div>
-                <div class="col-md-8 col-sm-8 genre-name">
-                    Teatro
-                </div>
-                <a href="#"><span></span></a>
+            <div class="small-genre-card m-3 p-4" id="biography-box">
+                <h1>Biography</h1>
             </div>
-        </div>
+            <div class="small-genre-card m-3 p-4" id="fable-box">
+                <h1>Fable</h1>
+            </div>
+            <div class="small-genre-card m-3 p-4" id="storiography-box">
+                <h1>Storiography</h1>
+            </div>
+            <div class="small-genre-card m-3 p-4" id="diary-box">
+                <h1>Diary</h1>
+            </div>
+            <div class="small-genre-card m-3 p-4" id="prova-box">
+                <h1>Prova</h1>
+            </div>
     </div>
 </div>
+
+<!--<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 small-genre-column">
+            <div class="small-genre-card mb-4 p-4" id="novel-box">
+                <h1>Novel</h1>
+                <p>lorem ipsum stocazzo bello sobek tupac lorem ipsum tripsum yertum</p>
+                <div class="small-genre-list">
+                    <a href="#">Storino</a>
+                    <a href="#">Taner</a>
+                    <a href="#">Napo</a>
+                    <a href="#">Mi8</a>
+                    <a href="#">Storino</a>
+                    <a href="#">Taner</a>
+                    <a href="#">Napo</a>
+                    <a href="#">Mi8</a>
+                </div>
+            </div>
+            <div class="small-genre-card mb-4 p-4" id="biography-box">
+                <h1>Biography</h1>
+                <p>Ma che bellissimo</p>
+                <div class="small-genre-list">
+                    <a href="#">Storino</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 small-genre-column">
+            <div class="small-genre-card mb-4 p-4" id="fable-box">
+                <h1>Fable</h1>
+                <p>beeeeeeeeeeellllla</p>
+                <div class="small-genre-list">
+                    <a href="#">Storino</a>
+                    <a href="#">Taner</a>
+                    <a href="#">Napo</a>
+                </div>
+            </div>
+            <div class="small-genre-card mb-4 p-4" id="storiography-box">
+                <h1>Storiography</h1>
+                <p>Ma che bellissimo</p>
+                <div class="small-genre-list">
+                    <a href="#">Storino</a>
+                    <a href="#">Sirolfo</a>
+                    <a href="#">Trapano</a>
+                </div>
+            </div>
+            <div class="small-genre-card mb-4 p-4" id="diary-box">
+                <h1>Diary</h1>
+                <p>Ma che bellissimo</p>
+                <div class="small-genre-list">
+                </div>
+            </div>
+            <div class="small-genre-card mb-4 p-4" id="prova-box">
+                <h1>Prova</h1>
+                <p>Ma che bellissimo</p>
+            </div>
+        </div>
+    </div>
+</div>-->
+
 
 <footer class="footer">
     <div class="container mt-5">
@@ -147,7 +182,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script src="../assets/js/navbar.js"></script>
-<!--<script src="../assets/js/genre.js"></script>-->
+<script src="../assets/js/genres.js"></script>
 
 </body>
 </html>

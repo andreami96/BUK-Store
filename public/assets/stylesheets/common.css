@@ -3,6 +3,10 @@
     text-decoration: none;
 }
 
+#under-navbar {
+    height: 7em;
+}
+
 /* Navbar */
 .navbar {
     margin: 12px;

@@ -2,41 +2,20 @@ html,body {
     height:100%;
 }
 
-.under-navbar {
-    height: 7em;
-}
-
-.small-genre-column {
-    display: flex;
+#small-genre-box {
     flex-wrap: wrap;
-    flex-direction: column;
 }
 
 .small-genre-card {
     display: flex;
-    flex-direction: column;
+    flex: 1 1 40%;
+    align-items: center;
+    height: 9em;
     border: 1px solid rgb(212, 212, 212);
 }
 
 .small-genre-card p {
     font-style: italic;
-}
-
-.small-genre-list {
-    display: flex;
-    flex-wrap: wrap;
-    /*flex-direction: column;*/
-}
-
-.small-genre-list a {
-    color: black;
-    text-decoration: none;
-    font-weight: lighter;
-    flex-basis: 50%;
-}
-
-.small-genre-list a:hover {
-    color: #e5e5e5;
 }
 
 #novel-box {

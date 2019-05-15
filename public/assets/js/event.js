@@ -3,8 +3,7 @@ jQuery(document).ready(function() {
     let url = window.location.pathname;
     let eventID = url.substr(url.lastIndexOf('/') + 1);
 
-    $.get("/api/v1/events/" + eventID, function(data, status){
-        console.log(data);
+    $.get("/api/v1/events/" + eventID1, function(data, status){
         $(".banner-primary").css('background-image', 'url("../assets/images' + data.picture + '")');
         $("#event-title").text(data.title);
         $.get("/api/v1/books/" + data.presentedBook, function (data, status) {
