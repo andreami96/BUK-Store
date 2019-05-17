@@ -1,3 +1,22 @@
+jQuery(document).ready(function() {
+
+    // Show navbar when scrolling down
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 60) {
+            makeSolidNavbar();
+        } else {
+            makeTransparentNavbar();
+        }
+    });
+
+    // Show navbar when hovering over
+    $(".navbar").hover(function() {
+        makeSolidNavbar();
+    },function() {
+        makeTransparentNavbar();
+    })
+});
+
 function makeSolidNavbar() {
     $(".navbar").css({
         "background-color": "rgba(255,255,255, 0.97)",
@@ -17,24 +36,3 @@ function makeTransparentNavbar() {
         "color": "white"
     })
 }
-
-
-
-jQuery(document).ready(function() {
-
-    // Show navbar when scrolling down
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 60) {
-            makeSolidNavbar();
-        } else {
-            makeTransparentNavbar();
-        }
-    });
-
-    // Show navbar when hovering over
-    $(".navbar").hover(function() {
-        makeSolidNavbar();
-    },function() {
-        makeTransparentNavbar();
-    })
-});
