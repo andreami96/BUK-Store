@@ -1,21 +1,24 @@
 jQuery(document).ready(function() {
 
-    // Show navbar when scrolling down
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 60) {
-            makeSolidNavbar();
-        } else {
-            makeTransparentNavbar();
-        }
-    });
+    if( !$("#navbarNoHover").length ){
+        // Show navbar when scrolling down
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 60) {
+                makeSolidNavbar();
+            } else {
+                makeTransparentNavbar();
+            }
+        });
 
-    // Show navbar when hovering over
-    $(".navbar").hover(function() {
-        makeSolidNavbar();
-    },function() {
-        if ($(window).scrollTop() < 60)
-            makeTransparentNavbar();
-    })
+        // Show navbar when hovering over
+        $(".navbar").hover(function() {
+            makeSolidNavbar();
+        },function() {
+            if ($(window).scrollTop() < 60)
+                makeTransparentNavbar();
+        })
+    }
+    else makeSolidNavbar();
 });
 
 function makeSolidNavbar() {
