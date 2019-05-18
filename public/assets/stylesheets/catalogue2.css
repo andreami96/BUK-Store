@@ -9,11 +9,6 @@
     align-items: stretch;
 }
 
-#sidebar {
-    min-width: 250px;
-    max-width: 250px;
-}
-
 #sidebar-list {
     margin-top: 1rem;
 }
@@ -49,6 +44,17 @@ a[data-toggle="collapse"] {
     }
 }
 
+@media (max-width: 576px) {
+    #sidebar {
+        min-width: 150px !important;
+        max-width: 150px !important;
+        margin-left: -150px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+}
 
 p {
     font-size: 1.1em;
@@ -221,6 +227,10 @@ ul.rig.columns-1 li {
         /* over-ride all li styles */
         margin: 0 0 10px;
     }
+    ul.rig li a img {
+        width: auto !important;
+    }
+
 }
 
 #book-catalog .img-fluid {
