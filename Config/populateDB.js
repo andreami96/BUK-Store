@@ -53,6 +53,47 @@ async function createGenres() {
             "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
     });
 
+    await Genre.create({
+        genreID: 2,
+        title: "Novel",
+        picture: "/genres/novel.jpg",
+        mainGenreID: 1,
+        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
+            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
+            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
+    });
+
+    await Genre.create({
+        genreID: 3,
+        title: "Storiography",
+        picture: "/genres/storiography.jpg",
+        mainGenreID: 1,
+        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
+            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
+            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
+    });
+
+    await Genre.create({
+        genreID: 4,
+        title: "Diary",
+        picture: "/genres/diary.jpg",
+        mainGenreID: 1,
+        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
+            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
+            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
+    });
+
+
+    await Genre.create({
+        genreID: 5,
+        title: "Fable",
+        picture: "/genres/fable.jpg",
+        mainGenreID: 1,
+        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
+            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
+            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
+    });
+
 }
 
 async function createThemes() {
