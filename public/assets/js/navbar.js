@@ -13,7 +13,8 @@ jQuery(document).ready(function() {
     $(".navbar").hover(function() {
         makeSolidNavbar();
     },function() {
-        makeTransparentNavbar();
+        if ($(window).scrollTop() < 60)
+            makeTransparentNavbar();
     })
 });
 

@@ -38,7 +38,7 @@ $(document).ready( function() {
 
 
     $window.scroll(function() {
-        if ($window.scrollTop() > offset.top && !((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) ) {
+        if ($window.scrollTop() > offset.top ) {
             $sidebar.stop().animate({
                 marginTop: $window.scrollTop() - offset.top + topPadding
             });
