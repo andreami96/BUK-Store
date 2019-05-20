@@ -1593,7 +1593,7 @@
       "user_auth": {
         "type": "apiKey",
         "name": "X-API-KEY",
-        "in": "header"
+        "in": "cookie"
       }
     },
     "requestBodies": {
