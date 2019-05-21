@@ -51,7 +51,7 @@ function addNormalNavbar() {
                     "                    <a class=\"nav-link\" href=\"#\">Registrati</a>\n" +
                     "                </li>\n" +
                     "                <li class=\"nav-item\">\n" +
-                    "                    <a class=\"nav-link\" href=\"#\">Login</a>\n" +
+                    "                    <a class=\"nav-link\" href=\"/login.html\">Login</a>\n" +
                     "                </li>\n" +
                     "            </ul>\n" +
                     "        </div>\n");
@@ -95,9 +95,19 @@ function addLoggedNavbar() {
             "                </li>\n" +
             "            </ul>\n" +
             "            <ul class=\"navbar-nav\" id=\"right-nav\">\n" +
-            "                <li class=\"nav-item\">\n" +
+            "            <li class=\"nav-item\">\n" +
             "                    <a class=\"nav-link\" href=\"#\">Area Personale</a>\n" +
+            "                </li>\n" +
+            "                <li class=\"nav-item\">\n" +
+            "                    <a class=\"nav-link\" href=\"#\" onclick=\"logout()\">Logout</a>\n" +
             "                </li>\n" +
             "            </ul>\n" +
             "        </div>\n")
+}
+
+function logout() {
+    $.get("/api/v1/logout", function (data) {
+        console.log(data);
+        $(location).attr('href', '/');
+    });
 }
