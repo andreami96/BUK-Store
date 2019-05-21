@@ -1,3 +1,55 @@
+html,body {
+    height:100%;
+}
+
+.banner-primary {
+    display: flex;
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-primary .gradient-layer {
+    flex: 1;
+    background-image: linear-gradient(
+            to top,
+            black, transparent 60%
+    );
+}
+
+.navbar-header {
+    position: relative;
+}
+
+.navbar-header span {
+    /* Make clickable the "BUK" logo */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+
+.banner-primary h1 {
+    color: white;
+    position: absolute;
+    left: 40px;
+    bottom: 20px;
+    text-align: center;
+
+}
+
+.carousel-item .img-fluid {
+    height: 15em;
+    width: auto;
+    overflow:hidden;
+}
+
 /*
     code by Iatek LLC 2018 - CC 2.0 License - Attribution required
     code customized by Azmind.com
@@ -40,7 +92,7 @@
         position: relative;
         transform: translate3d(0, 0, 0);
     }
-    /* left or forward direction */
+    /* right or backward (next) direction */
     .active.carousel-item-left + .carousel-item-next.carousel-item-left,
     .carousel-item-next.carousel-item-left + .carousel-item,
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
@@ -57,7 +109,7 @@
         display: block;
         visibility: visible;
     }
-    /* right or prev direction */
+    /* left or forward (prev) direction */
     .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
     .carousel-item-prev.carousel-item-right + .carousel-item,
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
@@ -80,13 +132,13 @@
         position: relative;
         transform: translate3d(0, 0, 0);
     }
-    /* left or forward direction */
+    /* right or backward (next) direction */
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
-    /* right or prev direction */
+    /* left or forward (prev) direction */
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
         transform: translate3d(100%, 0, 0);
@@ -94,6 +146,8 @@
         display: block;
     }
 }
+
+
 /* LG */
 @media (min-width: 991px) {
     /* show 4th item */
@@ -112,85 +166,17 @@
         display: block;
         visibility: visible;
     }
-    /* left or forward direction */
+    /* right or backward (next) */
     .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
         transform: translate3d(-100%, 0, 0);
         visibility: visible;
     }
-    /* right or prev direction //t - previous slide direction last item animation fix */
+    /* left or forward (prev) //t - previous slide direction last item animation fix */
     .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
         position: relative;
         transform: translate3d(100%, 0, 0);
         visibility: visible;
         display: block;
     }
-}
-
-.panel-heading .accordion-toggle [class*="fa"] {
-    -webkit-transition-duration: 0.6s;
-    -moz-transition-duration: 0.6s;
-    -o-transition-duration: 0.6s;
-    transition-duration: 0.6s;
-    display: inline-block;
-    -webkit-transition-property: -webkit-transform;
-    -moz-transition-property: -moz-transform;
-    -o-transition-property: -o-transform;
-    transition-property: transform;
-}
-
-.panel-heading .accordion-toggle [class*="fa-"] {
-    /* symbol for "opening" panels */
-/*    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    /*content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-}
-
-.panel-heading .accordion-toggle.collapsed [class*="fa-"] {
-    /* symbol for "collapsed" panels */
-    /*content: "\e080";     /*adjust as needed, taken from bootstrap.css */
-    -webkit-transform:rotate(-90deg);
-    -moz-transform:rotate(-90deg);
-    -o-transform:rotate(-90deg);
-    .rotate(-90deg);
-}
-
-.panel-heading .accordion-toggle {
-    color: black;
-    text-decoration: none;
-}
-
-.carousel-item .img-fluid {
-    height: 20rem;
-    width: auto;
-    overflow:hidden;
-}
-
-.product .img-fluid {
-    width:100%;
-    height: auto;
-    overflow:hidden;
-}
-
-@media (max-width: 768px) {
-    .product .img-fluid {
-        width:60%;
-        height: auto;
-        overflow:hidden;
-    }
-}
-
-.product-data {
-    white-space: nowrap;
-}
-
-.product-data ul{
-    padding-left: 0;
-}
-
-.product-data ul li p {
-    display: inline;
-}
-
-.breadcrumb {
-    margin-top: 4rem;
 }
