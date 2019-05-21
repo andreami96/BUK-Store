@@ -31,10 +31,6 @@
     background: rgba(0,0,0,0);
 }
 
-.navbar-brand {
-    align-items: center;
-}
-
 .navbar-toggle {
     border: 0;
     background: transparent;

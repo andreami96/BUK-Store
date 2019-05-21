@@ -46,7 +46,7 @@ async function createGenres() {
     await Genre.create({
         genreID: 1,
         title: "Thriller",
-        picture: "/genres/thriller.jpg",
+        picture: "/genres/book-candle.jpg",
         mainGenreID: 1,
         description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
             "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
@@ -103,6 +103,20 @@ async function createThemes() {
         title: "Giallo",
         picture: "/themes/giallo.jpg",
         description: "Il giallo è un genere di successo di narrativa di consumo nato verso la metà del XIX secolo e sviluppatosi nel Novecento"
+    });
+
+    await Theme.create({
+        themeID: 2,
+        title: "Amore",
+        picture: "/themes/amore.jpg",
+        description: "L'amore è il motore che muove l'uno verso l'altro, è forza gravitazionale esercitata su tutti noi"
+    });
+
+    await Theme.create({
+        themeID: 3,
+        title: "Guerra",
+        picture: "/themes/guerra.jpg",
+        description: "War is peace."
     });
 
 }
@@ -289,7 +303,17 @@ async function createGenreThemes() {
     await GenreTheme.create({
         genreID: 1,
         themeID: 1
-    })
+    });
+
+    await GenreTheme.create({
+        genreID: 1,
+        themeID: 2
+    });
+
+    await GenreTheme.create({
+        genreID: 1,
+        themeID: 3
+    });
 }
 
 exports.createDatabase = function (force=false, populateItNow=false) {

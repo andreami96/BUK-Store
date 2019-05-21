@@ -1253,6 +1253,50 @@
         }
       }
     },
+    "/logout": {
+      "get": {
+        "summary": "Endpoint used to logout the user",
+        "description": "Use this route to logout a user which is currently logged in the system",
+        "tags": [
+          "User"
+        ],
+        "security": [
+          {
+            "user_auth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "type": "integer",
+                      "description": "The HTTP status code of the request made",
+                      "example": 200
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "User logged out",
+                      "description": "A description of the error"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/NotAuth"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
     "/me": {
       "get": {
         "summary": "Access to this endpoint to retrieve the user's information",
@@ -1549,7 +1593,7 @@
       "user_auth": {
         "type": "apiKey",
         "name": "X-API-KEY",
-        "in": "header"
+        "in": "cookie"
       }
     },
     "requestBodies": {
