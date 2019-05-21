@@ -129,7 +129,7 @@ ul ul a {
 
 body {
     background: #fff;
-    height: 100%;
+/*    height: 100%;*/
 }
 
 h1 {
@@ -220,17 +220,13 @@ ul.rig.columns-1 li {
         margin: 0 0 5px;
     }
     ul.rig {
-        margin-left: 0;
+        margin-left: 0px !important;
     }
     ul.rig li {
         width: 100% !important;
         /* over-ride all li styles */
-        margin: 0 0 10px;
+        margin: 0 0 5px;
     }
-    ul.rig li a img {
-        width: auto !important;
-    }
-
 }
 
 #book-catalog .img-fluid {

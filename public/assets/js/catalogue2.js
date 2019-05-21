@@ -39,9 +39,12 @@ $(document).ready( function() {
 
     $window.scroll(function() {
         if ($window.scrollTop() > offset.top ) {
-            $sidebar.stop().animate({
-                marginTop: $window.scrollTop() - offset.top + topPadding
-            });
+            //if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 50)
+
+                $sidebar.stop().animate({
+                    marginTop: $window.scrollTop() - offset.top + topPadding
+                });
+
         } else {
             $sidebar.stop().animate({
                 marginTop: 0
