@@ -54,6 +54,12 @@ $(document).ready(function () {
         }
     });
 
+    $("#navbarCollapse a").on('click', function(event) {
+        // Close the navbar
+        if($('.navbar-toggler').is(':visible'))
+            $('.navbar-toggler').click();
+    });
+
 });
 
 function addNormalNavbar() {
@@ -77,7 +83,7 @@ function addNormalNavbar() {
                     "                        Catalogo\n" +
                     "                    </a>\n" +
                     "                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n" +
-                    "                        <a class=\"dropdown-item\" href=\"./catalogue/mainGenres.html\">Generi Principali</a>\n" +
+                    "                        <a class=\"dropdown-item\" href=\"/catalogue/mainGenres.html\">Generi Principali</a>\n" +
                     "                        <a class=\"dropdown-item\" href=\"#\">Temi</a>\n" +
                     "                        <div class=\"dropdown-divider\"></div>\n" +
                     "                        <a class=\"dropdown-item\" href=\"#\">Something to divide from the other</a>\n" +
@@ -125,7 +131,7 @@ function addLoggedNavbar() {
             "                        Catalogo\n" +
             "                    </a>\n" +
             "                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n" +
-            "                        <a class=\"dropdown-item\" href=\"./catalogue/mainGenres.html\">Generi Principali</a>\n" +
+            "                        <a class=\"dropdown-item\" href=\"/catalogue/mainGenres.html\">Generi Principali</a>\n" +
             "                        <a class=\"dropdown-item\" href=\"#\">Temi</a>\n" +
             "                        <div class=\"dropdown-divider\"></div>\n" +
             "                        <a class=\"dropdown-item\" href=\"#\">Something to divide from the other</a>\n" +
@@ -161,7 +167,8 @@ function makeSolidNavbar() {
     $(".navbar").css({
         "background-color": "rgba(255,255,255, 0.97)",
         "border": "1px solid rgba(212, 212, 212, 0.97)"
-    });
+    }).removeClass("navbar-dark")
+        .addClass("navbar-light");
     $(".navbar-nav, .nav-link").css({
         "color": "black"
     })
@@ -172,7 +179,8 @@ function makeTransparentNavbar() {
     $(".navbar").css({
         "background-color": "",
         "border": "1px solid rgba(212, 212, 212, 0)"
-    });
+    }).addClass("navbar-dark")
+        .removeClass("navbar-light");
     $(".navbar-nav, .nav-link").css({
         "color": "white"
     })
