@@ -10,7 +10,8 @@ $(document).ready(function(){
             event.preventDefault();
 
             // Close the navbar
-            $('.navbar-toggler').click();
+            if($('.navbar-toggler').is(':visible'))
+                $('.navbar-toggler').click();
 
             // Store hash
             var hash = this.hash;
