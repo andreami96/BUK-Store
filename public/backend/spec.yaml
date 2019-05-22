@@ -2,7 +2,8 @@ openapi: 3.0.0
 info:
   version: '0.5'
   title: BUK Store
-  description: This document presents the details of each endpoint used to perform requests in the BUK Store main server.
+  description: This document presents the details of each endpoint used to perform requests
+    in the BUK Store main server.
 servers:
   - url: 'https://buk-store.herokuapp.com/api/v1'
     description: Main Server
@@ -141,7 +142,9 @@ paths:
   '/books/{ISBN}/events':
     get:
       summary: It retrieves the events related to the specified book
-      description: Use this endpoint to retrieve the identifiers of the events related to **_ISBN_**
+      description: >-
+        Use this endpoint to retrieve the identifiers of the events related to
+        **_ISBN_**
       tags:
         - Book
       parameters:
@@ -174,7 +177,9 @@ paths:
   '/books/{ISBN}/similarBooks':
     get:
       summary: It retrieves the books similar to the specified book
-      description: Use this endpoint to retrieve the identifier of the books similar to **_ISBN_**
+      description: >-
+        Use this endpoint to retrieve the identifier of the books similar to
+        **_ISBN_**
       tags:
         - Book
       parameters:
@@ -233,7 +238,9 @@ paths:
   /books/bestSellers:
     get:
       summary: Download the most sold books of the Buk Store
-      description: Access to this endpoint to retrieve the identifiers of the book most purchased by the customers
+      description: >-
+        Access to this endpoint to retrieve the identifiers of the book most
+        purchased by the customers
       tags:
         - Book
       parameters:
@@ -317,7 +324,9 @@ paths:
   '/events/{eventID}/book':
     get:
       summary: It retrieves the information about the book shown at that event
-      description: Use this endpoint to retrieve the actual book presented during  **_eventID_**
+      description: >-
+        Use this endpoint to retrieve the actual book presented during 
+        **_eventID_**
       tags:
         - Event
       parameters:
@@ -343,7 +352,9 @@ paths:
   /authors:
     get:
       summary: It retrieves the authors present in the Database
-      description: Use this endpoint to know the authors' identifiers stored in the application
+      description: >-
+        Use this endpoint to know the authors' identifiers stored in the
+        application
       tags:
         - Author
       parameters:
@@ -372,7 +383,9 @@ paths:
   '/authors/{authorID}':
     get:
       summary: It retrieves the information about a specific author
-      description: Use this endpoint to retrieve useful information about the author associated to **_authorID_**
+      description: >-
+        Use this endpoint to retrieve useful information about the author
+        associated to **_authorID_**
       tags:
         - Author
       parameters:
@@ -397,8 +410,12 @@ paths:
           $ref: '#/components/responses/InternalError'
   '/authors/{authorID}/books':
     get:
-      summary: It retrieves the information about the books written by a specific author
-      description: Use this endpoint to retrieve the identifier of the books written by **_authorID_**
+      summary: >-
+        It retrieves the information about the books written by a specific
+        author
+      description: >-
+        Use this endpoint to retrieve the identifier of the books written by
+        **_authorID_**
       tags:
         - Author
       parameters:
@@ -427,7 +444,9 @@ paths:
   /themes:
     get:
       summary: Retrieves the books' themes from the Database
-      description: Use this endpoint to know which are the themes identifier inside the application
+      description: >-
+        Use this endpoint to know which are the themes identifier inside the
+        application
       tags:
         - Theme
       parameters:
@@ -479,8 +498,12 @@ paths:
           $ref: '#/components/responses/InternalError'
   '/themes/{themeID}/books':
     get:
-      summary: It retrieves the information about the books associated to a specific theme
-      description: Use this endpoint to retrieve the identifier of the books associated to **_themeID_**
+      summary: >-
+        It retrieves the information about the books associated to a specific
+        theme
+      description: >-
+        Use this endpoint to retrieve the identifier of the books associated to
+        **_themeID_**
       tags:
         - Theme
       parameters:
@@ -566,7 +589,9 @@ paths:
   /genres:
     get:
       summary: Retrieves the genres of the books stored inside the application
-      description: Use this endpoint to retrieve the genres identifier inside the application
+      description: >-
+        Use this endpoint to retrieve the genres identifier inside the
+        application
       tags:
         - Genre
       parameters:
@@ -618,8 +643,12 @@ paths:
           $ref: '#/components/responses/InternalError'
   '/genres/{genreID}/books':
     get:
-      summary: It retrieves the information about the books associated to a specified genre
-      description: Use this endpoint to retrieve the identifier of the books associated to **_genreID_**
+      summary: >-
+        It retrieves the information about the books associated to a specified
+        genre
+      description: >-
+        Use this endpoint to retrieve the identifier of the books associated to
+        **_genreID_**
       tags:
         - Genre
       parameters:
@@ -652,7 +681,9 @@ paths:
   '/genres/{genreID}/themes':
     get:
       summary: It retrieves the themes associated to a specific genre
-      description: Use this endpoint to retrieve the identifier of the themes associated to **_genreID_**
+      description: >-
+        Use this endpoint to retrieve the identifier of the themes associated to
+        **_genreID_**
       tags:
         - Genre
       parameters:
@@ -685,7 +716,9 @@ paths:
   /signup:
     post:
       summary: Endpoint used to register a new user
-      description: 'Access to this endpoint to register a new user inside the application, passing as body his/her parameters'
+      description: >-
+        Access to this endpoint to register a new user inside the application,
+        passing as body his/her parameters
       tags:
         - User
       requestBody:
@@ -715,7 +748,9 @@ paths:
   '/activation/{activationToken}':
     get:
       summary: Endpoint used to register a new user
-      description: Access to this endpoint to activate a new user once the user is registered
+      description: >-
+        Access to this endpoint to activate a new user once the user is
+        registered
       tags:
         - User
       parameters:
@@ -748,7 +783,9 @@ paths:
   /login:
     post:
       summary: Endpoint used to login inside the Buk Store application
-      description: Pass to this endpoint the email and the password to log in the application after he/she completed the activation phase
+      description: >-
+        Pass to this endpoint the email and the password to log in the
+        application after he/she completed the activation phase
       tags:
         - User
       requestBody:
@@ -764,7 +801,8 @@ paths:
                   token:
                     type: string
                     description: The access token to use the locked endpoints
-                    example: a26aa2ef2c11814d39fc17295c713f6f7c86f46b698c1641cbe9970877ef7043
+                    example: >-
+                      a26aa2ef2c11814d39fc17295c713f6f7c86f46b698c1641cbe9970877ef7043
                   user:
                     $ref: '#/components/schemas/User'
         '400':
@@ -773,10 +811,41 @@ paths:
           $ref: '#/components/responses/NotAuth'
         '500':
           $ref: '#/components/responses/InternalError'
+  /logout:
+    get:
+      summary: Endpoint used to logout the user
+      description: Use this route to logout a user which is currently logged in the system
+      tags:
+        - User
+      security:
+        - user_auth: []
+      responses:
+        '200':
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    description: The HTTP status code of the request made
+                    example: 200
+                  description:
+                    type: string
+                    example: User logged out
+                    description: A description of the error
+        '401':
+          $ref: '#/components/responses/NotAuth'
+        '500':
+          $ref: '#/components/responses/InternalError'
+                  
   /me:
     get:
       summary: Access to this endpoint to retrieve the user's information
-      description: Make a request to this endpoint to retrieve the information of the user which is actually logged in
+      description: >-
+        Make a request to this endpoint to retrieve the information of the user
+        which is actually logged in
       tags:
         - User
       security:
@@ -796,7 +865,9 @@ paths:
           $ref: '#/components/responses/InternalError'
     put:
       summary: Access to this endpoint to change the user's information
-      description: Make a request to this endpoint to change the information of the user which is actually logged in
+      description: >-
+        Make a request to this endpoint to change the information of the user
+        which is actually logged in
       tags:
         - User
       security:
@@ -821,7 +892,9 @@ paths:
   /me/cart:
     get:
       summary: Access to this endpoint to retrieve the user's cart
-      description: Send a request here to retrieve the information about the cart of the logged user
+      description: >-
+        Send a request here to retrieve the information about the cart of the
+        logged user
       tags:
         - Cart
       security:
@@ -841,7 +914,9 @@ paths:
           $ref: '#/components/responses/InternalError'
     post:
       summary: Add a new book to the user's cart
-      description: Send the book identifier and the quantity to this endpoint in order to add the new book to the cart
+      description: >-
+        Send the book identifier and the quantity to this endpoint in order to
+        add the new book to the cart
       tags:
         - Cart
       security:
@@ -863,7 +938,9 @@ paths:
           $ref: '#/components/responses/InternalError'
     put:
       summary: Change the quantity of the specified book
-      description: Send the book identifier and the new quantity to this endpoint in order to change the number of book inside the user's cart
+      description: >-
+        Send the book identifier and the new quantity to this endpoint in order
+        to change the number of book inside the user's cart
       tags:
         - Cart
       security:
@@ -885,7 +962,9 @@ paths:
           $ref: '#/components/responses/InternalError'
     delete:
       summary: Delete the specified book from the user's cart
-      description: Send the book identifier in order to delete that book from the logged in user cart
+      description: >-
+        Send the book identifier in order to delete that book from the logged in
+        user cart
       tags:
         - Cart
       security:
@@ -908,7 +987,9 @@ paths:
   /me/reservations:
     get:
       summary: Access to this endpoint to retrieve the user's reservations
-      description: Send a request here to retrieve the information about the reservations of the logged user
+      description: >-
+        Send a request here to retrieve the information about the reservations
+        of the logged user
       tags:
         - Reservation
       security:
@@ -928,7 +1009,9 @@ paths:
           $ref: '#/components/responses/InternalError'
     post:
       summary: Create a new reservation starting from the user's cart
-      description: Use this endpoint to create a new order for the user taking the books from his/hers cart
+      description: >-
+        Use this endpoint to create a new order for the user taking the books
+        from his/hers cart
       tags:
         - Reservation
       security:
@@ -953,7 +1036,7 @@ components:
     user_auth:
       type: apiKey
       name: X-API-KEY
-      in: header
+      in: cookie
   requestBodies:
     signupBody:
       content:
@@ -979,7 +1062,8 @@ components:
               ISBN:
                 $ref: '#/components/schemas/Book/properties/ISBN'
               quantity:
-                $ref: '#/components/schemas/Cart/properties/books/items/properties/quantity'
+                $ref: >-
+                  #/components/schemas/Cart/properties/books/items/properties/quantity
     reservationBody:
       content:
         application/json:
@@ -1017,14 +1101,19 @@ components:
     fromDate:
       name: from
       in: query
-      description: 'The date from which the application starts to search, default value is today. Automatically, it is set up the 00**_h_**:00**_m_**:00**_s_** as starting time to search'
+      description: >-
+        The date from which the application starts to search, default value is
+        today. Automatically, it is set up the 00**_h_**:00**_m_**:00**_s_** as
+        starting time to search
       schema:
         type: string
         format: date
     toDate:
       name: to
       in: query
-      description: 'The final date until to search, default value is today. Automatically, it is set up the 23**_h_**:59**_m_**:59**_s_** as final time to search'
+      description: >-
+        The final date until to search, default value is today. Automatically,
+        it is set up the 23**_h_**:59**_m_**:59**_s_** as final time to search
       schema:
         type: string
         format: date
@@ -1157,10 +1246,16 @@ components:
           type: string
           description: The description of this Genre
           readOnly: true
-          example: 'Thriller is a broad genre of literature, film and television, having numerous, often overlapping subgenres. Thrillers are characterized and defined by the moods they elicit, giving viewers heightened feelings of suspense, excitement, surprise, anticipation and anxiety'
+          example: >-
+            Thriller is a broad genre of literature, film and television, having
+            numerous, often overlapping subgenres. Thrillers are characterized
+            and defined by the moods they elicit, giving viewers heightened
+            feelings of suspense, excitement, surprise, anticipation and anxiety
         picture:
           type: string
-          description: The path in the server to retrieve the picture representatives of the Genre
+          description: >-
+            The path in the server to retrieve the picture representatives of
+            the Genre
           readOnly: true
           example: /images/genres/thriller.png
     Theme:
@@ -1181,10 +1276,16 @@ components:
           type: string
           description: The description of this Theme
           readOnly: true
-          example: 'Crime fiction is a literary genre that fictionalises crimes, their detection, criminals, and their motives. It is usually distinguished from mainstream fiction and other genres such as historical fiction or science fiction, but the boundaries are indistinct.'
+          example: >-
+            Crime fiction is a literary genre that fictionalises crimes, their
+            detection, criminals, and their motives. It is usually distinguished
+            from mainstream fiction and other genres such as historical fiction
+            or science fiction, but the boundaries are indistinct.
         picture:
           type: string
-          description: The path in the server to retrieve the picture representatives of the Theme
+          description: >-
+            The path in the server to retrieve the picture representatives of
+            the Theme
           readOnly: true
           example: /images/themes/crime_fiction.png
     Author:
@@ -1210,10 +1311,17 @@ components:
           type: string
           description: A brief biography of the Author
           readOnly: true
-          example: 'Joël Dicker was born on 16 June 1985 in Geneva, Switzerland. He attended Geneva schools. At the age of 19, he enrolled at the Cours Florent in Paris. After one year he returned to Switzerland to attend law school, where he received his Masters of Law from the University of Geneva in 2010'
+          example: >-
+            Joël Dicker was born on 16 June 1985 in Geneva, Switzerland. He
+            attended Geneva schools. At the age of 19, he enrolled at the Cours
+            Florent in Paris. After one year he returned to Switzerland to
+            attend law school, where he received his Masters of Law from the
+            University of Geneva in 2010
         picture:
           type: string
-          description: The path in the server to retrieve the picture representatives of the Author
+          description: >-
+            The path in the server to retrieve the picture representatives of
+            the Author
           readOnly: true
           example: /images/authors/joel_dicker.png
     Book:
@@ -1237,12 +1345,25 @@ components:
           type: string
           description: A summary description of the book
           readOnly: true
-          example: 'The Truth About the Harry Quebert Affair is a novel by Swiss author Joël Dicker. It was published in the United States on 27 May 2014, by Penguin Books.[1] The original French version, La vérité sur l’affaire Harry Quebert, has sold more than one million copies'
+          example: >-
+            The Truth About the Harry Quebert Affair is a novel by Swiss author
+            Joël Dicker. It was published in the United States on 27 May 2014,
+            by Penguin Books.[1] The original French version, La vérité sur
+            l’affaire Harry Quebert, has sold more than one million copies
         abstract:
           type: string
           description: An abstract of the book
           readOnly: true
-          example: 'The novel is set in a coastal New Hampshire town (called Aurora in the original version and Somerset in the English translation). The protagonist, Marcus Goldman, is a successful young novelist who needs inspiration for his next book. Marcus heads to New Hampshire to stay with his college professor, Harry Quebert, to focus on his writing. When the body of 15-year-old Nola Kellergan is found 33 years after she went missing and Quebert is accused of her murder, Marcus works to uncover the truth. The result of his investigation becomes his next book.'
+          example: >-
+            The novel is set in a coastal New Hampshire town (called Aurora in
+            the original version and Somerset in the English translation). The
+            protagonist, Marcus Goldman, is a successful young novelist who
+            needs inspiration for his next book. Marcus heads to New Hampshire
+            to stay with his college professor, Harry Quebert, to focus on his
+            writing. When the body of 15-year-old Nola Kellergan is found 33
+            years after she went missing and Quebert is accused of her murder,
+            Marcus works to uncover the truth. The result of his investigation
+            becomes his next book.
         interview:
           type: string
           description: A short interview of the book's authors
@@ -1340,7 +1461,18 @@ components:
           type: string
           description: The actual text of the review
           readOnly: true
-          example: 'For book lovers The Truth About The Harry Quebert Affair is an ideal read as it is a book about a book about a book.  Marcus Goldman, author and protégé of the famous author Harry Quebert, is the narrator of this book.  We follow him from having had a very successful debut novel, to having writers block, to writing another bestseller about a murder that happened thirty three years ago and where the main suspect is none other that his friend and mentor Harry Quebert.  What is interesting is that the chapters go backwards, from chapter thirty one  to one  which reflects how the story unfolds, gradually going backwards to find out what really happened to Nola Kellergan.'
+          example: >-
+            For book lovers The Truth About The Harry Quebert Affair is an ideal
+            read as it is a book about a book about a book.  Marcus Goldman,
+            author and protégé of the famous author Harry Quebert, is the
+            narrator of this book.  We follow him from having had a very
+            successful debut novel, to having writers block, to writing another
+            bestseller about a murder that happened thirty three years ago and
+            where the main suspect is none other that his friend and mentor
+            Harry Quebert.  What is interesting is that the chapters go
+            backwards, from chapter thirty one  to one  which reflects how the
+            story unfolds, gradually going backwards to find out what really
+            happened to Nola Kellergan.
         ISBN:
           $ref: '#/components/schemas/Book/properties/ISBN'
     User:
@@ -1427,7 +1559,8 @@ components:
               title:
                 $ref: '#/components/schemas/Book/properties/title'
               quantity:
-                $ref: '#/components/schemas/Cart/properties/books/items/properties/quantity'
+                $ref: >-
+                  #/components/schemas/Cart/properties/books/items/properties/quantity
     GenericPage:
       type: object
       description: The object which contains the articles present inside a generic page
