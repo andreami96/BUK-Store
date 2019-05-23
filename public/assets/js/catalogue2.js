@@ -170,7 +170,7 @@ jQuery(document).ready( function () {
     });
 
     // Register callback for next page
-    setTimeout(mobileViewUpdate, 200);
+    setTimeout(mobileViewUpdate, 250);
 
 });
 
