@@ -24,6 +24,16 @@ function mobileViewUpdate() {
     }
 }
 
+function buildAuthorsList (authors) {
+        var list = "";
+        authors.forEach(function (el, index) {
+            if (index === 0)
+                list = list + el.name + ' ' + el.surname;
+            else
+                list = list + ', ' + el.name + ' ' + el.surname;
+        });
+        return list;
+}
 
 $(document).ready( function () {
     $('button').on('click', mobileViewUpdate());
@@ -36,16 +46,16 @@ $(document).ready( function() {
         offset     = $sidebar.offset(),
         topPadding = 80;
 
-
     $window.scroll(function() {
         if ($window.scrollTop() > offset.top ) {
             //if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 50)
             let scroll = $window.scrollTop(),
                 docHeight = $(document).height(),
                 sidebarHeight = $("#sidebar-list").height(),
-                footerPosition = $("#footerContainer").position();
+                footerPosition = $("#footerContainer").position(),
+                footerHeight = $("#footerContainer").height();
 
-            if ( scroll + sidebarHeight + 150 <= docHeight - 250) {
+            if ( scroll + sidebarHeight + 150 <= docHeight - footerHeight - 50) {
                 $sidebar.stop().animate({
                     marginTop: $window.scrollTop() - offset.top + topPadding
                 });
@@ -94,24 +104,72 @@ jQuery(document).ready( function () {
     let url = window.location.pathname;
     let isbn = url.substr(url.lastIndexOf('/') + 1);
 
-
+    // Build the list of books
     $.get("/api/v1/books/", {limit: 12, offset: 0}, function (data, status) {
         console.log(data);
 
         data.forEach(function (el, index) {
-            $.get("/api/v1/books/" + el.ISBN, function (data, status) {
-                console.log(data);
+            $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
+                console.log(bookData);
 
-                var newEl = $("li h4")[index];
-                $("#book-catalog").find($("li h5")[index]).text(data.title);
-                $("#book-catalog").find($("li a img")[index]).attr({
-                    "src": "../assets/images" + data.picture
+                $.get("/api/v1/books/" + bookData.ISBN + "/authors", function (authorsList, status) {
+                    console.log(authorsList);
+
+//                    $("#book-catalog").append(buildBookElement(bookData, authorsList));
+                    $('#book-catalog').append($('<li>').attr({
+                        "id": "book" + index
+                    }));
+
+                    $('#book' + index).append($('<a>').attr({
+                        "href": "/books/" + bookData.ISBN
+                    }));
+                    $('#book' + index).append($('<h6>').addClass('mt-2').text(bookData.title));
+                    $('#book' + index).append($('<p>').addClass('mt-1 authorsNameList').text(buildAuthorsList(authorsList)));
+                    $('#book' + index).append($('<div>').addClass('price').text(bookData.price + ' €'));
+
+                    $('#book' + index + ' a').append($('<img>').attr({
+                        "class": "product-image img-fluid",
+                        "src": "../assets/images" + bookData.picture,
+                        "alt": "#"
+                    }));
+
+                    /*
+                                    var newEl = $("li h4")[index];
+                                    $("#book-catalog").find($("li h5")[index]).text(data.title);
+                                    $("#book-catalog").find($("li a img")[index]).attr({
+                                        "src": "../assets/images" + data.picture
+                                    });
+                                    $("#book-catalog").find($("li p")[index]).text("author");
+                                    $("#book-catalog").find($("li h5")[index]).text(data.title);
+                    */
                 });
-                $("#book-catalog").find($("li p")[index]).text(data.author[0]);
-                $("#book-catalog").find($("li h5")[index]).text(data.title);
-
             });
         });
-    })
+    });
+
+    // Insert the list of themes
+    $.get("/api/v1/themes/", {limit: 5, offset: 0}, function (data, status) {
+        console.log(data);
+
+        data.forEach(function (el) {
+           $("#sidebar-themes").prepend(
+               "<li><a href=\"/themes/" + el.themeID + "\">" + el.title + " </a></li>"
+           )
+        });
+    });
+
+    // Insert the list of genres
+    $.get("/api/v1/mainGenres/", {limit:5, offset: 0}, function (data, status) {
+        console.log(data);
+
+        data.forEach(function (el) {
+            $("#sidebar-genres").prepend(
+                "<li><a href=\"/genres/" + el.mainGenreID + "\">" + el.title + " </a></li>"
+            )
+        })
+    });
+
+    // Register callback for next page
+
 });
 
