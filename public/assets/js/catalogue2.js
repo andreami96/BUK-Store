@@ -107,6 +107,7 @@ jQuery(document).ready( function () {
     // Build the list of books
     $.get("/api/v1/books/", {limit: 12, offset: 0}, function (data, status) {
         console.log(data);
+        var bookToInsert = 8;               //TODO: set back to 12 when there will be enough books
 
         data.forEach(function (el, index) {
             $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
@@ -114,8 +115,8 @@ jQuery(document).ready( function () {
 
                 $.get("/api/v1/books/" + bookData.ISBN + "/authors", function (authorsList, status) {
                     console.log(authorsList);
+                    bookToInsert--;
 
-//                    $("#book-catalog").append(buildBookElement(bookData, authorsList));
                     $('#book-catalog').append($('<li>').attr({
                         "id": "book" + index
                     }));
@@ -133,6 +134,9 @@ jQuery(document).ready( function () {
                         "alt": "#"
                     }));
 
+                    if ( bookToInsert === 0 ){
+                        mobileViewUpdate();
+                    }
                     /*
                                     var newEl = $("li h4")[index];
                                     $("#book-catalog").find($("li h5")[index]).text(data.title);
@@ -170,7 +174,6 @@ jQuery(document).ready( function () {
     });
 
     // Register callback for next page
-    setTimeout(mobileViewUpdate, 250);
+    //setTimeout(mobileViewUpdate, 250);
 
 });
-
