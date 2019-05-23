@@ -27,14 +27,6 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-.dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-}
-
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
@@ -46,24 +38,25 @@ a[data-toggle="collapse"] {
 
 @media (max-width: 576px) {
     #sidebar {
-        min-width: 150px !important;
-        max-width: 150px !important;
-        margin-left: -150px;
+        min-width: 120px !important;
+        max-width: 120px !important;
+        margin-left: -120px;
     }
     #sidebar.active {
         margin-left: 0;
     }
 
+    #sidebar-list h4 {
+        margin-left: 10px !important;
+    }
+
+    #sidebar-list a {
+        padding-left: 15px !important;
+    }
 }
 
-p {
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}
 
-a, a:hover, a:focus {
+#sidebar a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
@@ -120,16 +113,17 @@ a, a:hover, a:focus {
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
 }
+
 ul ul a {
     font-size: 0.9em !important;
-    padding-left: 30px !important;
+    padding-left: 2rem !important;
 }
 
 /* Product Grid */
 
 body {
     background: #fff;
-    height: 100%;
+/*    height: 100%;*/
 }
 
 h1 {
@@ -220,18 +214,25 @@ ul.rig.columns-1 li {
         margin: 0 0 5px;
     }
     ul.rig {
-        margin-left: 0;
+        margin-left: 0px !important;
     }
     ul.rig li {
         width: 100% !important;
         /* over-ride all li styles */
-        margin: 0 0 10px;
+        margin: 0 0 5px;
     }
-    ul.rig li a img {
-        width: auto !important;
+
+    .container-fluid.sidebar-active {
+        padding: 0px;
+    }
+
+    #book-catalog.sidebar-active {
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
 }
+
 
 #book-catalog .img-fluid {
     height: 20rem;
@@ -280,4 +281,19 @@ ul.rig.columns-1 li {
     border: 1px solid rgba(212, 212, 212, 1);
     border-bottom: 0;
     box-shadow: 0 10px 6px -6px black;
+}
+
+.authorsNameList {
+    font-size: 15px !important;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    text-decoration: none;
+}
+
+.pagination li.active {
+    background-color: #4CAF50;
+    color: white;
 }
