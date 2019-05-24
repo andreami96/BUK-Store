@@ -139,12 +139,6 @@
     transition-property: transform;
 }
 
-.panel-heading .accordion-toggle [class*="fa-"] {
-    /* symbol for "opening" panels */
-/*    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    /*content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-}
-
 .panel-heading .accordion-toggle.collapsed [class*="fa-"] {
     /* symbol for "collapsed" panels */
     /*content: "\e080";     /*adjust as needed, taken from bootstrap.css */
@@ -193,4 +187,21 @@
 
 .breadcrumb {
     margin-top: 4rem;
+}
+
+#collapseTwo .panel-body ul {
+    list-style-type: none;
+}
+
+#book-events ul {
+    list-style-type: none;
+}
+
+#book-events a {
+    text-decoration: none;
+    color: black;
+}
+
+.fa-chevron-down {
+    margin-right: 1rem;
 }

@@ -9,7 +9,7 @@ const { isInt } = require('../../../Utils/isInteger');
 router.get('/:ISBN', function (req, res, next) {
 
     if(isInt(req.params.ISBN))
-        res.sendFile(path.join(__dirname, '../../../public/books/bookNapo.html'));
+        res.sendFile(path.join(__dirname, '../../../public/books/book.html'));
     else
         next()
 });

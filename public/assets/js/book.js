@@ -47,6 +47,30 @@ jQuery(document).ready(function() {
                 "src": "../assets/images" + data.picture
             }
         );
+
+        //Build Author Interview element
+        if( data.interview.length != 0 ){
+            $('#author-interview').append($('<div>').addClass('panel-heading'));
+            $('#author-interview .panel-heading').append($('<h4>').addClass('panel-title'));
+            $('#author-interview .panel-heading .panel-title').append($('<a>').attr({
+                'class': 'accordion-toggle',
+                'data-toggle': 'collapse',
+                'data-parent': '#accordion',
+                'href': '#collapseOne'
+            }).text('Author Interview'));
+            $('#author-interview .panel-heading .panel-title a').prepend($('<i>').addClass('fa fa-chevron-down'));
+
+            $('#author-interview').append($('<div>').attr({
+                'class': 'panel-collapse collapse in',
+                'id': 'collapseOne'
+            }));
+            $('#collapseOne').append($('<div>').addClass('panel-body'));
+            $('#collapseOne .panel-body').append($('<ul>').attr({
+                'style': '...'
+            }).text(data.interview));
+            $('#author-interview').after($('<hr>'));
+        }
+
     });
 
     $.get("/api/v1/books/" + isbn + "/authors", function (data, status) {
@@ -59,18 +83,97 @@ jQuery(document).ready(function() {
         });
     });
 
+    //Build Book Reviews element
     $.get("/api/v1/books/" + isbn + "/reviews", function (data, status) {
         console.log(data);
-        
-        data.forEach( function (el, index) {
-            if ( index === 0 )
-                $("#review-list").append("<li> <h6>" + el.title +"</h6>" + el.text + "</li>");
-            else
-                $("#review-list").append(" <hr> <li> <h6>" + el.title +"</h6>" + el.text + "</li>");
-        });
+
+        if( data.length != 0 ){
+            $('#book-review').append($('<div>').addClass('panel-heading'));
+            $('#book-review .panel-heading').append($('<h4>').addClass('panel-title'));
+            $('#book-review .panel-heading .panel-title').append($('<a>').attr({
+                'class': 'accordion-toggle',
+                'data-toggle': 'collapse',
+                'data-parent': '#accordion',
+                'href': '#collapseTwo'
+            }).text('Reviews'));
+            $('#book-review .panel-heading .panel-title a').prepend($('<i>').addClass('fa fa-chevron-down'));
+
+            $('#book-review').append($('<div>').attr({
+                'class': 'panel-collapse collapse in',
+                'id': 'collapseTwo'
+            }));
+            $('#collapseTwo').append($('<div>').addClass('panel-body'));
+            $('#collapseTwo .panel-body').append($('<ul>').attr({
+                'style': '...',
+                'id': 'review-list'
+            }));
+            $('#book-review').after($('<hr>'));
+
+            data.forEach( function (el, index) {
+                $('#review-list').append($('<li>').attr({
+                    'id' : 'review' + index
+                }));
+                if ( index !== 0 )
+                    $('#review' + index).before($('<hr>'));
+                $('#review' + index).text(el.text);
+                $('#review' + index).prepend($('<h6>').text(el.title));
+            });
+
+        }
 
     });
 
+    //Build Book Events element
+    $.get("/api/v1/books/" + isbn + "/events", function (data, status) {
+        console.log(data);
+
+        if( data.length != 0 ){
+            $('#book-events').append($('<div>').addClass('panel-heading'));
+            $('#book-events .panel-heading').append($('<h4>').addClass('panel-title'));
+            $('#book-events .panel-heading .panel-title').append($('<a>').attr({
+                'class': 'accordion-toggle',
+                'data-toggle': 'collapse',
+                'data-parent': '#accordion',
+                'href': '#collapseThree'
+            }).text('Book Events'));
+            $('#book-events .panel-heading .panel-title a').prepend($('<i>').addClass('fa fa-chevron-down'));
+
+            $('#book-events').append($('<div>').attr({
+                'class': 'panel-collapse collapse in',
+                'id': 'collapseThree'
+            }));
+            $('#collapseThree').append($('<div>').addClass('panel-body'));
+            $('#collapseThree .panel-body').append($('<ul>').attr({
+                'style': '...',
+                'id': 'events-list'
+            }));
+            $('#book-events').after($('<hr>'));
+
+            data.forEach( function (el, index) {
+                $('#events-list').append($('<li>').attr({
+                    'id' : 'event' + index
+                }));
+                if ( index !== 0 )
+                    $('#event' + index).before($('<hr>'));
+                $.get("/api/v1/events/" + el.eventID, function (data, status) {
+                    console.log(data);
+
+                    $('#event' + index).text(data.description);
+                    $('#event' + index).prepend($('<h6>').text(data.address));
+                    $('#event' + index).prepend($('<h5>'));
+                    $('#event' + index + ' h5').prepend($('<a>').attr({
+                        'href': '/events/' + data.eventID
+                    }).text(data.title));
+
+                });
+            });
+
+        }
+
+    });
+
+
+    //Build Carousel of similar books
     $.get("/api/v1/books/" + isbn + "/similarBooks", function (data, status) {
         console.log(data);
 

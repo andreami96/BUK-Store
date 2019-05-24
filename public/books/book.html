@@ -6,54 +6,33 @@
 
     <title>Book - book title </title>
 
-    <!-- Bootstrap, Font Awesome CSS -->
+
+    <!-- Bootstrap, Leaflet, Font Awesome CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
 
     <link rel="stylesheet" href="../assets/stylesheets/custom-bootstrap.css">
     <link rel="stylesheet" href="../assets/stylesheets/common.css">
-    <link rel="stylesheet" href="../assets/stylesheets/book.css">
+    <link href="../assets/stylesheets/book.css" rel="stylesheet">
+
+
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-    <a class="navbar-brand" href="#">
-        <img src="../assets/images/buk-logo.jpg" width="70" height="30" alt="">
-    </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Catalog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a class="nav-link" href="#">My Account</a></li>
-        </ul>
+<div class="banner-primary">
+    <div class="gradient-layer">
+        <nav class="navbar" id="navbarNoHover">
+        </nav>
     </div>
+</div>
 
-</nav>
 
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb bg-white ml-4 mt-2">
-        <li class="breadcrumb-item"><a href="#">Catalog</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Book</li>
+    <ol class="breadcrumb bg-white">
+        <li class="breadcrumb-item"><a href="/catalogue/catalogue.html">Catalog</a></li>
+        <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-title"></li>
     </ol>
 </nav>
 
@@ -64,20 +43,18 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-lg-4 col-md-5 product service-image-left mb-3">
-                            <img id="item-display" src="../assets/images/books/9788893440615.jpg" class="img-fluid mx-auto float-left" alt="">
+
+                    <div class="col-lg-4 col-md-5 product service-image-left mb-3" id="bookImage">
+                            <img id="item-display" src="" class="img-fluid mx-auto float-left" alt="">
                     </div>
 
                     <div class="col-lg-6 col-md-7 mb-3">
-                        <div class="product-title"><h3>Il libro dei Baltimore</h3></div>
-                        <div class="product-author"><h4>Joel Dicker</h4></div>
-                        <div class="product-desc">
-                            Fresh from the staggering success of The Truth About the Harry Quebert Affair, Marcus Goldman is struggling to write his third novel. A chance encounter in Florida throws him some inspiration from a surprising source: Alexandra Neville, the beautiful, phenomenally successful singer and Marcus' first love.
-                            <br>
-                            All at once memories of his childhood come flooding back. Memories of a family torn apart by tragedy and a once glorious legacy reduced to shame and ruin. The Baltimore Boys. The Goldman Gang. That was what they called Marcus and his cousins, Hillel and Woody. Three brilliant young men with their whole lives ahead of them, before their kingdom crumbled beneath the weight of lies, jealousy and betrayal. For years Marcus has struggled with the burdens of his past, but now he must attempt to banish his demons and tell the real story of the Baltimore Boys.
+                        <div class="product-title"><h3 id="bookTitle"></h3></div>
+                        <div class="product-author"><h4 id="author"></h4></div>
+                        <div class="product-desc" id="abstract">
                         </div>
                         <hr>
-                        <div class="product-price"> $ XX.XX </div>
+                        <div class="product-price" id="price"> $ XX.XX </div>
                         <div class="product-stock">In Stock</div>
                         <hr>
                         <div class="btn-group cart">
@@ -90,11 +67,11 @@
                     <div class="col-lg-2 product-data">
                         <ul style="list-style-type:none;">
                             <h5>Product Details</h5>
-                            <li><b>Year: </b>2015</li>
-                            <li><b>Pages: </b>605</li>
-                            <li><b>ISBN: </b>AB34Cfg72015</li>
-                            <li><b>Editor: </b>I Delfini</li>
-                            <li><b>Original Language: </b> French </li>
+                            <li> <b>Year: </b> <p id="year"></p> </li>
+                            <li> <b>Pages: </b> <p id="pages"></p> </li>
+                            <li> <b>ISBN: </b> <p id="isbn"></p> </li>
+                            <li> <b>Editor: </b> <p id="editor"></p> </li>
+                            <li> <b>Original Language: </b> <p id="originalLanguage"></p> </li>
                         </ul>
                     </div>
                 </div>
@@ -108,49 +85,18 @@
 <!-- Author Interview and Reviews -->
 <div class = "container">
     <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                        <i class="fa fa-chevron-down"></i>
-                        Author interview
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
-                <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
+        <div class="panel panel-default" id="author-interview">
+
         </div>
 
-        <hr>
+        <div class="panel panel-default" id="book-review">
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                        <i class="fa fa-chevron-down"></i>
-                        Reviews
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <ul style="list-style-type:none;">
-                        <li>
-                            <h6>The New York Times</h6>
-                            Alex is the girl that got away from being a victim of a serial killer. She was abducted by the killer but got rescued before she could be raped and killed like the previous victims of the killer. She moved away from her small town soon after the incident, after another girl - Kira Shanks - went missing and Alex became old news. She's now back for what she thinks is a legit interview but turns out to be wild-goose chase by a lazy college student for a paper about Kira Shanks' case.
-                        </li>
-                        <hr>
-                        <li>
-                            <h6>The Washington Post</h6>
-                            Alex is the girl that got away from being a victim of a serial killer. She was abducted by the killer but got rescued before she could be raped and killed like the previous victims of the killer. She moved away from her small town soon after the incident, after another girl - Kira Shanks - went missing and Alex became old news. She's now back for what she thinks is a legit interview but turns out to be wild-goose chase by a lazy college student for a paper about Kira Shanks' case.
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
+
+        <div class="panel panel-default" id="book-events">
+
+        </div>
+
     </div>
 </div>
 
@@ -164,15 +110,9 @@
 <div class="top-content">
     <div class="container-fluid">
         <div id="carousel-similar-books" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                    <img src="../assets/images/books/american_spy.jpg" class="img-fluid mx-auto d-block" alt="img1">
-                </div>
+            <div id="carousel-listbox-similar-books" class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="../assets/images/books/dark_matter.jpg" class="img-fluid mx-auto d-block" alt="img2">
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="../assets/images/books/normal_people.jpg" class="img-fluid mx-auto d-block" alt="img3">
+                    <img src="../assets/images/books/normal_people.jpg" class="img-fluid mx-auto d-block" alt="img1">
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
                     <img src="../assets/images/books/the_gospel_of_loki.jpg" class="img-fluid mx-auto d-block" alt="img4">
@@ -185,9 +125,6 @@
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
                     <img src="../assets/images/books/got_hc1.jpg" class="img-fluid mx-auto d-block" alt="img7">
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <img src="../assets/images/books/9788893440615.jpg" class="img-fluid mx-auto d-block" alt="img8">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carousel-similar-books" role="button" data-slide="prev">
@@ -204,7 +141,7 @@
 
 
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer mt-3">
     <div class="container">
         <div class="row py-4">
             <div class="col-md-4 col-sm-12 p-3">
@@ -235,12 +172,15 @@
     </div>
 </footer>
 
-<!-- JQuery, Popper.js and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+
 
 <script src="../assets/js/book.js"></script>
+<script src="../assets/js/utils.js"></script>
+<script src="../assets/js/navbar.js"></script>
 
 </body>
 </html>

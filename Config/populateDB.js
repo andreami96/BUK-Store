@@ -142,7 +142,7 @@ async function createBooks() {
             "poco fuori Aurora, sulle rive dell'oceano. Convinto dell'innocenza di Harry Quebert, Marcus Goldman abbandona " +
             "tutto e va nel New Hampshire per condurre la sua personale inchiesta. Marcus, dopo oltre trent'anni deve " +
             "dare risposta a una domanda: chi ha ucciso Nola Kellergan? E, naturalmente, deve scrivere un romanzo di grande successo.",
-        interview: "",
+        interview: "This is a test insterview",
         availableQuantity: 10,
         price: 8.41,
         genreID: 1,
