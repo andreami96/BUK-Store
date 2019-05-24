@@ -12,7 +12,7 @@ function login() {
             console.log(data);
             $(location).attr('href', '/');
             },
-        failure: function(errMsg) {
+        error: function(errMsg) {
             console.log(errMsg);
         }
     });

@@ -98,7 +98,7 @@ function addNormalNavbar() {
                     "            </ul>\n" +
                     "            <ul class=\"navbar-nav\" id=\"right-nav\">\n" +
                     "                <li class=\"nav-item\">\n" +
-                    "                    <a class=\"nav-link\" href=\"#\">Registrati</a>\n" +
+                    "                    <a class=\"nav-link\" href=\"/signup.html\">Registrati</a>\n" +
                     "                </li>\n" +
                     "                <li class=\"nav-item\">\n" +
                     "                    <a class=\"nav-link\" href=\"/login.html\">Login</a>\n" +
