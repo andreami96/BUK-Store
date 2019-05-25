@@ -1,0 +1,153 @@
+/* Carousel base class */
+.carousel {
+    margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+    bottom: 3rem;
+}
+
+.carousel-item {
+    background-color: #777;
+    height: 600px;
+}
+
+#eventCarousel1 {
+    background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/feltrinelli1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-position-x: 0;
+    background-position-y: 0;
+    top: 0;
+    left: 0;
+    min-height: 600px;
+}
+
+#eventCarousel2 {
+    background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/prova-evento.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-position-x: 0;
+    background-position-y: 0;
+    top: 0;
+    left: 0;
+    min-height: 600px;
+}
+
+#eventCarousel3 {
+    background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/feltrinelli1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-position-x: 0;
+    background-position-y: 0;
+    top: 0;
+    left: 0;
+    min-height: 600px;
+}
+
+.carousel-image {
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+#carouselEvents {
+    margin-bottom: 0;
+}
+
+#bestseller .container {
+    padding-top: 0;
+}
+
+#bestseller a {
+    text-decoration: none;
+    color: #2d2d30;
+}
+
+#bestseller div {
+    border: 0px;
+}
+
+#book-bestseller div {
+    padding: 30px;
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+
+    .carousel-item {
+        height: 400px;
+    }
+
+    #eventCarousel1 {
+        min-height: 400px;
+    }
+    #eventCarousel2 {
+        min-height: 400px;
+    }
+    #eventCarousel3 {
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item {
+        height: 250px;
+    }
+
+    #eventCarousel1 {
+        min-height: 250px;
+    }
+    #eventCarousel2 {
+        min-height: 250px;
+    }
+    #eventCarousel3 {
+        min-height: 250px;
+    }
+
+}
+
+.bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+}
+.bg-1 h3 {color: #fff;}
+.bg-1 p {font-style: italic;}
+
+.bg-2 {
+    background: white;
+    color: #2d2d30;
+}
+.bg-2 h3 {color: black;}
+.bg-2 p {font-style: italic;}
+
+.container {
+    padding: 0px 120px;
+}
+
+.container h3 {
+    padding-top: 1rem;
+}
+
+.card-img {
+    width: 50%;
+    margin: 10px;
+}
+
+.eventCardImg {
+    background: #2d2d30;
+}
+
+.card {
+    border-color: #2d2d30;
+    background: #2d2d30;
+}
+
+
+#test1 {
+    background: white;
+}
