@@ -96,17 +96,17 @@
 
 @media (max-width: 576px) {
     .carousel-item {
-        height: 250px;
+        height: 350px;
     }
 
     #eventCarousel1 {
-        min-height: 250px;
+        min-height: 350px;
     }
     #eventCarousel2 {
-        min-height: 250px;
+        min-height: 350px;
     }
     #eventCarousel3 {
-        min-height: 250px;
+        min-height: 350px;
     }
 
 }
