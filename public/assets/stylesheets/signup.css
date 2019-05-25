@@ -27,7 +27,7 @@
     border: 1px solid black;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .card {
         min-width: 70vw;
     }
