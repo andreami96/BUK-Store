@@ -11,8 +11,10 @@ module.exports = {
      * @returns {*}     Return the final response
      */
     handling_404: function(req, res) {
-        res.setHeader("Content-Type", "application/json");
-        return res.status(404).send(new Error(404, 'http://localhost' + req.url + ' not found').toJSON());
+        /*res.setHeader("Content-Type", "application/json");
+        console.log(req.originalUrl);
+        return res.status(404).send(new Error(404, 'http://localhost' + req.url + ' not found').toJSON());*/
+        return res.status(404).redirect('/404.html');
     },
 
     /***
