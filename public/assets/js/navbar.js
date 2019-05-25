@@ -7,6 +7,9 @@ $(document).ready(function () {
                 addNavbar(true, true);
             else
                 addNavbar(true, false);
+
+            makeResizableNavbar(true);
+
             makeTransparentNavbar();
 
             if( !$("#navbarNoHover").length ){
@@ -34,6 +37,9 @@ $(document).ready(function () {
                 addNavbar(false, true);
             else
                 addNavbar(false, false);
+
+            makeResizableNavbar(false);
+
             makeTransparentNavbar();
 
             if( !$("#navbarNoHover").length ){
@@ -175,6 +181,20 @@ function logout() {
     $.get("/api/v1/logout", function (data) {
         console.log(data);
         $(location).attr('href', '/');
+    });
+}
+
+function makeResizableNavbar(isLogged) {
+    $(window).resize(function() {
+        if ($('.navbar-toggler').is(':visible')) {
+            $('.navbar').empty();
+            addNavbar(isLogged, false);
+            $(".empty-nav-space").css('width', $(".navbar-toggler").width());
+        }
+        else {
+            $('.navbar').empty();
+            addNavbar(isLogged, true);
+        }
     });
 }
 

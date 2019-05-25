@@ -1,3 +1,26 @@
+$(document).ready(function () {
+
+    $(window).resize(function() {
+        if ($('.navbar-toggler').is(':visible')) {
+            $('#surname').remove();
+            $('#onResized')
+                .empty()
+                .addClass("form-group input-group")
+                .append("<div class=\"input-group-prepend\">\n" +
+                        "   <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\n" +
+                        "</div>\n" +
+                        "<input type=\"text\" autocomplete=\"family-name\" class=\"form-control\" placeholder=\"Last Name\" id=\"surname\">")
+        } else {
+            $('#surname').remove();
+            $('#onResized')
+                .empty()
+                .removeClass("form-group input-group");
+            $('#userdata-form')
+                .append("<input type=\"text\" autocomplete=\"family-name\" class=\"form-control\" placeholder=\"Last Name\" id=\"surname\">");
+        }
+    });
+});
+
 function signUpNewUser() {
 
     let name = $('#name').val();
