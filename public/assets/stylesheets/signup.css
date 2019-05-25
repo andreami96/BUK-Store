@@ -1,14 +1,20 @@
 .alert-padding {
-    padding-top: 20vh;
+    padding-top: 11.5vh;
 }
 
 .form-padding {
-    padding-top: 10vh;
-    padding-bottom: 30vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 
 .alert {
     max-width: 25vw;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card {

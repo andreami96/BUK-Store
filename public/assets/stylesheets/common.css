@@ -23,6 +23,22 @@
     align-items: center;
 }
 
+@media (max-width: 576px){
+    .navbar-nav .nav-link {
+        margin-top : 1em;
+    }
+
+    .navbar-nav {
+        font-size: 16px;
+    }
+}
+
+@media (max-height: 400px) {
+    .navbar-nav .nav-link {
+        margin-top : 0.1em;
+    }
+}
+
 .navbar-toggler {
     border: 0;
     background: transparent;

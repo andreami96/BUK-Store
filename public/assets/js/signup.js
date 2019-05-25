@@ -1,25 +1,59 @@
 $(document).ready(function () {
 
+    $('#name').focus().keydown(function (event) {
+        if(event.key === "Enter")
+            $('#signup-btn').click();
+    });
+
+    $('#surname').keydown(function (event) {
+        if(event.key === "Enter")
+            $('#signup-btn').click();
+    });
+
+    $('#email').keydown(function (event) {
+        if(event.key === "Enter")
+            $('#signup-btn').click();
+    });
+
+    $('#password').keydown(function (event) {
+        if(event.key === "Enter")
+            $('#signup-btn').click();
+    });
+
+    $('#repeatedPassword').keydown(function (event) {
+        if(event.key === "Enter")
+            $('#signup-btn').click();
+    });
+
+    if($(window).width() > 576)
+        nameAndSurnameFields(true);
+    else
+        nameAndSurnameFields(false);
+
     $(window).resize(function() {
-        if ($('.navbar-toggler').is(':visible')) {
-            $('#surname').remove();
-            $('#onResized')
-                .empty()
-                .addClass("form-group input-group")
-                .append("<div class=\"input-group-prepend\">\n" +
-                        "   <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\n" +
-                        "</div>\n" +
-                        "<input type=\"text\" autocomplete=\"family-name\" class=\"form-control\" placeholder=\"Last Name\" id=\"surname\">")
-        } else {
-            $('#surname').remove();
-            $('#onResized')
-                .empty()
-                .removeClass("form-group input-group");
-            $('#userdata-form')
-                .append("<input type=\"text\" autocomplete=\"family-name\" class=\"form-control\" placeholder=\"Last Name\" id=\"surname\">");
-        }
+        nameAndSurnameFields(!($('.navbar-toggler').is(':visible')))
     });
 });
+
+function nameAndSurnameFields(align) {
+    if(align) {
+        $('#surname').remove();
+        $('#onResized')
+            .empty()
+            .removeClass("form-group input-group");
+        $('#userdata-form')
+            .append("<input type=\"text\" autocomplete=\"family-name\" class=\"form-control\" placeholder=\"Last Name\" id=\"surname\">");
+    } else {
+        $('#surname').remove();
+        $('#onResized')
+            .empty()
+            .addClass("form-group input-group")
+            .append("<div class=\"input-group-prepend\">\n" +
+                "   <span class=\"input-group-text\"> <i class=\"fa fa-user\"></i> </span>\n" +
+                "</div>\n" +
+                "<input type=\"text\" autocomplete=\"family-name\" class=\"form-control\" placeholder=\"Last Name\" id=\"surname\">")
+    }
+}
 
 function signUpNewUser() {
 
@@ -33,7 +67,7 @@ function signUpNewUser() {
     let mailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
     if(!name || !surname || !email || !password)
-        message = "Some parameters is missing";
+        message = "Some parameters are missing";
     else if(!mailRegex.test(email))
         message = "The email should be an email address";
     else if(password.length < 6 || password.length > 32)
@@ -63,7 +97,7 @@ function signUpNewUser() {
                     "            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n" +
                     "            <strong>Registration Complete!</strong><br>" + message +
                     "        </div>");
-            console.log(xhr)
+            $(".alert").delay(2000).fadeOut(500);
         },
         error: function(xhr) {
 
@@ -75,7 +109,7 @@ function signUpNewUser() {
                     "            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n" +
                     "            <strong>Alert!</strong><br>" + message +
                     "        </div>");
-            console.log(xhr)
+            $(".alert").delay(2000).fadeOut(500);
         }
     });
 
