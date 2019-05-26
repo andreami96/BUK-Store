@@ -28,9 +28,9 @@ function buildAuthorsList (authors) {
         var list = "";
         authors.forEach(function (el, index) {
             if (index === 0)
-                list = list + el.name + ' ' + el.surname;
+                list = list + '<a href=\'/authors/' + el.authorID + '\'> ' + el.name + ' ' + el.surname + '</a>';
             else
-                list = list + ', ' + el.name + ' ' + el.surname;
+                list = list + ', <a href=\'/authors/' + el.authorID + '\'> ' + el.name + ' ' + el.surname + '</a>';
         });
         return list;
 }
@@ -102,12 +102,37 @@ $(window).on('load, resize', function mobileViewUpdate() {
 
 jQuery(document).ready( function () {
     let url = window.location.pathname;
-    let isbn = url.substr(url.lastIndexOf('/') + 1);
+    let page = url.substr(url.lastIndexOf('/') + 1);
+    let MAXBOOKS = 6;                   //TODO: set back to 12 or 8 when there will be enough books
 
     // Build the list of books
-    $.get("/api/v1/books/", {limit: 12, offset: 0}, function (data, status) {
+    $.get("/api/v1/books/", {limit: MAXBOOKS, offset: (page - 1) * MAXBOOKS}, function (data, status) {
         console.log(data);
-        var bookToInsert = 8;               //TODO: set back to 12 when there will be enough books
+        var bookToInsert = data.length;
+        var emptyBlocks = MAXBOOKS - bookToInsert;
+
+        // Build pagination for current page
+        if ( page > 1 ){
+            $('#page-prev a').attr({
+                'href': '/catalogue/' + (parseInt(page, 10) - 1)
+            });
+        }
+        else {
+            $('#page-prev').addClass('disabled');
+        }
+
+        $('#page-1 a').attr({
+            'href': '/catalogue/' + (parseInt(page, 10))
+        }).text(page);
+
+        if ( bookToInsert === MAXBOOKS ){
+            $('#page-next a').attr({
+                'href': '/catalogue/' + (parseInt(page, 10) + 1)
+            });
+        }
+        else {
+            $('#page-next').addClass('disabled');
+        }
 
         data.forEach(function (el, index) {
             $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
@@ -122,13 +147,15 @@ jQuery(document).ready( function () {
                     }));
 
                     $('#book' + index).append($('<a>').attr({
-                        "href": "/books/" + bookData.ISBN
+                        'href': '/books/' + bookData.ISBN,
+                        'id' : 'book' + index + '-image'
                     }));
-                    $('#book' + index).append($('<h6>').addClass('mt-2').text(bookData.title));
-                    $('#book' + index).append($('<p>').addClass('mt-1 authorsNameList').text(buildAuthorsList(authorsList)));
+                    $('#book' + index + ' a').append($('<h6>').addClass('mt-2 mb-0').text(bookData.title));
+                    $('#book' + index).append($('<p>').addClass('mb-1 authorsNameList').append(' by ' + buildAuthorsList(authorsList)));
+
                     $('#book' + index).append($('<div>').addClass('price').text(bookData.price + ' €'));
 
-                    $('#book' + index + ' a').append($('<img>').attr({
+                    $('#book' + index + '-image').prepend($('<img>').attr({
                         "class": "product-image img-fluid",
                         "src": "../assets/images" + bookData.picture,
                         "alt": "#"
@@ -137,15 +164,7 @@ jQuery(document).ready( function () {
                     if ( bookToInsert === 0 ){
                         mobileViewUpdate();
                     }
-                    /*
-                                    var newEl = $("li h4")[index];
-                                    $("#book-catalog").find($("li h5")[index]).text(data.title);
-                                    $("#book-catalog").find($("li a img")[index]).attr({
-                                        "src": "../assets/images" + data.picture
-                                    });
-                                    $("#book-catalog").find($("li p")[index]).text("author");
-                                    $("#book-catalog").find($("li h5")[index]).text(data.title);
-                    */
+
                 });
             });
         });
@@ -174,6 +193,5 @@ jQuery(document).ready( function () {
     });
 
     // Register callback for next page
-    //setTimeout(mobileViewUpdate, 250);
 
 });

@@ -35,7 +35,7 @@ jQuery(document).ready(function() {
         $("#bookTitle").text(data.title);
         $("#breadcrumb-title").text(data.title);
         $("#abstract").text(data.abstract);
-        $("#price").text(data.price + " €");
+        $("#price b").after(data.price + " €");
         $("#isbn").text(data.ISBN);
         $("#year").text(data.year);
         $("#pages").text(data.pageNumber);
@@ -77,9 +77,14 @@ jQuery(document).ready(function() {
         console.log(data);
         data.forEach(function (el, index) {
             if (index === 0)
-                $("#author").append(el.name + ' ' + el.surname);
-            else
-                $("#author").append(', ' + el.name + ' ' + el.surname);
+                if (index === 0)
+                    $('#author').append($('<a>').attr({
+                        'href': '/authors/' + el.authorID
+                    }).text(el.name + ' ' + el.surname));
+                else
+                    $('#author').append($('<a>').attr({
+                        'href': '/authors/' + el.authorID
+                    }).text(', ' + el.name + ' ' + el.surname));
         });
     });
 

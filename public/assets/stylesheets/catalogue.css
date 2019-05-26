@@ -51,7 +51,15 @@ a[data-toggle="collapse"] {
     }
 
     #sidebar-list a {
-        padding-left: 15px !important;
+        padding-left: 10px !important;
+    }
+
+    #sidebarCollapse {
+        padding-left: 10px !important;
+    }
+
+    #event-title {
+
     }
 }
 
@@ -284,7 +292,29 @@ ul.rig.columns-1 li {
 }
 
 .authorsNameList {
-    font-size: 15px !important;
+    font-size: 17px !important;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+    color: #2d2d30;
+}
+
+.authorsNameList a {
+    color: black;
+}
+
+.authorsNameList a:hover{
+    color: darkslategrey;
+}
+
+.price {
+    text-align: center;
+}
+
+#book-catalog h6 {
+    font-size: 20px !important;
+    text-align: center;
+    color: #2d2d30;
 }
 
 .pagination a {
@@ -296,4 +326,50 @@ ul.rig.columns-1 li {
 .pagination li.active {
     background-color: #4CAF50;
     color: white;
+}
+
+.page-link {
+    text-align: center;
+    min-width: 100px;
+}
+
+@media (max-width: 576px) {
+    #page-next .page-link, #page-prev .page-link {
+        max-width: 80px !important;
+        min-width: 80px !important;
+    }
+
+    #page-1 .page-link {
+        max-width: 50px !important;
+        min-width: 50px !important;
+    }
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+#sidebarCollapse {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background: black;
+    border-radius: 0%;
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    color: white;
+}
+
+#sidebarCollapse h4 {
+    display: inline;
+}
+
+#sidebarCollapse i {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.grid {
+    padding-right: 15px;
+    padding-top: 25px;
 }

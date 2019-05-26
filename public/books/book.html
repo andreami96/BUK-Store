@@ -31,7 +31,7 @@
 <!-- Breadcrumb -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb bg-white">
-        <li class="breadcrumb-item"><a href="/catalogue/catalogue.html">Catalog</a></li>
+        <li class="breadcrumb-item"><a href="/catalogue/1">Catalog</a></li>
         <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-title"></li>
     </ol>
 </nav>
@@ -45,7 +45,9 @@
                 <div class="row">
 
                     <div class="col-lg-4 col-md-5 product service-image-left mb-3" id="bookImage">
-                            <img id="item-display" src="" class="img-fluid mx-auto float-left" alt="">
+
+                        <img id="item-display" src="" class="img-fluid mx-auto float-left mb-3" alt="">
+
                     </div>
 
                     <div class="col-lg-6 col-md-7 mb-3">
@@ -53,11 +55,10 @@
                         <div class="product-author"><h4 id="author"></h4></div>
                         <div class="product-desc" id="abstract">
                         </div>
-                        <hr>
-                        <div class="product-price" id="price"> $ XX.XX </div>
-                        <div class="product-stock">In Stock</div>
-                        <hr>
-                        <div class="btn-group cart">
+
+                        <div class="product-price mt-3" id="price"> <b>Price: </b></div>
+                        <div class="product-stock"> <b>Availability: </b> In Stock</div>
+                        <div class="btn-group cart reserve-button">
                             <button type="button" class="btn btn-success">
                                 Reserve
                             </button>
@@ -65,7 +66,7 @@
                     </div>
 
                     <div class="col-lg-2 product-data">
-                        <ul style="list-style-type:none;">
+                        <ul>
                             <h5>Product Details</h5>
                             <li> <b>Year: </b> <p id="year"></p> </li>
                             <li> <b>Pages: </b> <p id="pages"></p> </li>
@@ -73,7 +74,9 @@
                             <li> <b>Editor: </b> <p id="editor"></p> </li>
                             <li> <b>Original Language: </b> <p id="originalLanguage"></p> </li>
                         </ul>
+
                     </div>
+
                 </div>
             </div>
         </div>
@@ -102,12 +105,12 @@
 
 <!-- Carousel of similar books -->
 <hr>
-<div class="container-fluid">
-    <h4>Similar Books</h4>
+<div class="container-fluid similar-books-title">
+    <h4>You might also like</h4>
 </div>
-<hr>
+<hr class="mb-3">
 
-<div class="top-content">
+<div class="top-content mt-4 mb-4">
     <div class="container-fluid">
         <div id="carousel-similar-books" class="carousel slide" data-ride="carousel">
             <div id="carousel-listbox-similar-books" class="carousel-inner row w-100 mx-auto" role="listbox">
