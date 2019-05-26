@@ -11,6 +11,8 @@ const staticMainGenreRoute = require('./MainGenre/staticMainGenreRoute');
 const staticGenreRoute = require('./Genre/staticGenreRoute');
 const staticCatalogueRoute = require('./Catalogue/staticCatalogueRoute');
 
+const staticUserRoute = require('./User/staticUserRoute');
+
 // Download
 const downloadRoute = require('./Download/downloadRoute');
 
@@ -21,6 +23,8 @@ router.use('/events', staticEventRoute);
 router.use('/mainGenres', staticMainGenreRoute);
 router.use('/genres', staticGenreRoute);
 router.use('/catalogue', staticCatalogueRoute);
+
+router.use('/me', staticUserRoute);
 
 router.use('/download', downloadRoute);
 

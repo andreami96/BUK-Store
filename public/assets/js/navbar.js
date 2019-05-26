@@ -109,10 +109,10 @@ function retrieveRightMenu(isLogged) {
 
     let logged =    "<ul class=\"navbar-nav\" id=\"right-nav\">\n" +
                     "   <li class=\"nav-item\">\n" +
-                    "      <a class=\"nav-link\" href=\"#\">Area Personale</a>\n" +
+                    "      <a class=\"nav-link\" href=\"/me\">Area Personale</a>\n" +
                     "   </li>\n" +
                     "   <li class=\"nav-item\">\n" +
-                    "      <a class=\"nav-link\" href=\"#\" onclick=\"logout()\">Logout</a>\n" +
+                    "      <a class=\"nav-link\" href=\"\" onclick=\"logout()\">Logout</a>\n" +
                     "   </li>\n" +
                     "</ul>\n";
 
@@ -195,6 +195,15 @@ function makeResizableNavbar(isLogged) {
             $('.navbar').empty();
             addNavbar(isLogged, true);
         }
+
+        if( !$("#navbarNoHover").length ){
+            if ($(window).scrollTop() > 60) {
+                makeSolidNavbar();
+            } else {
+                makeTransparentNavbar();
+            }
+        }
+        else makeSolidNavbar();
     });
 }
 
