@@ -1,6 +1,8 @@
 const { User } = require('../../Model/sequelize');
 const Response = require('../../Utils/response');
 
+const { formatDate } = require('../../Utils/formatDate');
+
 exports.findUserByID = function (userID) {
 
     return new Promise( (resolve, reject) => {
@@ -14,10 +16,12 @@ exports.findUserByID = function (userID) {
 
                 // Create the user object to return
                 let returnUser = {
-                    id: user.id,
+                    userID: user.id,
                     name: user.name,
                     surname: user.surname,
-                    email: user.email
+                    email: user.email,
+                    creationDate: formatDate(user.createdAt),
+                    lastUpdate: formatDate(user.updatedAt)
                 };
                 resolve(returnUser);
             })

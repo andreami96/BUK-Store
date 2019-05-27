@@ -3,7 +3,7 @@ $(document).ready(function () {
     $.ajax({
         url: "/api/v1/me",
         success: function (result, status, xhr) {
-            if($(window).width() > 576)
+            if($(window).width() >= 576)
                 addNavbar(true, true);
             else
                 addNavbar(true, false);
@@ -33,7 +33,7 @@ $(document).ready(function () {
             else makeSolidNavbar();
         },
         error: function (xhr) {
-            if($(window).width() > 576)
+            if($(window).width() >= 576)
                 addNavbar(false, true);
             else
                 addNavbar(false, false);

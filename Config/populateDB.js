@@ -5,8 +5,8 @@ async function createUsers() {
 
     await User.create({
         id: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
-        name: "NameProva",
-        surname: "SurnameProva",
+        name: "Mario",
+        surname: "Rossi",
         email: "prova@example.com",
         password: "provaprova",
         activationToken: null
