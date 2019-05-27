@@ -1,5 +1,5 @@
 const database = require('../Model/sequelize');
-const { User, Book, MainGenre, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme, Reservation } = database;
+const { User, Book, MainGenre, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme, Reservation, HomeCarousel, GenericPage } = database;
 
 async function createUsers() {
 
@@ -283,6 +283,7 @@ async function createBooks() {
         ISBN: "9780553381689",
         title: "A Game of Thrones",
         picture: "/books/got_hc1.jpg",
+        backgroundPicture: "/books/background/got.jpeg",
         factSheet: "Hardcover: 704 pages\n" +
             "Publisher: Bantam\n" +
             "Language: English",
@@ -704,6 +705,21 @@ async function createGenreThemes() {
     });
 }
 
+async function createHomeCarousel() {
+    await HomeCarousel.create({
+        carouselID: 1,
+        ISBN: "9780553381689"
+    });
+}
+
+async function createGenericPages() {
+    await GenericPage.create({
+        pageID: 1,
+        pageName: "faq",
+        body: "<h1>FAQ PAGES</h1>"
+    });
+}
+
 exports.createDatabase = function (force=false, populateItNow=false) {
 
     return new Promise( async (resolve, reject) => {
@@ -728,6 +744,8 @@ exports.createDatabase = function (force=false, populateItNow=false) {
             await createReviews();
             await createGenreThemes();
             await createReservation();
+            await createHomeCarousel();
+            await createGenericPages();
         }
         resolve();
     });

@@ -23,6 +23,8 @@ const GenreModel = require('./Book/genre');
 const ThemeModel = require('./Book/theme');
 const GenreThemeModel = require('./Book/genreTheme');
 const BookThemeModel = require('./Book/bookTheme');
+const HomeCarouselModel = require('./HomeCarousel/homeCarousel');
+const GenericPageModel = require('./GenericPage/genericPage');
 
 // Setup the correct configuration
 let dbParameters = config.dbConfig;
@@ -49,6 +51,8 @@ const Genre = GenreModel(sequelizeObject, Sequelize);
 const Theme = ThemeModel(sequelizeObject, Sequelize);
 const GenreTheme = GenreThemeModel(sequelizeObject);
 const BookTheme = BookThemeModel(sequelizeObject);
+const HomeCarousel = HomeCarouselModel(sequelizeObject, Sequelize);
+const GenericPage = GenericPageModel(sequelizeObject, Sequelize);
 
 // User <-> Session relationship (Session has one column for the userID
 Session.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
@@ -88,6 +92,15 @@ Genre.belongsTo(MainGenre, {foreignKey: {name: 'mainGenreID', allowNull: false}}
 Genre.belongsToMany(Theme, { foreignKey: {name: 'genreID', allowNull: false}, through: GenreTheme });
 Theme.belongsToMany(Genre, { foreignKey: {name: 'themeID', allowNull: false}, through: GenreTheme });
 
+// HomeCarousel <-> Books
+HomeCarousel.belongsTo(Book, {foreignKey: {name: 'ISBN', allowNull: true}});
+
+// HomeCarousel <-> Author
+HomeCarousel.belongsTo(Author, {foreignKey: {name: 'authorID', allowNull: true}});
+
+// HomeCarousel <-> Event
+HomeCarousel.belongsTo(Event, {foreignKey: {name: 'eventID', allowNull: true}});
+
 // Exports the created Objects
 exports.User = User;
 exports.Session = Session;
@@ -104,6 +117,8 @@ exports.Genre = Genre;
 exports.Theme = Theme;
 exports.GenreTheme = GenreTheme;
 exports.BookTheme = BookTheme;
+exports.HomeCarousel = HomeCarousel;
+exports.GenericPage = GenericPage;
 
 // Exports the init function to initialize the DB before running the application
 exports.init = function(force) {
