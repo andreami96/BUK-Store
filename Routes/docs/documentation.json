@@ -45,28 +45,49 @@
       "description": "Operation related to the user's reservation"
     },
     {
-      "name": "Articles",
-      "description": "Article related endpoints"
+      "name": "Others",
+      "description": "Endpoints related to generic pages or generic elements"
     }
   ],
   "paths": {
-    "/articles": {
+    "/page": {
       "get": {
         "summary": "It retrieves the articles present in one specific page",
         "description": "Use this endpoint to retrieve the articles present in one specific page",
         "tags": [
-          "Articles"
+          "Others"
         ],
         "parameters": [
           {
             "$ref": "#/components/parameters/pageName"
-          },
-          {
-            "$ref": "#/components/parameters/limit"
-          },
-          {
-            "$ref": "#/components/parameters/offset"
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GenericPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/homeCarouselElements": {
+      "get": {
+        "summary": "Retrieves the elements to be shown in the home page carousel",
+        "description": "Use this endpoint to retrieve the elements which the website administrators want to show in the home page of the BUK Store",
+        "tags": [
+          "Others"
         ],
         "responses": {
           "200": {
@@ -76,14 +97,11 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GenericPage"
+                    "$ref": "#/components/schemas/HomeCarouselObject"
                   }
                 }
               }
             }
-          },
-          "400": {
-            "$ref": "#/components/responses/BadRequest"
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -1686,7 +1704,7 @@
         "required": true,
         "description": "The name of the page from which retrieves the articles",
         "schema": {
-          "type": "string"
+          "$ref": "#/components/schemas/GenericPage/properties/pageName"
         }
       },
       "fromDate": {
@@ -2136,25 +2154,39 @@
           "name": {
             "type": "string",
             "description": "The name of the user",
-            "example": "Pew"
+            "example": "Mario"
           },
           "surname": {
             "type": "string",
             "description": "The surname of the user",
-            "example": "DiePie"
+            "example": "Rossi"
           },
           "email": {
             "type": "string",
             "format": "email",
             "description": "The email of the user used to identify him/her",
-            "example": "kat@re6l.com"
+            "example": "prova@example.com"
           },
           "password": {
             "type": "string",
             "format": "password",
             "description": "The password of the user",
             "writeOnly": true,
-            "example": "Sub2Pew!"
+            "example": "provaprova"
+          },
+          "creationDate": {
+            "type": "string",
+            "format": "date,",
+            "description": "A timestamp representing when the account was created",
+            "readOnly": true,
+            "example": "2019-01-01"
+          },
+          "lastUpdate": {
+            "type": "string",
+            "format": "date,",
+            "description": "A timestamp representing the last updating on the account",
+            "readOnly": true,
+            "example": "2019-04-05"
           }
         }
       },
@@ -2237,52 +2269,47 @@
           }
         }
       },
+      "HomeCarouselObject": {
+        "type": "object",
+        "description": "Object used to pack the main information on the elements to be shown in the home page carousel",
+        "properties": {
+          "carouselID": {
+            "type": "integer",
+            "description": "The identifier of carousel element to be shown",
+            "readOnly": true,
+            "example": 1
+          },
+          "ISBN": {
+            "$ref": "#/components/schemas/Book/properties/ISBN"
+          },
+          "authorID": {
+            "$ref": "#/components/schemas/Author/properties/authorID"
+          },
+          "eventID": {
+            "$ref": "#/components/schemas/Event/properties/eventID"
+          }
+        }
+      },
       "GenericPage": {
         "type": "object",
         "description": "The object which contains the articles present inside a generic page",
         "properties": {
-          "articleID": {
+          "pageID": {
             "type": "integer",
-            "description": "The identifier of the article inside the Database",
+            "description": "The identifier of the page inside the Database",
             "readOnly": true,
-            "example": 3
+            "example": 1
           },
-          "title": {
+          "pageName": {
             "type": "string",
-            "description": "The title of the article",
+            "description": "The name of the requested page",
             "readOnly": true,
-            "example": "When my product will be delivered?"
+            "example": "faq"
           },
-          "text": {
+          "body": {
             "type": "string",
-            "description": "The text of the article",
-            "readOnly": true,
-            "example": "After 7 days starting from the purchase date"
-          },
-          "postDate": {
-            "type": "string",
-            "format": "date",
-            "description": "The date when the article was inserted in the Database",
-            "readOnly": true,
-            "example": "2019-04-01"
-          },
-          "picture": {
-            "type": "string",
-            "description": "A path of a picture of this article",
-            "readOnly": true,
-            "example": "/images/articles/picture1.jpg"
-          },
-          "documentOrder": {
-            "type": "string",
-            "description": "The order in which the articles are presented inside the page",
-            "readOnly": true,
-            "example": "When my product will be delivered?"
-          },
-          "page": {
-            "type": "string",
-            "description": "The title of the page in which the article should be",
-            "readOnly": true,
-            "example": "FAQ"
+            "description": "The body of the page",
+            "readOnly": true
           }
         }
       }

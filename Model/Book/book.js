@@ -22,6 +22,13 @@ module.exports = function (sequelize, type) {
                 notEmpty: true
             }
         },
+        backgroundPicture: {
+            type: type.STRING,
+            allowNull: true,
+            validate: {
+                notEmpty: true
+            }
+        },
         year: {
             type: type.INTEGER,
             allowNull: false,

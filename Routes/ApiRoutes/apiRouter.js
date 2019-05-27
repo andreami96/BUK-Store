@@ -36,6 +36,12 @@ const cartRoute = require('./Cart/cartRoute');
 // Routes related to the Reservations
 const reservationRoute = require('./Reservation/reservationRoute');
 
+// Route related to the home carousel
+const homeCarouselRoute = require('./HomeCarousel/homeCarouselRoute');
+
+// Route related to the generic pages
+const genericPageRoute = require('./GenericPage/genericPageRoute');
+
 router.use(headerJSON);
 
 // Routes related to the user registration/login
@@ -68,5 +74,11 @@ router.use('/authors', authorRoute);
 
 // Routes related to the Reservations
 router.use('/me/reservations', reservationRoute);
+
+// Route related to the home carousel
+router.use('/homeCarouselElements', homeCarouselRoute);
+
+// Route related to the generic pages
+router.use('/page', genericPageRoute);
 
 module.exports = router;

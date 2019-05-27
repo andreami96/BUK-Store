@@ -92,6 +92,7 @@ exports.findBookByISBN = function (isbn) {
                     ISBN: book.ISBN,
                     title: book.title,
                     picture: book.picture,
+                    backgroundPicture: book.backgroundPicture,
                     factSheet: book.factSheet,
                     abstract: book.abstract,
                     interview: book.interview,

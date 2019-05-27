@@ -20,7 +20,7 @@
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="col-sm-10">
-            <h1>Pew DiePie</h1>
+            <h1 id="username">Pew DiePie</h1>
         </div>
     </div>
     <div class="row">
@@ -29,8 +29,8 @@
 
             <ul class="list-group">
                 <li class="list-group-item text-muted">Profile</li>
-                <li class="list-group-item"><strong>Joined: </strong> 25/05/2019</li>
-                <li class="list-group-item"><strong>Email: </strong> pewdiepie@example.com</li>
+                <li class="list-group-item"><strong>Joined: </strong><span id="joined"></span></li>
+                <li class="list-group-item"><strong>Email: </strong><span id="email"></span></li>
 
             </ul>
 
@@ -48,7 +48,12 @@
         <!--/col-3-->
         <div class="col-sm-8">
 
-            <div class="table-responsive">
+            <div class="row justify-content-center" id="no-element-error">
+                <h2 class="text-center">No Reservation Found</h2>
+                <p class="text-center">When you'll purchase your first book, that reservation will appear here</p>
+            </div>
+
+            <div class="table-responsive" id="reservation-table">
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -60,20 +65,6 @@
                     </tr>
                     </thead>
                     <tbody id="items">
-                    <tr>
-                        <td>1</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -84,12 +75,44 @@
 </div>
 <!--/row-->
 
+<footer class="footer">
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-md-4 col-sm-12 p-3">
+                <h6>About</h6>
+                <p>Founded in 2019 by MiChi Studios, BUK is an online book store developed for the Hypermedia course at Politecnico di Milano</p>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Address</h6>
+                <p>Viale Romagna 62<br>Buccinasco, Milano<br>United States of America</p>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Contact</h6>
+                <a href="#">Email us </a><br>
+                <a href="#">Phone +39 999999999</a>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Info</h6>
+                <a>FAQ</a>
+            </div>
+            <div class="col-md-2 col-sm-6 p-3">
+                <h6>Follow us</h6>
+                <a><i class="fab fa-facebook-f"></i></a>
+                <a><i class="fab fa-twitter"></i></a>
+                <a><i class="fab fa-instagram"></i></a>
+                <a><i class="fab fa-mastodon"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
 <!-- JS: JQuery, Popper.js, Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/user.js"></script>
 
 </body>
 </html>

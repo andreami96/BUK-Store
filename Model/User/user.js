@@ -44,6 +44,6 @@ module.exports = function (sequelize, type) {
             }
         }
     }, {
-        timestamps: false
+        timestamps: true
     });
 };
