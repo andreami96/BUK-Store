@@ -1339,6 +1339,10 @@ components:
             the Author
           readOnly: true
           example: /images/authors/joel_dicker.png
+        backgroundPicture:
+          type: string
+          description: The path to the author background image
+          example: /images/books/joel_dicker-bg.png
     Book:
       type: object
       description: The book object which contains all the information about a book
@@ -1355,7 +1359,11 @@ components:
         picture:
           type: string
           description: The path to the book picture
-          example: /images/books/75442486-0878-440c-9db1-a7006c25a39f.png
+          example: /images/books/book1.png
+        backgroundPicture:
+          type: string
+          description: The path to the book background image
+          example: /images/books/book1-bg.png
         factSheet:
           type: string
           description: A summary description of the book

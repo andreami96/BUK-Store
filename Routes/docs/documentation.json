@@ -1979,6 +1979,11 @@
             "description": "The path in the server to retrieve the picture representatives of the Author",
             "readOnly": true,
             "example": "/images/authors/joel_dicker.png"
+          },
+          "backgroundPicture": {
+            "type": "string",
+            "description": "The path to the author background image",
+            "example": "/images/books/joel_dicker-bg.png"
           }
         }
       },
@@ -2000,7 +2005,12 @@
           "picture": {
             "type": "string",
             "description": "The path to the book picture",
-            "example": "/images/books/75442486-0878-440c-9db1-a7006c25a39f.png"
+            "example": "/images/books/book1.png"
+          },
+          "backgroundPicture": {
+            "type": "string",
+            "description": "The path to the book background image",
+            "example": "/images/books/book1-bg.png"
           },
           "factSheet": {
             "type": "string",

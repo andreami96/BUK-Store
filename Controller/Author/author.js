@@ -79,6 +79,7 @@ exports.findAuthorByID = function (authorID) {
                     name: author.name,
                     surname: author.surname,
                     picture: author.picture,
+                    backgroundPicture: author.backgroundPicture,
                     biography: author.biography
                 };
 
