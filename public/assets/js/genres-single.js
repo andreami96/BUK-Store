@@ -4,9 +4,14 @@ jQuery(document).ready(function() {
     let genreID = url.substr(url.lastIndexOf('/') + 1);
 
     $.get("/api/v1/genres/" + genreID, function(data, status) {
+        /* Banner image */
         $(".banner-primary").css('background-image', 'url("../assets/images' + data.picture + '")');
+
+        /* Genre description */
+        $("#event-description").text(data.description);
     });
 
+    /* Themes links */
     $.get("/api/v1/genres/" + genreID + "/themes", function(data, status) {
         for(let i = 0; i < data.length; i++) {
 
@@ -31,7 +36,10 @@ jQuery(document).ready(function() {
                 )
             );
         }
-    })
+    });
+
+    /* Best sellers in the genre */
+    $.get("")
 });
 
 /*

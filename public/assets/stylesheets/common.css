@@ -51,10 +51,11 @@
 }*/
 
 .nav-item .nav-link {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(158, 22, 29, 0.2);
 }
 
 .navbar-nav .nav-link:hover {
+    text-decoration: underline;
     color: rgba(0, 0, 0, 1);
 }
 

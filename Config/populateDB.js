@@ -339,6 +339,35 @@ async function createBooks() {
         originalLanguage: "English"
     });
 
+    await Book.create({
+        ISBN: "2845362671",
+        title: "Il Maestro e Margherita",
+        picture: "/books/Il-Mastro-e-Margherita-copertina-394x600.jpg",
+        factSheet: "Copertina flessibile: 775 pagine\n" +
+            "Editore: Bompiani (16 giugno 2016)\n" +
+            "Collana: Tascabili narrativa\n" +
+            "Lingua: Italiano\n" +
+            "ISBN-10: 8845282678\n" +
+            "Peso di spedizione: 821 g",
+        abstract: "Estate 1975. Nola Kellergan, una ragazzina di 15 anni, scompare misteriosamente nella tranquilla cittadina di Aurora, New Hampshire. " +
+            "Le ricerche della polizia non danno alcun esito. Primavera 2008, New York. Marcus Goldman, giovane scrittore di successo, sta vivendo uno dei rischi del suo mestiere: " +
+            "è bloccato, non riesce a scrivere una sola riga del romanzo che da lì a poco dovrebbe consegnare al suo editore. " +
+            "Ma qualcosa di imprevisto accade nella sua vita: il suo amico e professore universitario Harry Quebert, " +
+            "uno degli scrittori più stimati d'America, viene accusato di avere ucciso la giovane Nola Kellergan. " +
+            "Il cadavere della ragazza viene infatti ritrovato nel giardino della villa dello scrittore, a Goose Cove, " +
+            "poco fuori Aurora, sulle rive dell'oceano. Convinto dell'innocenza di Harry Quebert, Marcus Goldman abbandona " +
+            "tutto e va nel New Hampshire per condurre la sua personale inchiesta. Marcus, dopo oltre trent'anni deve " +
+            "dare risposta a una domanda: chi ha ucciso Nola Kellergan? E, naturalmente, deve scrivere un romanzo di grande successo.",
+        interview: "",
+        availableQuantity: 10,
+        price: 8.41,
+        genreID: 1,
+        year: 2014,
+        editor: "Bompiani",
+        pageNumber: 779,
+        originalLanguage: "Francese"
+    });
+
 }
 
 async function createBookTheme() {

@@ -32,6 +32,6 @@ p {
     font-size: 1.3em;
 }
 
-@media (min-width: 768px) {
-
+@media (max-width: 768px) {
+    /*TODO center "ooops" text on mobile */
 }
