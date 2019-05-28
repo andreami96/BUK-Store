@@ -55,13 +55,13 @@ $(document).ready( function() {
                 footerPosition = $("#footerContainer").position(),
                 footerHeight = $("#footerContainer").height();
 
-            if ( scroll + sidebarHeight + 150 <= docHeight - footerHeight - 50) {
+            if ( scroll + sidebarHeight + 230 <= docHeight - footerHeight - 50) {
                 $sidebar.stop().animate({
                     marginTop: $window.scrollTop() - offset.top + topPadding
                 });
             } else {
                 $sidebar.stop().animate({
-                    marginTop: footerPosition.top - sidebarHeight - 300
+                    marginTop: footerPosition.top - sidebarHeight - 350
                 });
             }
 
