@@ -1,6 +1,7 @@
 "use strict";
 
 const Error = require('../Utils/response');
+const path = require('path');
 
 module.exports = {
 
@@ -11,8 +12,14 @@ module.exports = {
      * @returns {*}     Return the final response
      */
     handling_404: function(req, res) {
-        res.setHeader("Content-Type", "application/json");
-        return res.status(404).send(new Error(404, 'http://localhost' + req.url + ' not found').toJSON());
+        let apiRegex = /\/api\/v1\//;
+
+        if(apiRegex.test(req.path)) {
+            res.setHeader("Content-Type", "application/json");
+            console.log(req.originalUrl);
+            return res.status(404).send(new Error(404, 'http://localhost' + req.url + ' not found').toJSON());
+        } else
+            return res.status(404).sendFile(path.join(__dirname, '../public/404.html'));
     },
 
     /***
@@ -45,12 +52,23 @@ module.exports = {
      */
     handling_401: function(error, req, res, next) {
         if (error.statusCode === 401) {
-            res.setHeader("Content-Type", "application/json");
 
-            if(error.description)
-                return res.status(401).send(error.toJSON());
-            else
-                return res.status(401).send(new Error(401, 'The user in not authorized to access this endpoint').toJSON());
+            let apiRegex = /\/api\/v1\//;
+
+            if(apiRegex.test(req.path)) {
+                res.setHeader("Content-Type", "application/json");
+
+                if (error.description)
+                    return res.status(401).send(error.toJSON());
+                else
+                    return res.status(401).send(new Error(401, 'The user in not authorized to access this endpoint').toJSON());
+            } else {
+                // TODO To let the server redirect to the 401 page instead of this
+                if (error.description)
+                    return res.status(401).send(error.toJSON());
+                else
+                    return res.status(401).send(new Error(401, 'The user in not authorized to access this endpoint').toJSON());
+            }
         }
         next(error);
     },

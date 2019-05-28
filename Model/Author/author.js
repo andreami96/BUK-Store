@@ -26,6 +26,13 @@ module.exports = function (sequelize, type) {
                 notEmpty: true
             }
         },
+        backgroundPicture: {
+            type: type.STRING,
+            allowNull: true,
+            validate: {
+                notEmpty: true
+            }
+        },
         biography: {
             type: type.TEXT,
             allowNull: false,

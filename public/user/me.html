@@ -2,48 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BUK - Sign Up</title>
+    <title>UserName - BUK Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS: Bootstrap, Font Awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="./assets/stylesheets/custom-bootstrap.css">
-    <link rel="stylesheet" href="./assets/stylesheets/common.css">
-    <link rel="stylesheet" href="./assets/stylesheets/login.css">
-</head>
+    <link rel="stylesheet" href="/assets/stylesheets/custom-bootstrap.css">
+    <link rel="stylesheet" href="/assets/stylesheets/common.css">
+    <link rel="stylesheet" href="/assets/stylesheets/me.css">
 <body>
-<nav id="navbarNoHover" class="navbar"></nav>
 
-<div class="container-fluid alert-padding" id="alert">
-</div>
+<nav class="navbar" id="navbarNoHover"></nav>
 
-<div class="container-fluid form-padding">
-    <div class="card bg-light mx-auto">
-        <article class="card-body mx-auto">
-            <h4 class="card-title mt-3 text-center">Login into BUK Web Store</h4>
-            <form>
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-                    </div>
-                    <input name="" class="form-control" placeholder="Insert your Email" type="email" id="email">
-                </div> <!-- form-group// -->
-                <div class="form-group input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                    </div>
-                    <input class="form-control" placeholder="Insert your Password" type="password" id="password">
-                </div> <!-- form-group// -->
-                <div class="form-group">
-                    <button id="login-btn" type="button" class="btn btn-primary btn-block" onclick="login()">Login</button>
-                </div> <!-- form-group// -->
-                <p class="text-center">Don't you still have an account? <a href="/signup.html">Sign Up Now</a> </p>
-            </form>
-        </article>
-    </div> <!-- card.// -->
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1 id="username">Pew DiePie</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <!--left col-->
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Profile</li>
+                <li class="list-group-item"><strong>Joined: </strong><span id="joined"></span></li>
+                <li class="list-group-item"><strong>Email: </strong><span id="email"></span></li>
+
+            </ul>
+
+            <br><br>
+
+            <ul class="list-group">
+                <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                <li class="list-group-item"><strong>Book Purchased</strong> 125</li>
+                <li class="list-group-item"><strong>Book Purchased this month</strong> 13</li>
+                <li class="list-group-item"><strong>Book in Cart</strong> 2</li>
+            </ul>
+            <br><br>
+
+        </div>
+        <!--/col-3-->
+        <div class="col-sm-8">
+
+            <div class="row justify-content-center" id="no-element-error">
+                <h2 class="text-center">No Reservation Found</h2>
+                <p class="text-center">When you'll purchase your first book, that reservation will appear here</p>
+            </div>
+
+            <div class="table-responsive" id="reservation-table">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Shipping Location</th>
+                        <th>Order Date</th>
+                        <th>Arrival Date</th>
+                        <th>Book List</th>
+                    </tr>
+                    </thead>
+                    <tbody id="items">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!--/col-9-->
 </div>
+<!--/row-->
 
 <footer class="footer">
     <div class="container">
@@ -81,8 +111,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="assets/js/navbar.js"></script>
-<script src="assets/js/login.js"></script>
+<script src="/assets/js/navbar.js"></script>
+<script src="/assets/js/user.js"></script>
 
 </body>
 </html>

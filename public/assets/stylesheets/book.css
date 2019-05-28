@@ -66,7 +66,17 @@
         visibility: visible;
         display: block;
     }
+
 }
+
+@media (max-width: 576px) {
+    .similar-books-title {
+        text-align: center;
+        color: black;
+        padding: 0px !important;
+    }
+}
+
 /* MD */
 @media (min-width: 768px) {
     /* show 3rd of 3 item slide */
@@ -139,12 +149,6 @@
     transition-property: transform;
 }
 
-.panel-heading .accordion-toggle [class*="fa-"] {
-    /* symbol for "opening" panels */
-/*    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-    /*content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-}
-
 .panel-heading .accordion-toggle.collapsed [class*="fa-"] {
     /* symbol for "collapsed" panels */
     /*content: "\e080";     /*adjust as needed, taken from bootstrap.css */
@@ -177,6 +181,12 @@
         height: auto;
         overflow:hidden;
     }
+
+    #bookImage img {
+        margin-left: 20% !important;
+    }
+
+
 }
 
 .product-data {
@@ -185,6 +195,16 @@
 
 .product-data ul{
     padding-left: 0;
+    list-style-type:none;
+    padding-bottom: 20px;
+}
+
+.product-stock {
+    padding-bottom: 15px;
+}
+
+.reserve-button {
+    padding-top: 15px;
 }
 
 .product-data ul li p {
@@ -194,3 +214,36 @@
 .breadcrumb {
     margin-top: 4rem;
 }
+
+#collapseTwo .panel-body ul {
+    list-style-type: none;
+}
+
+#book-events ul {
+    list-style-type: none;
+}
+
+#book-events a {
+    text-decoration: none;
+    color: black;
+}
+
+
+.fa-chevron-down {
+    margin-right: 1rem;
+}
+
+#author a {
+    color: #2d2d30;
+    text-decoration: none;
+}
+
+#author a:hover {
+    color: #777777;
+}
+
+.similar-books-title {
+    padding-left: 50px;
+    color: black;
+}
+
