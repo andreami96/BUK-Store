@@ -18,7 +18,8 @@ jQuery(document).ready(function() {
                 }));
             }
 
-            let genreIdHTML = data[i].title.toLowerCase() + '-box';
+            let genreIdHTML = data[i].title.toLowerCase().replace(' ', '-') + '-box';
+            console.log(genreIdHTML);
 
             // Column and card
             $('#row-n' + rowNumber).append(
@@ -34,13 +35,13 @@ jQuery(document).ready(function() {
 
             // Calculate background color
             let hue = ((mainGenreID - 1) * 120) % 360;
-            if(mainGenreID % 6 >= 3)
+            if((mainGenreID - 1) % 6 >= 3)
                 hue += 60;
 
-            let luminosity = 60;
+            let luminosity = 70;
             luminosity += i * (15 / data.length);
 
-            $('#' + genreIdHTML).css('background-color', 'hsla(' + hue + ', 80%, ' + luminosity + '%, 0.9)');
+            $('#' + genreIdHTML).css('background-color', 'hsla(' + hue + ', 60%, ' + luminosity + '%, 0.9)');
 
             // Add anchor
             $('.small-genre-card:last').append(
