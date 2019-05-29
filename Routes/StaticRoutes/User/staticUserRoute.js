@@ -10,4 +10,8 @@ router.get('/', checkAuthMiddleware, function (req, res, next) {
     res.sendFile(path.join(__dirname, '../../../public/user/me.html'));
 });
 
+router.get('/modify', checkAuthMiddleware, function (req, res, next) {
+    res.sendFile(path.join(__dirname, '../../../public/user/modify.html'));
+});
+
 module.exports = router;

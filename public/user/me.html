@@ -17,14 +17,17 @@
 <nav class="navbar" id="navbarNoHover"></nav>
 
 <hr>
-<div class="container bootstrap snippet">
-    <div class="row">
+<div class="container-fluid bootstrap snippet">
+    <div class="row justify-content-center">
         <div class="col-sm-10">
-            <h1 id="username">Pew DiePie</h1>
+            <h1><a class="btn btn-light" href="/me/modify"><i class="icon-large fa fa-cog"></i></a> <span id="username"></span></h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-4">
+
+    <br>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-3">
             <!--left col-->
 
             <ul class="list-group">
@@ -38,9 +41,9 @@
 
             <ul class="list-group">
                 <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item"><strong>Book Purchased</strong> 125</li>
-                <li class="list-group-item"><strong>Book Purchased this month</strong> 13</li>
-                <li class="list-group-item"><strong>Book in Cart</strong> 2</li>
+                <li class="list-group-item"><strong>Book Purchased </strong><span id="total-book-purchased">0</span></li>
+                <li class="list-group-item"><strong>Book Purchased this month </strong><span id="book-purchased-month">13</span></li>
+                <li class="list-group-item"><strong>Book in Cart </strong><span id="book-cart">2</span></li>
             </ul>
             <br><br>
 
@@ -48,8 +51,11 @@
         <!--/col-3-->
         <div class="col-sm-8">
 
-            <div class="row justify-content-center" id="no-element-error">
+            <div class="row justify-content-center no-element-error">
                 <h2 class="text-center">No Reservation Found</h2>
+            </div>
+
+            <div class="row justify-content-center no-element-error">
                 <p class="text-center">When you'll purchase your first book, that reservation will appear here</p>
             </div>
 
