@@ -33,6 +33,8 @@ $(document).ready(function () {
     $(window).resize(function() {
         nameAndSurnameFields(!($('.navbar-toggler').is(':visible')))
     });
+
+    retrieveUserInfo();
 });
 
 function nameAndSurnameFields(align) {
@@ -55,6 +57,19 @@ function nameAndSurnameFields(align) {
     }
 }
 
+function retrieveUserInfo() {
+    $.get("/api/v1/me", function (data) {
+        console.log(data);
+        $('#name').val(data.name);
+        $('#surname').val(data.surname);
+        $('#email').val(data.email);
+    })
+}
+
+function cancelModification() {
+    window.location.href = "/me";
+}
+
 function signUpNewUser() {
 
     let name = $('#name').val();
@@ -66,20 +81,22 @@ function signUpNewUser() {
     let message;
     let mailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
-    if(!name || !surname || !email || !password)
+    if(!name || !surname || !email)
         message = "Some parameters are missing";
     else if(!mailRegex.test(email))
         message = "The email should be an email address";
-    else if(password.length < 6 || password.length > 32)
-        message = "The password should be between 6 and 32 character";
-    else if(password !== repeatPass) {
-        password = "";
-        message = "The passwords should match";
+    else if(password && repeatPass) {
+        if(password.length < 6 || password.length > 32)
+            message = "The password should be between 6 and 32 character";
+        else if(password !== repeatPass) {
+            password = " ";
+            message = "The passwords should match";
+        }
     }
 
     $.ajax({
-        type: "POST",
-        url: "/api/v1/signup",
+        type: "PUT",
+        url: "/api/v1/me",
         data: JSON.stringify({
             "name": name,
             "surname": surname,
@@ -90,22 +107,17 @@ function signUpNewUser() {
         dataType: "json",
         success: function(data){
 
-            $("#name").val("");
-            $("#surname").val("");
-            $("#email").val("");
-            $("#password").val("");
-            $("#repeatedPassword").val("");
-
-            message = "Welcome to the BUK application, please check your email to activate your new account";
+            message = "User Data Modify Properly";
 
             $('#alert')
                 .html("<div class=\"text-center alert alert-success alert-dismissible text-center mx-auto fade show\">\n" +
                     "            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n" +
-                    "            <strong>Registration Complete!</strong><br>" + message +
+                    "            <strong>Success Modification!</strong><br>" + message +
                     "        </div>");
+
             $(".alert")
                 .on("closed.bs.alert", function () {
-                    window.location.href = "/";
+                    window.location.href = "/me";
                 })
                 .delay(2000)
                 .fadeOut(500, function () {

@@ -41,12 +41,16 @@ exports.modifyUserByID = function (userID, name, surname, email, password) {
                 if(!user)
                     return reject(new Response(400, "No user exists with that id"));
 
-                user.update({
+                let updateParameters = {
                     name: name,
                     surname: surname,
-                    email: email,
-                    password: password
-                })
+                    email: email
+                };
+
+                if(password)
+                    updateParameters.password = password;
+
+                user.update(updateParameters)
                     .then( () => {
                         let returnUser = {
                             id: user.id,

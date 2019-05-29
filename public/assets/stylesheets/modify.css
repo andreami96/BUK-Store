@@ -1,0 +1,52 @@
+.alert-padding {
+    padding-top: 11.5vh;
+}
+
+.form-padding {
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.alert {
+    max-width: 25vw;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    max-width: 50vw;
+}
+
+.form-group {
+    min-width: 30vw;
+}
+
+.input-group-text {
+    min-width: 45px;
+}
+
+.btn-primary {
+    border: 1px solid black;
+}
+
+@media only screen and (max-width: 800px) {
+    .card {
+        min-width: 70vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .alert {
+        min-width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
+    .alert {
+        min-width: 40vw;
+    }
+}
