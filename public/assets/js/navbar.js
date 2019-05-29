@@ -31,6 +31,16 @@ $(document).ready(function () {
                 })
             }
             else makeSolidNavbar();
+
+            $.get('/api/v1/me/cart', function (data) {
+                let bookInCart = 0;
+
+                for(let i = 0; i < data.books.length; i++)
+                    bookInCart += data.books[i].quantity;
+
+                $('.badge').text(bookInCart)
+            })
+
         },
         error: function (xhr) {
             if($(window).width() >= 576)
@@ -92,7 +102,7 @@ function createToggler() {
 
 function retrieveBadge() {
     return  "<div class=\"nav-item order-md-12 order-sm-1\">\n" +
-            "   <a><span class=\"badge badge-primary\">1</span></a>\n" +
+            "   <a><span class=\"badge badge-primary\"></span></a>\n" +
             "</div>\n"
 }
 

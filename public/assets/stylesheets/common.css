@@ -17,6 +17,13 @@
     backface-visibility: hidden;
 }
 
+@media only screen and (max-height: 500px) {
+    .navbar-collapse {
+        max-height: 40vh;
+        overflow-y: auto;
+    }
+}
+
 .navbar-nav {
     font-size: 14px;
     color: #fff;
