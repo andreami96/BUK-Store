@@ -89,7 +89,7 @@ function signUpNewUser() {
         if(password.length < 6 || password.length > 32)
             message = "The password should be between 6 and 32 character";
         else if(password !== repeatPass) {
-            password = "";
+            password = " ";
             message = "The passwords should match";
         }
     }
