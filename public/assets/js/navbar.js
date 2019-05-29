@@ -189,8 +189,7 @@ function createDropdownMenus(isLogged) {
 
 function logout() {
     $.get("/api/v1/logout", function (data) {
-        console.log(data);
-        $(location).attr('href', '/');
+        window.location.href = "/";
     });
 }
 
