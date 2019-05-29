@@ -1,12 +1,8 @@
-html,body {
-    height:100%;
-}
-
 .banner-primary {
+    flex-shrink: 0;
     display: flex;
     position: relative;
-    height: 50vh;
-    min-height: 400px;
+    height: 22em;
     background-size: cover;
     background-position: center;
 }

@@ -1,3 +1,7 @@
+#navbarContainer {
+    flex-shrink: 0;
+}
+
 .wrapper {
     display: flex;
     width: 100%;

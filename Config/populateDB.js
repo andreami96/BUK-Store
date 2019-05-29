@@ -23,8 +23,8 @@ async function createMainGenres() {
 
     await MainGenre.create({
         mainGenreID: 2,
-        title: "Essay",
-        picture: "/images/mainGenres/essay.png"
+        title: "Didactic",
+        picture: "/images/mainGenres/didactic.png"
     });
 
     await MainGenre.create({
@@ -45,47 +45,55 @@ async function createGenres() {
 
     await Genre.create({
         genreID: 1,
-        title: "Thriller",
-        picture: "/genres/book-candle.jpg",
+        title: "Novel",
+        picture: "/genres/novel.jpg",
         mainGenreID: 1,
-        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
-            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
-            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
+        description: "A novel is a long, fictional narrative which describes intimate human experiences. The novel in the modern era usually makes use of a literary prose style. The development of the prose novel at this time was encouraged by innovations in printing, and the introduction of cheap paper in the 15th century.\n" +
+            "\n" +
+            "The entire genre has been seen as having \"a continuous and comprehensive history of about two thousand years\", with its origins in classical Greece and Rome, in medieval and early modern romance, and in the tradition of the Italian renaissance novella."
     });
 
     await Genre.create({
         genreID: 2,
-        title: "Novel",
-        picture: "/genres/novel.jpg",
+        title: "Science fiction",
+        picture: "/genres/science-fiction.jpg",
         mainGenreID: 1,
-        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
-            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
-            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
+        description: "Often abbreviated Sci-Fi, Science fiction has been called the \"literature of ideas\". It typically deals with imaginative and futuristic concepts such as advanced science and technology, time travel, parallel universes, fictional worlds, space exploration, and extraterrestrial life. Science fiction often explores the potential consequences of scientific innovations.\n" +
+            "\n" +
+            "The genre is related to fantasy, horror, and superhero fiction, and includes many subgenres. However its exact definition has long been disputed among authors, critics, and scholars." +
+            "\n\nScience fiction's great rise in popularity during the 20th century is closely tied to the popular respect paid to science, as well as the rapid pace of technological innovation and new inventions. Science fiction has often predicted scientific and technological progress."
     });
 
     await Genre.create({
         genreID: 3,
-        title: "Storiography",
-        picture: "/genres/storiography.jpg",
+        title: "Crime fiction",
+        picture: "/genres/crime-fiction.jpg",
         mainGenreID: 1,
-        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
-            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
-            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
+        description: "Crime fiction is a literary genre that fictionalises crimes, their detection, criminals, and their motives. It is usually distinguished from mainstream fiction and other genres such as historical fiction or science fiction, but the boundaries are indistinct." +
+            "Crime fiction has multiple subgenres, including detective fiction (such as the whodunit), courtroom drama, hard-boiled fiction and legal thrillers. Most crime drama focuses on crime investigation and does not feature the court room. Suspense and mystery are key elements that are nearly ubiquitous to the genre." +
+            "Books in this genre provide unique psychological impacts and enable readers to become mediated witnesses through identifying with eyewitnesses to a crime."
     });
 
     await Genre.create({
         genreID: 4,
+        title: "Historiography",
+        picture: "/genres/historiography.jpg",
+        mainGenreID: 1,
+        description: "Historiography is the study of the methods of historians in developing history as an academic discipline, and by extension is any body of historical work on a particular subject. The historiography of a specific topic covers how historians have studied that topic using particular sources, techniques, and theoretical approaches. Scholars discuss historiography by topic—such as the historiography of the United Kingdom, that of WWII, the British Empire, early Islam, and China—and different approaches and genres, such as political history and social history. Beginning in the nineteenth century, with the development of academic history, there developed a body of historiographic literature."
+    });
+
+    await Genre.create({
+        genreID: 5,
         title: "Diary",
         picture: "/genres/diary.jpg",
         mainGenreID: 1,
-        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
-            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
-            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
+        description: "A diary is a record (originally in handwritten format) with discrete entries arranged by date reporting on what has happened over the course of a day or other period. A personal diary may include a person's experiences, thoughts, and/or feelings, excluding comments on current events outside the writer's direct experience." +
+            "Although a diary may provide information for a memoir, autobiography or biography, it is generally written not with the intention of being published as it stands, but for the author's own use. In recent years, however, there is internal evidence in some diaries (e.g. those of Ned Rorem, Alan Clark, Tony Benn or Simon Gray) that they are written with eventual publication in mind, with the intention of self-vindication, or simply for profit."
     });
 
 
     await Genre.create({
-        genreID: 5,
+        genreID: 6,
         title: "Fable",
         picture: "/genres/fable.jpg",
         mainGenreID: 1,
@@ -94,29 +102,120 @@ async function createGenres() {
             "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
     });
 
+    await Genre.create({
+        genreID: 7,
+        title: "Essay",
+        picture: "/genres/essay.jpg",
+        mainGenreID: 2,
+        description: "An essay is, generally, a piece of writing that gives the author's own argument. Essays have traditionally been sub-classified as formal and informal. Formal essays are characterized by \"serious purpose, dignity, logical organization, length,\" whereas the informal essay is characterized by \"the personal element (self-revelation, individual tastes and experiences, confidential manner), humor, graceful style, rambling structure, unconventionality or novelty of theme,\" etc.\n" +
+            "\n" +
+            "Essays are commonly used as literary criticism, political manifestos, learned arguments, observations of daily life, recollections, and reflections of the author. Almost all modern essays are written in prose, but works in verse have been dubbed essays as well."
+    });
+
+    await Genre.create({
+        genreID: 8,
+        title: "Treatise",
+        picture: "/genres/treatise.jpg",
+        mainGenreID: 2,
+        description: "A treatise is a formal and systematic written discourse on some subject, generally longer and treating it in greater depth than an essay, and more concerned with investigating or exposing the principles of the subject."
+    });
+
+    await Genre.create({
+        genreID: 9,
+        title: "Dialogue",
+        picture: "/genres/dialogue.jpg",
+        mainGenreID: 2,
+        description: "Dialogue is a written or spoken conversational exchange between two or more people, and a literary and theatrical form that depicts such an exchange. As a narrative, philosophical or didactic device, it is chiefly associated in the West with the Socratic dialogue as developed by Plato, but antecedents are also found in other traditions including Indian literature."
+    });
+
+    await Genre.create({
+        genreID: 10,
+        title: "Epic",
+        picture: "/genres/epic.jpg",
+        mainGenreID: 3,
+        description: "An epic poem, epic, epos, or epopee is a lengthy narrative poem, ordinarily involving a time beyond living memory in which occurred the extraordinary doings of the extraordinary men and women who, in dealings with the gods or other superhuman forces, gave shape to the moral universe that their descendants, the poet and his audience, must understand to understand themselves as a people or nation." +
+            "Originating before the invention of writing, primary epics were composed by bards who used complex rhetorical and metrical schemes by which they could memorize the epic as received in tradition and add to the epic in their performances."
+    });
+
+    await Genre.create({
+        genreID: 11,
+        title: "Satire",
+        picture: "/genres/satire.png",
+        mainGenreID: 3,
+        description: "In satirical books vices, follies, abuses, and shortcomings are held up to ridicule, ideally with the intent of shaming individuals, corporations, government, or society itself into improvement. Although satire is usually meant to be humorous, its greater purpose is often constructive social criticism, using wit to draw attention to both particular and wider issues in society.\n" +
+            "A feature of satire is strong irony or sarcasm — \"in satire, irony is militant\" — but parody, burlesque, exaggeration, juxtaposition, comparison, analogy, and double entendre are all frequently used in satirical speech and writing. This \"militant\" irony or sarcasm often professes to approve of (or at least accept as natural) the very things the satirist wishes to attack."
+    });
+
+    await Genre.create({
+        genreID: 12,
+        title: "Tragedy",
+        picture: "/genres/tragedy.png",
+        mainGenreID: 4,
+        description: "Tragedy is a form of drama based on human suffering that invokes an accompanying catharsis or pleasure in audiences. While many cultures have developed forms that provoke this paradoxical response, the term tragedy often refers to a specific tradition of drama that has played a unique and important role historically in the self-definition of Western civilisation. That tradition has been multiple and discontinuous, yet the term has often been used to invoke a powerful effect of cultural identity and historical continuity.\n"
+    });
+
+    await Genre.create({
+        genreID: 13,
+        title: "Comedy",
+        picture: "/genres/comedy.png",
+        mainGenreID: 4,
+        description: "In a modern sense, comedy refers to any discourse or work generally intended to be humorous or amusing by inducing laughter, especially in theatre, television, film, stand-up comedy, or any other medium of entertainment. The origins of the term are found in Ancient Greece. In the Athenian democracy, the public opinion of voters was influenced by the political satire performed by the comic poets at the theaters. The theatrical genre of Greek comedy can be described as a dramatic performance which pits two groups or societies against each other in an amusing agon or conflict. A revised view characterizes the essential agon of comedy as a struggle between a relatively powerless youth and the societal conventions that pose obstacles to his hopes." +
+            "In this struggle, the youth is understood to be constrained by his lack of social authority, and is left with little choice but to take recourse in ruses which engender very dramatic irony which provokes laughter."
+    });
+
+    await Genre.create({
+        genreID: 14,
+        title: "Opera",
+        picture: "/genres/opera.png",
+        mainGenreID: 4,
+        description: "Opera is a form of theatre in which music has a leading role and the parts are taken by singers, but is distinct from musical theater. Such a \"work\" (the literal translation of Italian word \"opera\") is typically a collaboration between a composer and a librettist and incorporates a number of the performing arts, such as acting, scenery, costume, and sometimes dance or ballet.\n" +
+            "A libretto is the text used in, or intended for, an extended musical work such as an opera, operetta, masque, oratorio, cantata or musical. The relationship of the librettist (that is, the writer of a libretto) to the composer in the creation of a musical work has varied over the centuries, as have the sources and the writing techniques employed."
+    });
+
 }
 
 async function createThemes() {
 
     await Theme.create({
         themeID: 1,
-        title: "Giallo",
-        picture: "/themes/giallo.jpg",
+        title: "Crime",
+        picture: "/",
         description: "Il giallo è un genere di successo di narrativa di consumo nato verso la metà del XIX secolo e sviluppatosi nel Novecento"
     });
 
     await Theme.create({
         themeID: 2,
-        title: "Amore",
-        picture: "/themes/amore.jpg",
+        title: "Love",
+        picture: "/",
         description: "L'amore è il motore che muove l'uno verso l'altro, è forza gravitazionale esercitata su tutti noi"
     });
 
     await Theme.create({
         themeID: 3,
-        title: "Guerra",
-        picture: "/themes/guerra.jpg",
+        title: "War",
+        picture: "/",
         description: "War is peace."
+    });
+
+    await Theme.create({
+        themeID: 4,
+        title: "Digital life",
+        picture: "/",
+        description: "Bella vita nei computer quantistici"
+    });
+
+    await Theme.create({
+        themeID: 5,
+        title: "Russia",
+        picture: "/",
+        description: "Dasvidania, stronzi"
+    });
+
+    await Theme.create({
+        themeID: 6,
+        title: "Politics",
+        picture: "/",
+        description: "blabla"
     });
 
 }
@@ -127,12 +226,6 @@ async function createBooks() {
         ISBN: "8845282678",
         title: "La verità sul caso Harry Quebert",
         picture: "/books/8845282678.jpeg",
-        factSheet: "Copertina flessibile: 775 pagine\n" +
-            "Editore: Bompiani (16 giugno 2016)\n" +
-            "Collana: Tascabili narrativa\n" +
-            "Lingua: Italiano\n" +
-            "ISBN-10: 8845282678\n" +
-            "Peso di spedizione: 821 g",
         abstract: "Estate 1975. Nola Kellergan, una ragazzina di 15 anni, scompare misteriosamente nella tranquilla cittadina di Aurora, New Hampshire. " +
             "Le ricerche della polizia non danno alcun esito. Primavera 2008, New York. Marcus Goldman, giovane scrittore di successo, sta vivendo uno dei rischi del suo mestiere: " +
             "è bloccato, non riesce a scrivere una sola riga del romanzo che da lì a poco dovrebbe consegnare al suo editore. " +
@@ -148,47 +241,32 @@ async function createBooks() {
         genreID: 1,
         year: 2014,
         editor: "Bompiani",
-        pageNumber: 779,
+        pageNumber: 775,
         originalLanguage: "Francese"
     });
 
     await Book.create({
         ISBN: "9788893440615",
-        title: "Il libro dei Baltimore",
+        title: "Il libro degli Dei",
         picture: "/books/9788893440615.jpg",
-        factSheet: "Copertina flessibile: 592 pagine\n" +
-            "Editore: La nave di Teseo (29 settembre 2016)\n" +
-            "Collana: Oceani\n" +
-            "Lingua: Italiano",
-        abstract: "Sino al giorno della Tragedia, c'erano due famiglie Goldman. I Goldman di Baltimore e i Goldman di Montclair. " +
-            "Di quest'ultimo ramo fa parte Marcus Goldman, il protagonista di \"La verità sul caso Harry Quebert\". " +
-            "I Goldman di Montclair, New Jersey, sono una famiglia della classe media e abitano in un piccolo appartamento. " +
-            "I Goldman di Baltimore, invece, sono una famiglia ricca e vivono in una bellissima casa nel quartiere residenziale di Oak Park. " +
-            "A loro, alla loro prosperità, alla loro felicità, Marcus ha guardato con ammirazione sin da piccolo, " +
-            "quando lui e i suoi cugini, Hillel e Woody, amavano di uno stesso e intenso amore Alexandra. Otto anni " +
-            "dopo una misteriosa tragedia, Marcus decide di raccontare la storia della sua famiglia: torna con la memoria alla vita " +
-            "e al destino dei Goldman di Baltimore, alle vacanze in Florida e negli Hamptons, ai gloriosi anni di scuola. " +
-            "Ma c'è qualcosa, nella sua ricostruzione, che gli sfugge. Vede scorrere gli anni, scolorire la patina scintillante dei Baltimore, " +
-            "incrinarsi l'amicizia che sembrava eterna con Woody, Hillel e Alexandra. Fino al giorno della Tragedia. " +
-            "E da quel giorno Marcus è ossessionato da una domanda: cosa è veramente accaduto ai Goldman di Baltimore? " +
-            "Qual è il loro inconfessabile segreto?",
+        abstract: "Stasya non sa bene l'italiano e ride senza motivo e non sta leggendo quello che sto srivendo." +
+            "Stanislava Fedorova non sa scrivere una mail in maniera corretta. Continua a ridere senza nessun motivo" +
+            "Stranamente non ha battuto i pugni sul tavolo. E' incredibile che non se ne sia ancora accorta" +
+            "Stasya guarda il mio schermo ma non legge quello che scrivo, è proprio stronza",
         interview: "",
-        availableQuantity: 6,
-        price: 18.70,
+        availableQuantity: 1,
+        price: 'Dopo Richiesta',
         genreID: 1,
-        year: 2016,
-        editor: "La nave di Teseo",
-        pageNumber: 592,
-        originalLanguage: "Francese"
+        year: 1995,
+        editor: "Stasya",
+        pageNumber: 6666,
+        originalLanguage: "Tobagoniano"
     });
 
     await Book.create({
         ISBN: "1984822179",
         title: "Normal People",
         picture: "/books/normal_people.jpg",
-        factSheet: "Hardcover: 288 pages\n" +
-            "Publisher: Hogarth; Later Printing edition\n" +
-            "Language: English",
         abstract: "At school Connell and Marianne pretend not to know each other. He’s popular and well-adjusted, star of the school football team," +
             " while she is lonely, proud, and intensely private. But when Connell comes to pick his mother up from her job at Marianne’s house, a " +
             "strange and indelible connection grows between the two teenagers—one they are determined to conceal.\n\n" +
@@ -212,9 +290,6 @@ async function createBooks() {
         ISBN: "1481449478",
         title: "The Gospel of Loki",
         picture: "/books/the_gospel_of_loki.jpg",
-        factSheet: "Hardcover: 288 pages\n" +
-            "Publisher: Gallery / Saga Press;\n" +
-            "Language: English",
         abstract: "This novel is a brilliant first-person narrative of the rise and fall of the Norse gods—retold from the point " +
             "of view of the world’s ultimate trickster, Loki. A #1 bestseller in the UK, The Gospel of Loki tells the story of Loki’s " +
             "recruitment from the underworld of Chaos, his many exploits on behalf of his one-eyed master, Odin, through to his eventual " +
@@ -233,9 +308,6 @@ async function createBooks() {
         ISBN: "0525436146",
         title: "There There",
         picture: "/books/there_there.jpg",
-        factSheet: "Hardcover: 344 pages\n" +
-            "Publisher: Vintage\n" +
-            "Language: English",
         abstract: "Tommy Orange’s shattering novel follows twelve characters from Native communities: all traveling to the Big Oakland Powwow, " +
             "all connected to each other in ways they may not yet realize. There is Jacquie Red Feather, newly sober and working to make it back " +
             "to the family she left behind. Dene Oxendene, who is pulling his life back together after his uncle’s death, has come to work at the " +
@@ -257,9 +329,6 @@ async function createBooks() {
         ISBN: "006223790",
         title: "Pieces of Light",
         picture: "/books/pieces_of_light.jpg",
-        factSheet: "Hardcover: 320 pages\n" +
-            "Publisher: Harper Perennial\n" +
-            "Language: English",
         abstract: "Leading psychologist Charles Fernyhough blends the most current science with literature and personal stories in Pieces of Light:" +
             " How the New Science of Memory Illuminates the Stories We Tell About Our Pasts.\n\n" +
             "A new consensus is emerging among cognitive scientists: rather than possessing fixed, unchanging memories, they have found that we create " +
@@ -284,9 +353,6 @@ async function createBooks() {
         title: "A Game of Thrones",
         picture: "/books/got_hc1.jpg",
         backgroundPicture: "/books/background/got.jpeg",
-        factSheet: "Hardcover: 704 pages\n" +
-            "Publisher: Bantam\n" +
-            "Language: English",
         abstract: "Here is the first volume in George R. R. Martin's magnificent cycle of novels that includes A Clash of Kings and A Storm of Swords." +
             " As a whole, this series comprises a genuine masterpiece of modern fantasy, bringing together the best the genre has to offer. Magic, " +
             "mystery, intrigue, romance, and adventure fill these pages and transport us to a world unlike any we have ever experienced. Already hailed" +
@@ -315,9 +381,6 @@ async function createBooks() {
         ISBN: "0812998952",
         title: "American Spy",
         picture: "/books/american_spy.jpg",
-        factSheet: "Hardcover: 304 pages\n" +
-            "Publisher: Random House\n" +
-            "Language: English",
         abstract: "It’s 1986, the heart of the Cold War, and Marie Mitchell is an intelligence officer with the FBI. She’s brilliant, but " +
             "she’s also a young black woman working in an old boys’ club. Her career has stalled out, she’s overlooked for every high-profile " +
             "squad, and her days are filled with monotonous paperwork. So when she’s given the opportunity to join a shadowy task force aimed at " +
@@ -341,34 +404,53 @@ async function createBooks() {
     });
 
     await Book.create({
-        ISBN: "2845362671",
+        ISBN: "9788804668428",
         title: "Il Maestro e Margherita",
         picture: "/books/Il-Mastro-e-Margherita-copertina-394x600.jpg",
-        factSheet: "Copertina flessibile: 775 pagine\n" +
-            "Editore: Bompiani (16 giugno 2016)\n" +
-            "Collana: Tascabili narrativa\n" +
-            "Lingua: Italiano\n" +
-            "ISBN-10: 8845282678\n" +
-            "Peso di spedizione: 821 g",
-        abstract: "Estate 1975. Nola Kellergan, una ragazzina di 15 anni, scompare misteriosamente nella tranquilla cittadina di Aurora, New Hampshire. " +
-            "Le ricerche della polizia non danno alcun esito. Primavera 2008, New York. Marcus Goldman, giovane scrittore di successo, sta vivendo uno dei rischi del suo mestiere: " +
-            "è bloccato, non riesce a scrivere una sola riga del romanzo che da lì a poco dovrebbe consegnare al suo editore. " +
-            "Ma qualcosa di imprevisto accade nella sua vita: il suo amico e professore universitario Harry Quebert, " +
-            "uno degli scrittori più stimati d'America, viene accusato di avere ucciso la giovane Nola Kellergan. " +
-            "Il cadavere della ragazza viene infatti ritrovato nel giardino della villa dello scrittore, a Goose Cove, " +
-            "poco fuori Aurora, sulle rive dell'oceano. Convinto dell'innocenza di Harry Quebert, Marcus Goldman abbandona " +
-            "tutto e va nel New Hampshire per condurre la sua personale inchiesta. Marcus, dopo oltre trent'anni deve " +
-            "dare risposta a una domanda: chi ha ucciso Nola Kellergan? E, naturalmente, deve scrivere un romanzo di grande successo.",
+        backgroundPicture: "/books/background/begemot.jpg",
+        abstract: "Nella Mosca staliniana, popolata di stupidi, di burocrati e di privilegiati per i quali truffa, ipocrisia e delazione sono come una seconda natura, giunge Satana in persona, sotto le spoglie di Woland, esperto di magia nera. Da quel momento bizzarri e tragicomici imprevisti si abbattono su piccoli funzionari ed esponenti della Mosca letteraria e teatrale: la città ne viene sconvolta.\n" +
+            "Solo al Maestro, uno scrittore emarginato e incompreso a cui editori e critici hanno rifiutato di pubblicare un romanzo sul dramma di Pilato, e alla sua infelice amata, Margherita, Satana-Woland offrirà, in un incontro faustiano, un’esistenza finalmente serena.",
         interview: "",
-        availableQuantity: 10,
-        price: 8.41,
-        genreID: 1,
-        year: 2014,
-        editor: "Bompiani",
-        pageNumber: 779,
-        originalLanguage: "Francese"
+        availableQuantity: 8,
+        price: 12.00,
+        genreID: 2,
+        year: 1967,
+        editor: "Mondadori",
+        pageNumber: 546,
+        originalLanguage: "Russian"
     });
 
+    await Book.create({
+        ISBN: "9781405924382",
+        title: "This Book Loves You",
+        picture: "/books/pewdiepie.jpg",
+        backgroundPicture: "/books/background/pewds-style.jpg",
+        abstract: "\"This Book Loves You\" is a collection of beautifully illustrated inspirational sayings written by PewDiePie, the most subscribed YouTuber in the world with 39 million fans and more than 10 billion views. In \"This Book Loves You,\" PewDiePie delivers advice and wisdom that everyone can use--or at least everyone willing to give up and stop caring. If all else fails, remember: \"Don t be yourself. Be a pizza. Everyone loves pizza.\" Imagine what a chilled-out and wonderful human being people would think you were if you lived by the simple principle \"You can never fail if you never try.\" Your wasted life would be an inspiration to others. Think of all the pointless, unhappy striving you could simply give up. Throw away that guitar! Give up on your dreams! Embrace your astounding mediocrity.",
+        interview: "This book is a great chance for me to reach my audience in a new way. The original idea actually came from my fans via Twitter, so I really think they are going to love it\n",
+        availableQuantity: 15,
+        price: 12.30,
+        genreID: 4,
+        year: 2015,
+        editor: "Penguin",
+        pageNumber: 240,
+        originalLanguage: "English"
+    });
+
+    await Book.create({
+        ISBN: "2081297892",
+        title: "Les Mystères de la gauche",
+        picture: "/books/la-gauche-michea.jpg",
+        backgroundPicture: "/books/background/la-gauche-background.jpg",
+        abstract: "\"Les Mystères de la gauche\" is a critique of the Left which, Michéa says, has accepted capitalism and its associated liberal values and has thus become identical to the Right. In addition it tries to hide this betrayal by focusing on ‘societal’ (civil rights) issues rather than ‘social’ (anti-capitalist) struggles that have more meaning for the great mass of working people. Does the Left constitute the final stage of capitalism? Thus the slogan that sums up his position: \"Think with the Left, against the Left\".",
+        interview: "",
+        availableQuantity: 3,
+        price: 14,
+        genreID: 4,
+        year: 2015,
+        editor: "Penguin",
+        pageNumber: 240,
+        originalLanguage: "French"
+    });
 }
 
 async function createBookTheme() {
@@ -412,6 +494,15 @@ async function createBookTheme() {
         themeID: 1
     });
 
+    await BookTheme.create({
+        ISBN: "9781405924382",
+        themeID: 4
+    });
+
+    await BookTheme.create({
+        ISBN: "9788804668428",
+        themeID: 5
+    });
 }
 
 async function createAuthors() {
@@ -499,6 +590,14 @@ async function createAuthors() {
         biography: "Lauren Wilkinson earned an MFA in Fiction and Literary Translation from Columbia University, and has taught writing at Columbia" +
             " and the Fashion Institute of Technology. She was a 2013 Center for Fiction Emerging Writer’s Fellow, and has also received support " +
             "from the MacDowell Colony and the Djerassi Resident Artists Program. Lauren lives in New York. American Spy is her first novel."
+    });
+
+    await Author.create({
+        authorID: 8,
+        name: "Jean-Claude",
+        surname: "Michéa",
+        picture: "/authors/michea.jpg",
+        biography: "Jean Claude Michéa (b. 1950) is a French philosopher and Left-wing activist who has written extensively on the plight of the European Left since the 1970s. Taking inspiration from George Orwell and others like Rosa Luxemburg, he is well-known in Europe for taking strong positions not only against capitalism, individualism and neoliberalism, but also, and more controversially, for his denunciation of the ‘official’ currents and parties of the Left and their vapid intelligentsia. These, he says, have lost their anti-capitalist convictions and have inevitably distanced themselves from the masses generally and the working class in particular, leading to the growth of the extreme right."
     });
 }
 
@@ -692,6 +791,31 @@ async function createEvents() {
         description: "Meet the Author Joel Dicker at this event",
         ISBN: "8845282678",
         picture: "/events/prova-evento.jpeg"
+    });
+
+    await Event.create({
+        eventID: 2,
+        address: "Kungsportsavenyen 12, 41136 Göteborg",
+        latitude: 57.701067,
+        longitude: 11.973846,
+        eventDate: "2019-06-29",
+        title: "PewDiePie presents his new book",
+        description: "Meet the #1 Youtuber in the world Felix Arvid Ulf Kjelberg, better known as PewDiePie." +
+            "In his home town, Göteborg, he will present his new book",
+        ISBN: "9781405924382",
+        picture: "/events/pewdiepie-event.jpg"
+    })
+
+    await Event.create({
+        eventID: 3,
+        address: "Boulevard Raspail 15, 75007 Paris",
+        latitude: 48.854392,
+        longitude: 2.326291,
+        eventDate: "2019-07-03",
+        title: "The Left for Jean-Claude Michéa",
+        description: "The perfect occasion to understand the thoughts behind Michéa's latest publication.",
+        ISBN: "9781405924382",
+        picture: "/events/michea-event.jpg"
     })
 }
 

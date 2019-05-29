@@ -1,3 +1,12 @@
+html,body {
+    height:100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 .breadcrumb-item a {
     color: black;
     text-decoration: none;
@@ -5,6 +14,7 @@
 
 #under-navbar {
     height: 7em;
+    flex-shrink: 0;
 }
 
 /* Navbar */
@@ -92,10 +102,9 @@
 
 /* Footer */
 .footer {
+    margin-top: auto;
     font-size: 9pt;
-    bottom: 0;
     width: 100%;
-    min-height: 30vh;
     background-color: #ebebeb;
 }
 
