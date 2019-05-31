@@ -1364,15 +1364,6 @@ components:
           type: string
           description: The path to the book background image
           example: /images/books/book1-bg.png
-        factSheet:
-          type: string
-          description: A summary description of the book
-          readOnly: true
-          example: >-
-            The Truth About the Harry Quebert Affair is a novel by Swiss author
-            Joël Dicker. It was published in the United States on 27 May 2014,
-            by Penguin Books.[1] The original French version, La vérité sur
-            l’affaire Harry Quebert, has sold more than one million copies
         abstract:
           type: string
           description: An abstract of the book
