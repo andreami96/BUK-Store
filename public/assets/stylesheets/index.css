@@ -111,13 +111,6 @@
 
 }
 
-.bg-1 {
-    background: #2d2d30;
-    color: #bdbdbd;
-}
-.bg-1 h3 {color: #fff;}
-.bg-1 p {font-style: italic;}
-
 .bg-2 {
     background: white;
     color: #2d2d30;
@@ -126,7 +119,7 @@
 .bg-2 p {font-style: italic;}
 
 .container {
-    padding: 0px 120px;
+    padding: 0 120px;
 }
 
 .container h3 {
@@ -138,16 +131,104 @@
     margin: 10px;
 }
 
-.eventCardImg {
+/* Events */
+#eventsHomepage {
     background: #2d2d30;
+    color: #bdbdbd;
+    padding: 3em 5em;
 }
 
-.card {
-    border-color: #2d2d30;
-    background: #2d2d30;
+#eventsHomepage h1 {
+    color: white;
 }
 
+#eventsHomepage h3 {
+    color: black;
+}
 
-#test1 {
-    background: rgba(97, 98 , 116, .3);
+.event-display {
+    margin: 4em 0;
+}
+
+.event-container {
+    border: 1px solid rgb(212, 212, 212);
+}
+
+.event-container .row {
+    height: 100%;
+}
+
+.event-image {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/events/pewdiepie-event.jpg");
+}
+
+@media (max-width: 768px) {
+    .event-image {
+        height: 10em;
+    }
+}
+
+@media (min-width: 768px) {
+    .event-display:nth-child(odd) .event-container,
+    .event-display:nth-child(odd) .event-image{
+        order: 1;
+    }
+}
+
+.event-display:nth-child(even) .event-title {
+    background-color: #f9f9f9;
+}
+
+.event-display:nth-child(odd) .event-title {
+    background-color: #d5d5d5;
+}
+
+.event-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3em 1em;
+}
+
+.event-container .row {
+    position: relative;
+}
+
+.event-container span {
+    /* Make clickable the whole "event-container" div */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+.relatedBook-container {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.relatedBook-container img {
+    height: 9em;
+    /*border: 1px solid rgba(212, 212, 212, 1);*/
+    border-bottom: 0;
+    box-shadow: 0 10px 6px -6px black;
+
+}
+
+.bookTitle-text {
+    font-weight: bold;
+    margin: 1em 0 0 0;
+}
+
+.bookAuthor-text {
+    font-style: italic;
+    margin: 0;
 }

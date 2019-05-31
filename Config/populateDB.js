@@ -255,7 +255,7 @@ async function createBooks() {
             "Stasya guarda il mio schermo ma non legge quello che scrivo, è proprio stronza",
         interview: "",
         availableQuantity: 1,
-        price: 'Dopo Richiesta',
+        price: 10,
         genreID: 1,
         year: 1995,
         editor: "Stasya",
@@ -599,6 +599,37 @@ async function createAuthors() {
         picture: "/authors/michea.jpg",
         biography: "Jean Claude Michéa (b. 1950) is a French philosopher and Left-wing activist who has written extensively on the plight of the European Left since the 1970s. Taking inspiration from George Orwell and others like Rosa Luxemburg, he is well-known in Europe for taking strong positions not only against capitalism, individualism and neoliberalism, but also, and more controversially, for his denunciation of the ‘official’ currents and parties of the Left and their vapid intelligentsia. These, he says, have lost their anti-capitalist convictions and have inevitably distanced themselves from the masses generally and the working class in particular, leading to the growth of the extreme right."
     });
+
+    await Author.create({
+        authorID: 9,
+        name: "Michail",
+        surname: "Bulgakov",
+        picture: "/authors/bulgakov.jpg",
+        biography: "Mikhail Afanasievich Bulgakov was Russian writer born in Kiev, the capital of Ukraine, on May 15. 1891. His father was working as an assistant professor at the Theological Academy. He was one of seven children in his family. In his young age, he was drawn in theater. He liked to write comedies, which his family acted out.\n" +
+            "\n" +
+            "After finishing Gymnasium in 1909, Bulgakov entered the Medical School of Kiev University and he graduating in 1916. Then, he was a physician at the Military Hospital in Kiev.\n" +
+            "\n" +
+            "He married Tatyana Lappa in 1913. Tatiana moved with him after graduation to provincial villages and there he practiced medicine.\n" +
+            "\n" +
+            "During the First World War, he volunteered as a medical doctor with the Red Cross. In front, he was injured twice. Because he was suffering a chronic pain, he received a morphine and then he became addicted. In 1918 he solves the addiction and never used morphine again. About that period of his life, he wrote a book and he is released in 1926. About his doctor experience, he wrote two books: \"Notes on Cuffs\" and \"Notes of a Young Country Doctor.\"\n" +
+            "\n" +
+            "In 1918 Bulgakov returned to Kiev at the end of World War I. In that time in Russia was beginning of the Civil War. In Kiev, he opened a private practice. Next year in February he was mobilized by the Ukrainian People's Army as a physician. In that period, he became very ill. He barely survives typhus. In Northern Caucasus, he was working as a journalist. He never leaves Russia while most of his family emigrated to Paris.\n" +
+            "\n" +
+            "His most famous works are: \"The Master and Margarita\" - a masterpiece of the 20th century, \"The Heart of a Dog\", \"The Fatal Egg\", \"The White Guard\", \"Great Soviet Short Stories\", \"A Dead Man's Memoir\"...\n" +
+            "\n" +
+            "He dies at Moscow, March 10, 1940."
+    });
+
+    await Author.create({
+        authorID: 10,
+        name: "Pew",
+        surname: "DiePie",
+        picture: "/authors/pewdiepie.jpg",
+        biography: "Known online as PewDiePie, Felix Arvid Ulf Kjellberg is the internet’s biggest star — he has a record-breaking 96 million subscribers to his YouTube channel, and over 21 billion views. The PewDiePie channel is best known for its irreverent gaming content, shot in a “Let’s Play” style — videos of Kjellberg playing video games while giving an expletive-strewn running commentary.\n" +
+            "Kjellberg was born and raised in Gothenburg, Sweden. He was born to Lotta Kristine Johanna and Ulf Christian Kjellberg and grew up with his older sister Fanny. His mother, a former CIO, was named the 2010 CIO of the Year in Sweden. His father is also a corporate executive.\n" +
+            "During his early schooling life, he was interested in art, and has detailed that he would draw popular video game characters such as Mario and Sonic the Hedgehog, as well as play video games on his Super Nintendo Entertainment System. During high school, he would skip classes to play video games at an Internet café with friends.\" He then went on to pursue a degree in industrial economics and technology management at Chalmers University of Technology, but left the university in 2011. While his reason for leaving Chalmers has often been reported as a want to focus on his YouTube career, in 2017, Kjellberg clarified that he left because of his lack of interest in his course, and perceived the idea of leaving university to pursue a YouTube career as “fucking stupid”."
+    });
+
 }
 
 async function createWrittenBy() {
@@ -640,6 +671,21 @@ async function createWrittenBy() {
     await WrittenBy.create({
         ISBN: "0812998952",
         authorID: 6
+    });
+
+    await WrittenBy.create({
+        ISBN: "2081297892",
+        authorID: 8
+    });
+
+    await WrittenBy.create({
+        ISBN: "9781405924382",
+        authorID: 10
+    });
+
+    await WrittenBy.create({
+        ISBN: "9788804668428",
+        authorID: 9
     });
 
 
@@ -783,14 +829,14 @@ async function createReviews() {
 async function createEvents() {
     await Event.create({
         eventID: 1,
-        address: "Viale Romagna, 20133 Milano",
-        latitude: 45.4687769,
-        longitude: 9.2238234,
-        eventDate: "2019-04-07",
-        title: "Meet the Author",
-        description: "Meet the Author Joel Dicker at this event",
-        ISBN: "8845282678",
-        picture: "/events/prova-evento.jpeg"
+        address: "Galleria Vittorio Emanuele II, 20121 Milano",
+        latitude: 45.466277,
+        longitude: 9.189870,
+        eventDate: "2019-06-07",
+        title: "The life of Michail Bulgakov",
+        description: "Meet the Author Michail Bulgakov at this event",
+        ISBN: "9788804668428",
+        picture: "/events/bulgakov-event.jpg"
     });
 
     await Event.create({
@@ -804,7 +850,7 @@ async function createEvents() {
             "In his home town, Göteborg, he will present his new book",
         ISBN: "9781405924382",
         picture: "/events/pewdiepie-event.jpg"
-    })
+    });
 
     await Event.create({
         eventID: 3,
@@ -814,7 +860,7 @@ async function createEvents() {
         eventDate: "2019-07-03",
         title: "The Left for Jean-Claude Michéa",
         description: "The perfect occasion to understand the thoughts behind Michéa's latest publication.",
-        ISBN: "9781405924382",
+        ISBN: "2081297892",
         picture: "/events/michea-event.jpg"
     })
 }
