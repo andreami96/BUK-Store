@@ -29,11 +29,11 @@ router.get('/:authorID', function (req, res, next) {
         });
 });
 
-router.get('/:themeID/books', function (req, res, next) {
+router.get('/:authorID/books', function (req, res, next) {
 
-    findBooksByAuthor(req.params.themeID)
-        .then( (event) => {
-            return res.status(200).send(event);
+    findBooksByAuthor(req.params.authorID, req.query.limit, req.query.offset)
+        .then( (books) => {
+            return res.status(200).send(books);
         })
         .catch( (err) => {
             next(err);

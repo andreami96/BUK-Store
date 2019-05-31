@@ -682,6 +682,12 @@
         ],
         "parameters": [
           {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          },
+          {
             "name": "authorID",
             "in": "path",
             "description": "The identifier of the Author",
@@ -815,6 +821,12 @@
         ],
         "parameters": [
           {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          },
+          {
             "name": "themeID",
             "in": "path",
             "description": "The identifier of the Theme",
@@ -839,6 +851,58 @@
                       },
                       "title": {
                         "$ref": "#/components/schemas/Book/properties/title"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/themes/{themeID}/genres": {
+      "get": {
+        "summary": "It retrieves the genres related to a single theme",
+        "description": "Use this endpoint to identify the genres related to the **_themeID_** given",
+        "tags": [
+          "Theme"
+        ],
+        "parameters": [
+          {
+            "name": "themeID",
+            "in": "path",
+            "description": "The identifier of the Theme",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Theme/properties/themeID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "genreID": {
+                        "$ref": "#/components/schemas/Genre/properties/genreID"
+                      },
+                      "title": {
+                        "$ref": "#/components/schemas/Genre/properties/title"
                       }
                     }
                   }
@@ -1040,6 +1104,12 @@
           "Genre"
         ],
         "parameters": [
+          {
+            "$ref": "#/components/parameters/limit"
+          },
+          {
+            "$ref": "#/components/parameters/offset"
+          },
           {
             "name": "genreID",
             "in": "path",

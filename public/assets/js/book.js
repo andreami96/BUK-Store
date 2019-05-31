@@ -48,6 +48,18 @@ jQuery(document).ready(function() {
             }
         );
 
+        if(data.availableQuantity > 0) {
+            $('#stock').text("In Stock");
+            $('.cart').append("<button type=\"button\" class=\"btn btn-success\" onclick=\"addToCart()\">\n" +
+                              "Reserve\n" +
+                              "</button>");
+        } else {
+            $('#stock').text("Out of Stock");
+            $('.cart').append("<button type=\"button\" class=\"btn btn-secondary\" disabled>\n" +
+                "Sold Out\n" +
+                "</button>");
+        }
+
         //Build Author Interview element
         if( data.interview.length != 0 ){
             $('#author-interview').append($('<div>').addClass('panel-heading'));
@@ -202,3 +214,32 @@ jQuery(document).ready(function() {
         })
     })
 });
+
+function addToCart() {
+    if($(".badge").length) {
+
+        $.ajax({
+            type: "POST",
+            url: "/api/v1/me/cart",
+            data: JSON.stringify({
+                "ISBN": $('#isbn').text(),
+                "quantity": 1,
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result, status, xhr) {
+                $('.badge').text(parseInt($('.badge').text()) + 1);
+            },
+            error: function (xhr) {
+                let message = "This book is already in your cart, to modify the quantity go into your cart";
+                $('#alert')
+                    .html("<div class=\"text-center alert alert-danger alert-dismissible text-center mx-auto fade show\">\n" +
+                        "            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n" +
+                        "            <strong>Alert!</strong><br>" + message +
+                        "        </div>");
+                $(".alert").delay(3000).fadeOut(500);
+            }
+        });
+    } else
+        window.location.href = "/login.html";
+}

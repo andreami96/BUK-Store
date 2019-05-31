@@ -182,6 +182,10 @@ ul.rig.columns-2 li {
     /* this value + 2.5 should = 50% */
 }
 
+ul.rig.columns-2, ul.rig.columns-3, ul.rig.columns-4 {
+    padding-left: 0px;
+}
+
 
 /* class for 3 columns */
 
@@ -207,6 +211,11 @@ ul.rig.columns-1 li {
     width: 100% !important;
     /* over-ride all li styles */
     margin: 0 0 10px;
+    padding-right: 0px !important;
+}
+
+ul.rig.columns-1 {
+    padding-left: 15px !important;
 }
 
 @media (max-width: 576px) {
@@ -236,6 +245,9 @@ ul.rig.columns-1 li {
         padding-right: 5px;
     }
 
+    .grid {
+
+    }
 }
 
 
@@ -245,6 +257,9 @@ ul.rig.columns-1 li {
     overflow: hidden;
 }
 
+#book-catalog {
+    margin-left: 0px !important;
+}
 /*
 .breadcrumb {
     margin-top: 5rem;
@@ -369,4 +384,19 @@ ul.rig.columns-1 li {
 .grid {
     padding-right: 15px;
     padding-top: 25px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.overlay.active {
+    display: block;
+    opacity: 1;
 }
