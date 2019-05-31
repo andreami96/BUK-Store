@@ -434,6 +434,8 @@ paths:
       tags:
         - Author
       parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
         - name: authorID
           in: path
           description: The identifier of the Author
@@ -522,6 +524,8 @@ paths:
       tags:
         - Theme
       parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
         - name: themeID
           in: path
           description: The identifier of the Theme
@@ -667,6 +671,8 @@ paths:
       tags:
         - Genre
       parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
         - name: genreID
           in: path
           description: The identifier of the Genre

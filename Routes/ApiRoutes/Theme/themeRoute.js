@@ -31,7 +31,7 @@ router.get('/:themeID', function (req, res, next) {
 
 router.get('/:themeID/books', function (req, res, next) {
 
-    findBooksByTheme(req.params.themeID)
+    findBooksByTheme(req.params.themeID, req.query.limit, req.query.offset)
         .then( (event) => {
             return res.status(200).send(event);
         })
