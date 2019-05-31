@@ -52,6 +52,6 @@ router.get('/:genreID/themes', function (req, res, next) {
             next(err);
         });
 
-})
+});
 
 module.exports = router;
