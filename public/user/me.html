@@ -5,6 +5,9 @@
     <title>UserName - BUK Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+
     <!-- CSS: Bootstrap, Font Awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -51,28 +54,68 @@
         <!--/col-3-->
         <div class="col-sm-8">
 
-            <div class="row justify-content-center no-element-error">
-                <h2 class="text-center">No Reservation Found</h2>
-            </div>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#cart" role="tab" aria-controls="cart" aria-selected="true">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#reservation" role="tab" aria-controls="reservation" aria-selected="false">Reservation</a>
+                </li>
+            </ul>
 
-            <div class="row justify-content-center no-element-error">
-                <p class="text-center">When you'll purchase your first book, that reservation will appear here</p>
-            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="reservation" role="tabpanel" aria-labelledby="reservation-tab">
+                    <br>
+                    <div class="row justify-content-center no-element-error">
+                        <h2 class="text-center">No Reservation Found</h2>
+                    </div>
 
-            <div class="table-responsive" id="reservation-table">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Shipping Location</th>
-                        <th>Order Date</th>
-                        <th>Arrival Date</th>
-                        <th>Book List</th>
-                    </tr>
-                    </thead>
-                    <tbody id="items">
-                    </tbody>
-                </table>
+                    <div class="row justify-content-center no-element-error">
+                        <p class="text-center">When you'll purchase your first book, that reservation will appear here</p>
+                    </div>
+
+                    <div class="table-responsive" id="reservation-table">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Shipping Location</th>
+                                <th>Order Date</th>
+                                <th>Arrival Date</th>
+                                <th>Book List</th>
+                            </tr>
+                            </thead>
+                            <tbody id="items">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade show active" id="cart" role="tabpanel" aria-labelledby="cart-tab">
+
+                    <table id="cart-table" class="table table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <th style="width:50%">Product</th>
+                            <th style="width:10%">Price</th>
+                            <th style="width:8%">Quantity</th>
+                            <th style="width:22%" class="text-center">Subtotal</th>
+                            <th style="width:10%"></th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody-cart">
+
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td><a href="/catalogue/1" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                            <td colspan="2" class="hidden-xs"></td>
+                            <td class="hidden-xs text-center"><strong>Total €<span id="total-price"></span></strong></td>
+                            <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
             </div>
         </div>
 

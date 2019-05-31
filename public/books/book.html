@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Book - book title </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
 
+    <title>Book - book title </title>
 
     <!-- Bootstrap, Leaflet, Font Awesome CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -44,6 +46,9 @@
 
                 <div class="row">
 
+                    <div class="container-fluid alert-padding" id="alert">
+                    </div>
+
                     <div class="col-lg-4 col-md-5 product service-image-left mb-3" id="bookImage">
 
                         <img id="item-display" src="" class="img-fluid mx-auto float-left mb-3" alt="">
@@ -51,17 +56,15 @@
                     </div>
 
                     <div class="col-lg-6 col-md-7 mb-3">
+
                         <div class="product-title"><h3 id="bookTitle"></h3></div>
                         <div class="product-author"><h4 id="author"></h4></div>
-                        <div class="product-desc" id="abstract">
-                        </div>
+                        <div class="product-desc" id="abstract"></div>
 
                         <div class="product-price mt-3" id="price"> <b>Price: </b></div>
-                        <div class="product-stock"> <b>Availability: </b> In Stock</div>
+                        <div class="product-stock"> <b>Availability: </b> <span id="stock"></span> </div>
+
                         <div class="btn-group cart reserve-button">
-                            <button type="button" class="btn btn-success">
-                                Reserve
-                            </button>
                         </div>
                     </div>
 

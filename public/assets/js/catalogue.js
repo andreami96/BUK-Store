@@ -297,6 +297,9 @@ $(window).on('load, resize', function mobileViewUpdate() {
 });
 
 
+$(window).on('refresh', function () {
+   sessionStorage.removeItem('init-session');
+});
 
 jQuery(document).ready( function () {
 

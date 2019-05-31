@@ -6,17 +6,34 @@ const { isInt } = require('../../../Utils/isInteger');
 /**
  *  Retrieve all the books written by the author specified by authorID
  * @param authorID
+ * @param limit
+ * @param offset
  * @returns {Promise<any>}
  */
-exports.findBooksByAuthor = function (authorID) {
+exports.findBooksByAuthor = function (authorID, limit, offset) {
 
     return new Promise( (resolve, reject) => {
+
+        // Construct limit and offset object with either the given params or the default ones
+        if(limit)
+            limit = limit.toString();
+        else
+            limit = "5";
+
+        if(offset)
+            offset = offset.toString();
+        else
+            offset = "0";
+
+        // Check if the given limit and offset are integers
+        if(!isInt(limit) || !isInt(offset))
+            return reject(new Response(400, "Limit and offset must be integers"));
 
         // Check that the authorID is an integer
         if(!isInt(authorID))
             return reject(new Response(400, "The author identifier should be an integer"));
 
-        findRawBooksByAuthor(authorID)
+        findRawBooksByAuthor(authorID, limit, offset)
             .then( async (bookList) => {
 
                 let bookArray = [];

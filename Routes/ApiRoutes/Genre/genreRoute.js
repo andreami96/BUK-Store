@@ -33,7 +33,7 @@ router.get('/:genreID', function (req, res, next) {
 
 router.get('/:genreID/books', function (req, res, next) {
 
-    findBookByGenre(req.params.genreID)
+    findBookByGenre(req.params.genreID, req.query.limit, req.query.offset)
         .then( (books) => {
             return res.status(200).send(books);
         })
@@ -52,6 +52,6 @@ router.get('/:genreID/themes', function (req, res, next) {
             next(err);
         });
 
-})
+});
 
 module.exports = router;

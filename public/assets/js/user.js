@@ -37,15 +37,83 @@ $(document).ready(function () {
 
     $.get("/api/v1/me/cart", function (data) {
         let totalBooksInCart = 0;
+        let totalPrice = 0.0;
 
-        data.books.forEach( (book) => {
+        let bookArray = [];
+
+        data.books.forEach( (book, index, array) => {
+
+            $.get("/api/v1/books/" + book.ISBN, function (bookData) {
+                bookArray.push({book: bookData, quantity: book.quantity});
+            });
             totalBooksInCart += book.quantity;
         });
 
         $('#book-cart').text(totalBooksInCart.toString());
+        $('#total-price').text(totalPrice.toFixed(2));
     })
 
 });
+
+function createCartRow(book, quantity) {
+    $("#tbody-cart").append(  "<tr>\n" +
+        "   <td data-th=\"Product\">\n" +
+        "      <div class=\"row\">\n" +
+        "         <div class=\"col-sm\">\n" +
+        "            <h4 class=\"nomargin\">" + book.title + "</h4>\n" +
+        "            <p><strong>ISBN: </strong><span>" + book.ISBN + "</span></p>" +
+        "         </div>\n" +
+        "      </div>\n" +
+        "   </td>\n" +
+        "   <td data-th=\"Price\">" + book.price + "</td>\n" +
+        "   <td data-th=\"Quantity\">\n" +
+        "      <div class=\"form-group\">\n" +
+        "         <select class=\"form-control\" onchange=\"changeQuantity('" + book.ISBN + "')\" id=\"book-quantity-" + book.ISBN + "\">\n" +
+        "            <option>1</option>\n" +
+        "            <option>2</option>\n" +
+        "            <option>3</option>\n" +
+        "         </select>\n" +
+        "      </div>   " +
+        "   </td>\n" +
+        "   <td data-th=\"Subtotal\" class=\"text-center\">" + (book.price * quantity).toFixed(2) + "</td>\n" +
+        "   <td class=\"actions\" data-th=\"\">\n" +
+        "      <button onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\"></i></button>\n" +
+        "   </td>\n" +
+        "</tr>");
+
+    $("#book-quantity-" + book.ISBN).get(0).selectedIndex = quantity - 1;
+}
+
+function changeQuantity(isbn) {
+    let quantity = $('#book-quantity-' + isbn + " option:selected").val();
+    $.ajax({
+        type: "PUT",
+        url: "/api/v1/me/cart",
+        data: JSON.stringify({
+            "ISBN": isbn,
+            "quantity": quantity
+        }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data){
+            location.reload();
+        },
+        error: function(xhr) {
+        }
+    });
+}
+
+function deleteBook(isbn) {
+    $.ajax({
+        type: "DELETE",
+        url: "/api/v1/me/cart?ISBN=" + isbn,
+        success: function(data){
+            location.reload();
+        },
+        error: function(xhr) {
+        }
+    });
+}
 
 function addReservation(reservation) {
     $('#items')
