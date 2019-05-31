@@ -597,6 +597,7 @@ async function createAuthors() {
         name: "Jean-Claude",
         surname: "Michéa",
         picture: "/authors/michea.jpg",
+        backgroundPicture: "/authors/background/michea-bg.jpg",
         biography: "Jean Claude Michéa (b. 1950) is a French philosopher and Left-wing activist who has written extensively on the plight of the European Left since the 1970s. Taking inspiration from George Orwell and others like Rosa Luxemburg, he is well-known in Europe for taking strong positions not only against capitalism, individualism and neoliberalism, but also, and more controversially, for his denunciation of the ‘official’ currents and parties of the Left and their vapid intelligentsia. These, he says, have lost their anti-capitalist convictions and have inevitably distanced themselves from the masses generally and the working class in particular, leading to the growth of the extreme right."
     });
 
@@ -605,6 +606,7 @@ async function createAuthors() {
         name: "Michail",
         surname: "Bulgakov",
         picture: "/authors/bulgakov.jpg",
+        backgroundPicture: "/authors/background/bulgakov-bg.jpg",
         biography: "Mikhail Afanasievich Bulgakov was Russian writer born in Kiev, the capital of Ukraine, on May 15. 1891. His father was working as an assistant professor at the Theological Academy. He was one of seven children in his family. In his young age, he was drawn in theater. He liked to write comedies, which his family acted out.\n" +
             "\n" +
             "After finishing Gymnasium in 1909, Bulgakov entered the Medical School of Kiev University and he graduating in 1916. Then, he was a physician at the Military Hospital in Kiev.\n" +
@@ -627,7 +629,8 @@ async function createAuthors() {
         picture: "/authors/pewdiepie.jpg",
         biography: "Known online as PewDiePie, Felix Arvid Ulf Kjellberg is the internet’s biggest star — he has a record-breaking 96 million subscribers to his YouTube channel, and over 21 billion views. The PewDiePie channel is best known for its irreverent gaming content, shot in a “Let’s Play” style — videos of Kjellberg playing video games while giving an expletive-strewn running commentary.\n" +
             "Kjellberg was born and raised in Gothenburg, Sweden. He was born to Lotta Kristine Johanna and Ulf Christian Kjellberg and grew up with his older sister Fanny. His mother, a former CIO, was named the 2010 CIO of the Year in Sweden. His father is also a corporate executive.\n" +
-            "During his early schooling life, he was interested in art, and has detailed that he would draw popular video game characters such as Mario and Sonic the Hedgehog, as well as play video games on his Super Nintendo Entertainment System. During high school, he would skip classes to play video games at an Internet café with friends.\" He then went on to pursue a degree in industrial economics and technology management at Chalmers University of Technology, but left the university in 2011. While his reason for leaving Chalmers has often been reported as a want to focus on his YouTube career, in 2017, Kjellberg clarified that he left because of his lack of interest in his course, and perceived the idea of leaving university to pursue a YouTube career as “fucking stupid”."
+            "During his early schooling life, he was interested in art, and has detailed that he would draw popular video game characters such as Mario and Sonic the Hedgehog, as well as play video games on his Super Nintendo Entertainment System. During high school, he would skip classes to play video games at an Internet café with friends.\" He then went on to pursue a degree in industrial economics and technology management at Chalmers University of Technology, but left the university in 2011. While his reason for leaving Chalmers has often been reported as a want to focus on his YouTube career, in 2017, Kjellberg clarified that he left because of his lack of interest in his course, and perceived the idea of leaving university to pursue a YouTube career as “fucking stupid”.",
+        backgroundPicture: "/authors/background/pewds-style.jpg"
     });
 
 }
@@ -861,7 +864,7 @@ async function createEvents() {
         title: "The Left for Jean-Claude Michéa",
         description: "The perfect occasion to understand the thoughts behind Michéa's latest publication.",
         ISBN: "2081297892",
-        picture: "/events/michea-event.jpg"
+        picture: "/events/michea-bg.jpg"
     })
 }
 
