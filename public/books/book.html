@@ -44,6 +44,9 @@
 
                 <div class="row">
 
+                    <div class="container-fluid alert-padding" id="alert">
+                    </div>
+
                     <div class="col-lg-4 col-md-5 product service-image-left mb-3" id="bookImage">
 
                         <img id="item-display" src="" class="img-fluid mx-auto float-left mb-3" alt="">
@@ -51,17 +54,15 @@
                     </div>
 
                     <div class="col-lg-6 col-md-7 mb-3">
+
                         <div class="product-title"><h3 id="bookTitle"></h3></div>
                         <div class="product-author"><h4 id="author"></h4></div>
-                        <div class="product-desc" id="abstract">
-                        </div>
+                        <div class="product-desc" id="abstract"></div>
 
                         <div class="product-price mt-3" id="price"> <b>Price: </b></div>
-                        <div class="product-stock"> <b>Availability: </b> In Stock</div>
+                        <div class="product-stock"> <b>Availability: </b> <span id="stock"></span> </div>
+
                         <div class="btn-group cart reserve-button">
-                            <button type="button" class="btn btn-success">
-                                Reserve
-                            </button>
                         </div>
                     </div>
 

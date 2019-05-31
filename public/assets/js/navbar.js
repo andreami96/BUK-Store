@@ -83,6 +83,10 @@ $(document).ready(function () {
     });
 });
 
+function changeCart() {
+    $('.badge').text(parseInt($('.badge').text()));
+}
+
 function addNavbar(isLogged, dropdown) {
     $(".navbar").addClass("navbar-default navbar-expand-sm fixed-top");
     createToggler();
