@@ -35,6 +35,202 @@ function buildAuthorsList (authors) {
         return list;
 }
 
+function clearPage() {
+    //$('#sidebar-genres li').remove();
+    $('#sidebar-themes li').remove();
+    $('#book-catalog li').remove();
+
+}
+
+function buildGenres(genresList) {
+    genresList.forEach(function (el) {
+        $("#sidebar-genres")
+            .prepend( $('<li>').attr({
+                'id': 'genre-' + el.genreID
+            }));
+
+        $('#genre-' + el.genreID)
+            .append($('<a>').attr({
+                'href': '/catalogue/1'
+            })
+                .text(el.title)
+                .click( function () {
+                    sessionStorage['genres'] = el.genreID;
+                })
+            );
+    });
+}
+
+function buildThemes(themesList){
+    themesList.forEach(function (el) {
+        $("#sidebar-themes")
+            .prepend( $('<li>').attr({
+                'id': 'theme-' + el.themeID
+            }));
+
+        $('#theme-' + el.themeID)
+            .append($('<a>').attr({
+                'href': '/catalogue/1'
+            })
+                .text(el.title)
+                .click(function () {
+                    sessionStorage['themes'] = el.themeID;
+                })
+        );
+    });
+}
+
+function buildPagination(bookToInsert) {
+
+    let url = window.location.pathname;
+    let catalogPage = parseInt(url.substr(url.lastIndexOf('/') + 1), 10);
+
+    if ( catalogPage > 1 ){
+        $('#page-prev a').attr({
+            'href': '/catalogue/' + (catalogPage - 1)
+        });
+/*
+        $('#page-prev a').removeClass('disabled').click(function () {
+            clearPage();
+            sessionStorage['catalog-page']= catalogPage - 1;
+            insertCurrentBooks();
+            insertCurrentThemes();
+        });
+ */
+
+    }
+    else {
+        $('#page-prev').addClass('disabled');
+    }
+
+    $('#page-1 a').text(catalogPage);
+
+    if ( bookToInsert === parseInt(sessionStorage['MAXBOOKS']) ){
+        $('#page-next a').attr({
+            'href': '/catalogue/' + (catalogPage + 1)
+        });
+/*
+        $('#page-next a').removeClass('disabled').click(function () {
+            clearPage();
+            sessionStorage['catalog-page'] = catalogPage + 1;
+            insertCurrentBooks();
+            insertCurrentThemes();
+        });
+*/
+
+    }
+    else {
+        $('#page-next').addClass('disabled');
+    }
+}
+
+function buildBooks(bookList){
+
+    var bookToInsert = bookList.length;
+    var emptyBlocks = parseInt(sessionStorage['MAXBOOKS']) - bookToInsert;
+
+    // Build pagination for current page
+    buildPagination(bookToInsert);
+
+    bookList.forEach(function (el, index) {
+        $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
+            console.log(bookData);
+
+            $.get("/api/v1/books/" + bookData.ISBN + "/authors", function (authorsList, status) {
+                console.log(authorsList);
+                bookToInsert--;
+
+                $('#book-catalog').append($('<li>').attr({
+                    "id": "book" + index
+                }));
+
+                $('#book' + index).append($('<a>').attr({
+                    'href': '/books/' + bookData.ISBN,
+                    'id' : 'book' + index + '-image'
+                }));
+                $('#book' + index + ' a').append($('<h6>').addClass('mt-2 mb-0').text(bookData.title));
+                $('#book' + index).append($('<p>').addClass('mb-1 authorsNameList').append(' by ' + buildAuthorsList(authorsList)));
+
+                $('#book' + index).append($('<div>').addClass('price').text(bookData.price + ' €'));
+
+                $('#book' + index + '-image').prepend($('<img>').attr({
+                    "class": "product-image img-fluid",
+                    "src": "../assets/images" + bookData.picture,
+                    "alt": "#"
+                }));
+
+                if ( bookToInsert === 0 ){
+                    mobileViewUpdate();
+                }
+
+            });
+        });
+    });
+}
+
+function insertCurrentBooks(pageNumber) {
+
+    let selectedGenres = sessionStorage.getItem('genres');
+    let selectedThemes = sessionStorage.getItem('themes');
+
+    if( selectedGenres ){
+        $.get('/api/v1/genres/' + selectedGenres + '/books', function (data, status) {
+            console.log(data);
+            buildBooks(data);
+        });
+    }
+    else if ( selectedThemes ) {
+        $.get('/api/v1/themes/' + selectedThemes + '/books', function (data, status) {
+            console.log(data);
+            buildBooks(data);
+        });
+    }
+    else {
+        $.get("/api/v1/books/", {limit: sessionStorage['MAXBOOKS'], offset: (pageNumber - 1) * parseInt(sessionStorage['MAXBOOKS'])}, function (data, status) {
+            console.log(data);
+            buildBooks(data);
+        });
+    }
+}
+
+function insertCurrentThemes(){
+
+    let selectedGenres = sessionStorage.getItem('genres');
+    let selectedThemes = sessionStorage.getItem('themes');
+
+    if( selectedGenres ){
+        $.get('/api/v1/genres/' + selectedGenres[0] + '/themes', function (data, status) {
+            console.log(data);
+            buildThemes(data);
+        });
+    }
+    else {
+        $.get("/api/v1/themes/", {limit: 10, offset: 0}, function (data, status) {
+            console.log(data);
+            buildThemes(data);
+        });
+    }
+}
+
+function insertCurrentGenres(){
+
+    let selectedGenres = sessionStorage.getItem('genres');
+    let selectedThemes = sessionStorage.getItem('themes');
+
+    if( selectedThemes ){
+        $.get('/api/v1/themes/' + selectedThemes[0] + '/genres', function (data, status) {
+            console.log(data);
+            buildGenres(data);
+        });
+    }
+    else {
+        $.get("/api/v1/genres/", {limit: 10, offset: 0}, function (data, status) {
+            console.log(data);
+            buildGenres(data);
+        });
+    }
+}
+
 $(document).ready( function () {
     $('button').on('click', mobileViewUpdate());
 });
@@ -100,97 +296,53 @@ $(window).on('load, resize', function mobileViewUpdate() {
     }
 });
 
+
+
 jQuery(document).ready( function () {
+
     let url = window.location.pathname;
-    let page = url.substr(url.lastIndexOf('/') + 1);
-    let MAXBOOKS = 6;                   //TODO: set back to 12 or 8 when there will be enough books
+    let page = parseInt(url.substr(url.lastIndexOf('/') + 1), 10);
+
+    // Check if initialized session already exist
+    if( sessionStorage.getItem('init-session') === null ){
+
+        sessionStorage['init-session'] = false;
+        sessionStorage['MAXBOOKS'] = 6;                 //TODO: set back to 12 or 8 when there will be enough books
+        sessionStorage.removeItem('genres');
+        sessionStorage.removeItem('themes');
+    }
+
+    let MAXBOOKS = parseInt(sessionStorage['MAXBOOKS']);
 
     // Build the list of books
+    insertCurrentBooks(page);
+
+    // Insert the list of themes
+    insertCurrentThemes();
+
+    // Insert the list of genres
+    insertCurrentGenres();
+
+    /*  OLD IMPLEMENTATION
     $.get("/api/v1/books/", {limit: MAXBOOKS, offset: (page - 1) * MAXBOOKS}, function (data, status) {
+//        $.get("/api/v1/books/", {limit: window.MAXBOOKS, offset: (window.catalogPage - 1) * window.MAXBOOKS}, function (data, status) {
         console.log(data);
-        var bookToInsert = data.length;
-        var emptyBlocks = MAXBOOKS - bookToInsert;
-
-        // Build pagination for current page
-        if ( page > 1 ){
-            $('#page-prev a').attr({
-                'href': '/catalogue/' + (parseInt(page, 10) - 1)
-            });
-        }
-        else {
-            $('#page-prev').addClass('disabled');
-        }
-
-        $('#page-1 a').attr({
-            'href': '/catalogue/' + (parseInt(page, 10))
-        }).text(page);
-
-        if ( bookToInsert === MAXBOOKS ){
-            $('#page-next a').attr({
-                'href': '/catalogue/' + (parseInt(page, 10) + 1)
-            });
-        }
-        else {
-            $('#page-next').addClass('disabled');
-        }
-
-        data.forEach(function (el, index) {
-            $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
-                console.log(bookData);
-
-                $.get("/api/v1/books/" + bookData.ISBN + "/authors", function (authorsList, status) {
-                    console.log(authorsList);
-                    bookToInsert--;
-
-                    $('#book-catalog').append($('<li>').attr({
-                        "id": "book" + index
-                    }));
-
-                    $('#book' + index).append($('<a>').attr({
-                        'href': '/books/' + bookData.ISBN,
-                        'id' : 'book' + index + '-image'
-                    }));
-                    $('#book' + index + ' a').append($('<h6>').addClass('mt-2 mb-0').text(bookData.title));
-                    $('#book' + index).append($('<p>').addClass('mb-1 authorsNameList').append(' by ' + buildAuthorsList(authorsList)));
-
-                    $('#book' + index).append($('<div>').addClass('price').text(bookData.price + ' €'));
-
-                    $('#book' + index + '-image').prepend($('<img>').attr({
-                        "class": "product-image img-fluid",
-                        "src": "../assets/images" + bookData.picture,
-                        "alt": "#"
-                    }));
-
-                    if ( bookToInsert === 0 ){
-                        mobileViewUpdate();
-                    }
-
-                });
-            });
-        });
+        buildBooks(data);
     });
 
     // Insert the list of themes
-    $.get("/api/v1/themes/", {limit: 5, offset: 0}, function (data, status) {
+    $.get("/api/v1/themes/", {limit: 10, offset: 0}, function (data, status) {
         console.log(data);
-
-        data.forEach(function (el) {
-           $("#sidebar-themes").prepend(
-               "<li><a href=\"/themes/" + el.themeID + "\">" + el.title + " </a></li>"
-           )
-        });
+        buildThemes(data);
     });
 
     // Insert the list of genres
-    $.get("/api/v1/mainGenres/", {limit:5, offset: 0}, function (data, status) {
+    $.get("/api/v1/genres/", {limit:10, offset: 0}, function (data, status) {
         console.log(data);
-
-        data.forEach(function (el) {
-            $("#sidebar-genres").prepend(
-                "<li><a href=\"/genres/" + el.mainGenreID + "\">" + el.title + " </a></li>"
-            )
-        })
+        buildGenres(data);
     });
+
+     */
 
     // Register callback for next page
 
