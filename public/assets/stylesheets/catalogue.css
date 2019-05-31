@@ -4,12 +4,6 @@
 
 .wrapper {
     display: flex;
-    width: 100%;
-    align-items: stretch;
-}
-
-.wrapper {
-    display: flex;
     align-items: stretch;
 }
 
@@ -135,7 +129,6 @@ ul ul a {
 
 body {
     background: #fff;
-/*    height: 100%;*/
 }
 
 h1 {
