@@ -119,6 +119,7 @@ exports.GenreTheme = GenreTheme;
 exports.BookTheme = BookTheme;
 exports.HomeCarousel = HomeCarousel;
 exports.GenericPage = GenericPage;
+exports.sequelizeObject = sequelizeObject;
 
 // Exports the init function to initialize the DB before running the application
 exports.init = function(force) {

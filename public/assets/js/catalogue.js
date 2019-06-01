@@ -1,5 +1,4 @@
 function mobileViewUpdate() {
-//    var viewportWidth = $(window).width();
     var viewportWidth = document.getElementById("content").offsetWidth;
 
     if (viewportWidth <= 576 ) {
@@ -106,15 +105,6 @@ function buildPagination(bookToInsert, selectedGenre, selectedTheme) {
         $('#page-prev a').attr({
             'href': '/catalogue/' + (catalogPage - 1) + '?genre=' + selectedGenre + '&theme=' + selectedTheme
         });
-/*
-        $('#page-prev a').removeClass('disabled').click(function () {
-            clearPage();
-            sessionStorage['catalog-page']= catalogPage - 1;
-            insertCurrentBooks();
-            insertCurrentThemes();
-        });
- */
-
     }
     else {
         $('#page-prev').addClass('disabled');
@@ -126,15 +116,6 @@ function buildPagination(bookToInsert, selectedGenre, selectedTheme) {
         $('#page-next a').attr({
             'href': '/catalogue/' + (catalogPage + 1) + '?genre=' + selectedGenre + '&theme=' + selectedTheme
         });
-/*
-        $('#page-next a').removeClass('disabled').click(function () {
-            clearPage();
-            sessionStorage['catalog-page'] = catalogPage + 1;
-            insertCurrentBooks();
-            insertCurrentThemes();
-        });
-*/
-
     }
     else {
         $('#page-next').addClass('disabled');
@@ -148,6 +129,10 @@ function buildBooks(bookList, selectedGenres, selectedThemes){
 
     // Build pagination for current page
     buildPagination(bookToInsert, selectedGenres, selectedThemes);
+
+    if ( bookToInsert === 0 ){
+            $('#book-catalog').append($('<li>').addClass('no-books').text('Ops, there are no books for such filters'));
+    }
 
     bookList.forEach(function (el, index) {
         $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
@@ -187,37 +172,44 @@ function buildBooks(bookList, selectedGenres, selectedThemes){
 
 function insertCurrentBooks(pageNumber) {
 
-//    let selectedGenres = sessionStorage.getItem('genres');
-//    let selectedThemes = sessionStorage.getItem('themes');
-
     let selectedGenres = parseInt(getUrlParam('genre', ''));
     let selectedThemes= parseInt(getUrlParam('theme', ''));
+    let queryParam = {
+        limit: sessionStorage['MAXBOOKS'],
+        offset: (pageNumber - 1) * parseInt(sessionStorage['MAXBOOKS']),
+        genreID: (selectedGenres) ? selectedGenres : '',
+        themeID: (selectedThemes) ? selectedThemes : ''
+    };
 
-
+    /*
     if( selectedGenres ){
-        $.get('/api/v1/genres/' + selectedGenres + '/books', function (data, status) {
+        $.get('/api/v1/genres/' + selectedGenres + '/books', queryParam, function (data, status) {
             console.log(data);
-            buildBooks(data, selectedGenres, selectedThemes);
+                buildBooks(data, selectedGenres, selectedThemes);
         });
     }
     else if ( selectedThemes ) {
-        $.get('/api/v1/themes/' + selectedThemes + '/books', function (data, status) {
+        $.get('/api/v1/themes/' + selectedThemes + '/books', queryParam, function (data, status) {
             console.log(data);
             buildBooks(data, selectedGenres, selectedThemes);
         });
     }
     else {
-        $.get("/api/v1/books/", {limit: sessionStorage['MAXBOOKS'], offset: (pageNumber - 1) * parseInt(sessionStorage['MAXBOOKS'])}, function (data, status) {
+        $.get("/api/v1/books/", queryParam, function (data, status) {
             console.log(data);
             buildBooks(data, selectedGenres, selectedThemes);
         });
     }
+     */
+
+    $.get("/api/v1/books/", queryParam, function (data, status) {
+        console.log(data);
+        buildBooks(data, selectedGenres, selectedThemes);
+    });
+
 }
 
 function insertCurrentThemes(){
-
-//    let selectedGenres = sessionStorage.getItem('genres');
-//    let selectedThemes = sessionStorage.getItem('themes');
 
     let selectedGenres = parseInt(getUrlParam('genre', ''));
     let selectedThemes= parseInt(getUrlParam('theme', ''));
@@ -237,9 +229,6 @@ function insertCurrentThemes(){
 }
 
 function insertCurrentGenres(){
-
-//    let selectedGenres = sessionStorage.getItem('genres');
-//    let selectedThemes = sessionStorage.getItem('themes');
 
     let selectedGenres = parseInt(getUrlParam('genre', ''));
     let selectedThemes= parseInt(getUrlParam('theme', ''));
@@ -264,6 +253,8 @@ $(document).ready( function () {
 
 $(document).ready( function() {
 
+    /*
+    //Sidebar scrolling with navbar
     var $sidebar   = $("#sidebar-list"),
         $window    = $(window),
         offset     = $sidebar.offset(),
@@ -294,11 +285,11 @@ $(document).ready( function() {
             });
         }
     });
+     */
 
 });
 
 $(window).on('load, resize', function mobileViewUpdate() {
-//    var viewportWidth = $(window).width();
     var viewportWidth = document.getElementById("content").offsetWidth;
 
     if (viewportWidth <= 576 ) {
@@ -364,28 +355,5 @@ jQuery(document).ready( function () {
 
     // Insert the list of genres
     insertCurrentGenres();
-
-    /*  OLD IMPLEMENTATION
-    $.get("/api/v1/books/", {limit: MAXBOOKS, offset: (page - 1) * MAXBOOKS}, function (data, status) {
-//        $.get("/api/v1/books/", {limit: window.MAXBOOKS, offset: (window.catalogPage - 1) * window.MAXBOOKS}, function (data, status) {
-        console.log(data);
-        buildBooks(data);
-    });
-
-    // Insert the list of themes
-    $.get("/api/v1/themes/", {limit: 10, offset: 0}, function (data, status) {
-        console.log(data);
-        buildThemes(data);
-    });
-
-    // Insert the list of genres
-    $.get("/api/v1/genres/", {limit:10, offset: 0}, function (data, status) {
-        console.log(data);
-        buildGenres(data);
-    });
-
-     */
-
-    // Register callback for next page
 
 });

@@ -14,7 +14,7 @@ const { findThemesByBookISBN } = require('./ThemeBook/findThemesByBook');
  * @param title
  * @returns {Promise<any>}
  */
-exports.findAllBook = function (limit, offset, title) {
+exports.findAllBook = function (limit, offset, title, genreID, themeID) {
 
     return new Promise( (resolve, reject) => {
 
@@ -33,16 +33,26 @@ exports.findAllBook = function (limit, offset, title) {
         if(!isInt(limit) || !isInt(offset))
             return reject(new Response(400, "Limit and offset must be integers"));
 
-        findRawBooks(limit, offset, title)
+        if(themeID) {
+            if (!isInt(themeID))
+                return reject(new Response(400, "Theme identifier should be an integer"));
+        }
+
+        if(genreID) {
+            if (!isInt(genreID))
+                return reject(new Response(400, "Genre identifier should be an integer"));
+        }
+
+        findRawBooks(limit, offset, title, genreID, themeID)
             .then( (bookList) => {
 
                 let booksArray = [];
 
                 // Push the book object formatted in a pretty way into the bookArray
-                for (let i = 0; i < bookList.length; i++)
+                for (let i = 0; i < bookList[0].length; i++)
                     booksArray.push({
-                        ISBN: bookList[i].ISBN,
-                        title: bookList[i].title
+                        ISBN: bookList[0][i].ISBN,
+                        title: bookList[0][i].title
                     });
 
                 resolve(booksArray);

@@ -257,3 +257,24 @@
     margin-right: auto;
 }
 
+@media (max-width: 576px) {
+    .alert {
+        margin-top: 100vh;
+        min-width: 50vw;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 1000px) {
+    .alert {
+        margin-top: 50vh;
+        min-width: 50vw;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) {
+    .alert {
+        margin-top: 30vh;
+        min-width: 50vw;
+    }
+}
+

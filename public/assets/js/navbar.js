@@ -8,8 +8,6 @@ $(document).ready(function () {
             else
                 addNavbar(true, false);
 
-            makeResizableNavbar(true);
-
             makeTransparentNavbar();
 
             if( !$("#navbarNoHover").length ){
@@ -48,8 +46,6 @@ $(document).ready(function () {
             else
                 addNavbar(false, false);
 
-            makeResizableNavbar(false);
-
             makeTransparentNavbar();
 
             if( !$("#navbarNoHover").length ){
@@ -83,18 +79,11 @@ $(document).ready(function () {
     });
 });
 
-function changeCart() {
-    $('.badge').text(parseInt($('.badge').text()));
-}
-
 function addNavbar(isLogged, dropdown) {
     $(".navbar").addClass("navbar-default navbar-expand-sm fixed-top");
     createToggler();
     createHeader(isLogged);
-    if(dropdown)
-        createDropdownMenus(isLogged);
-    else
-        createUnPackedMenus(isLogged);
+    createUnPackedMenus(isLogged);
 }
 
 function createToggler() {
@@ -152,12 +141,6 @@ function createUnPackedMenus(isLogged) {
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
             "                    <a class=\"nav-link\" href=\"/catalogue/mainGenres.html\">Generi Principali</a>\n" +
-            "                </li>\n" +
-            "                <li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"#\">Temi</a>\n" +
-            "                </li>\n" +
-            "                <li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"#\">Eventi</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
             "                    <a class=\"nav-link\" href=\"#\">Autori</a>\n" +

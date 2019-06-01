@@ -1,4 +1,4 @@
-const { Reservation } = require('../../Model/sequelize');
+const { Reservation, Book } = require('../../Model/sequelize');
 const { findRawBooksByISBN } = require('../Book/rawBook');
 const { findRawCartByUserID, deleteWholeCart } = require('../Cart/rawCart');
 const Response = require('../../Utils/response');
@@ -36,7 +36,7 @@ exports.findAllReservationByUserID = function(userID) {
                             ISBN: book.ISBN,
                             title: book.title,
                             quantity: reservedBooks[j].quantity
-                        })
+                        });
                     }
                     reservationObject.books = booksArray;
                     reservationResultArray.push(reservationObject)

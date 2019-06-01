@@ -1,5 +1,6 @@
 "use strict";
 const { Cart } = require('../../Model/sequelize');
+const { findRawBooksByISBN } = require('../../Controller/Book/rawBook');
 
 /**
  *  Find the raw products inside the cart of the given user
@@ -24,9 +25,13 @@ exports.deleteWholeCart = function (userID) {
     return new Promise( (resolve, reject) => {
         Cart.findAll({
             where: {userID: userID}
-        }).then( (cart) => {
-            for(let i=0; i < cart.length; i++)
+        }).then( async (cart) => {
+            for(let i=0; i < cart.length; i++) {
+                let book = await findRawBooksByISBN(cart[i].ISBN);
+                book.availableQuantity -= cart[i].quantity;
+                book.save();
                 cart[i].destroy();
+            }
             resolve();
         }).catch( (err) => {
             reject(err);
