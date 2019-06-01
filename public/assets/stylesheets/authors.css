@@ -1,19 +1,35 @@
 #alphabetContainer {
     display: flex;
+    flex-shrink: 0;
     flex-wrap: wrap;
     justify-content: center;
+    height: 2em;
 }
 
 #alphabetContainer a {
     font-size: larger;
     color: black;
     font-weight: lighter;
-    padding: 0 0.6em;
+    padding: 0 0.55em;
 }
 
 #alphabetContainer .selectedLetter {
     color: #e3b06c;
 }
+
+/*
+@media(min-width: 768px) {
+    #authorList {
+        margin-top: 2em;
+    }
+}
+
+@media(max-width: 768px) {
+    #authorList {
+        margin-top: 5em;
+    }
+}
+*/
 
 #authorList a {
     color: black;

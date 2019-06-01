@@ -5,6 +5,20 @@ jQuery(document).ready(function(){
 
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
 
+    $('#alphabetContainer').append(
+        $('<a>').attr('href', '/authors/a-z').text('All')
+    );
+    $('#alphabetContainer').append(
+        $('<div>').addClass('vertical-line').css({
+            'width': '1px', /* Line width */
+            'background-color': 'black', /* Line color */
+            'height': '100%', /* Override in-line if you want specific height. */
+            'float': 'left'/* Causes the line to float to left of content.
+                                You can instead use position:absolute or display:inline-block
+                                if this fits better with your design */
+        })
+    );
+
     for(let i = 0; i < alphabet.length; i++) {
         if(alphabet[i] === authorSelector)
             $('#alphabetContainer').append(
@@ -16,8 +30,12 @@ jQuery(document).ready(function(){
             )
     }
 
+    if(authorSelector === 'a-z')
+        $('#alphabetContainer').find('>:first-child').addClass('selectedLetter');
 
-    $.get('/api/v1/authors', function (authors, status) {
+
+    $.get('/api/v1/authors?limit=100', function (authors, status) {
+        console.log(authors);
 
         let selectedAuthors = [];
         if(authorSelector !== 'a-z')

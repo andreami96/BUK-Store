@@ -4,6 +4,7 @@
 
 .wrapper {
     display: flex;
+    flex-shrink: 0;
     align-items: stretch;
 }
 
