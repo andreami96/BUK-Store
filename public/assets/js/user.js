@@ -172,12 +172,12 @@ function addReservation(reservation) {
                 "<td>" + reservation.shippingLocation + "</td>\n" +
                 "<td>" + reservation.orderDate + "</td>\n" +
                 "<td>" + reservation.arrivalDate + "</td>\n" +
-                "<td class='book-list'></td>\n" +
+                "<td class=\"book-list-" + reservation.reservationID + "\"></td>\n" +
                 "</tr>");
-    addBookList(reservation.books);
+    addBookList(reservation.reservationID, reservation.books);
 }
 
-function addBookList(books) {
+function addBookList(id, books) {
 
     let appendHTML = "<ul>\n";
 
@@ -186,7 +186,7 @@ function addBookList(books) {
 
     appendHTML += "</ul>";
 
-    $('.book-list')
+    $('.book-list-' + id)
         .append(appendHTML);
 }
 
@@ -198,7 +198,7 @@ function computeBookQuantityFromReservation(reservation) {
 }
 
 function makeReservation() {
-    let shippingAddress = $('#shipping-address').val()
+    let shippingAddress = $('#shipping-address').val();
     if(shippingAddress) {
         $.ajax({
             type: "POST",
@@ -214,6 +214,9 @@ function makeReservation() {
             error: function(xhr) {
             }
         });
+    } else {
+        $('#shipping-address').addClass("is-invalid").attr('placeholder', "INSERT an address here");
+        $('.control-label').addClass("text-danger");
     }
 }
 
