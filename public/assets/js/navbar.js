@@ -137,13 +137,13 @@ function createUnPackedMenus(isLogged) {
         .append("<div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n" +
             "            <ul class=\"navbar-nav mr-auto\">\n" +
                             "<li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"/catalogue/1\">Catalogo Libri</a>\n" +
+            "                    <a class=\"nav-link\" href=\"/catalogue/1\">Catalogo</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"/catalogue/mainGenres.html\">Generi Principali</a>\n" +
+            "                    <a class=\"nav-link\" href=\"/catalogue/mainGenres.html\">Generi</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"#\">Autori</a>\n" +
+            "                    <a class=\"nav-link\" href=\"/authors/a-z\">Autori</a>\n" +
             "                </li>\n" +
             "            </ul>\n" + retrieveRightMenu(isLogged) +
             "</div>");
