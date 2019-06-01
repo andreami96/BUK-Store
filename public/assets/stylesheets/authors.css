@@ -1,0 +1,25 @@
+#alphabetContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#alphabetContainer a {
+    font-size: larger;
+    color: black;
+    font-weight: lighter;
+    padding: 0 0.6em;
+}
+
+#alphabetContainer .selectedLetter {
+    color: #e3b06c;
+}
+
+#authorList a {
+    color: black;
+}
+
+#authorList p {
+    font-weight: lighter;
+    color: #777777;
+}
