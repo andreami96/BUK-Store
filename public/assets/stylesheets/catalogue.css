@@ -18,7 +18,7 @@
 #sidebar {
     min-width: 220px;
     max-width: 220px;
-    min-height: 100vh;
+
     z-index: 990;
 }
 
@@ -112,7 +112,7 @@ a[data-toggle="collapse"] {
 
 #sidebar ul li.active i {
     float: right;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
@@ -408,4 +408,9 @@ ul.rig.columns-1 {
 
 #wrapper-el {
     position: relative;
+}
+
+.no-books {
+    min-width: 70vw;
+    min-height: 60vh;
 }

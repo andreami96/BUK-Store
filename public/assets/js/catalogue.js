@@ -130,6 +130,10 @@ function buildBooks(bookList, selectedGenres, selectedThemes){
     // Build pagination for current page
     buildPagination(bookToInsert, selectedGenres, selectedThemes);
 
+    if ( bookToInsert === 0 ){
+            $('#book-catalog').append($('<li>').addClass('no-books').text('Ops, there are no books for such filters'));
+    }
+
     bookList.forEach(function (el, index) {
         $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
             console.log(bookData);
@@ -170,8 +174,14 @@ function insertCurrentBooks(pageNumber) {
 
     let selectedGenres = parseInt(getUrlParam('genre', ''));
     let selectedThemes= parseInt(getUrlParam('theme', ''));
-    let queryParam = {limit: sessionStorage['MAXBOOKS'], offset: (pageNumber - 1) * parseInt(sessionStorage['MAXBOOKS'])};
+    let queryParam = {
+        limit: sessionStorage['MAXBOOKS'],
+        offset: (pageNumber - 1) * parseInt(sessionStorage['MAXBOOKS']),
+        genreID: (selectedGenres) ? selectedGenres : '',
+        themeID: (selectedThemes) ? selectedThemes : ''
+    };
 
+    /*
     if( selectedGenres ){
         $.get('/api/v1/genres/' + selectedGenres + '/books', queryParam, function (data, status) {
             console.log(data);
@@ -190,6 +200,13 @@ function insertCurrentBooks(pageNumber) {
             buildBooks(data, selectedGenres, selectedThemes);
         });
     }
+     */
+
+    $.get("/api/v1/books/", queryParam, function (data, status) {
+        console.log(data);
+        buildBooks(data, selectedGenres, selectedThemes);
+    });
+
 }
 
 function insertCurrentThemes(){
