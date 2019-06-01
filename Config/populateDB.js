@@ -864,7 +864,7 @@ async function createEvents() {
         title: "The Left for Jean-Claude Michéa",
         description: "The perfect occasion to understand the thoughts behind Michéa's latest publication.",
         ISBN: "2081297892",
-        picture: "/events/michea-bg.jpg"
+        picture: "/events/michea-event.jpg"
     })
 }
 
