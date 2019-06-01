@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: '0.5'
+  version: '0.7'
   title: BUK Store
   description: This document presents the details of each endpoint used to perform requests
     in the BUK Store main server.
@@ -75,6 +75,8 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
         - $ref: '#/components/parameters/title'
+        - $ref: '#/components/parameters/genreID'
+        - $ref: '#/components/parameters/themeID'
       responses:
         '200':
           description: Successful Request
@@ -1146,6 +1148,18 @@ components:
       description: The name of the book to search
       schema:
         type: string
+    genreID:
+      name: genreID
+      in: query
+      description: The genre identifier to search
+      schema:
+        $ref: '#/components/schemas/Genre/properties/genreID'
+    themeID:
+      name: themeID
+      in: query
+      description: The theme identifier to search
+      schema:
+        $ref: '#/components/schemas/Theme/properties/themeID'
     pageName:
       name: pageName
       in: query

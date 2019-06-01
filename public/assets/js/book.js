@@ -229,6 +229,13 @@ function addToCart() {
             dataType: "json",
             success: function (result, status, xhr) {
                 $('.badge').text(parseInt($('.badge').text()) + 1);
+                let message = "Book added to the cart";
+                $('#alert')
+                    .html("<div class=\"text-center alert alert-success alert-dismissible text-center mx-auto fade show\">\n" +
+                        "            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n" +
+                        "            <strong>Success!</strong><br>" + message +
+                        "        </div>");
+                $(".alert").delay(3000).fadeOut(500);
             },
             error: function (xhr) {
                 let message = "This book is already in your cart, to modify the quantity go into your cart";

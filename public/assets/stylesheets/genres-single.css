@@ -15,12 +15,12 @@
     );
 }
 
-.navbar-header {
+/*.navbar-header {
     position: relative;
 }
 
 .navbar-header span {
-    /* Make clickable the "BUK" logo */
+    !* Make clickable the "BUK" logo *!
     position: absolute;
     width: 100%;
     height: 100%;
@@ -28,7 +28,7 @@
     left: 0;
 
     z-index: 1;
-}
+}*/
 
 
 .banner-primary h1 {

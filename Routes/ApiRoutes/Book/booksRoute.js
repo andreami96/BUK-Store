@@ -13,7 +13,7 @@ const { findBestSeller } = require('../../../Controller/Book/BestSeller/bestsell
 
 router.get('/', function (req, res, next) {
 
-    findAllBook(req.query.limit, req.query.offset, req.query.title)
+    findAllBook(req.query.limit, req.query.offset, req.query.title, req.query.genreID, req.query.themeID)
         .then( (bookArray) => {
             res.status(200).send(bookArray);
         })

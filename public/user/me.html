@@ -5,8 +5,8 @@
     <title>UserName - BUK Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png" sizes="32x32">
 
     <!-- CSS: Bootstrap, Font Awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -44,9 +44,9 @@
 
             <ul class="list-group">
                 <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
-                <li class="list-group-item"><strong>Book Purchased </strong><span id="total-book-purchased">0</span></li>
-                <li class="list-group-item"><strong>Book Purchased this month </strong><span id="book-purchased-month">13</span></li>
-                <li class="list-group-item"><strong>Book in Cart </strong><span id="book-cart">2</span></li>
+                <li class="list-group-item"><strong>Book Purchased </strong><span id="total-book-purchased"></span></li>
+                <li class="list-group-item"><strong>Book Purchased this month </strong><span id="book-purchased-month"></span></li>
+                <li class="list-group-item"><strong>Book in Cart </strong><span id="book-cart"></span></li>
             </ul>
             <br><br>
 
@@ -66,11 +66,11 @@
             <div class="tab-content">
                 <div class="tab-pane fade" id="reservation" role="tabpanel" aria-labelledby="reservation-tab">
                     <br>
-                    <div class="row justify-content-center no-element-error">
+                    <div class="row justify-content-center no-reservation-error">
                         <h2 class="text-center">No Reservation Found</h2>
                     </div>
 
-                    <div class="row justify-content-center no-element-error">
+                    <div class="row justify-content-center no-reservation-error">
                         <p class="text-center">When you'll purchase your first book, that reservation will appear here</p>
                     </div>
 
@@ -92,27 +92,17 @@
                 </div>
                 <div class="tab-pane fade show active" id="cart" role="tabpanel" aria-labelledby="cart-tab">
 
-                    <table id="cart-table" class="table table-hover table-condensed">
-                        <thead>
-                        <tr>
-                            <th style="width:50%">Product</th>
-                            <th style="width:10%">Price</th>
-                            <th style="width:8%">Quantity</th>
-                            <th style="width:22%" class="text-center">Subtotal</th>
-                            <th style="width:10%"></th>
-                        </tr>
-                        </thead>
-                        <tbody id="tbody-cart">
+                    <br>
+                    <div class="row justify-content-center no-cart-error">
+                        <h2 class="text-center">No Books in your cart Found</h2>
+                    </div>
 
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <td><a href="/catalogue/1" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-                            <td colspan="2" class="hidden-xs"></td>
-                            <td class="hidden-xs text-center"><strong>Total €<span id="total-price"></span></strong></td>
-                            <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
-                        </tr>
-                        </tfoot>
+                    <div class="row justify-content-center no-cart-error">
+                        <p class="text-center">When you'll add a book to your cart, this will be provided here</p>
+                    </div>
+
+                    <table id="cart-table" class="table table-responsive table-hover table-condensed">
+
                     </table>
 
                 </div>
@@ -123,6 +113,39 @@
     <!--/col-9-->
 </div>
 <!--/row-->
+
+<div id="ModalForm" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title">Reserve your books</h1>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <h4>Summary:</h4>
+                        <p>You are going to buy</p>
+                        <ul id="modal-list">
+                        </ul>
+                        <p>For a total of: €<span id="modal-total"></span></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Shipping Address</label>
+                        <div>
+                            <input id="shipping-address" type="text" class="form-control input-lg" name="address" placeholder="Insert the address where leave the books">
+                        </div>
+                    </div>
+                    <div class="form-group float-right">
+                        <div>
+                            <button type="button" class="btn btn-danger" onclick="closeModal()">Cancel</button>
+                            <button type="button" class="btn btn-success" onclick="makeReservation()">Make the reservation</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <footer class="footer">
     <div class="container">

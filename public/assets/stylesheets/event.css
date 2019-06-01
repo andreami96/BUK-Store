@@ -28,11 +28,19 @@ html,body {
 
 }
 
-#event-book{
+#eventBook {
     height: 20em;
-    border: 1px solid rgba(212, 212, 212, 1);
     border-bottom: 0;
     box-shadow: 0 10px 6px -6px black;
+}
+
+#eventBookLink {
+    border: 1px solid rgba(212, 212, 212, 1);
+}
+
+#descriptionCol a {
+    color: black;
+    font-style: italic;
 }
 
 #mapid {
