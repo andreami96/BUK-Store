@@ -35,7 +35,7 @@
     </h4>
 </button>
 
-<div class="wrapper">
+<div class="wrapper" id="wrapper-el">
 
 
 
@@ -144,10 +144,11 @@
         $('#sidebarCollapse').on('click', function () {
 
             $('#sidebar').toggleClass('active');
+            $('.overlay').toggleClass('active');
             $('#sidebarCollapse').toggleClass('sidebarVisible');
             $('#book-catalog').toggleClass('sidebar-active');
             $('.container-fluid').toggleClass('sidebar-active');
-            setTimeout(mobileViewUpdate, 150);
+            //setTimeout(mobileViewUpdate, 150);
         });
     });
 </script>
