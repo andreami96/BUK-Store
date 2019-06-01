@@ -34,13 +34,6 @@ function buildAuthorsList (authors) {
         return list;
 }
 
-function clearPage() {
-    //$('#sidebar-genres li').remove();
-    $('#sidebar-themes li').remove();
-    $('#book-catalog li').remove();
-
-}
-
 function buildGenres(genresList, selectedGenre, selectedTheme ) {
 
     genresList.forEach(function (el) {
@@ -131,7 +124,23 @@ function buildBooks(bookList, selectedGenres, selectedThemes){
     buildPagination(bookToInsert, selectedGenres, selectedThemes);
 
     if ( bookToInsert === 0 ){
-            $('#book-catalog').append($('<li>').addClass('no-books').text('Ops, there are no books for such filters'));
+
+        $('.pagination').remove();
+
+        $('#content').addClass('no-books-content')
+            .append($('<div>').attr({
+                'class': 'container px-5 mt-5 no-books',
+                'id': 'no-books-container'
+        }));
+
+        $('#no-books-container').append($('<hr>'));
+        $('#no-books-container').append($('<p>').attr({
+            'class': 'text-center'
+        }).text('There are no books for such category'));
+
+        $('#no-books-container').append($('<hr>'));
+
+//            $('#book-catalog').append($('<li>').addClass('no-books').text('Ops, there are no books for such filters'));
     }
 
     bookList.forEach(function (el, index) {
@@ -180,27 +189,6 @@ function insertCurrentBooks(pageNumber) {
         genreID: (selectedGenres) ? selectedGenres : '',
         themeID: (selectedThemes) ? selectedThemes : ''
     };
-
-    /*
-    if( selectedGenres ){
-        $.get('/api/v1/genres/' + selectedGenres + '/books', queryParam, function (data, status) {
-            console.log(data);
-                buildBooks(data, selectedGenres, selectedThemes);
-        });
-    }
-    else if ( selectedThemes ) {
-        $.get('/api/v1/themes/' + selectedThemes + '/books', queryParam, function (data, status) {
-            console.log(data);
-            buildBooks(data, selectedGenres, selectedThemes);
-        });
-    }
-    else {
-        $.get("/api/v1/books/", queryParam, function (data, status) {
-            console.log(data);
-            buildBooks(data, selectedGenres, selectedThemes);
-        });
-    }
-     */
 
     $.get("/api/v1/books/", queryParam, function (data, status) {
         console.log(data);

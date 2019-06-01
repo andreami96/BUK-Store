@@ -412,6 +412,27 @@ ul.rig.columns-1 {
 }
 
 .no-books {
-    min-width: 70vw;
+    min-width: 100%;
     min-height: 60vh;
+}
+
+.no-books-content {
+    min-width: 70%;
+}
+
+.no-books-content p {
+    font-weight: lighter;
+    color: #3f3f3f;
+}
+
+@media (min-width: 576px) and (max-width: 912px){
+    .no-books-content {
+        min-width: 60%;
+    }
+}
+
+@media (max-width: 576px) {
+    .no-books-content {
+        min-width: 95%;
+    }
 }
