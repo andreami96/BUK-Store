@@ -16,7 +16,7 @@ $(document).ready(function () {
             let thisMonthArray = data.filter(reservation => new Date(reservation.orderDate).getMonth() === new Date().getMonth());
 
             // When there are reservation
-            $('.no-element-error').remove();
+            $('.no-reservation-error').remove();
 
             for(let i = 0; i < data.length; i++) {
                 addReservation(data[i]);
@@ -37,23 +37,62 @@ $(document).ready(function () {
 
     $.get("/api/v1/me/cart", function (data) {
         let totalBooksInCart = 0;
-        let totalPrice = 0.0;
 
         let bookArray = [];
+
+        let itemProcessed = 0;
 
         data.books.forEach( (book, index, array) => {
 
             $.get("/api/v1/books/" + book.ISBN, function (bookData) {
                 bookArray.push({book: bookData, quantity: book.quantity});
+                createCartRow(bookData, book.quantity);
+                createModalRow(bookData, book.quantity);
+                itemProcessed++;
+                if(itemProcessed === array.length)
+                    computeTotal(bookArray);
             });
             totalBooksInCart += book.quantity;
         });
 
         $('#book-cart').text(totalBooksInCart.toString());
-        $('#total-price').text(totalPrice.toFixed(2));
-    })
 
+        if(totalBooksInCart > 0) {
+            // When there are products in the cart
+            $('.no-cart-error').remove();
+            $('#cart-table').append(createCartTable());
+        } else {
+            $('#cart-table').remove();
+        }
+    })
 });
+
+function createCartTable() {
+    return "                    <thead>\n" +
+        "                        <tr>\n" +
+        "                            <th style=\"width:50%\">Product</th>\n" +
+        "                            <th style=\"width:10%\">Price</th>\n" +
+        "                            <th style=\"width:8%\">Quantity</th>\n" +
+        "                            <th style=\"width:22%\" class=\"text-center\">Subtotal</th>\n" +
+        "                            <th style=\"width:10%\"></th>\n" +
+        "                        </tr>\n" +
+        "                        </thead>\n" +
+        "                        <tbody id=\"tbody-cart\">\n" +
+        "\n" +
+        "                        </tbody>\n" +
+        "                        <tfoot>\n" +
+        "                        <tr>\n" +
+        "                            <td><a href=\"/catalogue/1\" class=\"btn btn-warning\"><i class=\"fa fa-angle-left\"></i> Continue Shopping</a></td>\n" +
+        "                            <td colspan=\"2\" class=\"hidden-xs\"></td>\n" +
+        "                            <td class=\"hidden-xs text-center\"><strong>Total €<span id=\"total-price\"></span></strong></td>\n" +
+        "                            <td><a href=\"#\" data-toggle='modal' data-target='#ModalForm' class=\"btn btn-success btn-block\">Checkout <i class=\"fa fa-angle-right\"></i></a></td>\n" +
+        "                        </tr>\n" +
+        "                        </tfoot>";
+}
+
+function createModalRow(book, quantity) {
+    $('#modal-list').append("<li>" + book.title + " x" + quantity + "</li>");
+}
 
 function createCartRow(book, quantity) {
     $("#tbody-cart").append(  "<tr>\n" +
@@ -82,6 +121,17 @@ function createCartRow(book, quantity) {
         "</tr>");
 
     $("#book-quantity-" + book.ISBN).get(0).selectedIndex = quantity - 1;
+}
+
+function computeTotal(books) {
+    let totalAmount = 0.0;
+
+    for(let i = 0; i < books.length; i++) {
+        totalAmount += books[i].book.price * books[i].quantity;
+    }
+
+    $('#total-price').text(totalAmount.toFixed(2));
+    $('#modal-total').text(totalAmount.toFixed(2));
 }
 
 function changeQuantity(isbn) {
@@ -145,4 +195,28 @@ function computeBookQuantityFromReservation(reservation) {
     for(let i = 0; i < reservation.books.length; i++)
         totalQuantity += reservation.books[i].quantity;
     return totalQuantity;
+}
+
+function makeReservation() {
+    let shippingAddress = $('#shipping-address').val()
+    if(shippingAddress) {
+        $.ajax({
+            type: "POST",
+            url: "/api/v1/me/reservations",
+            data: JSON.stringify({
+                "shippingLocation": shippingAddress
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function(data){
+                location.reload();
+            },
+            error: function(xhr) {
+            }
+        });
+    }
+}
+
+function closeModal() {
+    $('#ModalForm').modal('toggle');
 }
