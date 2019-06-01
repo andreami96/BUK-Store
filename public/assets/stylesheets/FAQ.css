@@ -1,0 +1,45 @@
+.container {
+    padding-top: 70px;
+}
+
+/* The banner image */
+.banner-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/backend/server.jpg");
+
+    /* Set a specific height */
+    height: 35em;
+    padding-top: 70px;
+    min-height: 20rem;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* ALIGN CENTER */
+.align-center {
+    text-align: center;
+}
+
+/* UL DASH */
+ul.dashed {
+    list-style-type: none;
+}
+
+ul.dashed li:before {
+    content: '\2013';
+    position: absolute;
+    margin-left: -20px;
+}
+
+/* Table COL */
+th.small-col {
+    width: 20%;
+}
+
+/* Diagram Images */
+.img-fluid {
+    max-width: 100%;
+}
