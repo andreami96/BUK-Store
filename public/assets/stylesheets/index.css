@@ -118,7 +118,7 @@
 .bg-2 h3 {color: black;}
 .bg-2 p {font-style: italic;}
 
-.container {
+#bestseller .container {
     padding: 0 120px;
 }
 
