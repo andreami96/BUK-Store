@@ -8,8 +8,6 @@ $(document).ready(function () {
             else
                 addNavbar(true, false);
 
-            makeResizableNavbar(true);
-
             makeTransparentNavbar();
 
             if( !$("#navbarNoHover").length ){
@@ -83,18 +81,11 @@ $(document).ready(function () {
     });
 });
 
-function changeCart() {
-    $('.badge').text(parseInt($('.badge').text()));
-}
-
 function addNavbar(isLogged, dropdown) {
     $(".navbar").addClass("navbar-default navbar-expand-sm fixed-top");
     createToggler();
     createHeader(isLogged);
-    if(dropdown)
-        createDropdownMenus(isLogged);
-    else
-        createUnPackedMenus(isLogged);
+    createUnPackedMenus(isLogged);
 }
 
 function createToggler() {
@@ -154,12 +145,6 @@ function createUnPackedMenus(isLogged) {
             "                    <a class=\"nav-link\" href=\"/catalogue/mainGenres.html\">Generi Principali</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"#\">Temi</a>\n" +
-            "                </li>\n" +
-            "                <li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"#\">Eventi</a>\n" +
-            "                </li>\n" +
-            "                <li class=\"nav-item\">\n" +
             "                    <a class=\"nav-link\" href=\"#\">Autori</a>\n" +
             "                </li>\n" +
             "            </ul>\n" + retrieveRightMenu(isLogged) +
@@ -194,29 +179,6 @@ function createDropdownMenus(isLogged) {
 function logout() {
     $.get("/api/v1/logout", function (data) {
         window.location.href = "/";
-    });
-}
-
-function makeResizableNavbar(isLogged) {
-    $(window).resize(function() {
-        if ($('.navbar-toggler').is(':visible')) {
-            $('.navbar').empty();
-            addNavbar(isLogged, false);
-            $(".empty-nav-space").css('width', $(".navbar-toggler").width());
-        }
-        else {
-            $('.navbar').empty();
-            addNavbar(isLogged, true);
-        }
-
-        if( !$("#navbarNoHover").length ){
-            if ($(window).scrollTop() > 60) {
-                makeSolidNavbar();
-            } else {
-                makeTransparentNavbar();
-            }
-        }
-        else makeSolidNavbar();
     });
 }
 
