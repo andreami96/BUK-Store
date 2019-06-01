@@ -42,52 +42,69 @@ function clearPage() {
 
 }
 
-function buildGenres(genresList) {
+function buildGenres(genresList, selectedGenre, selectedTheme ) {
+
     genresList.forEach(function (el) {
         $("#sidebar-genres")
             .prepend( $('<li>').attr({
                 'id': 'genre-' + el.genreID
             }));
 
-        $('#genre-' + el.genreID)
-            .append($('<a>').attr({
-                'href': '/catalogue/1'
-            })
-                .text(el.title)
-                .click( function () {
-                    sessionStorage['genres'] = el.genreID;
-                })
-            );
+        if ( el.genreID === selectedGenre ){
+            $('#genre-' + el.genreID)
+                .append($('<a>').attr({
+                        'href': '/catalogue/1?genre=&theme=' + selectedTheme
+                    }).text(el.title)
+                );
+            $('#genre-' + el.genreID).addClass('active');
+            $('#genre-' + el.genreID + ' a')
+                .append($('<i>').addClass('fas fa-times'));
+        }
+        else {
+            $('#genre-' + el.genreID)
+                .append($('<a>').attr({
+                    'href': '/catalogue/1?genre=' + el.genreID + '&theme=' + selectedTheme
+                }).text(el.title)
+                );
+        }
     });
 }
 
-function buildThemes(themesList){
+function buildThemes(themesList, selectedGenre, selectedTheme ){
+
     themesList.forEach(function (el) {
         $("#sidebar-themes")
             .prepend( $('<li>').attr({
                 'id': 'theme-' + el.themeID
             }));
 
-        $('#theme-' + el.themeID)
-            .append($('<a>').attr({
-                'href': '/catalogue/1'
-            })
-                .text(el.title)
-                .click(function () {
-                    sessionStorage['themes'] = el.themeID;
-                })
-        );
+        if ( el.themeID === selectedTheme ){
+            $('#theme-' + el.themeID)
+                .append($('<a>').attr({
+                        'href': '/catalogue/1?theme=&genre=' + selectedGenre
+                    }).text(el.title)
+                );
+            $('#theme-' + el.themeID).addClass('active');
+            $('#theme-' + el.themeID + ' a')
+                .append($('<i>').addClass('fas fa-times'));
+        } else {
+            $('#theme-' + el.themeID)
+                .append($('<a>').attr({
+                        'href': '/catalogue/1?theme=' + el.themeID + '&genre=' + selectedGenre
+                    }).text(el.title)
+                );
+        }
     });
 }
 
-function buildPagination(bookToInsert) {
+function buildPagination(bookToInsert, selectedGenre, selectedTheme) {
 
     let url = window.location.pathname;
     let catalogPage = parseInt(url.substr(url.lastIndexOf('/') + 1), 10);
 
     if ( catalogPage > 1 ){
         $('#page-prev a').attr({
-            'href': '/catalogue/' + (catalogPage - 1)
+            'href': '/catalogue/' + (catalogPage - 1) + '?genre=' + selectedGenre + '&theme=' + selectedTheme
         });
 /*
         $('#page-prev a').removeClass('disabled').click(function () {
@@ -107,7 +124,7 @@ function buildPagination(bookToInsert) {
 
     if ( bookToInsert === parseInt(sessionStorage['MAXBOOKS']) ){
         $('#page-next a').attr({
-            'href': '/catalogue/' + (catalogPage + 1)
+            'href': '/catalogue/' + (catalogPage + 1) + '?genre=' + selectedGenre + '&theme=' + selectedTheme
         });
 /*
         $('#page-next a').removeClass('disabled').click(function () {
@@ -124,13 +141,13 @@ function buildPagination(bookToInsert) {
     }
 }
 
-function buildBooks(bookList){
+function buildBooks(bookList, selectedGenres, selectedThemes){
 
     var bookToInsert = bookList.length;
     var emptyBlocks = parseInt(sessionStorage['MAXBOOKS']) - bookToInsert;
 
     // Build pagination for current page
-    buildPagination(bookToInsert);
+    buildPagination(bookToInsert, selectedGenres, selectedThemes);
 
     bookList.forEach(function (el, index) {
         $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
@@ -170,63 +187,73 @@ function buildBooks(bookList){
 
 function insertCurrentBooks(pageNumber) {
 
-    let selectedGenres = sessionStorage.getItem('genres');
-    let selectedThemes = sessionStorage.getItem('themes');
+//    let selectedGenres = sessionStorage.getItem('genres');
+//    let selectedThemes = sessionStorage.getItem('themes');
+
+    let selectedGenres = parseInt(getUrlParam('genre', ''));
+    let selectedThemes= parseInt(getUrlParam('theme', ''));
+
 
     if( selectedGenres ){
         $.get('/api/v1/genres/' + selectedGenres + '/books', function (data, status) {
             console.log(data);
-            buildBooks(data);
+            buildBooks(data, selectedGenres, selectedThemes);
         });
     }
     else if ( selectedThemes ) {
         $.get('/api/v1/themes/' + selectedThemes + '/books', function (data, status) {
             console.log(data);
-            buildBooks(data);
+            buildBooks(data, selectedGenres, selectedThemes);
         });
     }
     else {
         $.get("/api/v1/books/", {limit: sessionStorage['MAXBOOKS'], offset: (pageNumber - 1) * parseInt(sessionStorage['MAXBOOKS'])}, function (data, status) {
             console.log(data);
-            buildBooks(data);
+            buildBooks(data, selectedGenres, selectedThemes);
         });
     }
 }
 
 function insertCurrentThemes(){
 
-    let selectedGenres = sessionStorage.getItem('genres');
-    let selectedThemes = sessionStorage.getItem('themes');
+//    let selectedGenres = sessionStorage.getItem('genres');
+//    let selectedThemes = sessionStorage.getItem('themes');
+
+    let selectedGenres = parseInt(getUrlParam('genre', ''));
+    let selectedThemes= parseInt(getUrlParam('theme', ''));
 
     if( selectedGenres ){
-        $.get('/api/v1/genres/' + selectedGenres[0] + '/themes', function (data, status) {
+        $.get('/api/v1/genres/' + selectedGenres + '/themes', function (data, status) {
             console.log(data);
-            buildThemes(data);
+            buildThemes(data, selectedGenres, selectedThemes);
         });
     }
     else {
         $.get("/api/v1/themes/", {limit: 10, offset: 0}, function (data, status) {
             console.log(data);
-            buildThemes(data);
+            buildThemes(data, selectedGenres, selectedThemes);
         });
     }
 }
 
 function insertCurrentGenres(){
 
-    let selectedGenres = sessionStorage.getItem('genres');
-    let selectedThemes = sessionStorage.getItem('themes');
+//    let selectedGenres = sessionStorage.getItem('genres');
+//    let selectedThemes = sessionStorage.getItem('themes');
+
+    let selectedGenres = parseInt(getUrlParam('genre', ''));
+    let selectedThemes= parseInt(getUrlParam('theme', ''));
 
     if( selectedThemes ){
-        $.get('/api/v1/themes/' + selectedThemes[0] + '/genres', function (data, status) {
+        $.get('/api/v1/themes/' + selectedThemes + '/genres', function (data, status) {
             console.log(data);
-            buildGenres(data);
+            buildGenres(data, selectedGenres, selectedThemes);
         });
     }
     else {
         $.get("/api/v1/genres/", {limit: 10, offset: 0}, function (data, status) {
             console.log(data);
-            buildGenres(data);
+            buildGenres(data, selectedGenres, selectedThemes);
         });
     }
 }
@@ -296,10 +323,22 @@ $(window).on('load, resize', function mobileViewUpdate() {
     }
 });
 
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
 
-$(window).on('refresh', function () {
-   sessionStorage.removeItem('init-session');
-});
+function getUrlParam(parameter, defaultvalue){
+    var urlparameter = defaultvalue;
+    if(window.location.href.indexOf(parameter) > -1){
+        urlparameter = getUrlVars()[parameter];
+    }
+    return urlparameter;
+}
+
 
 jQuery(document).ready( function () {
 

@@ -116,8 +116,13 @@ a[data-toggle="collapse"] {
     background: #fff;
 }
 
+#sidebar ul li.active i {
+    float: right;
+    margin-right: 30px;
+}
+
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
+    background: #f9f9f9;
 }
 
 ul ul a {
