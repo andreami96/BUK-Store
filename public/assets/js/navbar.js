@@ -46,8 +46,6 @@ $(document).ready(function () {
             else
                 addNavbar(false, false);
 
-            makeResizableNavbar(false);
-
             makeTransparentNavbar();
 
             if( !$("#navbarNoHover").length ){
@@ -179,6 +177,29 @@ function createDropdownMenus(isLogged) {
 function logout() {
     $.get("/api/v1/logout", function (data) {
         window.location.href = "/";
+    });
+}
+
+function makeResizableNavbar(isLogged) {
+    $(window).resize(function() {
+        if ($('.navbar-toggler').is(':visible')) {
+            $('.navbar').empty();
+            addNavbar(isLogged, false);
+            $(".empty-nav-space").css('width', $(".navbar-toggler").width());
+        }
+        else {
+            $('.navbar').empty();
+            addNavbar(isLogged, true);
+        }
+
+        if( !$("#navbarNoHover").length ){
+            if ($(window).scrollTop() > 60) {
+                makeSolidNavbar();
+            } else {
+                makeTransparentNavbar();
+            }
+        }
+        else makeSolidNavbar();
     });
 }
 
