@@ -142,41 +142,44 @@ function buildBooks(bookList, selectedGenres, selectedThemes){
 
 //            $('#book-catalog').append($('<li>').addClass('no-books').text('Ops, there are no books for such filters'));
     }
+    else {
+        for(let i=0; i < bookToInsert; i++) {
+            $('#book-catalog').append($('<li>').attr({
+                "id": "book" + i
+            }));
+        }
 
-    bookList.forEach(function (el, index) {
-        $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
-            console.log(bookData);
+        bookList.forEach(function (el, index) {
+            $.get("/api/v1/books/" + el.ISBN, function (bookData, status) {
+                console.log(bookData);
 
-            $.get("/api/v1/books/" + bookData.ISBN + "/authors", function (authorsList, status) {
-                console.log(authorsList);
-                bookToInsert--;
+                $.get("/api/v1/books/" + bookData.ISBN + "/authors", function (authorsList, status) {
+                    console.log(authorsList);
+                    bookToInsert--;
 
-                $('#book-catalog').append($('<li>').attr({
-                    "id": "book" + index
-                }));
+                    $('#book' + index).append($('<a>').attr({
+                        'href': '/books/' + bookData.ISBN,
+                        'id' : 'book' + index + '-image'
+                    }));
+                    $('#book' + index + ' a').append($('<h6>').addClass('mt-2 mb-0').text(bookData.title));
+                    $('#book' + index).append($('<p>').addClass('mb-1 authorsNameList').append(' by ' + buildAuthorsList(authorsList)));
 
-                $('#book' + index).append($('<a>').attr({
-                    'href': '/books/' + bookData.ISBN,
-                    'id' : 'book' + index + '-image'
-                }));
-                $('#book' + index + ' a').append($('<h6>').addClass('mt-2 mb-0').text(bookData.title));
-                $('#book' + index).append($('<p>').addClass('mb-1 authorsNameList').append(' by ' + buildAuthorsList(authorsList)));
+                    $('#book' + index).append($('<div>').addClass('price').text(bookData.price + ' €'));
 
-                $('#book' + index).append($('<div>').addClass('price').text(bookData.price + ' €'));
+                    $('#book' + index + '-image').prepend($('<img>').attr({
+                        "class": "product-image img-fluid",
+                        "src": "../assets/images" + bookData.picture,
+                        "alt": "#"
+                    }));
 
-                $('#book' + index + '-image').prepend($('<img>').attr({
-                    "class": "product-image img-fluid",
-                    "src": "../assets/images" + bookData.picture,
-                    "alt": "#"
-                }));
+                    if ( bookToInsert === 0 ){
+                        mobileViewUpdate();
+                    }
 
-                if ( bookToInsert === 0 ){
-                    mobileViewUpdate();
-                }
-
+                });
             });
         });
-    });
+    }
 }
 
 function insertCurrentBooks(pageNumber) {
