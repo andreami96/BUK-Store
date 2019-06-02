@@ -4,12 +4,12 @@
 
 /* The banner image */
 .banner-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/faq_background.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/contactUs/background.jpg");
 
     /* Set a specific height */
-    height: 35em;
+    height: 20em;
     padding-top: 70px;
-    min-height: 20rem;
+    min-height: 15rem;
 
     /* Position and center the image to scale nicely on all screens */
     background-position: center;
@@ -26,33 +26,37 @@
     transform: translate(-50%, -50%);
 }
 
+/*
 @media (min-width: 512px) {
     .banner-image h1 {
         white-space: nowrap;
     }
 }
+*/
+
 /* ALIGN CENTER */
 .align-center {
     text-align: center;
 }
 
-/* UL DASH */
-ul.dashed {
-    list-style-type: none;
+.round-image {
+    border-radius: 50%;
 }
 
-ul.dashed li:before {
-    content: '\2013';
-    position: absolute;
-    margin-left: -20px;
+.team-card {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-/* Table COL */
-th.small-col {
-    width: 20%;
+.team-card h2 {
+    text-align: center;
 }
 
-/* Diagram Images */
-.img-fluid {
-    max-width: 100%;
+@media (max-width: 576px) {
+    .round-image {
+        max-width: 70%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
