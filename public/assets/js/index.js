@@ -2,6 +2,21 @@ $(document).ready(function() {
     // Initialize Tooltip
     $('[data-toggle="tooltip"]').tooltip();
 
+    //Set up show more and less button
+    $('.more').click(function (event) {
+        $(event.target)
+            .toggleClass('disabled');
+        $(event.target.nextElementSibling).toggleClass('disabled');
+        $(event.target.nextElementSibling.nextElementSibling).toggleClass('disabled');
+    });
+
+    $('.less').click(function (event) {
+        $(event.target)
+            .toggleClass('disabled');
+        $(event.target.previousElementSibling).toggleClass('disabled');
+        $(event.target.previousElementSibling.nextElementSibling).toggleClass('disabled');
+
+    });
 
     $('#eventsHomepage').append(
         $('<h1>').addClass('text-center').text('Events of the month')
@@ -36,6 +51,11 @@ $(document).ready(function() {
                     })
                 }
             })
+        });
+
+        $.get('/api/v1/books/bestsellers', function (bestsellers, status) {
+            console.log(bestsellers);
+
         });
     });
 
@@ -91,30 +111,4 @@ function createEvents(eventInfo, bookInfo, bookAuthors) {
 
     $('.event-display').last().append(bookContainer);
 
-}
-
-function mobileViewUpdate() {
-//    var viewportWidth = $(window).width();
-    var viewportWidth = document.getElementById("content").offsetWidth;
-
-    if (viewportWidth <= 576 ) {
-        var element = document.getElementById("book-catalog");
-        element.className = element.className.replace(/\bcolumns-*\b/g, "");
-        element.classList.add("columns-1");
-    }
-    else if (viewportWidth > 576 && viewportWidth <= 912) {
-        var element = document.getElementById("book-catalog");
-        element.className = element.className.replace(/\bcolumns-*\b/g, "");
-        element.classList.add("columns-2");
-    }
-    else if (viewportWidth > 912 && viewportWidth < 1200) {
-        var element = document.getElementById("book-catalog");
-        element.className = element.className.replace(/\bcolumns-*\b/g, "");
-        element.classList.add("columns-3");
-    }
-    else if (viewportWidth >= 1200) {
-        var element = document.getElementById("book-catalog");
-        element.className = element.className.replace(/\bcolumns-*\b/g, "");
-        element.classList.add("columns-4");
-    }
 }

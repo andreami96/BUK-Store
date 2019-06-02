@@ -59,6 +59,9 @@
 
 #bestseller .container {
     padding-top: 0;
+    min-width: 100%;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
 }
 
 #bestseller a {
@@ -70,8 +73,16 @@
     border: 0px;
 }
 
-#book-bestseller div {
+.bestseller-el {
     padding: 30px;
+}
+
+.show-btn {
+    color: #777777;
+}
+
+.show.disabled {
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -92,6 +103,11 @@
     #eventCarousel3 {
         min-height: 400px;
     }
+
+    #bestseller .container {
+        padding-left: 20% !important;
+        padding-right: 20% !important;
+    }
 }
 
 @media (max-width: 576px) {
@@ -111,6 +127,28 @@
 
 }
 
+@media (min-width: 768px) {
+    .bestseller-review .less, .bestseller-review .more{
+        display: none;
+        padding: 0px !important;
+    }
+
+    .bestseller-review .less-txt {
+        display: block;
+    }
+}
+
+@media (min-width: 1080px) {
+    .book-image {
+        max-width: 80% !important;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+    .book-image {
+        max-width: 60% !important;
+    }
+}
+
 .bg-2 {
     background: white;
     color: #2d2d30;
@@ -118,8 +156,8 @@
 .bg-2 h3 {color: black;}
 .bg-2 p {font-style: italic;}
 
-#bestseller .container {
-    padding: 0 120px;
+#bestseller {
+    padding: 3em 5em;
 }
 
 .container h3 {
