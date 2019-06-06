@@ -91,17 +91,6 @@ async function createGenres() {
             "Although a diary may provide information for a memoir, autobiography or biography, it is generally written not with the intention of being published as it stands, but for the author's own use. In recent years, however, there is internal evidence in some diaries (e.g. those of Ned Rorem, Alan Clark, Tony Benn or Simon Gray) that they are written with eventual publication in mind, with the intention of self-vindication, or simply for profit."
     });
 
-
-    await Genre.create({
-        genreID: 6,
-        title: "Fable",
-        picture: "/genres/fable.jpg",
-        mainGenreID: 1,
-        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
-            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
-            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
-    });
-
     await Genre.create({
         genreID: 7,
         title: "Essay",
@@ -161,15 +150,6 @@ async function createGenres() {
         mainGenreID: 4,
         description: "In a modern sense, comedy refers to any discourse or work generally intended to be humorous or amusing by inducing laughter, especially in theatre, television, film, stand-up comedy, or any other medium of entertainment. The origins of the term are found in Ancient Greece. In the Athenian democracy, the public opinion of voters was influenced by the political satire performed by the comic poets at the theaters. The theatrical genre of Greek comedy can be described as a dramatic performance which pits two groups or societies against each other in an amusing agon or conflict. A revised view characterizes the essential agon of comedy as a struggle between a relatively powerless youth and the societal conventions that pose obstacles to his hopes." +
             "In this struggle, the youth is understood to be constrained by his lack of social authority, and is left with little choice but to take recourse in ruses which engender very dramatic irony which provokes laughter."
-    });
-
-    await Genre.create({
-        genreID: 14,
-        title: "Opera",
-        picture: "/genres/opera.png",
-        mainGenreID: 4,
-        description: "Opera is a form of theatre in which music has a leading role and the parts are taken by singers, but is distinct from musical theater. Such a \"work\" (the literal translation of Italian word \"opera\") is typically a collaboration between a composer and a librettist and incorporates a number of the performing arts, such as acting, scenery, costume, and sometimes dance or ballet.\n" +
-            "A libretto is the text used in, or intended for, an extended musical work such as an opera, operetta, masque, oratorio, cantata or musical. The relationship of the librettist (that is, the writer of a libretto) to the composer in the creation of a musical work has varied over the centuries, as have the sources and the writing techniques employed."
     });
 
 }

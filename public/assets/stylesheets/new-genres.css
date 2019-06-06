@@ -1,0 +1,33 @@
+html,body {
+    height:100%;
+}
+
+.small-genre-card {
+    position: relative;
+    display: flex;
+    flex: 1 1 40%;
+    align-items: center;
+    height: 9em;
+    border: 1px solid rgb(212, 212, 212);
+    background-size: cover;
+    background-position: center;
+}
+
+.small-genre-card h1 {
+    color: white;
+}
+
+.small-genre-card span {
+    /* Make clickable the whole card */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+.breadcrumb {
+    margin: -1.5em 0 0 1em;
+}
