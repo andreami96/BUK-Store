@@ -441,7 +441,7 @@ async function createBooks() {
         interview: "Un ascensore è un impianto in grado di sollevare persone da un piano all'altro di un edificio o da livelli diversi di una costruzione o di una struttura. Un ascensore è solitamente costituito da una cabina che contiene i passeggeri e che viene sollevata da un motore elettrico che agisce su funi alle quali la cabina è agganciata; alcuni ascensori sono azionati da pistoni telescopici che sollevano e fanno discendere l'abitacolo. Un ascensore il cui uso sia destinato al sollevamento di merci e oggetti è chiamato \"montacarichi\".",
         availableQuantity: 1000,
         price: 5.86,
-        genreID: 6,
+        genreID: 13,
         year: 2015,
         editor: "Disney Libri",
         pageNumber: 240,
@@ -971,12 +971,12 @@ async function createGenreThemes() {
     });
 
     await GenreTheme.create({
-        genreID: 6,
+        genreID: 13,
         themeID: 3
     });
 
     await GenreTheme.create({
-        genreID: 6,
+        genreID: 13,
         themeID: 5
     });
 }
