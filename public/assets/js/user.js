@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    retrieveCart();
+
     $.get("/api/v1/me/", function(data){
 
         $('title').text(data.name + " " + data.surname + " - BUK Store");
@@ -35,6 +37,21 @@ $(document).ready(function () {
         }
     });
 
+    let beforeSize = $(window).width();
+    $(window).resize(function () {
+        if($(window).width() > 700 && beforeSize <= 700) {
+            $('#cart-table').empty();
+            retrieveCart();
+        } else if ($(window).width() <= 700 && beforeSize > 700) {
+            $('#cart-table').empty();
+            retrieveCart();
+        }
+        beforeSize = $(window).width();
+    })
+
+});
+
+function retrieveCart() {
     $.get("/api/v1/me/cart", function (data) {
         let totalBooksInCart = 0;
 
@@ -46,7 +63,10 @@ $(document).ready(function () {
 
             $.get("/api/v1/books/" + book.ISBN, function (bookData) {
                 bookArray.push({book: bookData, quantity: book.quantity});
-                createCartRow(bookData, book.quantity);
+                if($(window).width() > 700)
+                    createCartRow(bookData, book.quantity);
+                else
+                    createCartRowMobile(bookData, book.quantity);
                 createModalRow(bookData, book.quantity);
                 itemProcessed++;
                 if(itemProcessed === array.length)
@@ -60,21 +80,29 @@ $(document).ready(function () {
         if(totalBooksInCart > 0) {
             // When there are products in the cart
             $('.no-cart-error').remove();
-            $('#cart-table').append(createCartTable());
+
+            if($(window).width() >= 700)
+                $('#cart-table').append(createCartTable());
+            else
+                $('#cart-table').append(createCartTableMobile());
         } else {
+            $('#table-button').remove();
             $('#cart-table').remove();
         }
-    })
-});
+    });
+}
 
-function createCartTable() {
+function continueShopping() {
+    window.location.href = '/catalogue/1';
+}
+
+function createCartTableMobile() {
     return "                    <thead>\n" +
         "                        <tr>\n" +
-        "                            <th style=\"width:50%\">Product</th>\n" +
-        "                            <th style=\"width:10%\">Price</th>\n" +
-        "                            <th style=\"width:8%\">Quantity</th>\n" +
-        "                            <th style=\"width:22%\" class=\"text-center\">Subtotal</th>\n" +
-        "                            <th style=\"width:10%\"></th>\n" +
+        "                            <th>Product</th>\n" +
+        "                            <th>Price</th>\n" +
+        "                            <th>Quantity</th>\n" +
+        "                            <th></th>\n" +
         "                        </tr>\n" +
         "                        </thead>\n" +
         "                        <tbody id=\"tbody-cart\">\n" +
@@ -82,10 +110,56 @@ function createCartTable() {
         "                        </tbody>\n" +
         "                        <tfoot>\n" +
         "                        <tr>\n" +
-        "                            <td><a href=\"/catalogue/1\" class=\"btn btn-warning\"><i class=\"fa fa-angle-left\"></i>Continue Shopping</a></td>\n" +
-        "                            <td colspan=\"2\" class=\"hidden-xs\"></td>\n" +
-        "                            <td class=\"hidden-xs text-center\"><strong>Total €<span id=\"total-price\"></span></strong></td>\n" +
-        "                            <td><a href=\"#\" data-toggle='modal' data-target='#ModalForm' class=\"btn btn-success btn-block\">Checkout<i class=\"fa fa-angle-right\"></i></a></td>\n" +
+        "                            <td colspan='4' class=\"hidden-xs text-center\"><strong>Total €<span id=\"total-price\"></span></strong></td>\n" +
+        "                        </tr>\n" +
+        "                        </tfoot>";
+}
+
+function createCartRowMobile(book, quantity) {
+    $('#cart-table').addClass("table-responsive");
+    $("#tbody-cart").append(  "<tr>\n" +
+        "   <td data-th=\"Product\">\n" +
+        "      <div class=\"row\">\n" +
+        "         <div class=\"col-sm-12\">\n" +
+        "            <h6 class=\"nomargin\">" + book.title + "</h6>\n" +
+        "         </div>\n" +
+        "      </div>\n" +
+        "   </td>\n" +
+        "   <td data-th=\"Price\">" + book.price + "</td>\n" +
+        "   <td data-th=\"Quantity\">\n" +
+        "      <div class=\"form-group\">\n" +
+        "         <select class=\"form-control\" onchange=\"changeQuantity('" + book.ISBN + "')\" id=\"book-quantity-" + book.ISBN + "\">\n" +
+        "            <option>1</option>\n" +
+        "            <option>2</option>\n" +
+        "            <option>3</option>\n" +
+        "         </select>\n" +
+        "      </div>   " +
+        "   </td>\n" +
+        "   <td class=\"actions\" data-th=\"\">\n" +
+        "      <button onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\"></i></button>\n" +
+        "   </td>\n" +
+        "</tr>");
+
+    $("#book-quantity-" + book.ISBN).get(0).selectedIndex = quantity - 1;
+}
+
+function createCartTable() {
+    $('#cart-table').removeClass("table-responsive");
+    return "                    <thead>\n" +
+        "                        <tr>\n" +
+        "                            <th>Product</th>\n" +
+        "                            <th>Price</th>\n" +
+        "                            <th>Quantity</th>\n" +
+        "                            <th class=\"text-center\">Subtotal</th>\n" +
+        "                            <th></th>\n" +
+        "                        </tr>\n" +
+        "                        </thead>\n" +
+        "                        <tbody id=\"tbody-cart\">\n" +
+        "\n" +
+        "                        </tbody>\n" +
+        "                        <tfoot>\n" +
+        "                        <tr>\n" +
+        "                            <td colspan='5' class=\"text-right hidden-xs\"><strong>Total €<span id=\"total-price\"></span></strong></td>\n" +
         "                        </tr>\n" +
         "                        </tfoot>";
 }
@@ -99,7 +173,7 @@ function createCartRow(book, quantity) {
         "   <td data-th=\"Product\">\n" +
         "      <div class=\"row\">\n" +
         "         <div class=\"col-sm-12\">\n" +
-        "            <h4 class=\"nomargin\">" + book.title + "</h4>\n" +
+        "            <h6 class=\"nomargin\">" + book.title + "</h6>\n" +
         "            <p><strong>ISBN: </strong><span>" + book.ISBN + "</span></p>" +
         "         </div>\n" +
         "      </div>\n" +

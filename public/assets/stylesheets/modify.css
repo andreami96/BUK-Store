@@ -1,3 +1,7 @@
+body {
+    height: 100%;
+}
+
 .alert-padding {
     padding-top: 11.5vh;
 }

@@ -12,6 +12,7 @@ jQuery(document).ready(function() {
                 {"src": "../assets/images" + relatedBook.picture,
                     "alt": relatedBook.title}
             );
+            $('#bookISBN').val(relatedBook.ISBN);
             $('#eventBookLink').attr('href', '/books/' + relatedBook.ISBN);
 
             $.get("/api/v1/books/" + relatedBook.ISBN + "/authors", function(bookAuthors, status) {
@@ -52,6 +53,42 @@ function createAuthors(authors) {
     }
 
     return authorsHTML;
+}
+
+function addToCart() {
+    if($(".badge").length) {
+
+        $.ajax({
+            type: "POST",
+            url: "/api/v1/me/cart",
+            data: JSON.stringify({
+                "ISBN": $('#bookISBN').val(),
+                "quantity": 1,
+            }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (result, status, xhr) {
+                $('.badge').text(parseInt($('.badge').text()) + 1);
+                let message = "Book added to the cart";
+                $('#alert')
+                    .html("<div class=\"text-center alert alert-success alert-dismissible text-center mx-auto fade show\">\n" +
+                        "            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n" +
+                        "            <strong>Success!</strong><br>" + message +
+                        "        </div>");
+                $(".alert").delay(3000).fadeOut(500);
+            },
+            error: function (xhr) {
+                let message = "This book is already in your cart, to modify the quantity go into your cart";
+                $('#alert')
+                    .html("<div class=\"text-center alert alert-danger alert-dismissible text-center mx-auto fade show\">\n" +
+                        "            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n" +
+                        "            <strong>Alert!</strong><br>" + message +
+                        "        </div>");
+                $(".alert").delay(3000).fadeOut(500);
+            }
+        });
+    } else
+        window.location.href = "/login.html";
 }
 
 
