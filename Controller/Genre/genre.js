@@ -60,7 +60,7 @@ exports.findGenreByID = function (genreID) {
                 let genreResult = {
                     genreID: genreObject.genreID,
                     title: genreObject.title,
-                    mainGenre: genreObject.mainGenre,
+                    mainGenre: genreObject.mainGenreID,
                     description: genreObject.description,
                     picture: genreObject.picture
                 };
