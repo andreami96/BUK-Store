@@ -1,4 +1,4 @@
-const {findAllRawMainGenres, findAllRawGenresByMainGenreID} = require('./rawMainGenre');
+const {findAllRawMainGenres, findAllRawGenresByMainGenreID, findRawMainGenreByID} = require('./rawMainGenre');
 const Response = require('../../Utils/response');
 const { isInt } = require('../../Utils/isInteger');
 
@@ -39,6 +39,26 @@ exports.findAllMainGenres = function (limit, offset) {
                 reject(new Response(500, "Internal Server Error"));
             })
     })
+};
+
+exports.findMainGenreByID = function(mainGenreID) {
+
+    return new Promise((resolve, reject) => {
+        if (!isInt(mainGenreID))
+            return reject(new Response(400, "The Genre identifier should be an integer"));
+
+        findRawMainGenreByID(mainGenreID)
+            .then((mainGenre) => {
+                resolve({
+                    mainGenreID: mainGenre.mainGenreID,
+                    title: mainGenre.title
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+                reject(new Response(500, "Internal Server Error"));
+            })
+    });
 };
 
 exports.findAllGenresByMainGenreID = function (mainGenreID) {

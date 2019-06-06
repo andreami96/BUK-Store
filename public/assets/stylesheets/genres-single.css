@@ -11,7 +11,7 @@
     flex: 1;
     background-image: linear-gradient(
             to top,
-            black, transparent 60%
+            #1e1e1e, transparent 60%
     );
 }
 

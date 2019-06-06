@@ -8,6 +8,7 @@ const { findBookByGenre } = require('../../../Controller/Genre/GenreBook/genreBo
 const { findThemesByGenre } = require('../../../Controller/Genre/GenreTheme/genreTheme');
 
 
+
 router.get('/', function (req, res, next) {
 
     findAllGenres(req.query.limit, req.query.offset)

@@ -19,3 +19,9 @@ exports.findAllRawGenresByMainGenreID = function (mainGenreID) {
     })
 };
 
+exports.findRawMainGenreByID = function (mainGenreID) {
+    return MainGenre.findOne({
+        where: { mainGenreID: mainGenreID }
+    })
+}
+

@@ -4,18 +4,21 @@ jQuery(document).ready(function(){
     let authorID = url.substr(url.lastIndexOf('/') + 1);
     console.log(authorID);
 
-    $.get("/api/v1/authors/" + authorID, function(data, status){
-        console.log(data);
+    $.get("/api/v1/authors/" + authorID, function(author){
+        console.log(author);
 
-        $('.banner-primary').css('background-image', 'url("../assets/images' + data.backgroundPicture + '")');
-        $('#authorImg').attr('src', '/assets/images' + data.picture);
-        $('#authorName').text(data.name + ' ' + data.surname);
-        $('#authorBio').text(data.biography);
+        $('#breadcrumb-title').text(author.name + ' ' + author.surname);
+
+        $('.banner-primary').css('background-image',
+            'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images' + author.backgroundPicture + '")');
+        $('#authorImg').attr('src', '/assets/images' + author.picture);
+        $('#authorName').text(author.name + ' ' + author.surname);
+        $('#authorBio').text(author.biography);
 
         // Books of the author
-        $.get("/api/v1/authors/" + authorID + "/books", function(data, status){
+        $.get("/api/v1/authors/" + authorID + "/books", function(author, status){
 
-            data.forEach(function(book, index) {
+            author.forEach(function(book, index) {
                 console.log(book);
                 $.get("/api/v1/books/" + book.ISBN, function(bookDetails, status) {
                     if(index % 4 === 0)

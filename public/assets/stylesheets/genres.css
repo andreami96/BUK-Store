@@ -9,6 +9,12 @@ html,body {
     align-items: center;
     height: 9em;
     border: 1px solid rgb(212, 212, 212);
+    background-size: cover;
+    background-position: center;
+}
+
+.small-genre-card h1 {
+    color: white;
 }
 
 .small-genre-card span {
@@ -21,3 +27,8 @@ html,body {
 
     z-index: 1;
 }
+
+.breadcrumb {
+    margin: -1.5em 0 0 1em;
+}
+

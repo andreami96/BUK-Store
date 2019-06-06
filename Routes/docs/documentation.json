@@ -1988,11 +1988,11 @@
             "readOnly": true,
             "example": "Thriller"
           },
-          "mainGenre": {
-            "type": "string",
+          "mainGenreID": {
+            "type": "integer",
             "description": "The class of Genre to which this one belongs to",
             "readOnly": true,
-            "example": "Novel"
+            "example": 1
           },
           "description": {
             "type": "string",
