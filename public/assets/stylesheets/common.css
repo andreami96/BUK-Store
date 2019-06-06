@@ -27,6 +27,12 @@ body {
     backface-visibility: hidden;
 }
 
+@media only screen and (max-width: 576px) {
+    .navbar {
+        margin: 6px;
+    }
+}
+
 @media only screen and (max-height: 500px) {
     .navbar-collapse {
         max-height: 40vh;
@@ -35,7 +41,7 @@ body {
 }
 
 .navbar-nav {
-    font-size: 14px;
+    font-size: 1.05em;
     color: #fff;
     align-items: center;
 }
@@ -46,7 +52,7 @@ body {
     }
 
     .navbar-nav {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
@@ -110,11 +116,17 @@ body {
 /* Footer */
 .footer {
     margin-top: auto;
-    font-size: 9pt;
+    font-size: 1em;
     background-color: #ebebeb;
 }
 
 .footer .fab {
     font-size: 1.6em;
     margin: 0.2em;
+}
+
+@media only screen and (max-width: 576px) {
+    .footer {
+        font-size: 0.9em;
+    }
 }

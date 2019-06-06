@@ -95,7 +95,7 @@ function createToggler() {
 
 function retrieveBadge() {
     return  "<div class=\"nav-item order-md-12 order-sm-1\">\n" +
-            "   <a><span class=\"badge badge-primary\"></span></a>\n" +
+            "   <a href='/me'><span class=\"badge badge-primary\"></span></a>\n" +
             "</div>\n"
 }
 
