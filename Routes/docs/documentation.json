@@ -966,6 +966,47 @@
         }
       }
     },
+    "/mainGenres/{mainGenreID}": {
+      "get": {
+        "summary": "Retrieves information about the given mainGenreID",
+        "description": "Use this endpoint to know the information about a specific mainGenre",
+        "tags": [
+          "Genre"
+        ],
+        "parameters": [
+          {
+            "name": "mainGenreID",
+            "in": "path",
+            "description": "The identifier of the main genre",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/MainGenre/properties/mainGenreID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MainGenre"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
     "/mainGenres/{mainGenreID}/genres": {
       "get": {
         "summary": "Retrieves the genres related to the specific main genre",

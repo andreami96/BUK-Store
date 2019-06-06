@@ -51,7 +51,8 @@ exports.findMainGenreByID = function(mainGenreID) {
             .then((mainGenre) => {
                 resolve({
                     mainGenreID: mainGenre.mainGenreID,
-                    title: mainGenre.title
+                    title: mainGenre.title,
+                    picture: mainGenre.picture
                 });
             })
             .catch((err) => {
