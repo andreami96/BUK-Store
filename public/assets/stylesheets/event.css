@@ -48,3 +48,34 @@ html,body {
     min-height: 320px;
     /*background-color: burlywood;*/
 }
+
+.alert {
+    max-width: 25vw;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 576px) {
+    .alert {
+        margin-top: 1vh;
+        min-width: 50vw;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 1000px) {
+    .alert {
+        margin-top: 1vh;
+        min-width: 50vw;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) {
+    .alert {
+        margin-top: 1vh;
+        min-width: 50vw;
+    }
+}

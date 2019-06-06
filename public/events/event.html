@@ -19,11 +19,16 @@
     <link rel="stylesheet" href="../assets/stylesheets/event.css">
 </head>
 <body>
+    <input type="hidden" id="bookISBN">
+
     <div class="banner-primary">
         <div class="gradient-layer">
             <nav class="navbar"></nav>
             <h1 id="eventTitle" class="mb-0 text-center"></h1>
         </div>
+    </div>
+
+    <div class="container-fluid alert-padding" id="alert">
     </div>
 
     <div class="container">
@@ -36,7 +41,7 @@
                     </a>
                 </div>
                 <div class="row mt-4 justify-content-center">
-                    <button type="button" class="btn btn-primary">Buy</button>
+                    <button onclick="addToCart()" type="button" class="btn btn-primary">Buy</button>
                 </div>
                 <div class="row mt-5 mx-3">
                     <div class="col-12 text-center">
