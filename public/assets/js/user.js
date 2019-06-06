@@ -82,10 +82,10 @@ function createCartTable() {
         "                        </tbody>\n" +
         "                        <tfoot>\n" +
         "                        <tr>\n" +
-        "                            <td><a href=\"/catalogue/1\" class=\"btn btn-warning\"><i class=\"fa fa-angle-left\"></i> Continue Shopping</a></td>\n" +
+        "                            <td><a href=\"/catalogue/1\" class=\"btn btn-warning\"><i class=\"fa fa-angle-left\"></i>Continue Shopping</a></td>\n" +
         "                            <td colspan=\"2\" class=\"hidden-xs\"></td>\n" +
         "                            <td class=\"hidden-xs text-center\"><strong>Total €<span id=\"total-price\"></span></strong></td>\n" +
-        "                            <td><a href=\"#\" data-toggle='modal' data-target='#ModalForm' class=\"btn btn-success btn-block\">Checkout <i class=\"fa fa-angle-right\"></i></a></td>\n" +
+        "                            <td><a href=\"#\" data-toggle='modal' data-target='#ModalForm' class=\"btn btn-success btn-block\">Checkout<i class=\"fa fa-angle-right\"></i></a></td>\n" +
         "                        </tr>\n" +
         "                        </tfoot>";
 }
@@ -98,7 +98,7 @@ function createCartRow(book, quantity) {
     $("#tbody-cart").append(  "<tr>\n" +
         "   <td data-th=\"Product\">\n" +
         "      <div class=\"row\">\n" +
-        "         <div class=\"col-sm\">\n" +
+        "         <div class=\"col-sm-12\">\n" +
         "            <h4 class=\"nomargin\">" + book.title + "</h4>\n" +
         "            <p><strong>ISBN: </strong><span>" + book.ISBN + "</span></p>" +
         "         </div>\n" +
