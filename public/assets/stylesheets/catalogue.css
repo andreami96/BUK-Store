@@ -12,14 +12,11 @@
     margin-top: 1rem;
 }
 
-#sidebar.active {
-    margin-left: -250px;
-}
 
 #sidebar {
     min-width: 220px;
     max-width: 220px;
-
+    min-height: 720px;
     z-index: 990;
 }
 
@@ -43,11 +40,11 @@ a[data-toggle="collapse"] {
     }
 
     #sidebar-list h4 {
-        margin-left: 10px !important;
+        margin-left: 25px !important;
     }
 
     #sidebar-list a {
-        padding-left: 10px !important;
+        padding-left: 27px !important;
     }
 
     #sidebarCollapse {
@@ -104,9 +101,11 @@ a[data-toggle="collapse"] {
 
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.5em;
+    font-size: 16px !important;
     display: block;
+    margin-bottom: 5px;
 }
+
 #sidebar ul li a:hover {
     background: #fff;
 }
@@ -399,6 +398,12 @@ ul.rig.columns-1 {
     opacity: 1;
 }
 
+@media (min-width: 576px) {
+    .overlay.active {
+        display: none;
+    }
+}
+
 .footer {
     z-index: 990;
 }
@@ -435,4 +440,16 @@ ul.rig.columns-1 {
     .no-books-content {
         min-width: 95%;
     }
+}
+
+#content {
+    width: 100%;
+}
+
+#space-filler div {
+    min-height: 220px;
+}
+
+#space-filler {
+    border: none;
 }

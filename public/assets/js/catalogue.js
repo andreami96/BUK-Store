@@ -1,22 +1,23 @@
 function mobileViewUpdate() {
-    var viewportWidth = document.getElementById("content").offsetWidth;
+//    var viewportWidth = document.getElementById("content").offsetWidth;
+    var viewportWidth = $(window).width();
 
-    if (viewportWidth <= 576 ) {
+    if (viewportWidth <= 768 ) {
         var element = document.getElementById("book-catalog");
         element.className = element.className.replace(/\bcolumns-*\b/g, "");
         element.classList.add("columns-1");
     }
-    else if (viewportWidth > 576 && viewportWidth <= 912) {
+    else if (viewportWidth > 768 && viewportWidth <= 1080) {
         var element = document.getElementById("book-catalog");
         element.className = element.className.replace(/\bcolumns-*\b/g, "");
         element.classList.add("columns-2");
     }
-    else if (viewportWidth > 912 && viewportWidth < 1200) {
+    else if (viewportWidth > 1080 && viewportWidth < 1300) {
         var element = document.getElementById("book-catalog");
         element.className = element.className.replace(/\bcolumns-*\b/g, "");
         element.classList.add("columns-3");
     }
-    else if (viewportWidth >= 1200) {
+    else if (viewportWidth >= 1300) {
         var element = document.getElementById("book-catalog");
         element.className = element.className.replace(/\bcolumns-*\b/g, "");
         element.classList.add("columns-4");
@@ -139,14 +140,18 @@ function buildBooks(bookList, selectedGenres, selectedThemes){
         }).text('There are no books for such category'));
 
         $('#no-books-container').append($('<hr>'));
-
-//            $('#book-catalog').append($('<li>').addClass('no-books').text('Ops, there are no books for such filters'));
     }
     else {
         for(let i=0; i < bookToInsert; i++) {
             $('#book-catalog').append($('<li>').attr({
                 "id": "book" + i
             }));
+        }
+        if( bookToInsert == 1) {
+            $('#book-catalog').append($('<li>').attr({
+                "id": "space-filler"
+            }));
+            $('#space-filler').append($('<div>'));
         }
 
         bookList.forEach(function (el, index) {
@@ -281,24 +286,25 @@ $(document).ready( function() {
 });
 
 $(window).on('load, resize', function mobileViewUpdate() {
-    var viewportWidth = document.getElementById("content").offsetWidth;
+//    var viewportWidth = document.getElementById("content").offsetWidth;
+    var viewportWidth = $(window).width();
 
-    if (viewportWidth <= 576 ) {
+    if (viewportWidth <= 768 ) {
         var element = document.getElementById("book-catalog");
         element.className = element.className.replace(/\bcolumns-*\b/g, "");
         element.classList.add("columns-1");
     }
-    else if (viewportWidth > 576 && viewportWidth <= 912) {
+    else if (viewportWidth > 768 && viewportWidth <= 1080) {
         var element = document.getElementById("book-catalog");
         element.className = element.className.replace(/\bcolumns-*\b/g, "");
         element.classList.add("columns-2");
     }
-    else if (viewportWidth > 912 && viewportWidth < 1200) {
+    else if (viewportWidth > 1080 && viewportWidth < 1300) {
         var element = document.getElementById("book-catalog");
         element.className = element.className.replace(/\bcolumns-*\b/g, "");
         element.classList.add("columns-3");
     }
-    else if (viewportWidth >= 1200) {
+    else if (viewportWidth >= 1300) {
         var element = document.getElementById("book-catalog");
         element.className = element.className.replace(/\bcolumns-*\b/g, "");
         element.classList.add("columns-4");
