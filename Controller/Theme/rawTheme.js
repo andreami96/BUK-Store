@@ -7,6 +7,8 @@ exports.findAllRawThemes = function(limit, offset) {
     searchOption.limit = limit;
     searchOption.offset = offset;
 
+    searchOption.order = [['title', 'ASC']];
+
     return Theme.findAll(searchOption);
 };
 
