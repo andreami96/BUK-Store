@@ -74,7 +74,12 @@
 }
 
 .bestseller-el {
-    padding: 30px;
+    margin: 30px;
+}
+
+@media (max-width: 576px) {
+    .bestseller-el {
+    }
 }
 
 .show-btn {
