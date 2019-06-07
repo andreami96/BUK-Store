@@ -1,3 +1,16 @@
 hr {
     padding-top: 10vh;
 }
+
+body {
+    height: 100%;
+}
+
+#tbody-cart p {
+    font-size: 0.8em;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}

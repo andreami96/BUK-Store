@@ -3,12 +3,24 @@
 let express = require('express');
 let router = express.Router();
 
-const { findAllMainGenres, findAllGenresByMainGenreID } = require('../../../Controller/MainGenre/mainGenre');
+const { findAllMainGenres, findAllGenresByMainGenreID, findMainGenreByID } = require('../../../Controller/MainGenre/mainGenre');
 
 
 router.get('/', function (req, res, next) {
 
     findAllMainGenres(req.query.limit, req.query.offset)
+        .then( (mainGenreList) => {
+            return res.status(200).send(mainGenreList);
+        })
+        .catch( (err) => {
+            next(err);
+        });
+
+});
+
+router.get('/:mainGenreID', function (req, res, next) {
+
+    findMainGenreByID(req.params.mainGenreID)
         .then( (mainGenreList) => {
             return res.status(200).send(mainGenreList);
         })

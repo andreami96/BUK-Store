@@ -91,17 +91,6 @@ async function createGenres() {
             "Although a diary may provide information for a memoir, autobiography or biography, it is generally written not with the intention of being published as it stands, but for the author's own use. In recent years, however, there is internal evidence in some diaries (e.g. those of Ned Rorem, Alan Clark, Tony Benn or Simon Gray) that they are written with eventual publication in mind, with the intention of self-vindication, or simply for profit."
     });
 
-
-    await Genre.create({
-        genreID: 6,
-        title: "Fable",
-        picture: "/genres/fable.jpg",
-        mainGenreID: 1,
-        description: "Il thriller (dall'inglese to thrill, rabbrividire) è un genere di fiction che utilizza la suspense, la tensione e l'eccitazione come elementi principali della trama." +
-            "Derivato dal giallo, è assai diffuso sia in letteratura, che nel cinema o nella televisione. " +
-            "Più diffuso negli Stati Uniti che in Europa, il genere thriller è a sua volta suddiviso in diversi, in parte coincidenti, sottogeneri."
-    });
-
     await Genre.create({
         genreID: 7,
         title: "Essay",
@@ -161,15 +150,6 @@ async function createGenres() {
         mainGenreID: 4,
         description: "In a modern sense, comedy refers to any discourse or work generally intended to be humorous or amusing by inducing laughter, especially in theatre, television, film, stand-up comedy, or any other medium of entertainment. The origins of the term are found in Ancient Greece. In the Athenian democracy, the public opinion of voters was influenced by the political satire performed by the comic poets at the theaters. The theatrical genre of Greek comedy can be described as a dramatic performance which pits two groups or societies against each other in an amusing agon or conflict. A revised view characterizes the essential agon of comedy as a struggle between a relatively powerless youth and the societal conventions that pose obstacles to his hopes." +
             "In this struggle, the youth is understood to be constrained by his lack of social authority, and is left with little choice but to take recourse in ruses which engender very dramatic irony which provokes laughter."
-    });
-
-    await Genre.create({
-        genreID: 14,
-        title: "Opera",
-        picture: "/genres/opera.png",
-        mainGenreID: 4,
-        description: "Opera is a form of theatre in which music has a leading role and the parts are taken by singers, but is distinct from musical theater. Such a \"work\" (the literal translation of Italian word \"opera\") is typically a collaboration between a composer and a librettist and incorporates a number of the performing arts, such as acting, scenery, costume, and sometimes dance or ballet.\n" +
-            "A libretto is the text used in, or intended for, an extended musical work such as an opera, operetta, masque, oratorio, cantata or musical. The relationship of the librettist (that is, the writer of a libretto) to the composer in the creation of a musical work has varied over the centuries, as have the sources and the writing techniques employed."
     });
 
 }
@@ -451,12 +431,54 @@ async function createBooks() {
         pageNumber: 240,
         originalLanguage: "French"
     });
+
+    await Book.create({
+        ISBN: "8852220550",
+        title: "Le avventure di Winnie the Pooh",
+        picture: "/books/winniePooh.jpg",
+        backgroundPicture: "/books/background/la-gauche-background.jpg",
+        abstract: "Le storie più belle dei personaggi Disney più amati, illustrate a colori con le immagini tratte dai film e dalle serie TV. Una collana ricca di titoli e di fantasia. Età di lettura: da 5 anni.",
+        interview: "Un ascensore è un impianto in grado di sollevare persone da un piano all'altro di un edificio o da livelli diversi di una costruzione o di una struttura. Un ascensore è solitamente costituito da una cabina che contiene i passeggeri e che viene sollevata da un motore elettrico che agisce su funi alle quali la cabina è agganciata; alcuni ascensori sono azionati da pistoni telescopici che sollevano e fanno discendere l'abitacolo. Un ascensore il cui uso sia destinato al sollevamento di merci e oggetti è chiamato \"montacarichi\".",
+        availableQuantity: 1000,
+        price: 5.86,
+        genreID: 13,
+        year: 2015,
+        editor: "Disney Libri",
+        pageNumber: 240,
+        originalLanguage: "Italiano"
+    });
+
+    await Book.create({
+        ISBN: "0440129710",
+        title: "Nuclear War Survival Skills",
+        picture: "/books/51Tc4xXuV1L.jpg",
+        backgroundPicture: "/books/background/nuc.jfif",
+        abstract: "There are a number of do-it-yourself guides to civil defence available, but most seem to be aimed at hard-core survivalists who have crack outdoor skills, and lots of specialized equipment. This book is very different and is written for the average citizen by a former U.S. Army officer, Major Cresson Kearny, field geologist and civil engineer who built and field-tested the \"expedient\" shelters described within while still employed at the U.S. Department of Energy's Oak Ridge National Laboratory.",
+        interview: "We have focused on two great challenges. Firstly, how to dramatically reduce carbon emissions within urgent time scales, and secondly, to enable billions of people who lack access to electricity to gain access to modern energy services. These two aims have one thing in common: the energy we use to power our world. It is somewhat extraordinary that half of the people in the world currently lack access to enough electricity to live the modern life we take for granted. A lot of the strategies that have been put forward for climate mitigation focus on 100% renewable energy sources (RES) as being the goal, and often include very large assumptions in relation to energy efficiency, for example a 40% reduction in the energy that we use today. I just cannot reconcile with that, because it means that poor people stay poor. If half the people in the world were to have access to a reasonable amount of electricity this would probably mean a doubling or tripling in existing demand. Not only do we need to entirely replace our existing fossil fuel infrastructure within decades, but also to double or triple it. So, our position is that to meet these challenges, we need to use all of the tools at our disposal and there is really no need to exclude nuclear energy from that conversation.",
+        availableQuantity: 1000,
+        price: 12.86,
+        genreID: 4,
+        year: 2001,
+        editor: "KnowledgePublications",
+        pageNumber: 420,
+        originalLanguage: "English"
+    });
 }
 
 async function createBookTheme() {
     await BookTheme.create({
         ISBN: "8845282678",
         themeID: 1
+    });
+
+    await BookTheme.create({
+        ISBN: "8852220550",
+        themeID: 3
+    });
+
+    await BookTheme.create({
+        ISBN: "8852220550",
+        themeID: 5
     });
 
     await BookTheme.create({
@@ -633,9 +655,32 @@ async function createAuthors() {
         backgroundPicture: "/authors/background/pewds-style.jpg"
     });
 
+    await Author.create({
+        authorID: 11,
+        name: "Walt",
+        surname: "Disney",
+        picture: "/authors/walt.jpg",
+        backgroundPicture: "/authors/background/walt.jpg",
+        biography: "Walter Elias Disney, conosciuto come Walt Disney (Chicago, 5 dicembre 1901 – Burbank, 15 dicembre 1966), è stato un animatore, imprenditore, disegnatore, cineasta, doppiatore e produttore cinematografico statunitense.\n" +
+            "\n" +
+            "Annoverato tra i principali cineasti del XX secolo e riconosciuto come uno dei padri dei film d'animazione, ha inoltre creato Disneyland, il primo di una serie di parchi a tema; è altresì noto per la sua grande abilità nella narrazione di storie, come divo televisivo e uno dei grandi artisti del XX secolo nel campo dell'intrattenimento; il suo contributo più grande alla settima arte risiede probabilmente nell'aver portato allo stato dell'arte il rapporto fra immagine e musica.[senza fonte] Con i suoi collaboratori ha creato molti dei più famosi personaggi dei cartoni animati del mondo; uno di questi, Topolino, è secondo molti il suo alter ego.\n" +
+            "\n" +
+            "Ha il record del numero di premi Oscar vinti[1] ricevendo in 34 anni di carriera, per i suoi cortometraggi e documentari, 59 nomination e 26 premi di cui 4 onorari alla carriera (nel 1932 per l'ideazione di Topolino, nel 1939 per Biancaneve e i sette nani, \"Riconosciuto come una significativa innovazione sullo schermo che ha affascinato milioni di persone ed è stato il pioniere in un importante campo dell'intrattenimento\" e due nel 1942 \"Per il notevole contributo allo sviluppo dell'uso del suono nei film attraverso la produzione di Fantasia\" e un Premio alla memoria Irving G. Thalberg). Nel 1956 ha vinto il David di Donatello per il miglior produttore straniero per Lilli e il vagabondo."
+    });
+
+    await Author.create({
+        authorID: 12,
+        name: "Kearny",
+        surname: "Cresson",
+        picture: "/authors/Cresson-Kearny.png",
+        backgroundPicture: "/authors/background/f257fe868bccd014462255033f42e37f.jpg",
+        biography: "Kearny attended Texas Military Institute in the 1930s, where he became the commanding officer of the cadet corps, a champion runner and rifle shot, and valedictorian of his class.[2] He attended Mercersburg Academy in Pennsylvania before earning a degree in civil engineering at Princeton University, graduating summa cum laude in 1937. He won a Rhodes Scholarship and went on to earn two degrees in geology at the University of Oxford. During the Sudeten Crisis he acted as a courier for an underground group helping anti-Nazis escape from Czechoslovakia.[3]"
+    });
+
 }
 
 async function createWrittenBy() {
+
     await WrittenBy.create({
         ISBN: "8845282678",
         authorID: 1
@@ -691,6 +736,15 @@ async function createWrittenBy() {
         authorID: 9
     });
 
+    await WrittenBy.create({
+        ISBN: "8852220550",
+        authorID: 11
+    });
+
+    await WrittenBy.create({
+        ISBN: "0440129710",
+        authorID: 12
+    });
 
 }
 
@@ -700,6 +754,10 @@ async function createSimilarTo() {
         ChildISBN: "8845282678"
     });
 
+    await SimilarTo.create({
+        ParentISBN: "9788804668428",
+        ChildISBN: "8852220550"
+    });
 
 }
 
@@ -826,6 +884,12 @@ async function createReviews() {
         ISBN: "0812998952"
     });
 
+    await Review.create({
+        reviewID: 14,
+        title: "Praise for American Spy",
+        text: "Credo che Winnie Pooh sia un libro che tutti dovrebbero leggere, prima o poi. Anzi, meglio prima e poi. Molti anni fa lo lessi e lo apprezzai per la sua semplicità, mentre oggi, rileggendolo, mi sono accorto dell'incredibile tesoro che è racchiuso in questi racconti. Divertenti al punto giusto, contengono qualcosa di molto più interessante della storia stessa per bambini; la genialità di alcune scene e personaggi farebbe impallidire il più abile dei romanzieri. Sicuramente un libro che tutti dovrebbero leggere!",
+        ISBN: "8852220550"
+    });
 
 }
 
@@ -904,6 +968,16 @@ async function createGenreThemes() {
     await GenreTheme.create({
         genreID: 1,
         themeID: 3
+    });
+
+    await GenreTheme.create({
+        genreID: 13,
+        themeID: 3
+    });
+
+    await GenreTheme.create({
+        genreID: 13,
+        themeID: 5
     });
 }
 

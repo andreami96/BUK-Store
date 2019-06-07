@@ -147,7 +147,7 @@ ul.rig li {
     padding: 10px;
     margin: 0 0 2.5% 2.5%;
     background: #fff;
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;     Meglio senza bordo? */
     font-size: 1rem;
     vertical-align: top;
     box-shadow: 0 0 0px #000000;
@@ -258,6 +258,7 @@ ul.rig.columns-1 {
 
 #book-catalog {
     margin-left: 0px !important;
+
 }
 /*
 .breadcrumb {

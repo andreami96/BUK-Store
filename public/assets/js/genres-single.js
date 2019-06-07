@@ -3,17 +3,25 @@ jQuery(document).ready(function() {
     let url = window.location.pathname;
     let genreID = url.substr(url.lastIndexOf('/') + 1);
 
-    $.get("/api/v1/genres/" + genreID, function(data, status) {
+    $.get("/api/v1/genres/" + genreID, function(genreInfo) {
         /* Banner image */
-        $(".banner-primary").css('background-image', 'url("../assets/images' + data.picture + '")');
+        $(".banner-primary").css('background-image',
+            'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images' + genreInfo.picture + '")');
 
         /* Genre description */
-        $("#eventDescription").text(data.description);
+        $("#eventDescription").text(genreInfo.description);
+
+        $.get("/api/v1/mainGenres/" + genreInfo.mainGenre, function(mainGenre){
+            $('#maingenre-breadcrumb').attr('href', '/mainGenres/' + mainGenre.mainGenreID).text(mainGenre.title);
+        });
+
+        $('#breadcrumb-title').text(genreInfo.title);
+
     });
 
     /* Themes links */
-    $.get("/api/v1/genres/" + genreID + "/themes", function(data, status) {
-        for(let i = 0; i < data.length; i++) {
+    $.get("/api/v1/genres/" + genreID + "/themes", function(themes) {
+        for(let i = 0; i < themes.length; i++) {
 
             let rowNumber = Math.floor(i / 4) + 1;
 
@@ -25,14 +33,14 @@ jQuery(document).ready(function() {
                 }));
             }
 
-            let genreIdHTML = data[i].title.toLowerCase() + '-box';
+            let genreIdHTML = themes[i].title.toLowerCase() + '-box';
 
             // Column and link
             $('#row-n' + rowNumber).append(
                 $('<div>').addClass('col-6 col-md-3 mt-1').append(
                     $('<a>').attr({
                         'href': '#'  //TODO: add correct link to the specific theme
-                    }).text(data[i].title)
+                    }).text(themes[i].title)
                 )
             );
         }
