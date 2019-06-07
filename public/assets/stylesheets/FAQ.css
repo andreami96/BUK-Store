@@ -1,5 +1,5 @@
 .container {
-    padding-top: 70px;
+    padding-top: 40px;
 }
 
 /* The banner image */
@@ -7,7 +7,7 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/images/faq_background.jpg");
 
     /* Set a specific height */
-    height: 35em;
+    height: 21em;
     padding-top: 70px;
     min-height: 20rem;
 
@@ -55,4 +55,16 @@ th.small-col {
 /* Diagram Images */
 .img-fluid {
     max-width: 100%;
+}
+
+.questions-shortcut a {
+    color: rgb(33, 37, 41);
+}
+
+.questions-shortcut {
+    margin-bottom: 50px;
+}
+
+.question-text {
+    margin-bottom: 100px;
 }

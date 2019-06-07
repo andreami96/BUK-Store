@@ -333,16 +333,7 @@ jQuery(document).ready( function () {
     let url = window.location.pathname;
     let page = parseInt(url.substr(url.lastIndexOf('/') + 1), 10);
 
-    // Check if initialized session already exist
-    if( sessionStorage.getItem('init-session') === null ){
-
-        sessionStorage['init-session'] = false;
-        sessionStorage['MAXBOOKS'] = 6;                 //TODO: set back to 12 or 8 when there will be enough books
-        sessionStorage.removeItem('genres');
-        sessionStorage.removeItem('themes');
-    }
-
-    let MAXBOOKS = parseInt(sessionStorage['MAXBOOKS']);
+    sessionStorage['MAXBOOKS'] = 8;                 //TODO: set back to 12 or 8 when there will be enough books
 
     // Build the list of books
     insertCurrentBooks(page);
