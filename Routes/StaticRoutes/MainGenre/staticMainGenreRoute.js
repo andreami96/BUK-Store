@@ -14,7 +14,7 @@ router.get('/:mainGenreID', function (req, res, next) {
         findAllRawGenresByMainGenreID(mainGenreID)
             .then((mainGenre) => {
                 if(mainGenre.length > 0)
-                    return res.sendFile(path.join(__dirname, '../../../public/catalogue/genres.html'));
+                    return res.sendFile(path.join(__dirname, '../../../public/catalogue/old-genres.html'));
                 else
                     return next();
             }).catch((err) => {
