@@ -18,8 +18,10 @@ $(document).ready(function() {
 
     });
 
-    $('#eventsHomepage').append(
-        $('<h1>').addClass('text-center').text('Events of the month')
+    $('#eventsMonth').append(
+        $('<a>').attr('href', '/events/events-month.html').append(
+            $('<h1>').addClass('text-center').text('Events of the month')
+        )
     );
 
     // Add events of the month
@@ -36,7 +38,7 @@ $(document).ready(function() {
         let startDate = formatDate(startDateRaw);
         let endDate = formatDate(endDateRaw);
 
-        $.get('/api/v1/events?from=' + startDate + '&to=' + endDate, function (eventsSimple, status) {
+        $.get('/api/v1/events?from=' + startDate + '&to=' + endDate, function (eventsSimple) {
             console.log(eventsSimple);
             let array = [];
             for (let i = 0; i < eventsSimple.length; i++) {
@@ -44,8 +46,8 @@ $(document).ready(function() {
             }
             Promise.all(array).then(function(results){
                 for(let j = 0; j < results.length; j++) {
-                    $.get('/api/v1/books/' + results[j].presentedBook, function (bookInfo, status2) {
-                        $.get('/api/v1/books/' + bookInfo.ISBN + '/authors', function (bookAuthors, status3) {
+                    $.get('/api/v1/books/' + results[j].presentedBook, function (bookInfo) {
+                        $.get('/api/v1/books/' + bookInfo.ISBN + '/authors', function (bookAuthors) {
                             createEvents(results[j], bookInfo, bookAuthors);
                         })
                     })
@@ -53,7 +55,7 @@ $(document).ready(function() {
             })
         });
 
-        $.get('/api/v1/books/bestsellers', function (bestsellers, status) {
+        $.get('/api/v1/books/bestsellers', function (bestsellers) {
             console.log(bestsellers);
 
         });
@@ -63,7 +65,7 @@ $(document).ready(function() {
 
 function createEvents(eventInfo, bookInfo, bookAuthors) {
 
-    $('#eventsHomepage').append(
+    $('#eventsMonth').append(
         $('<div>').addClass('event-display row').append(
             $('<div>').addClass('event-container col-md-8').append(
                 $('<div>').addClass('row').append(
@@ -103,8 +105,10 @@ function createEvents(eventInfo, bookInfo, bookAuthors) {
             authorsString += bookAuthors[j].name + ' ' + bookAuthors[j].surname;
     }
     let bookAuthorHTML = $('<p>').addClass('bookAuthor-text').text(authorsString);
-
     let bookContainer = $('<div>').addClass('relatedBook-container col-md-4 mt-3 mt-md-0');
+    let bookInfoHeaderHTML = $('<h3>').addClass('book-info-header text-center').text('Book of the event');
+
+    bookContainer.append(bookInfoHeaderHTML);
     bookContainer.append(bookImageHTML);
     bookContainer.append(bookTitleHTML);
     bookContainer.append(bookAuthorHTML);

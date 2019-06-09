@@ -3,18 +3,14 @@ let mainGenreID = url.substr(url.lastIndexOf('/') + 1);
 
 jQuery(document).ready(function() {
 
+    // Generate breadcrumb
     $.get("/api/v1/mainGenres", function(mainGenres) {
-        console.log(mainGenres);
-        for(let i = 0; i < mainGenres.length; i++) {
-            console.log(mainGenres[i].mainGenreID);
-            console.log(mainGenreID);
-            if (mainGenres[i].mainGenreID.toString() === mainGenreID) {
-                console.log('ciaoooo');
+        for(let i = 0; i < mainGenres.length; i++)
+            if (mainGenres[i].mainGenreID.toString() === mainGenreID)
                 $('#breadcrumb-title').text(mainGenres[i].title);
-            }
-        }
     });
 
+    // Generate genres cards
     $.get("/api/v1/mainGenres/" + mainGenreID + "/genres", function(genres) {
 
         let genresInfo = [];
@@ -22,7 +18,6 @@ jQuery(document).ready(function() {
 
         genres.forEach((genre, index, array) => {
             $.get("/api/v1/genres/" + genre.genreID, function(genreInfo) {
-                console.log('ricevuto da api ' + genre);
                 genresInfo.push(genreInfo);
                 itemsProcessed++;
                 if(itemsProcessed === array.length)
@@ -44,7 +39,6 @@ function createGenresHTML(genres) {
     });
 
     for(let i = 0; i < genres.length; i++) {
-        console.log(genres[i]);
         let rowNumber = Math.floor(i / 2) + 1;
 
         // If even, create row
@@ -56,7 +50,6 @@ function createGenresHTML(genres) {
         }
 
         let genreIdHTML = genres[i].title.toLowerCase().replace(' ', '-') + '-box';
-        console.log(genreIdHTML);
 
         // Column and card
         $('#row-n' + rowNumber).append(
@@ -84,7 +77,7 @@ function createGenresHTML(genres) {
 
         // Add anchor
         $('.small-genre-card:last').append(
-            $('<a>').attr('href', '/genres/' + genres[i].genreID).append(  //TODO: update href value with correct path
+            $('<a>').attr('href', '/genres/' + genres[i].genreID).append(
                 $('<span>')
             )
         );

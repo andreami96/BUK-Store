@@ -114,6 +114,7 @@ a[data-toggle="collapse"] {
 #sidebar ul li.active i {
     float: right;
     margin-right: 20px;
+    margin-top: 4px;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {

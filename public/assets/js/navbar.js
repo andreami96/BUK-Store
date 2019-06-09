@@ -137,13 +137,16 @@ function createUnPackedMenus(isLogged) {
         .append("<div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n" +
             "            <ul class=\"navbar-nav mr-auto\">\n" +
                             "<li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"/catalogue/1\">Catalogo</a>\n" +
+            "                    <a class=\"nav-link\" href=\"/catalogue/1\">Catalogue</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"/catalogue/mainGenres.html\">Generi</a>\n" +
+            "                    <a class=\"nav-link\" href=\"/catalogue/genres.html\">Genres</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"/authors/a-z\">Autori</a>\n" +
+            "                    <a class=\"nav-link\" href=\"/catalogue/themes.html\">Themes</a>\n" +
+            "                </li>\n" +
+            "                <li class=\"nav-item\">\n" +
+            "                    <a class=\"nav-link\" href=\"/authors/a-z\">Authors</a>\n" +
             "                </li>\n" +
             "            </ul>\n" + retrieveRightMenu(isLogged) +
             "</div>");
@@ -207,11 +210,14 @@ function makeSolidNavbar() {
     $('#brand-img').find(">:first-child").attr('src', '/assets/images/logo/logo-black.png');
     $(".navbar").css({
         "background-color": "rgba(255,255,255, 0.97)",
-        "border": "1px solid rgba(212, 212, 212, 0.97)"
+        "border": "1px solid rgba(212, 212, 212, 0.7)"
     }).removeClass("navbar-dark")
         .addClass("navbar-light");
     $(".navbar-nav, .nav-link").css({
         "color": "black"
+    })
+    $(".nav-special").css({
+        "color": "#e3b06c"
     })
 }
 
@@ -224,5 +230,8 @@ function makeTransparentNavbar() {
         .removeClass("navbar-light");
     $(".navbar-nav, .nav-link").css({
         "color": "white"
+    })
+    $(".nav-special").css({
+        "color": "#e3b06c"
     })
 }

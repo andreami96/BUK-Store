@@ -4,7 +4,8 @@ jQuery(document).ready(function() {
     let eventID = url.substr(url.lastIndexOf('/') + 1);
 
     $.get("/api/v1/events/" + eventID, function(eventInfo, status){
-        $(".banner-primary").css('background-image', 'url("../assets/images' + eventInfo.picture + '")');
+        $(".banner-primary").css('background-image',
+            'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images' + eventInfo.picture + '")');
         $("#eventTitle").text(eventInfo.title);
         $.get("/api/v1/books/" + eventInfo.presentedBook, function (relatedBook, status) {
             console.log(relatedBook);

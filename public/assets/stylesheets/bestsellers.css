@@ -1,0 +1,46 @@
+#bestSellers .container {
+    padding-top: 0;
+    min-width: 100%;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
+#bestSellers a {
+    text-decoration: none;
+    color: #2d2d30;
+}
+
+#bestSellers div {
+    border: 0;
+}
+
+.bestseller-el {
+    flex-shrink: 0;
+    padding: 3em;
+}
+
+/*@media (min-width: 1080px) {
+    .book-image {
+        max-width: 80% !important;
+    }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+    .book-image {
+        max-width: 60% !important;
+    }
+}*/
+
+#bestSellers {
+    padding: 0 1em 2em 1em;
+}
+
+/*@media (max-width: 768px) {
+    #bestSellers .container {
+        padding-left: 20% !important;
+        padding-right: 20% !important;
+    }
+}*/
+
+.book-image {
+    height: 18em;
+}

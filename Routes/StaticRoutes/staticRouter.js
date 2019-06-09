@@ -10,6 +10,7 @@ const staticAuthorRoute = require('./Author/staticAuthorRoute');
 const staticEventRoute = require('./Event/staticEventRoute');
 const staticMainGenreRoute = require('./MainGenre/staticMainGenreRoute');
 const staticGenreRoute = require('./Genre/staticGenreRoute');
+const staticThemeRoute = require('./Theme/staticThemeRoute');
 const staticCatalogueRoute = require('./Catalogue/staticCatalogueRoute');
 
 const staticUserRoute = require('./User/staticUserRoute');
@@ -24,6 +25,7 @@ router.use('/authors', staticAuthorRoute);
 router.use('/events', staticEventRoute);
 router.use('/mainGenres', staticMainGenreRoute);
 router.use('/genres', staticGenreRoute);
+router.use('/themes', staticThemeRoute);
 router.use('/catalogue', staticCatalogueRoute);
 
 router.use('/me', staticUserRoute);

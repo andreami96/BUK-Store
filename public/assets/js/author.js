@@ -16,17 +16,17 @@ jQuery(document).ready(function(){
         $('#authorBio').text(author.biography);
 
         // Books of the author
-        $.get("/api/v1/authors/" + authorID + "/books", function(author, status){
+        $.get("/api/v1/authors/" + authorID + "/books", function(author){
 
             author.forEach(function(book, index) {
                 console.log(book);
-                $.get("/api/v1/books/" + book.ISBN, function(bookDetails, status) {
+                $.get("/api/v1/books/" + book.ISBN, function(bookDetails) {
                     if(index % 4 === 0)
                         $('#content').append(
                             $('<div>').addClass('row')
                         );
 
-                    $.get("/api/v1/books/" + bookDetails.ISBN + "/authors", function(bookAuthors, status){
+                    $.get("/api/v1/books/" + bookDetails.ISBN + "/authors", function(bookAuthors){
 
                         console.log(bookAuthors);
 

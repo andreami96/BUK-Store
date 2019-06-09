@@ -3,6 +3,7 @@ jQuery(document).ready(function(){
     let url = window.location.pathname;
     let authorSelector = url.substr(url.lastIndexOf('/') + 1);
 
+    // Alphabet selector
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
 
     $('#alphabetContainer').append(
@@ -33,8 +34,8 @@ jQuery(document).ready(function(){
     if(authorSelector === 'a-z')
         $('#alphabetContainer').find('>:first-child').addClass('selectedLetter');
 
-
-    $.get('/api/v1/authors?limit=100', function (authors, status) {
+    // Authors list
+    $.get('/api/v1/authors?limit=100', function (authors) {
         console.log(authors);
 
         let selectedAuthors = [];
@@ -66,7 +67,7 @@ jQuery(document).ready(function(){
 
         for(let k = 0; k < selectedAuthors.length;) {
             for (let i = 0; i < 4; i++) {
-                let colHTML = $('<div>').addClass('col-md-3');
+                let colHTML = $('<div>').addClass('col-sm-6 col-lg-3');
                 console.log(colHTML);
 
                 for (let j = 0; j < authorsPerColumn[i]; j++) {
@@ -75,15 +76,13 @@ jQuery(document).ready(function(){
                         $('<a>').attr('href', '/authors/' + selectedAuthors[k].authorID)
                             .text(selectedAuthors[k].surname + ' ' + selectedAuthors[k].name)
                     );
-                    colHTML.append($('<br>'));
+                    colHTML.append($('<br>')).append($('<br>'));
                     k++;
                 }
                 rowHTML.append(colHTML);
                 console.log(rowHTML);
             }
         }
-
-
 
     });
 
@@ -107,3 +106,10 @@ function selectAuthorsByLetter(authors, firstLetter) {
 
     return selectedAuthors;
 }
+
+
+/* Calcola la posizione della Z in mdo da non sovrapporre con gli autori su schermi mobile
+let offsetY = $('#alphabetContainer:last-child').offset().top + $('#alphabetContainer:last-child').height();
+let offsetX = $('#authorList').offset().left;
+$('#authorList').offset({top: offsetY, left: offsetX});
+*/

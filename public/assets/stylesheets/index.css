@@ -170,22 +170,24 @@
 }
 
 /* Events */
-#eventsHomepage {
+#eventsMonth {
     background: #2d2d30;
     color: #bdbdbd;
-    padding: 3em 5em;
+    padding-right: 0;
+    padding-left: 0;
 }
 
-#eventsHomepage h1 {
+#eventsMonth h1 {
     color: white;
-}
-
-#eventsHomepage h3 {
-    color: black;
+    margin-top: 1.2em;
 }
 
 .event-display {
-    margin: 4em 0;
+    margin: 0;
+}
+
+.event-display:nth-child(odd) {
+    background-color: #545454;
 }
 
 .event-container {
@@ -199,12 +201,31 @@
 .event-image {
     background-position: center;
     background-size: cover;
-    background-image: url("../images/events/pewdiepie-event.jpg");
 }
 
 @media (max-width: 768px) {
     .event-image {
         height: 10em;
+    }
+}
+
+@media (max-width: 576px) {
+    .event-title {
+        padding: 1.5em 1em;
+    }
+
+    .event-display {
+        padding: 3em 3em;
+    }
+}
+
+@media (min-width: 576px) {
+    .event-title {
+        padding: 3em 1em;
+    }
+
+    .event-display {
+        padding: 4em 5em;
     }
 }
 
@@ -220,14 +241,14 @@
 }
 
 .event-display:nth-child(odd) .event-title {
-    background-color: #c5c5c5;
+    background-color: #f9f9f9;
 }
 
 .event-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3em 1em;
+    color: black;
 }
 
 .event-container .row {
@@ -261,12 +282,22 @@
 
 }
 
+.book-info-header {
+    color: #e3b06c;
+    font-weight: lighter;
+    padding-bottom: .5em;
+}
+
 .bookTitle-text {
     font-weight: bold;
     margin: 1em 0 0 0;
+    text-align: center;
+    color: white;
 }
 
 .bookAuthor-text {
     font-style: italic;
     margin: 0;
+    text-align: center;
+    color: white;
 }

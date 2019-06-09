@@ -1,0 +1,149 @@
+body {
+    background-color: #2d2d30;
+}
+
+.breadcrumb {
+    margin-top: -2em;
+    background-color: #2d2d30;
+}
+
+.breadcrumb-item a {
+    color: white;
+}
+
+.breadcrumb-item.active {
+    /*color: seashell;*/
+}
+
+/* Events */
+#eventsMonth {
+    background: #2d2d30;
+    color: #bdbdbd;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+#eventsMonth h1 {
+    color: white;
+}
+
+.event-display {
+    margin: 0;
+}
+
+.event-display:nth-child(odd) {
+    background-color: #545454;
+}
+
+.event-container {
+    border: 1px solid rgb(212, 212, 212);
+}
+
+.event-container .row {
+    height: 100%;
+}
+
+.event-image {
+    background-position: center;
+    background-size: cover;
+}
+
+@media (max-width: 768px) {
+    .event-image {
+        height: 10em;
+    }
+}
+
+@media (max-width: 576px) {
+    .event-title {
+        padding: 1.5em 1em;
+    }
+
+    .event-display {
+        padding: 3em 3em;
+    }
+}
+
+@media (min-width: 576px) {
+    .event-title {
+        padding: 3em 1em;
+    }
+
+    .event-display {
+        padding: 4em 5em;
+    }
+}
+
+@media (min-width: 768px) {
+    .event-display:nth-child(odd) .event-container,
+    .event-display:nth-child(odd) .event-image{
+        order: 1;
+    }
+}
+
+.event-display:nth-child(even) .event-title {
+    background-color: #f9f9f9;
+}
+
+.event-display:nth-child(odd) .event-title {
+    background-color: #f9f9f9;
+}
+
+.event-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.event-container .row {
+    position: relative;
+}
+
+.event-container span {
+    /* Make clickable the whole "event-container" div */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    z-index: 1;
+}
+
+.relatedBook-container {
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.relatedBook-container img {
+    height: 9em;
+    /*border: 1px solid rgba(212, 212, 212, 1);*/
+    border-bottom: 0;
+    box-shadow: 0 10px 6px -6px black;
+
+}
+
+.book-info-header {
+    color: #e3b06c;
+    font-weight: lighter;
+    padding-bottom: .5em;
+}
+
+.bookTitle-text {
+    font-weight: bolder;
+    margin: 1em 0 0 0;
+    text-align: center;
+    color: white;
+}
+
+.bookAuthor-text {
+    font-style: italic;
+    font-weight: lighter;
+    margin: 0;
+    text-align: center;
+    color: white;
+}

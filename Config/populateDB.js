@@ -159,42 +159,42 @@ async function createThemes() {
     await Theme.create({
         themeID: 1,
         title: "Crime",
-        picture: "/",
+        picture: "/themes/crime.jpg",
         description: "Il giallo è un genere di successo di narrativa di consumo nato verso la metà del XIX secolo e sviluppatosi nel Novecento"
     });
 
     await Theme.create({
         themeID: 2,
         title: "Love",
-        picture: "/",
+        picture: "/themes/love.jpg",
         description: "L'amore è il motore che muove l'uno verso l'altro, è forza gravitazionale esercitata su tutti noi"
     });
 
     await Theme.create({
         themeID: 3,
         title: "War",
-        picture: "/",
+        picture: "/themes/war.jpg",
         description: "War is peace."
     });
 
     await Theme.create({
         themeID: 4,
         title: "Digital life",
-        picture: "/",
+        picture: "/themes/digital.jpg",
         description: "Bella vita nei computer quantistici"
     });
 
     await Theme.create({
         themeID: 5,
         title: "Russia",
-        picture: "/",
+        picture: "/themes/russia.jpg",
         description: "Dasvidania, stronzi"
     });
 
     await Theme.create({
         themeID: 6,
         title: "Politics",
-        picture: "/",
+        picture: "/themes/politics.jpg",
         description: "blabla"
     });
 
@@ -742,6 +742,11 @@ async function createWrittenBy() {
     });
 
     await WrittenBy.create({
+        ISBN: "8852220550",
+        authorID: 10
+    });
+
+    await WrittenBy.create({
         ISBN: "0440129710",
         authorID: 12
     });
@@ -951,6 +956,16 @@ async function createReservation() {
         quantity: 5,
         userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
         ISBN: "9788893440615"
+    })
+
+    await Reservation.create({
+        reservationID: 1,
+        shippingLocation: "Paese, TV",
+        orderDate: "2019-05-01",
+        arrivalDate: "2019-05-06",
+        quantity: 20,
+        userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
+        ISBN: "8852220550"
     })
 }
 

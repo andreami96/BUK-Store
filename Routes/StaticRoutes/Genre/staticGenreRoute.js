@@ -14,7 +14,7 @@ router.get('/:genreID', function (req, res, next) {
         findRawGenreByID(genreID)
             .then((genre) => {
                 if(genre)
-                    return res.sendFile(path.join(__dirname, '../../../public/catalogue/genres-single.html'));
+                    return res.sendFile(path.join(__dirname, '../../../public/catalogue/genre-single.html'));
                 else
                     return next();
             }).catch((err) => {

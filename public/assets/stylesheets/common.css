@@ -103,6 +103,10 @@ body {
     outline: 0;
 }
 
+.navbar-nav .nav-link.nav-special {
+    color: #ffd4a0;
+}
+
 /* Blank element for brand centering on small devices */
 .empty-nav-space {
     border: 1px solid transparent;

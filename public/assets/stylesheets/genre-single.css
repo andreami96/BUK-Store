@@ -1,0 +1,89 @@
+/* Banner image */
+.banner-primary {
+    flex-shrink: 0;
+    display: flex;
+    position: relative;
+    height: 22em;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-primary .gradient-layer {
+    flex: 1;
+    background-image: linear-gradient(
+            to top,
+            #1e1e1e, transparent 60%
+    );
+}
+
+.banner-primary h1 {
+    color: white;
+    position: absolute;
+    left: 40px;
+    bottom: 20px;
+    text-align: center;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    padding: 12px 0;
+    margin: 0.4em 0 0.4em 0;
+}
+
+/* Author description */
+#authorInfo {
+    margin-top: -4em;
+}
+
+#authorPic {
+    padding-top: 0.5em;
+    display: flex;
+    justify-content: left;
+}
+
+#authorImg {
+    /*max-height: 17em;
+    height:auto;*/
+}
+
+/* Books of genre X */
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+@media (min-width: 576px) {
+    .book-img {
+        height: 12em;
+        border: 1px solid rgba(212, 212, 212, 1);
+        border-bottom: 0;
+        box-shadow: 0 10px 6px -6px black;
+    }
+}
+
+@media (max-width: 576px) {
+    .book-img {
+        height: 15em;
+        border: 1px solid rgba(212, 212, 212, 1);
+        border-bottom: 0;
+        box-shadow: 0 10px 6px -6px black;
+    }
+
+    .book {
+        margin-bottom: 1em;
+    }
+}
+
+.bookTitle-text {
+    font-weight: bold;
+    margin: 1em 0 0 0;
+    text-align: center;
+}
+
+.bookAuthor-text {
+    font-style: italic;
+    margin: 0;
+    text-align: center;
+}
