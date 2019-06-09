@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+    // To have more events in the carousel change also the html
+    let CarouselEvents = 3;
+
     // Initialize Tooltip
     $('[data-toggle="tooltip"]').tooltip();
 
@@ -49,10 +53,27 @@ $(document).ready(function() {
                     $.get('/api/v1/books/' + results[j].presentedBook, function (bookInfo) {
                         $.get('/api/v1/books/' + bookInfo.ISBN + '/authors', function (bookAuthors) {
                             createEvents(results[j], bookInfo, bookAuthors);
-                        })
+                        });
+
+                        //Add to carousel most recent events
+                        if ( j < CarouselEvents ){
+                            $('#event-description' + j + ' h1').text(results[j].title);
+                            $('#event-description' + j + ' p').text(results[j].description.split('.')[0]);
+                            $('#eventCarousel' + j)
+                                .css({
+                                    "background":               "linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url( '../assets/images" + results[j].picture + "')",
+                                    "background-size":          "cover",
+                                    "background-position":      "center",
+                                    "background-position-x":    "0",
+                                    "background-position-y":    "0",
+                                    "min-height":               "90vh"
+                                }).wrap($('<a>').attr({
+                                    "href":                     "/events/" + results[j].eventID
+                            }));
+                        }
                     })
                 }
-            })
+            });
         });
 
         $.get('/api/v1/books/bestsellers', function (bestsellers) {

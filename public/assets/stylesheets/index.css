@@ -8,46 +8,37 @@
     bottom: 3rem;
 }
 
+.carousel-caption p {
+    font-size: 20px;
+}
+
 .carousel-item {
     background-color: #777;
-    height: 600px;
+    height: 90vh;
+}
+
+#eventCarousel0 {
+    background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/bulgakov-event.jpg');
 }
 
 #eventCarousel1 {
-    background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/feltrinelli1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-position-x: 0;
-    background-position-y: 0;
-    top: 0;
-    left: 0;
-    min-height: 600px;
+    background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/prova-evento.jpeg');
 }
 
 #eventCarousel2 {
-    background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/prova-evento.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-position-x: 0;
-    background-position-y: 0;
-    top: 0;
-    left: 0;
-    min-height: 600px;
-}
-
-#eventCarousel3 {
     background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/feltrinelli1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-position-x: 0;
-    background-position-y: 0;
-    top: 0;
-    left: 0;
-    min-height: 600px;
 }
 
 .carousel-image {
+    background-size: cover !important;
+    background-position: center !important;
+    background-position-x: 0 !important;
+    background-position-y: 0 !important;
+    top: 0;
+    left: 0;
+    min-height: 90vh !important;
 }
+
 
 .carousel-caption h3 {
     color: #fff !important;
@@ -74,7 +65,12 @@
 }
 
 .bestseller-el {
-    padding: 30px;
+    margin: 30px;
+}
+
+@media (max-width: 576px) {
+    .bestseller-el {
+    }
 }
 
 .show-btn {
@@ -86,22 +82,23 @@
 }
 
 @media (max-width: 768px) {
+
     .carousel-caption {
-        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+        display: block !important;
     }
 
     .carousel-item {
-        height: 400px;
+        height: 70vh !important;
     }
 
-    #eventCarousel1 {
-        min-height: 400px;
-    }
-    #eventCarousel2 {
-        min-height: 400px;
-    }
-    #eventCarousel3 {
-        min-height: 400px;
+    .carousel-image {
+        background-size: cover !important;
+        background-position: center !important;
+        background-position-x: 0 !important;
+        background-position-y: 0 !important;
+        top: 0;
+        left: 0;
+        min-height: 70vh !important;
     }
 
     #bestseller .container {
@@ -111,19 +108,25 @@
 }
 
 @media (max-width: 576px) {
-    .carousel-item {
-        height: 350px;
+
+    .carousel-caption {
+        display: none !important; /* Hide the carousel text when the screen is small*/
     }
 
-    #eventCarousel1 {
-        min-height: 350px;
+    .carousel-item {
+        height: 40vh !important;
     }
-    #eventCarousel2 {
-        min-height: 350px;
+
+    .carousel-image {
+        background-size: cover !important;
+        background-position: center !important;
+        background-position-x: 0 !important;
+        background-position-y: 0 !important;
+        top: 0;
+        left: 0;
+        min-height: 40vh !important;
     }
-    #eventCarousel3 {
-        min-height: 350px;
-    }
+
 
 }
 

@@ -407,7 +407,7 @@ async function createBooks() {
         backgroundPicture: "/books/background/pewds-style.jpg",
         abstract: "\"This Book Loves You\" is a collection of beautifully illustrated inspirational sayings written by PewDiePie, the most subscribed YouTuber in the world with 39 million fans and more than 10 billion views. In \"This Book Loves You,\" PewDiePie delivers advice and wisdom that everyone can use--or at least everyone willing to give up and stop caring. If all else fails, remember: \"Don t be yourself. Be a pizza. Everyone loves pizza.\" Imagine what a chilled-out and wonderful human being people would think you were if you lived by the simple principle \"You can never fail if you never try.\" Your wasted life would be an inspiration to others. Think of all the pointless, unhappy striving you could simply give up. Throw away that guitar! Give up on your dreams! Embrace your astounding mediocrity.",
         interview: "This book is a great chance for me to reach my audience in a new way. The original idea actually came from my fans via Twitter, so I really think they are going to love it\n",
-        availableQuantity: 15,
+        availableQuantity: 200,
         price: 12.30,
         genreID: 4,
         year: 2015,

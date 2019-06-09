@@ -14,6 +14,18 @@ jQuery(document).ready(function() {
                     "alt": relatedBook.title}
             );
             $('#bookISBN').val(relatedBook.ISBN);
+            $('#bookQuantity').val(relatedBook.availableQuantity);
+
+            if(relatedBook.availableQuantity > 0) {
+                $('#buyButton').append("<button type=\"button\" class=\"btn btn-primary\" onclick=\"addToCart()\">\n" +
+                    "Reserve\n" +
+                    "</button>");
+            } else {
+                $('#buyButton').append("<button type=\"button\" class=\"btn btn-secondary\" disabled>\n" +
+                    "Sold Out\n" +
+                    "</button>");
+            }
+
             $('#eventBookLink').attr('href', '/books/' + relatedBook.ISBN);
 
             $.get("/api/v1/books/" + relatedBook.ISBN + "/authors", function(bookAuthors, status) {
