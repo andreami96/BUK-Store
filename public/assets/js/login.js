@@ -30,7 +30,13 @@ function login() {
         dataType: "json",
         success: function(data){
             console.log(data);
-            $(location).attr('href', '/me');
+            let back = new URLSearchParams(window.location.search).get('back');
+
+            if(back) {
+                $(location).attr('href', back);
+            }
+            else
+                $(location).attr('href', '/me');
             },
         error: function(xhr) {
             if(!email || !password)
