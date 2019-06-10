@@ -10,7 +10,7 @@ router.get('/:activationToken', function (req, res, next) {
 
     activateAccount(req.params.activationToken)
         .then( (response) => {
-            return res.status(response.statusCode).send(response.toJSON());
+            return res.sendFile(path.join(__dirname, '../../../public/welcome.html'));
         })
         .catch( (error) => {
             next(error);
