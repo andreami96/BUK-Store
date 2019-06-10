@@ -104,24 +104,36 @@ $(document).ready(function() {
 function buildBestseller( book, index) {
     $.get('/api/v1/books/' + book.ISBN, function (bookData, status) {
         console.log(bookData);
-        $('#book' + index)
-            .append($('<a>').attr({'href': '/books/' + bookData.ISBN})
-                .append($('<img>').attr({
-                    'class': 'book-image img-fluid',
-                    'src': '../assets/images' + bookData.picture,
-                    'alt': '#'
-                }))
-                .append($('<h4>').addClass('mt-2').text(bookData.title)));
 
-//        $('#book' + index).append(buildAuthorsList());
+        $.get("/api/v1/books/" + bookData.ISBN + "/authors", function (authorsList, status) {
 
-        $('#book' + index)
-            .append($('<div>').addClass('bestseller-review')
-                .append($('<p>').text('"' + bookData.abstract.split('.')[0] + '"')));
+                $('#book' + index)
+                .append($('<a>').attr({'href': '/books/' + bookData.ISBN})
+                    .append($('<img>').attr({
+                        'class': 'book-image img-fluid',
+                        'src': '../assets/images' + bookData.picture,
+                        'alt': '#'
+                    }))
+                    .append($('<h4>').addClass('mt-2').text(bookData.title)));
+
+            $('#book' + index).append('by ' + buildAuthorsList(authorsList));
+
+            $('#book' + index)
+                .append($('<div>').addClass('bestseller-review mt-1')
+                    .append($('<p>').text('"' + bookData.abstract.split('.')[0] + '"')));
+        });
     });
 }
 
-function buildAuthorsList() {
+function buildAuthorsList(authors) {
+    var list = "";
+    authors.forEach(function (el, index) {
+        if (index === 0)
+            list = list + "<a class='mt-1' href='/authors/" + el.authorID + "'> " + el.name + ' ' + el.surname + "</a>";
+        else
+            list = list + ", <a class='mt-1' href='/authors/" + el.authorID + "'> " + el.name + ' ' + el.surname + "</a>";
+    });
+    return list;
 
 }
 
