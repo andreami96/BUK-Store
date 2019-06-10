@@ -2,7 +2,8 @@ openapi: 3.0.0
 info:
   version: '0.7'
   title: BUK Store
-  description: This document presents the details of each endpoint used to perform requests
+  description: >-
+    This document presents the details of each endpoint used to perform requests
     in the BUK Store main server.
 servers:
   - url: 'https://buk-store.herokuapp.com/api/v1'
@@ -51,7 +52,9 @@ paths:
   /homeCarouselElements:
     get:
       summary: Retrieves the elements to be shown in the home page carousel
-      description: Use this endpoint to retrieve the elements which the website administrators want to show in the home page of the BUK Store 
+      description: >-
+        Use this endpoint to retrieve the elements which the website
+        administrators want to show in the home page of the BUK Store
       tags:
         - Others
       responses:
@@ -63,6 +66,25 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/HomeCarouselObject'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /favouriteReadings:
+    get:
+      summary: Get the favourite readings of BUK Store
+      description: Use this endpoint to retrieve the favourite readings selected by the BUK Store stagg
+      tags:
+        - Others
+      responses:
+        '200':
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
         '500':
           $ref: '#/components/responses/InternalError'
   /books:
@@ -554,10 +576,12 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/InternalError'
-  /themes/{themeID}/genres:
+  '/themes/{themeID}/genres':
     get:
       summary: It retrieves the genres related to a single theme
-      description: Use this endpoint to identify the genres related to the **_themeID_** given
+      description: >-
+        Use this endpoint to identify the genres related to the **_themeID_**
+        given
       tags:
         - Theme
       parameters:
@@ -568,7 +592,7 @@ paths:
           schema:
             $ref: '#/components/schemas/Theme/properties/themeID'
       responses:
-        200:
+        '200':
           description: Successful Request
           content:
             application/json:
@@ -587,7 +611,6 @@ paths:
           $ref: '#/components/responses/NotFound'
         '500':
           $ref: '#/components/responses/InternalError'
-
   /mainGenres:
     get:
       summary: Retrieves the main genres stored in the database
@@ -610,7 +633,7 @@ paths:
           $ref: '#/components/responses/BadRequest'
         '500':
           $ref: '#/components/responses/InternalError'
-  /mainGenres/{mainGenreID}:
+  '/mainGenres/{mainGenreID}':
     get:
       summary: Retrieves information about the given mainGenreID
       description: Use this endpoint to know the information about a specific mainGenre
@@ -624,7 +647,7 @@ paths:
           schema:
             $ref: '#/components/schemas/MainGenre/properties/mainGenreID'
       responses:
-        200:
+        '200':
           description: Successful Request
           content:
             application/json:
@@ -922,7 +945,6 @@ paths:
           $ref: '#/components/responses/NotAuth'
         '500':
           $ref: '#/components/responses/InternalError'
-                  
   /me:
     get:
       summary: Access to this endpoint to retrieve the user's information
@@ -1539,7 +1561,7 @@ components:
           type: string
           description: The path to the event picture
           readOnly: true
-          example: '/images/events/prova.jpeg'
+          example: /images/events/prova.jpeg
         presentedBook:
           $ref: '#/components/schemas/Book/properties/ISBN'
     Review:
@@ -1604,16 +1626,16 @@ components:
           example: provaprova
         creationDate:
           type: string
-          format: date,
+          format: 'date,'
           description: A timestamp representing when the account was created
           readOnly: true
-          example: "2019-01-01"
+          example: '2019-01-01'
         lastUpdate:
           type: string
-          format: date,
+          format: 'date,'
           description: A timestamp representing the last updating on the account
           readOnly: true
-          example: "2019-04-05"
+          example: '2019-04-05'
     Cart:
       type: object
       description: The object which has all the book inside the user's cart
@@ -1674,7 +1696,9 @@ components:
                   #/components/schemas/Cart/properties/books/items/properties/quantity
     HomeCarouselObject:
       type: object
-      description: Object used to pack the main information on the elements to be shown in the home page carousel
+      description: >-
+        Object used to pack the main information on the elements to be shown in
+        the home page carousel
       properties:
         carouselID:
           type: integer

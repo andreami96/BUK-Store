@@ -106,6 +106,36 @@
               }
             }
           },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
+        }
+      }
+    },
+    "/favouriteReadings": {
+      "get": {
+        "summary": "Get the favourite readings of BUK Store",
+        "description": "Use this endpoint to retrieve the favourite readings selected by the BUK Store stagg",
+        "tags": [
+          "Others"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Book"
+                  }
+                }
+              }
+            }
+          },
           "500": {
             "$ref": "#/components/responses/InternalError"
           }

@@ -101,7 +101,7 @@ function addToCart() {
             }
         });
     } else
-        window.location.href = "/login.html";
+        window.location.href = "/login.html?back=" + window.location.pathname;;
 }
 
 

@@ -25,6 +25,7 @@ const GenreThemeModel = require('./Book/genreTheme');
 const BookThemeModel = require('./Book/bookTheme');
 const HomeCarouselModel = require('./HomeCarousel/homeCarousel');
 const GenericPageModel = require('./GenericPage/genericPage');
+const FavouriteReadingsModel = require('./Book/favouriteReadings');
 
 // Setup the correct configuration
 let dbParameters = config.dbConfig;
@@ -53,6 +54,7 @@ const GenreTheme = GenreThemeModel(sequelizeObject);
 const BookTheme = BookThemeModel(sequelizeObject);
 const HomeCarousel = HomeCarouselModel(sequelizeObject, Sequelize);
 const GenericPage = GenericPageModel(sequelizeObject, Sequelize);
+const FavouriteReadings = FavouriteReadingsModel(sequelizeObject, Sequelize);
 
 // User <-> Session relationship (Session has one column for the userID
 Session.belongsTo(User, {foreignKey: {name: 'userID', allowNull: false}});
@@ -101,6 +103,9 @@ HomeCarousel.belongsTo(Author, {foreignKey: {name: 'authorID', allowNull: true}}
 // HomeCarousel <-> Event
 HomeCarousel.belongsTo(Event, {foreignKey: {name: 'eventID', allowNull: true}});
 
+// Book <-> FavouriteReadings
+FavouriteReadings.belongsTo(Book, {foreignKey: {name: 'ISBN', allowNull: true}});
+
 // Exports the created Objects
 exports.User = User;
 exports.Session = Session;
@@ -119,6 +124,7 @@ exports.GenreTheme = GenreTheme;
 exports.BookTheme = BookTheme;
 exports.HomeCarousel = HomeCarousel;
 exports.GenericPage = GenericPage;
+exports.FavouriteReadings = FavouriteReadings;
 exports.sequelizeObject = sequelizeObject;
 
 // Exports the init function to initialize the DB before running the application

@@ -1,5 +1,5 @@
 const database = require('../Model/sequelize');
-const { User, Book, MainGenre, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme, Reservation, HomeCarousel, GenericPage } = database;
+const { User, Book, MainGenre, Genre, Theme, BookTheme, Author, WrittenBy, Event, SimilarTo, Review, GenreTheme, Reservation, HomeCarousel, GenericPage, FavouriteReadings } = database;
 
 async function createUsers() {
 
@@ -1072,6 +1072,28 @@ async function createGenericPages() {
     });
 }
 
+async function createFavouriteReadings() {
+    await FavouriteReadings.create({
+        favouriteID: 1,
+        ISBN: "9781405924382"
+    });
+
+    await FavouriteReadings.create({
+        favouriteID: 2,
+        ISBN: "8852220550"
+    });
+
+    await FavouriteReadings.create({
+        favouriteID: 3,
+        ISBN: "9788804668428"
+    });
+
+    await FavouriteReadings.create({
+        favouriteID: 4,
+        ISBN: "0440129710"
+    });
+}
+
 exports.createDatabase = function (force=false, populateItNow=false) {
 
     return new Promise( async (resolve, reject) => {
@@ -1098,6 +1120,7 @@ exports.createDatabase = function (force=false, populateItNow=false) {
             await createReservation();
             await createHomeCarousel();
             await createGenericPages();
+            await createFavouriteReadings();
         }
         resolve();
     });
