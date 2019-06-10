@@ -1,0 +1,26 @@
+body {
+    height: 100%;
+}
+
+.welcome-col {
+    padding-bottom: 2em;
+}
+
+.welcome-row {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2em;
+}
+
+.welcome-row img {
+    padding-top: 1em;
+}
+
+.welcome-row h1 {
+    font-size: calc(1.8rem + 1.5vw) ;
+}
+
+.welcome-row p {
+    font-size: calc(1rem + .5vw) ;
+}
