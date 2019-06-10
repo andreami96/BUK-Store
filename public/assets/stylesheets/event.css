@@ -2,6 +2,12 @@ html,body {
     height:100%;
 }
 
+/* Breadcrumb */
+.breadcrumb {
+    padding: 12px 2em;
+    margin: 0.4em 0 0.4em 0;
+}
+
 .banner-primary {
     display: flex;
     position: relative;
