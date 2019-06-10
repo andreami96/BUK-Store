@@ -178,9 +178,8 @@ function createDropdownMenus(isLogged) {
 }
 
 function logout() {
-    $.get("/api/v1/logout", function (data) {
-        window.location.href = "/";
-    });
+    $.get("/api/v1/logout");
+    window.location.href = "/";
 }
 
 function makeResizableNavbar(isLogged) {
