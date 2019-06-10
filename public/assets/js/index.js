@@ -2,25 +2,10 @@ $(document).ready(function() {
 
     // To have more events in the carousel change also the html
     let CarouselEvents = 3;
+    let MaxBestsellers = 3;
 
     // Initialize Tooltip
     $('[data-toggle="tooltip"]').tooltip();
-
-    //Set up show more and less button
-    $('.more').click(function (event) {
-        $(event.target)
-            .toggleClass('disabled');
-        $(event.target.nextElementSibling).toggleClass('disabled');
-        $(event.target.nextElementSibling.nextElementSibling).toggleClass('disabled');
-    });
-
-    $('.less').click(function (event) {
-        $(event.target)
-            .toggleClass('disabled');
-        $(event.target.previousElementSibling).toggleClass('disabled');
-        $(event.target.previousElementSibling.nextElementSibling).toggleClass('disabled');
-
-    });
 
     $('#eventsMonth').append(
         $('<a>').attr('href', '/events/events-month.html').append(
@@ -76,13 +61,81 @@ $(document).ready(function() {
             });
         });
 
-        $.get('/api/v1/books/bestsellers', function (bestsellers) {
-            console.log(bestsellers);
+    });
 
-        });
+    $.get('/api/v1/books/bestsellers', {limit: 3, from:'2019-01-01'}, function (bestsellers) {
+        console.log(bestsellers);
+
+        for(let i = 0; i < MaxBestsellers; i++) {
+            $('#book-bestseller').append($('<div>').attr({
+                'id': 'book' + i,
+                'class': 'col-md-4 bestseller-el'
+            }));
+        }
+
+        bestsellers.forEach( function (el, index) {
+            buildBestseller(el, index);
+        })
     });
 
 });
+
+/*
+        <div class="row text-center mt-4 mb-4" id="book-bestseller">
+    <div id="book0" class="col-md-4 bestseller-el">
+        <a href="/catalogue/catalogue.html">
+            <img class="book-image img-fluid" src="assets/images/books/got_hc1.jpg" alt="#">
+            <h4 class="mt-2">Title of the Book</h4>
+        </a>
+        <a href="/catalogue/catalogue.html">
+            <p class="mt-1 authorsNameList">Author name</p>
+        </a>
+        <div class="bestseller-review">
+            <h5 class="text-center">A compelling and intriguing read</h5>
+            <p>
+            For book lovers The Truth About The Harry Quebert Affair is an ideal read as it is a book about a book about a book.
+                <span class="show show-btn more">Show more</span>
+            </p>
+        </div>
+    </div>
+
+ */
+
+function buildBestseller( book, index) {
+    $.get('/api/v1/books/' + book.ISBN, function (bookData, status) {
+        console.log(bookData);
+
+        $.get("/api/v1/books/" + bookData.ISBN + "/authors", function (authorsList, status) {
+
+                $('#book' + index)
+                .append($('<a>').attr({'href': '/books/' + bookData.ISBN})
+                    .append($('<img>').attr({
+                        'class': 'book-image img-fluid',
+                        'src': '../assets/images' + bookData.picture,
+                        'alt': '#'
+                    }))
+                    .append($('<h4>').addClass('mt-2').text(bookData.title)));
+
+            $('#book' + index).append('by ' + buildAuthorsList(authorsList));
+
+            $('#book' + index)
+                .append($('<div>').addClass('bestseller-review mt-1')
+                    .append($('<p>').text('"' + bookData.abstract.split('.')[0] + '"')));
+        });
+    });
+}
+
+function buildAuthorsList(authors) {
+    var list = "";
+    authors.forEach(function (el, index) {
+        if (index === 0)
+            list = list + "<a class='mt-1' href='/authors/" + el.authorID + "'> " + el.name + ' ' + el.surname + "</a>";
+        else
+            list = list + ", <a class='mt-1' href='/authors/" + el.authorID + "'> " + el.name + ' ' + el.surname + "</a>";
+    });
+    return list;
+
+}
 
 function createEvents(eventInfo, bookInfo, bookAuthors) {
 
