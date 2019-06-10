@@ -73,10 +73,6 @@
     flex-shrink: 0;
 }
 
-@media (max-width: 576px) {
-    .bestseller-el {
-    }
-}
 
 .show-btn {
     color: #777777;
@@ -308,3 +304,4 @@
     text-align: center;
     color: white;
 }
+
