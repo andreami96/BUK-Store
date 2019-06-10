@@ -67,7 +67,7 @@ function signUpNewUser() {
     let mailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
     if(!name || !surname || !email || !password)
-        message = "Some parameters are missing";
+        message = "Some parameter is missing";
     else if(!mailRegex.test(email))
         message = "The email should be an email address";
     else if(password.length < 6 || password.length > 32)
