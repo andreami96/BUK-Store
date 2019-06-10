@@ -206,7 +206,7 @@ async function createBooks() {
         ISBN: "8845282678",
         title: "La verità sul caso Harry Quebert",
         picture: "/books/8845282678.jpeg",
-        abstract: "Estate 1975. Nola Kellergan, una ragazzina di 15 anni, scompare misteriosamente nella tranquilla cittadina di Aurora, New Hampshire. " +
+        abstract: "Estate 1975; Nola Kellergan, una ragazzina di 15 anni, scompare misteriosamente nella tranquilla cittadina di Aurora, New Hampshire. " +
             "Le ricerche della polizia non danno alcun esito. Primavera 2008, New York. Marcus Goldman, giovane scrittore di successo, sta vivendo uno dei rischi del suo mestiere: " +
             "è bloccato, non riesce a scrivere una sola riga del romanzo che da lì a poco dovrebbe consegnare al suo editore. " +
             "Ma qualcosa di imprevisto accade nella sua vita: il suo amico e professore universitario Harry Quebert, " +
@@ -760,9 +760,70 @@ async function createSimilarTo() {
     });
 
     await SimilarTo.create({
+        ParentISBN: "9788893440615",
+        ChildISBN: "0440129710"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788893440615",
+        ChildISBN: "0812998952"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788893440615",
+        ChildISBN: "006223790"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788893440615",
+        ChildISBN: "0525436146"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788893440615",
+        ChildISBN: "1481449478"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788893440615",
+        ChildISBN: "1984822179"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788893440615",
+        ChildISBN: "8852220550"
+    });
+
+    await SimilarTo.create({
         ParentISBN: "9788804668428",
         ChildISBN: "8852220550"
     });
+
+    await SimilarTo.create({
+        ParentISBN: "9788804668428",
+        ChildISBN: "1984822179"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788804668428",
+        ChildISBN: "1481449478"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788804668428",
+        ChildISBN: "0525436146"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788804668428",
+        ChildISBN: "006223790"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "9788804668428",
+        ChildISBN: "0812998952"
+    });
+
 
 }
 
