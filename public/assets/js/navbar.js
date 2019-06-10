@@ -13,18 +13,19 @@ $(document).ready(function () {
             if( !$("#navbarNoHover").length ){
                 // Show navbar when scrolling down
                 $(window).scroll(function () {
-                    if ($(this).scrollTop() > 60) {
+                    if ($(this).scrollTop() > 60 ||
+                        ($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
                         makeSolidNavbar();
-                    } else {
+                    else
                         makeTransparentNavbar();
-                    }
                 });
 
                 // Show navbar when hovering over
                 $(".navbar").hover(function() {
                     makeSolidNavbar();
                 },function() {
-                    if ($(window).scrollTop() < 60)
+                    if ($(window).scrollTop() < 60 &&
+                        !($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
                         makeTransparentNavbar();
                 })
             }
@@ -51,18 +52,19 @@ $(document).ready(function () {
             if( !$("#navbarNoHover").length ){
                 // Show navbar when scrolling down
                 $(window).scroll(function () {
-                    if ($(this).scrollTop() > 60) {
+                    if ($(this).scrollTop() > 60 ||
+                            ($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
                         makeSolidNavbar();
-                    } else {
+                    else
                         makeTransparentNavbar();
-                    }
                 });
 
                 // Show navbar when hovering over
                 $(".navbar").hover(function() {
                     makeSolidNavbar();
                 },function() {
-                    if ($(window).scrollTop() < 60)
+                    if ($(window).scrollTop() < 60 &&
+                        !($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
                         makeTransparentNavbar();
                 })
             }
@@ -77,6 +79,7 @@ $(document).ready(function () {
         if($('.navbar-toggler').is(':visible'))
             $('.navbar-toggler').click();
     });
+
 });
 
 function addNavbar(isLogged, dropdown) {
