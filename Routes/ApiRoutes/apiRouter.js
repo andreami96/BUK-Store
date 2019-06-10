@@ -42,6 +42,9 @@ const homeCarouselRoute = require('./HomeCarousel/homeCarouselRoute');
 // Route related to the generic pages
 const genericPageRoute = require('./GenericPage/genericPageRoute');
 
+// Route related to the Favourite Readings
+const favouriteReadingsRoute = require('./FavouriteReadings/favouriteReadingsRoute');
+
 router.use(headerJSON);
 
 // Routes related to the user registration/login
@@ -80,5 +83,8 @@ router.use('/homeCarouselElements', homeCarouselRoute);
 
 // Route related to the generic pages
 router.use('/page', genericPageRoute);
+
+// Route related to the Favourite Readings
+router.use('/favouriteReadings', favouriteReadingsRoute);
 
 module.exports = router;
