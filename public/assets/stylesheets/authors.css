@@ -17,8 +17,12 @@ body {
     padding: 0 0.55em;
 }
 
+#alphabetContainer a:hover {
+    text-decoration: underline;
+}
+
 #alphabetContainer .selectedLetter {
-    color: #e3b06c;
+    color: #af825a;
 }
 
 @media(min-width: 768px) {
@@ -35,12 +39,6 @@ body {
     #authorList {
         margin-top: 5em;
     }
-}
-
-
-#authorList a {
-    color: black;
-
 }
 
 #authorList p {

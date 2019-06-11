@@ -136,7 +136,7 @@ function createCartRowMobile(book, quantity) {
         "      </div>   " +
         "   </td>\n" +
         "   <td class=\"actions\" data-th=\"\">\n" +
-        "      <button onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\"></i></button>\n" +
+        "      <button onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"far fa-trash-alt\"></i></button>\n" +
         "   </td>\n" +
         "</tr>");
 
@@ -190,7 +190,7 @@ function createCartRow(book, quantity) {
         "   </td>\n" +
         "   <td data-th=\"Subtotal\" class=\"text-center\">" + (book.price * quantity).toFixed(2) + "</td>\n" +
         "   <td class=\"actions\" data-th=\"\">\n" +
-        "      <button onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\"></i></button>\n" +
+        "      <button onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\" alt=\"Remove from cart\"><i class=\"far fa-trash-alt\"></i></button>\n" +
         "   </td>\n" +
         "</tr>");
 

@@ -24,7 +24,7 @@ async function createMainGenres() {
     await MainGenre.create({
         mainGenreID: 2,
         title: "Didactic",
-        picture: "/images/mainGenres/didactic.png"
+        picture: "/images/mainGenres/didactic.jpg"
     });
 
     await MainGenre.create({
@@ -129,7 +129,7 @@ async function createGenres() {
     await Genre.create({
         genreID: 11,
         title: "Satire",
-        picture: "/genres/satire.png",
+        picture: "/genres/satire.jpg",
         mainGenreID: 3,
         description: "In satirical books vices, follies, abuses, and shortcomings are held up to ridicule, ideally with the intent of shaming individuals, corporations, government, or society itself into improvement. Although satire is usually meant to be humorous, its greater purpose is often constructive social criticism, using wit to draw attention to both particular and wider issues in society.\n" +
             "A feature of satire is strong irony or sarcasm — \"in satire, irony is militant\" — but parody, burlesque, exaggeration, juxtaposition, comparison, analogy, and double entendre are all frequently used in satirical speech and writing. This \"militant\" irony or sarcasm often professes to approve of (or at least accept as natural) the very things the satirist wishes to attack."
@@ -138,7 +138,7 @@ async function createGenres() {
     await Genre.create({
         genreID: 12,
         title: "Tragedy",
-        picture: "/genres/tragedy.png",
+        picture: "/genres/tragedy.jpg",
         mainGenreID: 4,
         description: "Tragedy is a form of drama based on human suffering that invokes an accompanying catharsis or pleasure in audiences. While many cultures have developed forms that provoke this paradoxical response, the term tragedy often refers to a specific tradition of drama that has played a unique and important role historically in the self-definition of Western civilisation. That tradition has been multiple and discontinuous, yet the term has often been used to invoke a powerful effect of cultural identity and historical continuity.\n"
     });
@@ -146,7 +146,7 @@ async function createGenres() {
     await Genre.create({
         genreID: 13,
         title: "Comedy",
-        picture: "/genres/comedy.png",
+        picture: "/genres/comedy.jpg",
         mainGenreID: 4,
         description: "In a modern sense, comedy refers to any discourse or work generally intended to be humorous or amusing by inducing laughter, especially in theatre, television, film, stand-up comedy, or any other medium of entertainment. The origins of the term are found in Ancient Greece. In the Athenian democracy, the public opinion of voters was influenced by the political satire performed by the comic poets at the theaters. The theatrical genre of Greek comedy can be described as a dramatic performance which pits two groups or societies against each other in an amusing agon or conflict. A revised view characterizes the essential agon of comedy as a struggle between a relatively powerless youth and the societal conventions that pose obstacles to his hopes." +
             "In this struggle, the youth is understood to be constrained by his lack of social authority, and is left with little choice but to take recourse in ruses which engender very dramatic irony which provokes laughter."
@@ -205,7 +205,7 @@ async function createBooks() {
     await Book.create({
         ISBN: "8845282678",
         title: "La verità sul caso Harry Quebert",
-        picture: "/books/8845282678.jpeg",
+        picture: "/books/8845282678.jpg",
         abstract: "Estate 1975; Nola Kellergan, una ragazzina di 15 anni, scompare misteriosamente nella tranquilla cittadina di Aurora, New Hampshire. " +
             "Le ricerche della polizia non danno alcun esito. Primavera 2008, New York. Marcus Goldman, giovane scrittore di successo, sta vivendo uno dei rischi del suo mestiere: " +
             "è bloccato, non riesce a scrivere una sola riga del romanzo che da lì a poco dovrebbe consegnare al suo editore. " +

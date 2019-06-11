@@ -46,6 +46,23 @@
     margin: 0.4em;
 }
 
+/*.btn-reserve {
+    background-color: white;
+    color: #af825a;
+    border-radius: 0;
+    border-color: #af825a;
+}
+
+.btn-reserve:hover {
+    background-color: black;
+    border-color: black;
+}
+
+.btn-reserve:active {
+    background-color: #af825a !important;
+    border-color: #af825a !important;
+}*/
+
 .btn-primary {
     background-color: white;
     color: black;
@@ -59,7 +76,40 @@
 }
 
 .btn-primary:active {
+    background-color: #af825a !important;
+    border-color: #af825a !important;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #e4e4e4;
+    border-radius: 0;
+    border-color: #e4e4e4;
+}
+
+.btn-warning {
     background-color: #ffd4a0;
+    color: black;
+    border-radius: 0;
+    border-color: #ffd4a0;
+}
+
+.btn-warning:hover {
+    background-color: #e7b57d;
+    border-color: #e7b57d;
+}
+
+.btn-warning:active {
+    background-color: #d6a46b !important;
+    border-color: #d6a46b !important;
+}
+
+.btn-danger {
+    background-color: transparent;
+    color: black;
+    border-radius: 0;
+    border: 0;
+    border-color: black;
 }
 
 input[type=text], input[type=email], input[type=password], textarea {
