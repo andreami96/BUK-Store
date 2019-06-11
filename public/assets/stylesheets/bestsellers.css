@@ -31,7 +31,7 @@
 }*/
 
 #bestSellers {
-    padding: 0 1em 2em 1em;
+    padding: 3em 5em;
 }
 
 /*@media (max-width: 768px) {
@@ -43,4 +43,23 @@
 
 .book-image {
     height: 18em;
+}
+
+@media (min-width: 768px) and (max-width: 990px) {
+    #bestSellers {
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+    }
+
+    .bestseller-el {
+        padding-left: 2em !important;
+        padding-right: 2em !important;
+    }
+}
+
+@media (max-width: 440px) {
+    #bestSellers {
+        padding-left: 1em !important;
+        padding-right: 1em !important;
+    }
 }
