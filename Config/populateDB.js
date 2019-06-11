@@ -1068,7 +1068,426 @@ async function createGenericPages() {
     await GenericPage.create({
         pageID: 1,
         pageName: "faq",
-        body: "<h1>FAQ PAGES</h1>"
+        body: "<!-- Navigation -->\n" +
+            "<nav class=\"navbar\" >\n" +
+            "</nav>\n" +
+            "\n" +
+            "<div class=\"banner-image\">\n" +
+            "    <h1>\n" +
+            "        Frequently Asked Questions\n" +
+            "    </h1>\n" +
+            "</div>\n" +
+            "\n" +
+            "    <div class=\"container mb-4\" id=\"general-info\">\n" +
+            "\n" +
+            "        <div class=\"row justify-content-start mb-5\">\n" +
+            "            <div class=\"col-1\">\n" +
+            "\n" +
+            "            </div>\n" +
+            "            <div class=\"col-11 questions-shortcut\" >\n" +
+            "                <hr>\n" +
+            "                <h4><a href=\"#Q1\">How do I register?</a></h4>\n" +
+            "                <hr>\n" +
+            "                <h4><a href=\"#Q2\">How do I find a book?</a></h4>\n" +
+            "                <hr>\n" +
+            "                <h4><a href=\"#Q3\">What is a book Genre?</a></h4>\n" +
+            "                <hr>\n" +
+            "                <h4><a href=\"#Q4\">What is a book Theme?</a></h4>\n" +
+            "                <hr>\n" +
+            "                <h4><a href=\"#Q5\">What is a book Event?</a></h4>\n" +
+            "                <hr>\n" +
+            "                <h4><a href=\"#Q6\">Why isn’t the site working properly?</a></h4>\n" +
+            "                <hr>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-start\">\n" +
+            "            <div class=\"col-1\">\n" +
+            "\n" +
+            "            </div>\n" +
+            "            <div class=\"col-11\" id=\"Q1\">\n" +
+            "                <h4>How do I register?</h4>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-center question-text\">\n" +
+            "            <div class=\"col-10\">\n" +
+            "                Fill out your name and email address on the account <a href=\"/signup.html\">registration form</a> to get started. We will send you an email to confirm your account. Then you will be able to <a href=\"/login.html\">login</a> and reserve books.\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-start mt-4\">\n" +
+            "            <div class=\"col-1\">\n" +
+            "\n" +
+            "            </div>\n" +
+            "            <div class=\"col-11\" id=\"Q2\">\n" +
+            "                <h4>How do I find a book?</h4>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-center question-text\">\n" +
+            "            <div class=\"col-10\">\n" +
+            "                Go to the <a href=\"/catalogue/1\">catalogue</a> page and you will be prompted with all the books available in our bookstore. You can also add a filter on the theme or genre of the book you are looking for.\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-start mt-4\">\n" +
+            "            <div class=\"col-1\">\n" +
+            "\n" +
+            "            </div>\n" +
+            "            <div class=\"col-11\" id=\"Q3\">\n" +
+            "                <h4>What is a book Genre?</h4>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-center question-text\">\n" +
+            "            <div class=\"col-10\">\n" +
+            "                A book Genre is a category of literary composition. Genres may be determined by literary technique, tone, content, or even (as in the case of fiction) length. The distinctions between genres and categories are flexible and loosely defined, often with subgroups.\n" +
+            "                <br>Examples of main literary genres are: <a href=\"/mainGenres/1\">novel</a>, <a href=\"/mainGenres/2\">didactic</a>, <a href=\"/mainGenres/3\">poetry</a> and <a href=\"/mainGenres/4\">theatre</a> . If you are still curious about books genres check out the <a href=\"https://en.wikipedia.org/wiki/Literary_genre\" target=\"_blank\">Wikipedia definition</a>.\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "\n" +
+            "        <div class=\"row justify-content-start mt-4\">\n" +
+            "            <div class=\"col-1\">\n" +
+            "\n" +
+            "            </div>\n" +
+            "            <div class=\"col-11\" id=\"Q4\">\n" +
+            "                <h4>What is a book Theme?</h4>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-center question-text\">\n" +
+            "            <div class=\"col-10\">\n" +
+            "                The most common contemporary understanding of theme is an idea or point that is central to a story, which can often be summed in a single word (for example, love, death, betrayal). Typical examples of themes of this type are conflict between the individual and society; coming of age; humans in conflict with technology; nostalgia; and the dangers of unchecked ambition.\n" +
+            "                <br>If you are still curious about narrative genres check out the <a href=\"https://en.wikipedia.org/wiki/Theme_(narrative)\" target=\"_blank\">Wikipedia definition</a>.\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "\n" +
+            "        <div class=\"row justify-content-start mt-4\">\n" +
+            "            <div class=\"col-1\">\n" +
+            "\n" +
+            "            </div>\n" +
+            "            <div class=\"col-11\" id=\"Q5\">\n" +
+            "                <h4>What is a book Event?</h4>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-center question-text\">\n" +
+            "            <div class=\"col-10\">\n" +
+            "                A book Event is an event where you have the chance to meet the author of a book and possibly buy a copy of the book that will be presented during such event. Further information about a specific event can be found inside the apposite page of the event.\n" +
+            "                <br> Check out our <a href=\"/\">homepage</a> to see all the upcoming events.\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-start mt-4\">\n" +
+            "            <div class=\"col-1\">\n" +
+            "\n" +
+            "            </div>\n" +
+            "            <div class=\"col-11\" id=\"Q6\">\n" +
+            "                <h4>Why isn’t the site working properly?</h4>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"row justify-content-center question-text\">\n" +
+            "            <div class=\"col-10\">\n" +
+            "                In order to use the Buk website you need to have JavaScript and your cookies settings enabled.\n" +
+            "                <p>\n" +
+            "                    <a href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\" target=\"_blank\">Still need some help?</a>\n" +
+            "                </p>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "\n" +
+            "    </div>\n" +
+            "\n" +
+            "<footer class=\"footer\">\n" +
+            "    <div class=\"container\">\n" +
+            "        <div class=\"row py-4\">\n" +
+            "            <div class=\"col-md-3 col-sm-12 p-3\">\n" +
+            "                <h6>About</h6>\n" +
+            "                <p>Founded in 2019 by MiChi Studios, BUK is an online book store developed for the Hypermedia course at Politecnico di Milano</p>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-3 col-sm-6 p-3\">\n" +
+            "                <h6>Address</h6>\n" +
+            "                <p>Viale Romagna 62<br>Buccinasco, Milano<br>United States of America</p>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Contact</h6>\n" +
+            "                <a href=\"/contactUs.html\">Contact us</a><br>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Info</h6>\n" +
+            "                <ul>\n" +
+            "                    <li class=\"mb-2\"><a href=\"/FAQ.html\">FAQ</a></li>\n" +
+            "                    <li class=\"mb-2\"><a href=\"/shipping.html\">Order & Shipping</a></li>\n" +
+            "                </ul>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Follow us</h6>\n" +
+            "                <a><i class=\"fab fa-facebook-f\"></i></a>\n" +
+            "                <a><i class=\"fab fa-twitter\"></i></a>\n" +
+            "                <a><i class=\"fab fa-instagram\"></i></a>\n" +
+            "                <a><i class=\"fab fa-mastodon\"></i></a>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</footer>\n" +
+            "\n" +
+            "\n" +
+            "<script src=\"./assets/js/navbar.js\"></script>"
+    });
+
+    await GenericPage.create({
+        pageID: 2,
+        pageName: "contact-us",
+        body: "\n" +
+            "<!-- Navigation -->\n" +
+            "<nav class=\"navbar\" >\n" +
+            "</nav>\n" +
+            "\n" +
+            "<div class=\"banner-image\">\n" +
+            "    <h1>\n" +
+            "        Contact Us\n" +
+            "    </h1>\n" +
+            "</div>\n" +
+            "\n" +
+            "<div class=\"container mb-4\" id=\"general-info\">\n" +
+            "\n" +
+            "    <div class=\"row\">\n" +
+            "\n" +
+            "        <div class=\"col-sm-4 team-card mb-4\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/luca2.jpg\">\n" +
+            "            <h2 class=\"mt-2\">Luca</h2>\n" +
+            "            Hi! I'm Luca and my favourite book is <a href=\"/books/8845282678\">La verità sul caso Harry Quebert</a>.\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"col-sm-4 team-card mb-4\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/andrea.jpg\">\n" +
+            "            <h2 class=\"mt-2\">Andrea</h2>\n" +
+            "            Hi! I'm Andrea and my favourite book is <a href=\"/books/9788893440615\">Il libro dei Baltimore</a>.\n" +
+            "        </div>\n" +
+            "\n" +
+            "        <div class=\"col-sm-4 team-card mb-4\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/claudio.jpeg\">\n" +
+            "            <h2 class=\"mt-2\">Claudio</h2>\n" +
+            "            Hi! I'm Claudio and my favourite book is <a href=\"/books/006223790\">Pieces of Light</a>.\n" +
+            "        </div>\n" +
+            "\n" +
+            "    </div>\n" +
+            "\n" +
+            "</div>\n" +
+            "\n" +
+            "<footer class=\"footer\">\n" +
+            "    <div class=\"container\">\n" +
+            "        <div class=\"row py-4\">\n" +
+            "            <div class=\"col-md-3 col-sm-12 p-3\">\n" +
+            "                <h6>About</h6>\n" +
+            "                <p>Founded in 2019 by MiChi Studios, BUK is an online book store developed for the Hypermedia course at Politecnico di Milano</p>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-3 col-sm-6 p-3\">\n" +
+            "                <h6>Address</h6>\n" +
+            "                <p>Viale Romagna 62<br>Buccinasco, Milano<br>United States of America</p>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Contact</h6>\n" +
+            "                <a href=\"/contactUs.html\">Contact us</a><br>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Info</h6>\n" +
+            "                <ul>\n" +
+            "                    <li class=\"mb-2\"><a href=\"/FAQ.html\">FAQ</a></li>\n" +
+            "                    <li class=\"mb-2\"><a href=\"/shipping.html\">Order & Shipping</a></li>\n" +
+            "                </ul>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Follow us</h6>\n" +
+            "                <a><i class=\"fab fa-facebook-f\"></i></a>\n" +
+            "                <a><i class=\"fab fa-twitter\"></i></a>\n" +
+            "                <a><i class=\"fab fa-instagram\"></i></a>\n" +
+            "                <a><i class=\"fab fa-mastodon\"></i></a>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</footer>\n" +
+            "\n" +
+            "\n" +
+            "<!-- JQuery, Popper.js, Bootstrap -->\n" +
+            "<script src=\"https://code.jquery.com/jquery-3.4.0.min.js\" integrity=\"sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=\" crossorigin=\"anonymous\"></script>\n" +
+            "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>\n" +
+            "<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>\n" +
+            "\n" +
+            "<script src=\"./assets/js/navbar.js\"></script>"
+    });
+
+    await GenericPage.create({
+        pageID: 3,
+        pageName: "shipping",
+        body: "<!-- Navigation -->\n" +
+            "<nav class=\"navbar\" >\n" +
+            "</nav>\n" +
+            "\n" +
+            "<div class=\"banner-image\">\n" +
+            "    <h1>\n" +
+            "        Order and Shipping Information\n" +
+            "    </h1>\n" +
+            "</div>\n" +
+            "\n" +
+            "<div class=\"container mb-4\" id=\"general-info\">\n" +
+            "\n" +
+            "    <div class=\"row justify-content-start mb-5\">\n" +
+            "        <div class=\"col-1\">\n" +
+            "\n" +
+            "        </div>\n" +
+            "        <div class=\"col-11 questions-shortcut\" >\n" +
+            "            <hr>\n" +
+            "            <h4><a href=\"#Q1\">When will my order be shipped?</a></h4>\n" +
+            "            <hr>\n" +
+            "            <h4><a href=\"#Q2\">How much do I have to pay for the delivery?</a></h4>\n" +
+            "            <hr>\n" +
+            "            <h4><a href=\"#Q3\">Can I choose day and/or time of delivery?</a></h4>\n" +
+            "            <hr>\n" +
+            "            <h4><a href=\"#Q4\">Which company will take care of the delivery?</a></h4>\n" +
+            "            <hr>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "\n" +
+            "    <div class=\"row justify-content-start mt-5\">\n" +
+            "        <div class=\"col-1\">\n" +
+            "\n" +
+            "        </div>\n" +
+            "        <div class=\"col-11\" id=\"Q1\">\n" +
+            "            <h4>When will my order be shipped?</h4>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "    <div class=\"row justify-content-center question-text\">\n" +
+            "        <div class=\"col-10\">\n" +
+            "            The order will be shipped when all the products will be available. The shipping time can vary depending on the shipping option chosen:\n" +
+            "            <br>\n" +
+            "\n" +
+            "            <ul>\n" +
+            "                <li> <b>Standard Shipping:</b> 4/5 working days </li>\n" +
+            "                <li> <b>Express Shipping:</b> 2/3 working days </li>\n" +
+            "                <li> <b>Pick Up Shipping:</b> 4/5 working days </li>\n" +
+            "            </ul>\n" +
+            "            From the client personal area will be possible to follow the order status and, if still possible, remove items from the order.\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "    <div class=\"row justify-content-start mt-5\">\n" +
+            "        <div class=\"col-1\">\n" +
+            "\n" +
+            "        </div>\n" +
+            "        <div class=\"col-11\" id=\"Q2\">\n" +
+            "            <h4>How much do I have to pay for the delivery?</h4>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "    <div class=\"row justify-content-center question-text\">\n" +
+            "        <div class=\"col-10\">\n" +
+            "            The cost of the delivery will vary depending both on the chosen shipping option and the order price:\n" +
+            "            <br>\n" +
+            "            <h5 class=\"mt-2 ml-1\">Standard Shipping</h5>\n" +
+            "            <ul>\n" +
+            "                <li>Free for order equal or above 19.90 €</li>\n" +
+            "                <li>2.50 € for order below 19.90 €</li>\n" +
+            "            </ul>\n" +
+            "            <h5 class=\"mt-2 ml-1\">Express Shipping</h5>\n" +
+            "            <ul>\n" +
+            "                <li>3.90 € for order below 49.90 €</li>\n" +
+            "                <li>2.00 € for order equal or above 49.90 €</li>\n" +
+            "            </ul>\n" +
+            "            <h5 class=\"mt-2 ml-1\">Pick Up Shipping</h5>\n" +
+            "            <ul>\n" +
+            "                <li>Free for order equal or above 29.90 €</li>\n" +
+            "                <li>1.50 € for order below 29.90 €</li>\n" +
+            "            </ul>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "    <div class=\"row justify-content-start mt-5\">\n" +
+            "        <div class=\"col-1\">\n" +
+            "\n" +
+            "        </div>\n" +
+            "        <div class=\"col-11\" id=\"Q3\">\n" +
+            "            <h4>Can I choose day and/or time of delivery?</h4>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "    <div class=\"row justify-content-center question-text\">\n" +
+            "        <div class=\"col-10\">\n" +
+            "            Unfortunately, so far, is <b>not</b> possible to choose the exact day and time of the delivery.\n" +
+            "            <br>\n" +
+            "            After that all the books will be available for shipping you will receive a notification from the delivery company that will take care of your order. In such a way you will be able to track your order status in real time.\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "\n" +
+            "    <div class=\"row justify-content-start mt-5\">\n" +
+            "        <div class=\"col-1\">\n" +
+            "\n" +
+            "        </div>\n" +
+            "        <div class=\"col-11\" id=\"Q4\">\n" +
+            "            <h4>Which company will take care of the delivery?</h4>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "    <div class=\"row justify-content-center question-text\">\n" +
+            "        <div class=\"col-10 \">\n" +
+            "            We rely on several shipping companies in order to offer the best service possible to our customers. In particular, for national deliveries:\n" +
+            "            <ul>\n" +
+            "                <li><b>SDA</b></li>\n" +
+            "                <li><b>Bartolini</b></li>\n" +
+            "                <li><b>TNT</b></li>\n" +
+            "            </ul>\n" +
+            "\n" +
+            "            While for international deliveries:\n" +
+            "            <ul>\n" +
+            "                <li><b>DHL</b></li>\n" +
+            "                <li><b>FedEX</b></li>\n" +
+            "            </ul>\n" +
+            "\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "\n" +
+            "\n" +
+            "</div>\n" +
+            "\n" +
+            "<footer class=\"footer\">\n" +
+            "    <div class=\"container\">\n" +
+            "        <div class=\"row py-4\">\n" +
+            "            <div class=\"col-md-3 col-sm-12 p-3\">\n" +
+            "                <h6>About</h6>\n" +
+            "                <p>Founded in 2019 by MiChi Studios, BUK is an online book store developed for the Hypermedia course at Politecnico di Milano</p>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-3 col-sm-6 p-3\">\n" +
+            "                <h6>Address</h6>\n" +
+            "                <p>Viale Romagna 62<br>Buccinasco, Milano<br>United States of America</p>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Contact</h6>\n" +
+            "                <a href=\"/contactUs.html\">Contact us</a><br>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Info</h6>\n" +
+            "                <ul>\n" +
+            "                    <li class=\"mb-2\"><a href=\"/FAQ.html\">FAQ</a></li>\n" +
+            "                    <li class=\"mb-2\"><a href=\"/shipping.html\">Order & Shipping</a></li>\n" +
+            "                </ul>\n" +
+            "            </div>\n" +
+            "            <div class=\"col-md-2 col-sm-6 p-3\">\n" +
+            "                <h6>Follow us</h6>\n" +
+            "                <a><i class=\"fab fa-facebook-f\"></i></a>\n" +
+            "                <a><i class=\"fab fa-twitter\"></i></a>\n" +
+            "                <a><i class=\"fab fa-instagram\"></i></a>\n" +
+            "                <a><i class=\"fab fa-mastodon\"></i></a>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>\n" +
+            "</footer>\n" +
+            "<script src=\"./assets/js/navbar.js\"></script>\n"
     });
 }
 
