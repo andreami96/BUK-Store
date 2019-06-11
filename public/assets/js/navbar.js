@@ -181,8 +181,9 @@ function createDropdownMenus(isLogged) {
 }
 
 function logout() {
-    $.get("/api/v1/logout");
-    window.location.href = "/";
+    $.get("/api/v1/logout", function () {
+        window.location.href = "/";
+    });
 }
 
 function makeResizableNavbar(isLogged) {
