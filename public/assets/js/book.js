@@ -89,14 +89,13 @@ jQuery(document).ready(function() {
         console.log(data);
         data.forEach(function (el, index) {
             if (index === 0)
-                if (index === 0)
-                    $('#author').append($('<a>').attr({
-                        'href': '/authors/' + el.authorID
-                    }).text(el.name + ' ' + el.surname));
-                else
-                    $('#author').append($('<a>').attr({
-                        'href': '/authors/' + el.authorID
-                    }).text(', ' + el.name + ' ' + el.surname));
+                $('#author').append($('<a>').attr({
+                    'href': '/authors/' + el.authorID
+                }).text(el.name + ' ' + el.surname));
+            else
+                $('#author').append($('<a>').attr({
+                    'href': '/authors/' + el.authorID
+                }).text(', ' + el.name + ' ' + el.surname));
         });
     });
 

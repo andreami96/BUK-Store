@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <link rel="stylesheet" href="../assets/stylesheets/custom-bootstrap.css">
+    <link rel="stylesheet" href="../assets/stylesheets/common.css">
     <link rel="stylesheet" href="../assets/stylesheets/documentation.css">
+
 </head>
 <body>
 
@@ -1243,6 +1245,126 @@
             </div>
         </div>
 
+        <br>
+
+        <div class="row justify-content-start">
+            <div class="col-1">
+
+            </div>
+            <div class="col-11">
+                <h4>HomeCarousel Table</h4>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-8 table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="small-col">Table Column</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">CarouselID</th>
+                        <td>The identifier of the Home Carousel element</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ISBN</th>
+                        <td>The reference to the book identifier, optional</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">authorID</th>
+                        <td>The reference to the author identifier, optional</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">eventID</th>
+                        <td>The reference to the event identifier, optional</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-start">
+            <div class="col-1">
+
+            </div>
+            <div class="col-11">
+                <h4>FavouriteReadings Table</h4>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-8 table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="small-col">Table Column</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">FavouriteID</th>
+                        <td>The identifier of the favourite readings element, which is also the order</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ISBN</th>
+                        <td>The reference to the book identifier</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-start">
+            <div class="col-1">
+
+            </div>
+            <div class="col-11">
+                <h4>GenericPages Table</h4>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-8 table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="small-col">Table Column</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">PageID</th>
+                        <td>The identifier of the favourite generic page</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">PageName</th>
+                        <td>The name of the page which is stored</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">body</th>
+                        <td>The HTML code of the static page</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
 
     </div>
 
@@ -1311,10 +1433,10 @@
                             <tr>
                                 <th scope="row">Luca Napoletano</th>
                                 <td>
-                                    60% on the Node.js Implementation<br>
+                                    40% on the Node.js Implementation<br>
+                                    30% on developing the frontend<br>
                                     15% on OpenAPI specification<br>
-                                    15% on the designing of the ER and the DB implementation<br>
-                                    10% on developing static pages
+                                    15% on the designing of the ER and the DB implementation
                                 </td>
                             </tr>
                         </tbody>
@@ -1354,7 +1476,7 @@
                             <td>
                                 Write OpenAPI specification<br>
                                 Improve the knowledge of Javascript<br>
-                                Have a general knowledge on how a dynamic web application should be done
+                                Have a general knowledge on how a dynamic web application should be, in particular on the way the user personal pages are done
                             </td>
                         </tr>
                         </tbody>
@@ -1364,9 +1486,10 @@
 
     </div>
     </div>
+
     <footer class="footer">
         <div class="container">
-            <div class="row py-4">
+            <div class="row">
                 <div class="col-md-3 col-sm-12 p-3">
                     <h6>About</h6>
                     <p>Founded in 2019 by MiChi Studios, BUK is an online book store developed for the Hypermedia course at Politecnico di Milano</p>
@@ -1381,9 +1504,10 @@
                 </div>
                 <div class="col-md-2 col-sm-6 p-3">
                     <h6>Info</h6>
-                    <a href="/FAQ.html">FAQ</a>
-                    <br>
-                    <a href="/shipping.html">Order & Shipping</a>
+                    <ul>
+                        <li class="mb-2"><a href="/FAQ.html">FAQ</a></li>
+                        <li class="mb-2"><a href="/shipping.html">Order & Shipping</a></li>
+                    </ul>
                 </div>
                 <div class="col-md-2 col-sm-6 p-3">
                     <h6>Follow us</h6>

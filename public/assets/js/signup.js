@@ -30,8 +30,14 @@ $(document).ready(function () {
     else
         nameAndSurnameFields(false);
 
+    let width = $(window).width();
+
     $(window).resize(function() {
-        nameAndSurnameFields(!($('.navbar-toggler').is(':visible')))
+
+        if(($(window).width() <= 575 && width > 575) || ($(window).width() > 575 && width <= 575))
+            nameAndSurnameFields(!($('.navbar-toggler').is(':visible')));
+
+        width = $(window).width();
     });
 });
 

@@ -226,3 +226,8 @@ a:hover {
     background-color: white;
     color: black;
 }
+
+.footer ul {
+    list-style: none;
+    padding-inline-start: 0px;
+}
