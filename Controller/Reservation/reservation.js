@@ -6,6 +6,8 @@ const Response = require('../../Utils/response');
 exports.findAllReservationByUserID = function(userID) {
     return new Promise( (resolve, reject) => {
 
+        console.log("USER ID RESERVATION: " + userID);
+
         Reservation.findAll({
             attributes: ['reservationID', 'userID', 'shippingLocation', 'orderDate', 'arrivalDate'],
             where: { userID: userID },
@@ -27,7 +29,10 @@ exports.findAllReservationByUserID = function(userID) {
                 try {
                     let reservedBooks = await Reservation.findAll({
                         attributes: ['ISBN', 'quantity'],
-                        where: {reservationID: reservationList[i].reservationID}
+                        where: {
+                            userID: userID,
+                            reservationID: reservationList[i].reservationID
+                        }
                     });
 
                     for (let j=0; j<reservedBooks.length; j++) {
