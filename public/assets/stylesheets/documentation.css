@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+body {
+    height: 100%;
+}
+
 .navbar-custom .right-float {
     float: right;
 }
@@ -69,16 +73,8 @@ th.small-col {
     max-width: 100%;
 }
 
-/* Footer */
 .footer {
-    font-size: 9pt;
-    bottom: 0;
-    width: 100%;
-    min-height: 15vh;
+    margin-top: auto;
+    font-size: 1em;
     background-color: #ebebeb;
-}
-
-.footer .fab {
-    font-size: 1.6em;
-    margin: 0.2em;
 }
