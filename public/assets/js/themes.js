@@ -52,8 +52,11 @@ function createThemesHTML(themes) {
 
         // Add anchor
         $('.small-genre-card:last').append(
-            $('<a>').attr('href', '/themes/' + themes[i].themeID).append(
-                $('<span>')
+            $('<a>').attr({
+                'class': 'link-invisible',
+                'href': '/themes/' + themes[i].themeID
+                }).text(themes[i].title).append(
+                    $('<span>')
             )
         );
     }
@@ -70,8 +73,6 @@ function createThemesHTML1(themes) {
             return 1;
     });
 
-        console.log(themes);
-
         // Calculate the themes in each of the 4 columns
         let base = Math.floor(themes.length / 4);
 
@@ -82,13 +83,10 @@ function createThemesHTML1(themes) {
             themesPerColumn[k] += 1;
 
         let rowHTML = $('#themesList').find('>:first-child');
-        console.log(rowHTML);
 
         for(let k = 0; k < themes.length;) {
-            console.log(themes[k].title);
             for (let i = 0; i < 4; i++) {
                 let colHTML = $('<div>').addClass('col-sm-6 col-lg-3');
-                console.log(colHTML);
 
                 for (let j = 0; j < themesPerColumn[i]; j++) {
 
@@ -103,6 +101,5 @@ function createThemesHTML1(themes) {
                 console.log(rowHTML);
             }
         }
-
 
 }

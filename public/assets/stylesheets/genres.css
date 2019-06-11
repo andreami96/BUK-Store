@@ -36,3 +36,14 @@ html,body {
 .breadcrumb {
     margin: -1.5em 0 0 1em;
 }
+
+/* Main genre separators */
+.card {
+    border-radius: 0;
+    border: 0;
+}
+.card-header {
+    background-color: white !important;
+    border-radius: 0;
+    border: 0;
+}

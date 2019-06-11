@@ -4,70 +4,33 @@ jQuery(document).ready(function() {
     $.get("/api/v1/mainGenres", function(mainGenres){
         $.get("/api/v1/genres?limit=100", function(genres){
 
-            console.log(genres);
             let genresDetailed = [];
             let itemsProcessed = 0;
 
             let subgenres = [];
 
             genres.forEach((genre, index, array) => {
-                console.log('sto per richiedere i dettagli di genre ' + genre.genreID);
                 $.get("/api/v1/genres/" + genre.genreID, function(data){
                     genresDetailed.push(data);
                     itemsProcessed++;
-                    console.log('itemsprocessed ' + itemsProcessed);
                     if(itemsProcessed === array.length) {
-                        console.log('eccomi');
-                        console.log(mainGenres);
-                        console.log(genresDetailed);
 
                         for(let i = 0; i < mainGenres.length; i++) {
                             for (let j = 0; j < genresDetailed.length; j++) {
-                                console.log('mainGenreID='+mainGenres[i].mainGenreID+' genreinfo: ' + genresDetailed[j].mainGenre);
                                 if (genresDetailed[j].mainGenre === mainGenres[i].mainGenreID)
                                     subgenres.push(genresDetailed[j])
                             }
-                            console.log('subgenres');
-                            console.log(subgenres);
                             createGenresHTML(mainGenres[i], subgenres);
                             subgenres = [];
                         }
                     }
                 });
-
-
             });
-
         });
     });
-
-
-        /*for(let i = 0; i < mainGenres.length; i++) {
-            console.log('inizio ciclo per mainGenre' + mainGenres[i].mainGenreID);
-            $.get("/api/v1/mainGenres/" + mainGenres[i].mainGenreID + "/genres", function (genres) {
-
-                let genresInfo = [];
-                let genreItemsProcessed = 0;
-
-                genres.forEach((genre, index, array) => {
-                    $.get("/api/v1/genres/" + genre.genreID, function (genreInfo) {
-                        console.log('ricevuto da api ' + genre);
-                        genresInfo.push(genreInfo);
-                        genreItemsProcessed++;
-                        if (genreItemsProcessed === array.length) {
-                            console.log('creo generi per il mainGenre ' + mainGenres[i].mainGenreID);
-                            createGenresHTML(mainGenres[i], genresInfo);
-                        }
-                    })
-                });
-            })
-        }*/
-
 });
 
 function createGenresHTML(mainGenre, genres) {
-
-    console.log('eccomi che creo');
 
     genres.sort(function (a, b) {
         if (a.genreID < b.genreID)
@@ -86,7 +49,7 @@ function createGenresHTML(mainGenre, genres) {
             'class': 'card-header',
             'id': 'heading-' + mainGenre.mainGenreID
         }).append(
-            $('<h5>').addClass('mb-0').text(mainGenre.title)
+            $('<h2>').addClass('pl-3 mb-0').text(mainGenre.title)
                 /*.append(
                 $('<button>').text(mainGenre.title).attr({
                         'class': 'btn btn-link',
@@ -114,10 +77,8 @@ function createGenresHTML(mainGenre, genres) {
 
     $('#accordion').append(mainGenreCardHTML);
     for (let i = 0; i < genres.length; i++) {
-        console.log(genres[i]);
+
         let rowNumber = Math.floor(i / 2) + 1;
-
-
 
         // If even, create row
         if (i % 2 === 0) {
@@ -128,7 +89,6 @@ function createGenresHTML(mainGenre, genres) {
         }
 
         let genreIdHTML = genres[i].title.toLowerCase().replace(' ', '-') + '-box';
-        console.log(genreIdHTML);
 
         // Column and card
         $('#row-' + mainGenre.mainGenreID + '-n' + rowNumber).append(
@@ -156,7 +116,10 @@ function createGenresHTML(mainGenre, genres) {
 
         // Add anchor
         $('.small-genre-card:last').append(
-            $('<a>').attr('href', '/genres/' + genres[i].genreID).append(  //TODO: update href value with correct path
+            $('<a>').attr({
+                'class': 'link-invisible',
+                'href': '/genres/' + genres[i].genreID
+            }).text(genres[i].title).append(
                 $('<span>')
             )
         );

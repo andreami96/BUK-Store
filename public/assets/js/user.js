@@ -180,6 +180,7 @@ function createCartRow(book, quantity) {
         "   </td>\n" +
         "   <td data-th=\"Price\">" + book.price + "</td>\n" +
         "   <td data-th=\"Quantity\">\n" +
+        "         <label for=\"book-quantity-" + book.ISBN + "\">quantity</label>" +
         "      <div class=\"form-group\">\n" +
         "         <select class=\"form-control\" onchange=\"changeQuantity('" + book.ISBN + "')\" id=\"book-quantity-" + book.ISBN + "\">\n" +
         "            <option>1</option>\n" +

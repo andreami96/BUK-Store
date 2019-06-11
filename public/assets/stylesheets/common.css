@@ -133,6 +133,13 @@ a:hover {
     text-decoration: none;
 }
 
+.link-invisible, label {
+    /* Magiku */
+    line-height: 0;
+    font-size: 0;
+    color: transparent;
+}
+
 /* Blank element for brand centering on small devices */
 .empty-nav-space {
     border: 1px solid transparent;

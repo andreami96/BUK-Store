@@ -75,23 +75,6 @@ async function createGenres() {
     });
 
     await Genre.create({
-        genreID: 4,
-        title: "Historiography",
-        picture: "/genres/historiography.jpg",
-        mainGenreID: 1,
-        description: "Historiography is the study of the methods of historians in developing history as an academic discipline, and by extension is any body of historical work on a particular subject. The historiography of a specific topic covers how historians have studied that topic using particular sources, techniques, and theoretical approaches. Scholars discuss historiography by topic—such as the historiography of the United Kingdom, that of WWII, the British Empire, early Islam, and China—and different approaches and genres, such as political history and social history. Beginning in the nineteenth century, with the development of academic history, there developed a body of historiographic literature."
-    });
-
-    await Genre.create({
-        genreID: 5,
-        title: "Diary",
-        picture: "/genres/diary.jpg",
-        mainGenreID: 1,
-        description: "A diary is a record (originally in handwritten format) with discrete entries arranged by date reporting on what has happened over the course of a day or other period. A personal diary may include a person's experiences, thoughts, and/or feelings, excluding comments on current events outside the writer's direct experience." +
-            "Although a diary may provide information for a memoir, autobiography or biography, it is generally written not with the intention of being published as it stands, but for the author's own use. In recent years, however, there is internal evidence in some diaries (e.g. those of Ned Rorem, Alan Clark, Tony Benn or Simon Gray) that they are written with eventual publication in mind, with the intention of self-vindication, or simply for profit."
-    });
-
-    await Genre.create({
         genreID: 7,
         title: "Essay",
         picture: "/genres/essay.jpg",
@@ -99,14 +82,6 @@ async function createGenres() {
         description: "An essay is, generally, a piece of writing that gives the author's own argument. Essays have traditionally been sub-classified as formal and informal. Formal essays are characterized by \"serious purpose, dignity, logical organization, length,\" whereas the informal essay is characterized by \"the personal element (self-revelation, individual tastes and experiences, confidential manner), humor, graceful style, rambling structure, unconventionality or novelty of theme,\" etc.\n" +
             "\n" +
             "Essays are commonly used as literary criticism, political manifestos, learned arguments, observations of daily life, recollections, and reflections of the author. Almost all modern essays are written in prose, but works in verse have been dubbed essays as well."
-    });
-
-    await Genre.create({
-        genreID: 8,
-        title: "Treatise",
-        picture: "/genres/treatise.jpg",
-        mainGenreID: 2,
-        description: "A treatise is a formal and systematic written discourse on some subject, generally longer and treating it in greater depth than an essay, and more concerned with investigating or exposing the principles of the subject."
     });
 
     await Genre.create({
@@ -409,7 +384,7 @@ async function createBooks() {
         interview: "This book is a great chance for me to reach my audience in a new way. The original idea actually came from my fans via Twitter, so I really think they are going to love it\n",
         availableQuantity: 200,
         price: 12.30,
-        genreID: 4,
+        genreID: 10,
         year: 2015,
         editor: "Penguin",
         pageNumber: 240,
@@ -425,7 +400,7 @@ async function createBooks() {
         interview: "",
         availableQuantity: 3,
         price: 14,
-        genreID: 4,
+        genreID: 12,
         year: 2015,
         editor: "Penguin",
         pageNumber: 240,
@@ -457,7 +432,7 @@ async function createBooks() {
         interview: "We have focused on two great challenges. Firstly, how to dramatically reduce carbon emissions within urgent time scales, and secondly, to enable billions of people who lack access to electricity to gain access to modern energy services. These two aims have one thing in common: the energy we use to power our world. It is somewhat extraordinary that half of the people in the world currently lack access to enough electricity to live the modern life we take for granted. A lot of the strategies that have been put forward for climate mitigation focus on 100% renewable energy sources (RES) as being the goal, and often include very large assumptions in relation to energy efficiency, for example a 40% reduction in the energy that we use today. I just cannot reconcile with that, because it means that poor people stay poor. If half the people in the world were to have access to a reasonable amount of electricity this would probably mean a doubling or tripling in existing demand. Not only do we need to entirely replace our existing fossil fuel infrastructure within decades, but also to double or triple it. So, our position is that to meet these challenges, we need to use all of the tools at our disposal and there is really no need to exclude nuclear energy from that conversation.",
         availableQuantity: 1000,
         price: 12.86,
-        genreID: 4,
+        genreID: 7,
         year: 2001,
         editor: "KnowledgePublications",
         pageNumber: 420,
@@ -1257,19 +1232,19 @@ async function createGenericPages() {
             "    <div class=\"row\">\n" +
             "\n" +
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
-            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/luca2.jpg\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/luca2.jpg\" alt=\"Luca Napoletano\">\n" +
             "            <h2 class=\"mt-2\">Luca</h2>\n" +
             "            Hi! I'm Luca and my favourite book is <a href=\"/books/8845282678\">La verità sul caso Harry Quebert</a>.\n" +
             "        </div>\n" +
             "\n" +
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
-            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/andrea.jpg\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/andrea.jpg\" alt=\"Andrea Miotto\">\n" +
             "            <h2 class=\"mt-2\">Andrea</h2>\n" +
-            "            Hi! I'm Andrea and my favourite book is <a href=\"/books/9788893440615\">Il libro dei Baltimore</a>.\n" +
+            "            Hi! I'm Andrea and my favourite book is <a href=\"/books/9788804668428\">The Master and Margarita</a>.\n" +
             "        </div>\n" +
             "\n" +
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
-            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/claudio.jpeg\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/claudio.jpeg\" alt=\"Claudio Montanari\">\n" +
             "            <h2 class=\"mt-2\">Claudio</h2>\n" +
             "            Hi! I'm Claudio and my favourite book is <a href=\"/books/006223790\">Pieces of Light</a>.\n" +
             "        </div>\n" +

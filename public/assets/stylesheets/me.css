@@ -14,3 +14,11 @@ body {
     margin-left: 0;
     margin-right: 0;
 }
+
+#tbody-cart .btn-danger {
+    background-color: transparent;
+    color: black;
+    border-radius: 0;
+    border: 0;
+    border-color: black;
+}

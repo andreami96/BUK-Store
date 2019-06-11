@@ -106,7 +106,7 @@ function retrieveRightMenu(isLogged) {
 
     let notLogged = "<ul class=\"navbar-nav\" id=\"right-nav\">\n" +
                     "   <li class=\"nav-item\">\n" +
-                    "      <a class=\"nav-link\" href=\"/signup.html\">Registrati</a>\n" +
+                    "      <a class=\"nav-link\" href=\"/signup.html\">Sign Up</a>\n" +
                     "   </li>\n" +
                     "   <li class=\"nav-item\">\n" +
                     "      <a class=\"nav-link\" href=\"/login.html\">Login</a>\n" +
@@ -115,7 +115,7 @@ function retrieveRightMenu(isLogged) {
 
     let logged =    "<ul class=\"navbar-nav\" id=\"right-nav\">\n" +
                     "   <li class=\"nav-item\">\n" +
-                    "      <a class=\"nav-link\" href=\"/me\">Area Personale</a>\n" +
+                    "      <a class=\"nav-link\" href=\"/me\">My Account</a>\n" +
                     "   </li>\n" +
                     "   <li class=\"nav-item\">\n" +
                     "      <a class=\"nav-link\" href=\"\" onclick=\"logout()\">Logout</a>\n" +

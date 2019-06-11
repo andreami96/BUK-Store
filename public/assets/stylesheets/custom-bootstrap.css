@@ -105,11 +105,34 @@
 }
 
 .btn-danger {
-    background-color: transparent;
-    color: black;
+    background-color: white;
+    color: red;
     border-radius: 0;
+    border-color: red;
+}
+
+.btn-danger:hover {
+    background-color: red;
+    color: white;
+    border-radius: 0;
+    border-color: red;
+}
+
+.btn-danger:hover {
+    background-color: #e70000;
+    color: white;
+    border-radius: 0;
+    border-color: red;
+}
+
+.btn-light {
+    background-color: white;
+    color: black;
     border: 0;
-    border-color: black;
+}
+
+.btn-light:hover {
+    background-color: #e4e4e4;
 }
 
 input[type=text], input[type=email], input[type=password], textarea {

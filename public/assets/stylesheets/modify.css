@@ -23,6 +23,9 @@ body {
 
 .card {
     max-width: 50vw;
+    border-radius: 0;
+    background-color: white !important;
+    border: 0;
 }
 
 .form-group {
