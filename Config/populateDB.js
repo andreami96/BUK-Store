@@ -992,17 +992,17 @@ async function createReservation() {
         quantity: 5,
         userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
         ISBN: "9788893440615"
-    })
+    });
 
     await Reservation.create({
-        reservationID: 1,
+        reservationID: 2,
         shippingLocation: "Paese, TV",
         orderDate: "2019-05-01",
         arrivalDate: "2019-05-06",
         quantity: 20,
         userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
         ISBN: "8852220550"
-    })
+    });
 }
 
 async function createGenreThemes() {

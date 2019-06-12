@@ -2,6 +2,10 @@ hr {
     padding-top: 10vh;
 }
 
+.transparent-text {
+    color: transparent;
+}
+
 body {
     height: 100%;
 }
