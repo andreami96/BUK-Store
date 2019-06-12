@@ -940,7 +940,7 @@ async function createEvents() {
         address: "Galleria Vittorio Emanuele II, 20121 Milano",
         latitude: 45.466277,
         longitude: 9.189870,
-        eventDate: "2019-06-07",
+        eventDate: "2019-06-30",
         title: "The life of Michail Bulgakov",
         description: "Meet the Author Michail Bulgakov at this event",
         ISBN: "9788804668428",
