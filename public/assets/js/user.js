@@ -102,7 +102,7 @@ function createCartTableMobile() {
         "                            <th>Product</th>\n" +
         "                            <th>Price</th>\n" +
         "                            <th>Quantity</th>\n" +
-        "                            <th></th>\n" +
+        "                            <th class=\"link-invisible\">Delete Button Column</th>\n" +
         "                        </tr>\n" +
         "                        </thead>\n" +
         "                        <tbody id=\"tbody-cart\">\n" +
@@ -128,7 +128,7 @@ function createCartRowMobile(book, quantity) {
         "   <td data-th=\"Price\">" + book.price + "</td>\n" +
         "   <td data-th=\"Quantity\">\n" +
         "      <div class=\"form-group\">\n" +
-        "         <select class=\"form-control\" onchange=\"changeQuantity('" + book.ISBN + "')\" id=\"book-quantity-" + book.ISBN + "\">\n" +
+        "         <select aria-label=\"Quantity\" class=\"form-control\" onchange=\"changeQuantity('" + book.ISBN + "')\" id=\"book-quantity-" + book.ISBN + "\">\n" +
         "            <option>1</option>\n" +
         "            <option>2</option>\n" +
         "            <option>3</option>\n" +
@@ -136,7 +136,7 @@ function createCartRowMobile(book, quantity) {
         "      </div>   " +
         "   </td>\n" +
         "   <td class=\"actions\" data-th=\"\">\n" +
-        "      <button onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\"></i></button>\n" +
+        "      <button aria-label='Remove from cart' onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"far fa-trash-alt\"></i></button>\n" +
         "   </td>\n" +
         "</tr>");
 
@@ -151,7 +151,7 @@ function createCartTable() {
         "                            <th>Price</th>\n" +
         "                            <th>Quantity</th>\n" +
         "                            <th class=\"text-center\">Subtotal</th>\n" +
-        "                            <th></th>\n" +
+        "                            <th class=\"link-invisible\">Delete Button Column</th>\n" +
         "                        </tr>\n" +
         "                        </thead>\n" +
         "                        <tbody id=\"tbody-cart\">\n" +
@@ -180,8 +180,9 @@ function createCartRow(book, quantity) {
         "   </td>\n" +
         "   <td data-th=\"Price\">" + book.price + "</td>\n" +
         "   <td data-th=\"Quantity\">\n" +
+        "         <label for=\"book-quantity-" + book.ISBN + "\">quantity</label>" +
         "      <div class=\"form-group\">\n" +
-        "         <select class=\"form-control\" onchange=\"changeQuantity('" + book.ISBN + "')\" id=\"book-quantity-" + book.ISBN + "\">\n" +
+        "         <select aria-label=\"Quantity\" class=\"form-control\" onchange=\"changeQuantity('" + book.ISBN + "')\" id=\"book-quantity-" + book.ISBN + "\">\n" +
         "            <option>1</option>\n" +
         "            <option>2</option>\n" +
         "            <option>3</option>\n" +
@@ -190,7 +191,7 @@ function createCartRow(book, quantity) {
         "   </td>\n" +
         "   <td data-th=\"Subtotal\" class=\"text-center\">" + (book.price * quantity).toFixed(2) + "</td>\n" +
         "   <td class=\"actions\" data-th=\"\">\n" +
-        "      <button onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\"></i></button>\n" +
+        "      <button aria-label='Remove from cart' onclick=\"deleteBook('" + book.ISBN + "')\" class=\"btn btn-danger btn-sm\"><i class=\"far fa-trash-alt\"></i></button>\n" +
         "   </td>\n" +
         "</tr>");
 

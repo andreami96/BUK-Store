@@ -4,7 +4,7 @@ jQuery(document).ready(function() {
     let themeID = url.substr(url.lastIndexOf('/') + 1);
 
     $.get("/api/v1/themes/" + themeID, function(themeInfo) {
-        /* Banner image */
+
         $(".banner-primary").css('background-image',
             'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images' + themeInfo.picture + '")');
 
@@ -16,8 +16,6 @@ jQuery(document).ready(function() {
 
     /* Books of the theme */
     $.get("/api/v1/themes/" + themeID + "/books", function(bookIDs){
-
-        console.log(bookIDs);
 
         let bookProcessed = [];
 
@@ -44,8 +42,6 @@ function createBooksHTML(books) {
             );
 
         $.get("/api/v1/books/" + books[i].ISBN + "/authors", function (bookAuthors) {
-
-            console.log(bookAuthors);
 
             let bookImgHTML = $('<a>').attr('href', '/books/' + books[i].ISBN).append(
                 $('<img>').attr({

@@ -24,7 +24,7 @@ async function createMainGenres() {
     await MainGenre.create({
         mainGenreID: 2,
         title: "Didactic",
-        picture: "/images/mainGenres/didactic.png"
+        picture: "/images/mainGenres/didactic.jpg"
     });
 
     await MainGenre.create({
@@ -75,23 +75,6 @@ async function createGenres() {
     });
 
     await Genre.create({
-        genreID: 4,
-        title: "Historiography",
-        picture: "/genres/historiography.jpg",
-        mainGenreID: 1,
-        description: "Historiography is the study of the methods of historians in developing history as an academic discipline, and by extension is any body of historical work on a particular subject. The historiography of a specific topic covers how historians have studied that topic using particular sources, techniques, and theoretical approaches. Scholars discuss historiography by topic—such as the historiography of the United Kingdom, that of WWII, the British Empire, early Islam, and China—and different approaches and genres, such as political history and social history. Beginning in the nineteenth century, with the development of academic history, there developed a body of historiographic literature."
-    });
-
-    await Genre.create({
-        genreID: 5,
-        title: "Diary",
-        picture: "/genres/diary.jpg",
-        mainGenreID: 1,
-        description: "A diary is a record (originally in handwritten format) with discrete entries arranged by date reporting on what has happened over the course of a day or other period. A personal diary may include a person's experiences, thoughts, and/or feelings, excluding comments on current events outside the writer's direct experience." +
-            "Although a diary may provide information for a memoir, autobiography or biography, it is generally written not with the intention of being published as it stands, but for the author's own use. In recent years, however, there is internal evidence in some diaries (e.g. those of Ned Rorem, Alan Clark, Tony Benn or Simon Gray) that they are written with eventual publication in mind, with the intention of self-vindication, or simply for profit."
-    });
-
-    await Genre.create({
         genreID: 7,
         title: "Essay",
         picture: "/genres/essay.jpg",
@@ -99,14 +82,6 @@ async function createGenres() {
         description: "An essay is, generally, a piece of writing that gives the author's own argument. Essays have traditionally been sub-classified as formal and informal. Formal essays are characterized by \"serious purpose, dignity, logical organization, length,\" whereas the informal essay is characterized by \"the personal element (self-revelation, individual tastes and experiences, confidential manner), humor, graceful style, rambling structure, unconventionality or novelty of theme,\" etc.\n" +
             "\n" +
             "Essays are commonly used as literary criticism, political manifestos, learned arguments, observations of daily life, recollections, and reflections of the author. Almost all modern essays are written in prose, but works in verse have been dubbed essays as well."
-    });
-
-    await Genre.create({
-        genreID: 8,
-        title: "Treatise",
-        picture: "/genres/treatise.jpg",
-        mainGenreID: 2,
-        description: "A treatise is a formal and systematic written discourse on some subject, generally longer and treating it in greater depth than an essay, and more concerned with investigating or exposing the principles of the subject."
     });
 
     await Genre.create({
@@ -129,7 +104,7 @@ async function createGenres() {
     await Genre.create({
         genreID: 11,
         title: "Satire",
-        picture: "/genres/satire.png",
+        picture: "/genres/satire.jpg",
         mainGenreID: 3,
         description: "In satirical books vices, follies, abuses, and shortcomings are held up to ridicule, ideally with the intent of shaming individuals, corporations, government, or society itself into improvement. Although satire is usually meant to be humorous, its greater purpose is often constructive social criticism, using wit to draw attention to both particular and wider issues in society.\n" +
             "A feature of satire is strong irony or sarcasm — \"in satire, irony is militant\" — but parody, burlesque, exaggeration, juxtaposition, comparison, analogy, and double entendre are all frequently used in satirical speech and writing. This \"militant\" irony or sarcasm often professes to approve of (or at least accept as natural) the very things the satirist wishes to attack."
@@ -138,7 +113,7 @@ async function createGenres() {
     await Genre.create({
         genreID: 12,
         title: "Tragedy",
-        picture: "/genres/tragedy.png",
+        picture: "/genres/tragedy.jpg",
         mainGenreID: 4,
         description: "Tragedy is a form of drama based on human suffering that invokes an accompanying catharsis or pleasure in audiences. While many cultures have developed forms that provoke this paradoxical response, the term tragedy often refers to a specific tradition of drama that has played a unique and important role historically in the self-definition of Western civilisation. That tradition has been multiple and discontinuous, yet the term has often been used to invoke a powerful effect of cultural identity and historical continuity.\n"
     });
@@ -146,7 +121,7 @@ async function createGenres() {
     await Genre.create({
         genreID: 13,
         title: "Comedy",
-        picture: "/genres/comedy.png",
+        picture: "/genres/comedy.jpg",
         mainGenreID: 4,
         description: "In a modern sense, comedy refers to any discourse or work generally intended to be humorous or amusing by inducing laughter, especially in theatre, television, film, stand-up comedy, or any other medium of entertainment. The origins of the term are found in Ancient Greece. In the Athenian democracy, the public opinion of voters was influenced by the political satire performed by the comic poets at the theaters. The theatrical genre of Greek comedy can be described as a dramatic performance which pits two groups or societies against each other in an amusing agon or conflict. A revised view characterizes the essential agon of comedy as a struggle between a relatively powerless youth and the societal conventions that pose obstacles to his hopes." +
             "In this struggle, the youth is understood to be constrained by his lack of social authority, and is left with little choice but to take recourse in ruses which engender very dramatic irony which provokes laughter."
@@ -205,7 +180,7 @@ async function createBooks() {
     await Book.create({
         ISBN: "8845282678",
         title: "La verità sul caso Harry Quebert",
-        picture: "/books/8845282678.jpeg",
+        picture: "/books/8845282678.jpg",
         abstract: "Estate 1975; Nola Kellergan, una ragazzina di 15 anni, scompare misteriosamente nella tranquilla cittadina di Aurora, New Hampshire. " +
             "Le ricerche della polizia non danno alcun esito. Primavera 2008, New York. Marcus Goldman, giovane scrittore di successo, sta vivendo uno dei rischi del suo mestiere: " +
             "è bloccato, non riesce a scrivere una sola riga del romanzo che da lì a poco dovrebbe consegnare al suo editore. " +
@@ -409,7 +384,7 @@ async function createBooks() {
         interview: "This book is a great chance for me to reach my audience in a new way. The original idea actually came from my fans via Twitter, so I really think they are going to love it\n",
         availableQuantity: 200,
         price: 12.30,
-        genreID: 4,
+        genreID: 10,
         year: 2015,
         editor: "Penguin",
         pageNumber: 240,
@@ -425,7 +400,7 @@ async function createBooks() {
         interview: "",
         availableQuantity: 3,
         price: 14,
-        genreID: 4,
+        genreID: 12,
         year: 2015,
         editor: "Penguin",
         pageNumber: 240,
@@ -457,7 +432,7 @@ async function createBooks() {
         interview: "We have focused on two great challenges. Firstly, how to dramatically reduce carbon emissions within urgent time scales, and secondly, to enable billions of people who lack access to electricity to gain access to modern energy services. These two aims have one thing in common: the energy we use to power our world. It is somewhat extraordinary that half of the people in the world currently lack access to enough electricity to live the modern life we take for granted. A lot of the strategies that have been put forward for climate mitigation focus on 100% renewable energy sources (RES) as being the goal, and often include very large assumptions in relation to energy efficiency, for example a 40% reduction in the energy that we use today. I just cannot reconcile with that, because it means that poor people stay poor. If half the people in the world were to have access to a reasonable amount of electricity this would probably mean a doubling or tripling in existing demand. Not only do we need to entirely replace our existing fossil fuel infrastructure within decades, but also to double or triple it. So, our position is that to meet these challenges, we need to use all of the tools at our disposal and there is really no need to exclude nuclear energy from that conversation.",
         availableQuantity: 1000,
         price: 12.86,
-        genreID: 4,
+        genreID: 7,
         year: 2001,
         editor: "KnowledgePublications",
         pageNumber: 420,
@@ -991,7 +966,7 @@ async function createEvents() {
         address: "Galleria Vittorio Emanuele II, 20121 Milano",
         latitude: 45.466277,
         longitude: 9.189870,
-        eventDate: "2019-06-07",
+        eventDate: "2019-06-30",
         title: "The life of Michail Bulgakov",
         description: "Meet the Author Michail Bulgakov at this event",
         ISBN: "9788804668428",
@@ -1055,17 +1030,17 @@ async function createReservation() {
         quantity: 5,
         userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
         ISBN: "9788893440615"
-    })
+    });
 
     await Reservation.create({
-        reservationID: 1,
+        reservationID: 2,
         shippingLocation: "Paese, TV",
         orderDate: "2019-05-01",
         arrivalDate: "2019-05-06",
         quantity: 20,
         userID: "072f34b1-7fe6-4ae5-84a8-ca1e0925adb7",
         ISBN: "8852220550"
-    })
+    });
 }
 
 async function createGenreThemes() {
@@ -1295,19 +1270,19 @@ async function createGenericPages() {
             "    <div class=\"row\">\n" +
             "\n" +
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
-            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/luca2.jpg\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/luca2.jpg\" alt=\"Luca Napoletano\">\n" +
             "            <h2 class=\"mt-2\">Luca</h2>\n" +
             "            Hi! I'm Luca and my favourite book is <a href=\"/books/8845282678\">La verità sul caso Harry Quebert</a>.\n" +
             "        </div>\n" +
             "\n" +
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
-            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/andrea.jpg\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/andrea.jpg\" alt=\"Andrea Miotto\">\n" +
             "            <h2 class=\"mt-2\">Andrea</h2>\n" +
-            "            Hi! I'm Andrea and my favourite book is <a href=\"/books/9788893440615\">Il libro dei Baltimore</a>.\n" +
+            "            Hi! I'm Andrea and my favourite book is <a href=\"/books/9788804668428\">The Master and Margarita</a>.\n" +
             "        </div>\n" +
             "\n" +
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
-            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/claudio.jpeg\">\n" +
+            "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/claudio.jpeg\" alt=\"Claudio Montanari\">\n" +
             "            <h2 class=\"mt-2\">Claudio</h2>\n" +
             "            Hi! I'm Claudio and my favourite book is <a href=\"/books/006223790\">Pieces of Light</a>.\n" +
             "        </div>\n" +

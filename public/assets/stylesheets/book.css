@@ -209,16 +209,12 @@
     padding-bottom: 15px;
 }
 
-.reserve-button {
-    padding-top: 15px;
-}
-
 .product-data ul li p {
     display: inline;
 }
 
 .breadcrumb {
-    margin-top: 5rem;
+    margin: 5em 0 0 1em;
 }
 
 #collapseTwo .panel-body ul {

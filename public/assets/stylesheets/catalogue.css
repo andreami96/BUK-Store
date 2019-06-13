@@ -301,6 +301,13 @@ ul.rig.columns-1 {
     box-shadow: 0 10px 6px -6px black;
 }
 
+.product-image {
+    transition: all .8s cubic-bezier(.05,1,.22,1);
+}
+.product-image:hover {
+    opacity: 0.75;
+}
+
 .authorsNameList {
     font-size: 17px !important;
     font-style: italic;

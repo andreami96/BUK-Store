@@ -3,6 +3,7 @@ body {
 }
 
 #alphabetContainer {
+    margin-top: 2em;
     display: flex;
     flex-shrink: 0;
     flex-wrap: wrap;
@@ -17,8 +18,12 @@ body {
     padding: 0 0.55em;
 }
 
+#alphabetContainer a:hover {
+    text-decoration: underline;
+}
+
 #alphabetContainer .selectedLetter {
-    color: #e3b06c;
+    color: #af825a;
 }
 
 @media(min-width: 768px) {
@@ -37,13 +42,15 @@ body {
     }
 }
 
-
-#authorList a {
-    color: black;
-
+#authorList {
+    margin-bottom: 4em;
 }
 
 #authorList p {
     font-weight: lighter;
     color: #777777;
+}
+
+.breadcrumb {
+    margin: -1.5em 0 0 1em;
 }

@@ -65,7 +65,11 @@
 }
 
 #bestseller h1 {
-    margin-top: 1.5em;
+    margin-top: 1em;
+}
+
+#bestseller h1:hover {
+    text-decoration: underline;
 }
 
 .bestseller-el {
@@ -130,7 +134,12 @@
 }
 
 .book-image {
+    transition: all .8s cubic-bezier(.1,1,.22,1);
     height: 18em;
+}
+
+.book-image:hover {
+    opacity: 0.75;
 }
 
 @media (min-width: 768px) and (max-width: 976px) {
@@ -183,6 +192,10 @@
 #eventsMonth h1 {
     color: white;
     margin-top: 1.2em;
+}
+
+#eventsMonth h1:hover {
+    text-decoration: underline;
 }
 
 .event-display {
@@ -265,8 +278,13 @@
     height: 100%;
     top: 0;
     left: 0;
+    transition: all .8s cubic-bezier(.1,1,.22,1);
 
     z-index: 1;
+}
+
+.event-container span:hover {
+    background-color: rgba(255,255,255,0.15);
 }
 
 .relatedBook-container {
@@ -282,7 +300,11 @@
     /*border: 1px solid rgba(212, 212, 212, 1);*/
     border-bottom: 0;
     box-shadow: 0 10px 6px -6px black;
+    transition: all .8s cubic-bezier(.1,1,.22,1);
+}
 
+.relatedBook-container img:hover {
+    opacity: 0.75;
 }
 
 .book-info-header {

@@ -2,6 +2,10 @@ hr {
     padding-top: 10vh;
 }
 
+.transparent-text {
+    color: transparent;
+}
+
 body {
     height: 100%;
 }
@@ -13,4 +17,12 @@ body {
 .row {
     margin-left: 0;
     margin-right: 0;
+}
+
+#tbody-cart .btn-danger {
+    background-color: transparent;
+    color: black;
+    border-radius: 0;
+    border: 0;
+    border-color: black;
 }

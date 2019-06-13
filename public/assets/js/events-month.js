@@ -60,7 +60,10 @@ jQuery(document).ready(function() {
             )
         );
         eventContainer.append(
-            $('<a>').attr('href', '/events/' + eventInfo.eventID).append(
+            $('<a>').attr({
+                'class': 'link-invisible',
+                'href': '/events/' + eventInfo.eventID
+            }).text(eventInfo.title).append(
                 $('<span>')
             )
         );

@@ -11,7 +11,10 @@ jQuery(document).ready(function(){
 
         $('.banner-primary').css('background-image',
             'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images' + author.backgroundPicture + '")');
-        $('#authorImg').attr('src', '/assets/images' + author.picture);
+        $('#authorImg').attr({
+            'src': '/assets/images' + author.picture,
+            'alt': author.name + ' ' + author.surname
+        });
         $('#authorName').text(author.name + ' ' + author.surname);
         $('#authorBio').text(author.biography);
 
@@ -19,7 +22,6 @@ jQuery(document).ready(function(){
         $.get("/api/v1/authors/" + authorID + "/books", function(author){
 
             author.forEach(function(book, index) {
-                console.log(book);
                 $.get("/api/v1/books/" + book.ISBN, function(bookDetails) {
                     if(index % 4 === 0)
                         $('#content').append(
@@ -27,8 +29,6 @@ jQuery(document).ready(function(){
                         );
 
                     $.get("/api/v1/books/" + bookDetails.ISBN + "/authors", function(bookAuthors){
-
-                        console.log(bookAuthors);
 
                         let bookImgHTML = $('<a>').attr('href', '/books/' + bookDetails.ISBN).append(
                             $('<img>').attr({

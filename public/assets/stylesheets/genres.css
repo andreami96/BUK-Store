@@ -24,10 +24,26 @@ html,body {
     height: 100%;
     top: 0;
     left: 0;
-
     z-index: 1;
+
+    transition: all .8s cubic-bezier(.1,1,.22,1);
+}
+
+.small-genre-card span:hover {
+    background-color: rgba(255,255,255,0.15);
 }
 
 .breadcrumb {
     margin: -1.5em 0 0 1em;
+}
+
+/* Main genre separators */
+.card {
+    border-radius: 0;
+    border: 0;
+}
+.card-header {
+    background-color: white !important;
+    border-radius: 0;
+    border: 0;
 }

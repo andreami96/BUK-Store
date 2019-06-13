@@ -50,7 +50,7 @@ jQuery(document).ready(function() {
 
         if(data.availableQuantity > 0) {
             $('#stock').text("In Stock");
-            $('.cart').append("<button type=\"button\" class=\"btn btn-success\" onclick=\"addToCart()\">\n" +
+            $('.cart').append("<button type=\"button\" class=\"btn btn-primary\" onclick=\"addToCart()\">\n" +
                               "Reserve\n" +
                               "</button>");
         } else {
