@@ -754,6 +754,32 @@ async function createWrittenBy() {
 }
 
 async function createSimilarTo() {
+
+    await SimilarTo.create({
+        ParentISBN: "8845282678",
+        ChildISBN: "0440129710"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "8845282678",
+        ChildISBN: "1481449478"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "8845282678",
+        ChildISBN: "0525436146"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "8845282678",
+        ChildISBN: "006223790"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "8845282678",
+        ChildISBN: "0812998952"
+    });
+
     await SimilarTo.create({
         ParentISBN: "9788893440615",
         ChildISBN: "8845282678"
@@ -995,7 +1021,19 @@ async function createEvents() {
         description: "The perfect occasion to understand the thoughts behind Michéa's latest publication.",
         ISBN: "2081297892",
         picture: "/events/michea-event.jpg"
-    })
+    });
+
+    await Event.create({
+        eventID: 4,
+        address: "2127 West Bowler Street, 60612 Chicago",
+        latitude: 41.871283,
+        longitude: -87.679384,
+        eventDate: "2019-07-03",
+        title: "Joel Dicker in Chicago",
+        description: "Meet the bestselling author at this special event in downtown Chicago. Italian food and beverage will be provided.",
+        ISBN: "8845282678",
+        picture: "/events/harry_quebert_event.jpg"
+    });
 }
 
 async function createReservation() {
