@@ -7,6 +7,7 @@ jQuery(document).ready(function() {
         $(".banner-primary").css('background-image',
             'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images' + eventInfo.picture + '")');
         $("#eventTitle").text(eventInfo.title);
+        $("#breadcrumb-title").text(eventInfo.title);
         $.get("/api/v1/books/" + eventInfo.presentedBook, function (relatedBook, status) {
             console.log(relatedBook);
             $('#eventBook').attr(
