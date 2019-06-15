@@ -137,6 +137,14 @@
     }
 }
 
+.carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+.carousel-control-prev-icon {
+    filter: invert(100%);
+}
+
 .panel-heading .accordion-toggle [class*="fa"] {
     -webkit-transition-duration: 0.6s;
     -moz-transition-duration: 0.6s;

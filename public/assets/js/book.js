@@ -33,6 +33,7 @@ jQuery(document).ready(function() {
             $("#themes").parent().remove();
 
         $("#bookTitle").text(data.title);
+        $("title").text(data.title);
         $("#breadcrumb-title").text(data.title);
         $("#abstract").text(data.abstract);
         $("#price b").after(data.price + " €");

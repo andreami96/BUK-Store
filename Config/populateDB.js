@@ -1572,6 +1572,36 @@ async function createSimilarTo() {
         ParentISBN: "0520004507",
         ChildISBN: "1451626657"
     });
+
+    await SimilarTo.create({
+        ParentISBN: "006223790",
+        ChildISBN: "0520004507"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "006223790",
+        ChildISBN: "1451626657"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "006223790",
+        ChildISBN: "9780553381689"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "0520004507",
+        ChildISBN: "0525436146"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "0520004507",
+        ChildISBN: "9780553381689"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "0520004507",
+        ChildISBN: "2081297892"
+    });
 }
 
 async function createGenericPages() {
