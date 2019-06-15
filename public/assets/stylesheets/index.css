@@ -114,7 +114,7 @@
 
 @media (max-width: 576px) {
 
-    .carousel-caption {
+    .carousel-caption p {
         display: none !important; /* Hide the carousel text when the screen is small*/
     }
 

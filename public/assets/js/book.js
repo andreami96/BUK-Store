@@ -1,10 +1,7 @@
-/*
-    Carousel
-*/
-$('#carousel-similar-books').on('slide.bs.carousel', function (e) {
+function updateSimilarTo(e){
     /*
-        CC 2.0 License Iatek LLC 2018 - Attribution required
-    */
+    CC 2.0 License Iatek LLC 2018 - Attribution required
+*/
     var $e = $(e.relatedTarget);
     var idx = $e.index();
     var itemsPerSlide = 5;
@@ -22,7 +19,7 @@ $('#carousel-similar-books').on('slide.bs.carousel', function (e) {
             }
         }
     }
-});
+}
 
 jQuery(document).ready(function() {
 
@@ -211,12 +208,18 @@ jQuery(document).ready(function() {
                 else
                     class_item = "class=\"carousel-item col-12 col-sm-6 col-md-4 col-lg-3\"";
 
-                $("#carousel-listbox-similar-books").prepend(
+                $("#carousel-listbox-similar-books").append(
                     "<div " + class_item + " >" +
                     "   <a href='/books/" + data.ISBN + "' >" +
                     "   <img src='../assets/images" + data.picture + " ' class='img-fluid mx-auto d-block' href='#'>" +
                     "</div>"
                 );
+
+                /* Carousel */
+                $('#carousel-similar-books').on('slide.bs.carousel', function (e) {
+                    updateSimilarTo(e);
+                });
+
             })
         })
     })
