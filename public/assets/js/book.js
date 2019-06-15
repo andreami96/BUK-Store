@@ -41,6 +41,14 @@ jQuery(document).ready(function() {
         $("#pages").text(data.pageNumber);
         $("#editor").text(data.editor);
         $("#originalLanguage").text(data.originalLanguage);
+        $("#genre").append("<a href=\"/genres/" + data.genre.genreID + "\">" + data.genre.title + "</a>");
+
+        for(let i = 0; i < data.theme.length; i++) {
+            if(i === 0)
+                $("#themes").append("<a href=\"/themes/" + data.theme[i].themeID + "\">" + data.theme[i].title + "</a>");
+            else
+                $("#themes").append(", <a href=\"/themes/" + data.theme[i].themeID + "\">" + data.theme[i].title + "</a>");
+        }
 
         $("#item-display").attr(
             {
