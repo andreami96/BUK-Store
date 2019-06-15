@@ -346,7 +346,7 @@ async function createAuthors() {
         name: "Walt",
         surname: "Disney",
         picture: "/authors/walt.jpg",
-        backgroundPicture: "/authors/background/walt.jpg",
+        backgroundPicture: "/authors/background/disney.jpg",
         biography: "Walter Elias Disney, conosciuto come Walt Disney (Chicago, 5 dicembre 1901 – Burbank, 15 dicembre 1966), è stato un animatore, imprenditore, disegnatore, cineasta, doppiatore e produttore cinematografico statunitense.\n" +
             "\n" +
             "Annoverato tra i principali cineasti del XX secolo e riconosciuto come uno dei padri dei film d'animazione, ha inoltre creato Disneyland, il primo di una serie di parchi a tema; è altresì noto per la sua grande abilità nella narrazione di storie, come divo televisivo e uno dei grandi artisti del XX secolo nel campo dell'intrattenimento; il suo contributo più grande alla settima arte risiede probabilmente nell'aver portato allo stato dell'arte il rapporto fra immagine e musica.[senza fonte] Con i suoi collaboratori ha creato molti dei più famosi personaggi dei cartoni animati del mondo; uno di questi, Topolino, è secondo molti il suo alter ego.\n" +
