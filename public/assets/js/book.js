@@ -32,6 +32,9 @@ jQuery(document).ready(function() {
     $.get("/api/v1/books/" + isbn, function(data, status){
         console.log(data);
 
+        if(data.theme.length === 0)
+            $("#themes").parent().remove();
+
         $("#bookTitle").text(data.title);
         $("#breadcrumb-title").text(data.title);
         $("#abstract").text(data.abstract);
