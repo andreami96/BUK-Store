@@ -363,6 +363,28 @@ async function createAuthors() {
         biography: "Kearny attended Texas Military Institute in the 1930s, where he became the commanding officer of the cadet corps, a champion runner and rifle shot, and valedictorian of his class.[2] He attended Mercersburg Academy in Pennsylvania before earning a degree in civil engineering at Princeton University, graduating summa cum laude in 1937. He won a Rhodes Scholarship and went on to earn two degrees in geology at the University of Oxford. During the Sudeten Crisis he acted as a courier for an underground group helping anti-Nazis escape from Czechoslovakia.[3]"
     });
 
+    await Author.create({
+        authorID: 13,
+        name: "Joseph",
+        surname: "Heller",
+        picture: "/authors/13.jpg",
+        backgroundPicture: "/authors/background/catch.jpg",
+        biography: "Joseph Heller (May 1, 1923 – December 12, 1999) was an American author of novels, short stories, plays, and screenplays. His best-known work is the novel Catch-22, a satire on war and bureaucracy, whose title has become a synonym for an absurd or contradictory choice."
+    });
+
+    await Author.create({
+        authorID: 14,
+        name: "Galileo",
+        surname: "Galilei",
+        picture: "/authors/14.jpg",
+        backgroundPicture: "/authors/background/great-minds-background-11.jpg",
+        biography: "Galileo Galilei (February 15, 1564 to January 8, 1642) was an Italian astronomer, mathematician, physicist, philosopher and professor who made pioneering observations of nature with long-lasting implications for the study of physics. \n" +
+            "\n" +
+            "He also constructed a telescope and supported the Copernican theory, which supports a sun-centered solar system. Galileo was accused twice of heresy by the church for his beliefs, and wrote a number of books on his ideas. \n" +
+            "\n" +
+            "Galileo's contribution to our understanding of the universe was significant not only in his discoveries, but in the methods he developed and the use of mathematics to prove them. He played a major role in the scientific revolution and earned the moniker \"The Father of Modern Science.\""
+    });
+
 }
 
 async function createBooks() {
@@ -674,6 +696,45 @@ async function createBooks() {
         pageNumber: 420,
         originalLanguage: "English"
     });
+
+    await Book.create({
+        ISBN: "1451626657",
+        title: "Catch-22",
+        picture: "/books/catch22.jpg",
+        backgroundPicture: "/books/background/catch.jpg",
+        abstract: "Fifty years after its original publication, Catch-22 remains a cornerstone of American literature and one of the funniest—and most celebrated—books of all time. In recent years it has been named to “best novels” lists by Time, Newsweek, the Modern Library, and the London Observer. \n" +
+            "\n" +
+            "Set in Italy during World War II, this is the story of the incomparable, malingering bombardier, Yossarian, a hero who is furious because thousands of people he has never met are trying to kill him. But his real problem is not the enemy—it is his own army, which keeps increasing the number of missions the men must fly to complete their service. Yet if Yossarian makes any attempt to excuse himself from the perilous missions he’s assigned, he’ll be in violation of Catch-22, a hilariously sinister bureaucratic rule: a man is considered insane if he willingly continues to fly dangerous combat missions, but if he makes a formal request to be removed from duty, he is proven sane and therefore ineligible to be relieved. \n" +
+            "\n" +
+            "This fiftieth-anniversary edition commemorates Joseph Heller’s masterpiece with a new introduction by Christopher Buckley; a wealth of critical essays and reviews by Norman Mailer, Alfred Kazin, Anthony Burgess, and others; rare papers and photos from Joseph Heller’s personal archive; and much more. Here, at last, is the definitive edition of a classic of world literature.",
+        interview: "Joseph Heller was born in Brooklyn in 1923. In 1961, he published Catch-22, which became a bestseller and, in 1970, a film. He went on to write such novels as Good as Gold, God Knows, Picture This, Closing Time, and Portrait of an Artist, as an Old Man. Heller died in 1999.",
+        availableQuantity: 1000,
+        price: 13.84,
+        genreID: 11,
+        year: 2001,
+        editor: "Simon & Schuster",
+        pageNumber: 544,
+        originalLanguage: "English"
+    });
+
+    await Book.create({
+        ISBN: "0520004507",
+        title: "Dialogue Concerning the Two Chief World Systems",
+        picture: "/books/gal.jpg",
+        abstract: "Fifty years after its original publication, Catch-22 remains a cornerstone of American literature and one of the funniest—and most celebrated—books of all time. In recent years it has been named to “best novels” lists by Time, Newsweek, the Modern Library, and the London Observer. \n" +
+            "\n" +
+            "Set in Italy during World War II, this is the story of the incomparable, malingering bombardier, Yossarian, a hero who is furious because thousands of people he has never met are trying to kill him. But his real problem is not the enemy—it is his own army, which keeps increasing the number of missions the men must fly to complete their service. Yet if Yossarian makes any attempt to excuse himself from the perilous missions he’s assigned, he’ll be in violation of Catch-22, a hilariously sinister bureaucratic rule: a man is considered insane if he willingly continues to fly dangerous combat missions, but if he makes a formal request to be removed from duty, he is proven sane and therefore ineligible to be relieved. \n" +
+            "\n" +
+            "This fiftieth-anniversary edition commemorates Joseph Heller’s masterpiece with a new introduction by Christopher Buckley; a wealth of critical essays and reviews by Norman Mailer, Alfred Kazin, Anthony Burgess, and others; rare papers and photos from Joseph Heller’s personal archive; and much more. Here, at last, is the definitive edition of a classic of world literature.",
+        interview: "I invented a telescope. I invented it so that i could see the stars and sun closer and better. I also used the scientific method. Making a hypothesis and testing it. It was a very complicated experiment.",
+        availableQuantity: 1000,
+        price: 30.21,
+        genreID: 9,
+        year: 1962,
+        editor: "University of California Press",
+        pageNumber: 524,
+        originalLanguage: "Latin"
+    });
 }
 
 async function createBookTheme() {
@@ -766,6 +827,21 @@ async function createBookTheme() {
         ISBN: "8852220550",
         themeID: 5
     });
+
+    await BookTheme.create({
+        ISBN: "1451626657",
+        themeID: 3
+    });
+
+    await BookTheme.create({
+        ISBN: "1451626657",
+        themeID: 6
+    });
+
+    await BookTheme.create({
+        ISBN: "0520004507",
+        themeID: 6
+    });
 }
 
 async function createGenreThemes() {
@@ -843,6 +919,21 @@ async function createGenreThemes() {
         genreID: 13,
         themeID: 5
     });
+
+    await GenreTheme.create({
+        genreID: 11,
+        themeID: 3
+    });
+
+    await GenreTheme.create({
+        genreID: 11,
+        themeID: 6
+    });
+
+    await GenreTheme.create({
+        genreID: 9,
+        themeID: 6
+    });
 }
 
 
@@ -916,6 +1007,16 @@ async function createWrittenBy() {
     await WrittenBy.create({
         ISBN: "0440129710",
         authorID: 12
+    });
+
+    await WrittenBy.create({
+        ISBN: "1451626657",
+        authorID: 13
+    });
+
+    await WrittenBy.create({
+        ISBN: "0520004507",
+        authorID: 14
     });
 }
 
@@ -1196,6 +1297,33 @@ async function createReviews() {
             "racial, and sexual—bare. Packed with unforgettable characters, it’s a stunning book, timely as it is timeless.",
         ISBN: "0812998952"
     });
+
+    await Review.create({
+        reviewID: 28,
+        title: "It was love at first sight",
+        text: "That was fifty years ago. I was ten or eleven, Catch 22 was a year old or maybe two. My brother, in college, recommended this book. I liked it so much I read it beginning on New Year every year until I went to college. I just reread it for the first time in forty some years. It’s still brilliant. It’s still startlingly funny and it still hurts down deep.\n" +
+            "It rose above the realistic novels written immediately after the Second World War. It rose above Mailer and Jones and Shaw. When asked why he’d never written another book like Catch 22, Heller’s answer was “Who has?” Of course he was right. A couple of the great wave of novels that followed the Second World War stand shoulder to shoulder with the catch; Slaughter House Five and Gunter Grass’s Dog Years come to my mind. Lots of very good novels came out of the war, first novels from writers like Gore Vidal and Norman Mailer, Irwin Shaw and James Jones, Thomas Heggens, who won a Tony for the stage version of his novel, Mr. Roberts, James Gould Cozzens, who won a Pulitzer for Guard of Honor. None of those good books compare. Catch 22 entered the language. For a few years the blue paperback with the dancing soldier puppet was everywhere.\n" +
+            "Yossarian, the novel’s hero, spends the novel trying not to die in the war. A difficult job, since his colonel raises the number of missions he must fly from twenty-five to seventy, in an attempt to impress the Saturday Evening Post. Since I last read this I served in the army, where sooner or later everybody winds up working for Colonel Cathcart. I’m thinking that besides its anarchic appeal for youth, there were at that time millions of Veterans many of whom shared it’s cynicism about the organizations they worked for.\n" +
+            "If you’ve never read it, you’ve missed a great read. If you read it a long time ago It might be time to enjoy it again. I suspect you’ll still laugh whenever Heller tells you to. And like love at first sight it will probably still break your heart.",
+        ISBN: "1451626657"
+    });
+
+    await Review.create({
+        reviewID: 29,
+        title: "A lovely book",
+        text: "To read this book is to see the Western Mind open to light and fresh air after centuries of stale darkness. This is not to snub the monumental work of Aristotle or Ptolemy but to rue the fact that their writings were clung to as doctrine for so long.\n" +
+            "Even in translation, Galileo is a lively, robust, even funny writer. His fiery spirit is especially welcome in these troubled opening years of the 21st century: I kept marking pages for later reference. Some parts of this great book will require work on the reader's part, but the work is so eminently worth it. This edition has copious, interesting notes, too, which make the adventure an even more colorful and full one.\n" +
+            "This is no \"great grey classic\" to be endured, but a living bronco of a book: relevant, ferocious, and of great historical and scientific interest.",
+        ISBN: "0520004507"
+    });
+
+    await Review.create({
+        reviewID: 30,
+        title: "A Piece of Scientific History",
+        text: "Galileo's Dialogue Concerning the Two Chief World Systems has long had its place in the history books. The work consists of a dialogue between three characters, Salviati, Sagredo, and Simplicio. They gather together over the course of four days to discuss the Ptolemaic and Copernican views of the universe. Ptolemy's system is that of an earth centered universe that aligns with the views of Aristotle, the more popular conception. Copernicus's system is heliocentric. This is a radical opinion of the time and incidentally is the correct one. Salviati supports the Copernican system and Simplicio adheres to the Ptolemaic view. These two refute the ideas of the other and argue for their own. Sagredo is somewhat caught in the middle. However, he ultimately aligns with Salviati on every point. The translator, Stillman Drake, in his introduction, goes over the climate and political forces of Galileo's day along with Galileo's reason's for writing this book. As Drake points out, Galileo is appealing to the public here. It seems that this is Galileo getting in the last word on the argument for a heliocentric universe. This book is also what largely does him in with the Vatican. Galileo dose not directly argue against the church in this book but only against the Aristotelian opinion while showing reverence for divine power.\n" +
+            "The best was to describe this book is verbose. It fills 465 pages with small print. Because it is written in conversational tone, perhaps Galileo felt that the extra wording was necessary. It does take some time to read. Drake does an excellent job of making important notes throughout the work. Some of these are geared more for an academic study, but others give needed explanation. Just like we do not have all the answers today, Galileo makes some scientific mistakes. These are few and Drake gives explanations for them. This book is worth the read for its place in history. A brief background in astronomy and even Aristotelian philosophy will benefit the reader. I would also recommend Discoveries and Opinions of Galileo, also translated and compiled by Drake.",
+        ISBN: "0520004507"
+    });
 }
 
 async function createSimilarTo() {
@@ -1403,6 +1531,46 @@ async function createSimilarTo() {
     await SimilarTo.create({
         ParentISBN: "2081297892",
         ChildISBN: "0440129710"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "1451626657",
+        ChildISBN: "0812998952"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "1451626657",
+        ChildISBN: "9780553381689"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "1451626657",
+        ChildISBN: "2081297892"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "1451626657",
+        ChildISBN: "0440129710"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "0520004507",
+        ChildISBN: "9781405924382"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "0520004507",
+        ChildISBN: "8852220550"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "0520004507",
+        ChildISBN: "0440129710"
+    });
+
+    await SimilarTo.create({
+        ParentISBN: "0520004507",
+        ChildISBN: "1451626657"
     });
 }
 
@@ -1881,6 +2049,18 @@ async function createEvents() {
         description: "Meet the bestselling author at this special event in downtown Chicago. Italian food and beverage will be provided.",
         ISBN: "8845282678",
         picture: "/events/harry_quebert_event.jpg"
+    });
+
+    await Event.create({
+        eventID: 5,
+        address: "1234 Vine Street, 90038 Los Angeles",
+        latitude: 34.09834,
+        longitude:  -118.32674,
+        eventDate: "2019-07-06",
+        title: "Catch-22 Event",
+        description: "Meet the actors which are working at Catch-22, the series based on the related book",
+        ISBN: "1451626657",
+        picture: "/events/c22_102_ps1150-01013rt.jpg"
     });
 }
 
