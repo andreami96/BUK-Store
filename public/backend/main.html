@@ -515,6 +515,34 @@
 
             </div>
             <div class="col-11">
+                <h4>Session and Security handling</h4>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-10">
+                In the BUK Store application, each user can reserve the books he wants. Since we have intended this as a payment,
+                we have chosen to make this reservation possible only if the user is properly registered and logged in.
+                In order to achieve this goal, the API structure provides some endpoints to handle the signup and the login
+                phases securely. Indeed there is an endpoint, <i>/signup</i>, which handles the registration of the user inside
+                the application, through a POST request with the data the application needs (email, name, surname, password...).
+                Once the user is registered, he should activate the account thanks to a link automatically generated and send to the
+                given email, then, after this operation, the account is fully activated and the user could start use the <i>/login</i> endpoint
+                to login into the BUK Store website.
+                As soon as the user does the login, the system generates a token and stores it into the database, then it sends the token to
+                the user client through a cookie. At each user's request, the system receives the token from the client, and check if that token
+                actually exists into the database and it is still valid, if so, the system allows the client to access the information, otherwise
+                the application sends a <i>Not Authorized</i> error (HTTP Status Code 401).
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-start">
+            <div class="col-1">
+
+            </div>
+            <div class="col-11">
                 <h4>Database Model</h4>
             </div>
         </div>
@@ -1377,6 +1405,16 @@
 
         <br>
 
+        <div class="row justify-content-start">
+            <br><br><br>
+            <div class="col-1">
+
+            </div>
+            <div class="col-11">
+                <h4>Team Information</h4>
+            </div>
+        </div>
+
         <div class="row justify-content-center">
             <div class="col-10">
                 <p>
@@ -1411,34 +1449,34 @@
                 <div class="col-12 table-responsive">
                     <table class="table table-hover">
                         <thead>
-                            <tr>
-                                <th scope="col" class="small-col">Team Member</th>
-                                <th scope="col">Work Done</th>
-                            </tr>
+                        <tr>
+                            <th scope="col" class="small-col">Team Member</th>
+                            <th scope="col">Work Done</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">Andrea Miotto</th>
-                                <td>
-                                    60% on the development of the Frontend<br>
-                                    40% on designing the UI/UX
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Claudio Montanari</th>
-                                <td>
-                                    100% on the development of the Frontend
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Luca Napoletano</th>
-                                <td>
-                                    40% on the Node.js Implementation<br>
-                                    30% on developing the frontend<br>
-                                    15% on OpenAPI specification<br>
-                                    15% on the designing of the ER and the DB implementation
-                                </td>
-                            </tr>
+                        <tr>
+                            <th scope="row">Andrea Miotto</th>
+                            <td>
+                                60% on the development of the Frontend<br>
+                                40% on designing the UI/UX
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Claudio Montanari</th>
+                            <td>
+                                100% on the development of the Frontend
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Luca Napoletano</th>
+                            <td>
+                                40% on the Node.js Implementation<br>
+                                30% on developing the frontend<br>
+                                15% on OpenAPI specification<br>
+                                15% on the designing of the ER and the DB implementation
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -1483,8 +1521,36 @@
                     </table>
                 </div>
             </div>
-
     </div>
+
+        <br><br><br>
+        <div class="row justify-content-start">
+            <div class="col-1">
+
+            </div>
+            <div class="col-11">
+                <h4>Analysis of existing API</h4>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            <div class="col-10">
+                The <i>API</i>s of the BUK Store application were developed without too much influence of the existing ones.
+                The developers have used other API in some projects done during the academic years (likes the Facebook's API, to develop
+                a scraper, or the Runtastic's API, to integrate an application using their running data), however, no one of the
+                existing API system adheres properly to the <i>REST</i> specification, so we have decided to create our own
+                endpoints in order to learn as much as possible about that specification.
+                By the way, to learn what the <i>REST</i> specification tells on creating APIs and how to actually implement
+                them, we have look for the most common guides available online (i.e. Wikipedia).
+                Finally, to implement the security and the session of the BUK Store application, we have followed some guide
+                directly available on the <i>Node.js</i> website and on the <i>express.js</i> documentation.
+            </div>
+        </div>
+
+        <br><br>
+
     </div>
 
     <footer class="footer">

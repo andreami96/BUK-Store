@@ -1887,7 +1887,17 @@ async function createEvents() {
 async function createHomeCarousel() {
     await HomeCarousel.create({
         carouselID: 1,
-        ISBN: "9780553381689"
+        eventID: 1
+    });
+
+    await HomeCarousel.create({
+        carouselID: 2,
+        eventID: 2
+    });
+
+    await HomeCarousel.create({
+        carouselID: 3,
+        eventID: 3
     });
 }
 
