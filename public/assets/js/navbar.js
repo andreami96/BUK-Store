@@ -1,3 +1,5 @@
+let badgeNumber;
+
 $(document).ready(function () {
 
     $.ajax({
@@ -37,8 +39,11 @@ $(document).ready(function () {
                 for(let i = 0; i < data.books.length; i++)
                     bookInCart += data.books[i].quantity;
 
-                $('.badge').text(bookInCart)
-            })
+                $('.badge').text(bookInCart);
+                badgeNumber = bookInCart;
+            });
+
+            makeResizableNavbar(true, $(window).width());
 
         },
         error: function (xhr) {
@@ -71,6 +76,8 @@ $(document).ready(function () {
             else makeSolidNavbar();
 
             $(".empty-nav-space").css('width', $(".navbar-toggler").width());
+
+            makeResizableNavbar(false, $(window).width());
         }
     });
 
@@ -86,7 +93,10 @@ function addNavbar(isLogged, dropdown) {
     $(".navbar").addClass("navbar-default navbar-expand-sm fixed-top");
     createToggler();
     createHeader(isLogged);
-    createUnPackedMenus(isLogged);
+    if(dropdown)
+        createDropdownMenus(isLogged);
+    else
+        createUnPackedMenus(isLogged);
 }
 
 function createToggler() {
@@ -98,7 +108,7 @@ function createToggler() {
 
 function retrieveBadge() {
     return  "<div class=\"nav-item order-md-12 order-sm-1\">\n" +
-            "   <a href='/me'><span class=\"badge badge-primary\"></span></a>\n" +
+            "   <a href='/me'><span class=\"badge badge-primary\">" + badgeNumber + "</span></a>\n" +
             "</div>\n"
 }
 
@@ -140,13 +150,16 @@ function createUnPackedMenus(isLogged) {
         .append("<div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n" +
             "            <ul class=\"navbar-nav mr-auto\">\n" +
                             "<li class=\"nav-item\">\n" +
-            "                    <a class=\"nav-link\" href=\"/catalogue/1\">Catalogue</a>\n" +
+            "                    <a class=\"nav-link\" href=\"/catalogue/1\">All Books</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
             "                    <a class=\"nav-link\" href=\"/catalogue/genres.html\">Genres</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
             "                    <a class=\"nav-link\" href=\"/catalogue/themes.html\">Themes</a>\n" +
+            "                </li>\n" +
+            "                <li class=\"nav-item\">\n" +
+            "                    <a class=\"nav-link\" href=\"/events/events-month.html\">Events</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
             "                    <a class=\"nav-link\" href=\"/authors/a-z\">Authors</a>\n" +
@@ -161,20 +174,20 @@ function createDropdownMenus(isLogged) {
                 "            <ul class=\"navbar-nav mr-auto\">\n" +
                 "                <li class=\"nav-item dropdown\">\n" +
                 "                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n" +
-                "                        Sfoglia\n" +
+                "                        Catalogue\n" +
                 "                    </a>\n" +
                 "                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n" +
-                "                        <a class=\"dropdown-item\" href=\"/catalogue/1\">Catalogo Libri</a>\n" +
+                "                        <a class=\"dropdown-item\" href=\"/catalogue/1\">All Books</a>\n" +
                 "                        <div class=\"dropdown-divider\"></div>\n" +
-                "                        <a class=\"dropdown-item\" href=\"/catalogue/mainGenres.html\">Generi Principali</a>\n" +
-                "                        <a class=\"dropdown-item\" href=\"#\">Temi</a>\n" +
+                "                        <a class=\"dropdown-item\" href=\"/catalogue/genres.html\">Genres</a>\n" +
+                "                        <a class=\"dropdown-item\" href=\"/catalogue/themes.html\">Themes</a>\n" +
                 "                    </div>\n" +
                 "                </li>\n" +
                 "                <li class=\"nav-item\">\n" +
-                "                    <a class=\"nav-link\" href=\"#\">Eventi</a>\n" +
+                "                    <a class=\"nav-link\" href=\"/events/events-month.html\">Events</a>\n" +
                 "                </li>\n" +
                 "                <li class=\"nav-item\">\n" +
-                "                    <a class=\"nav-link\" href=\"#\">Autori</a>\n" +
+                "                    <a class=\"nav-link\" href=\"/authors/a-z\">Authors</a>\n" +
                 "                </li>\n" +
                 "            </ul>\n" + retrieveRightMenu(isLogged) +
                 " </div>");
@@ -186,15 +199,20 @@ function logout() {
     });
 }
 
-function makeResizableNavbar(isLogged) {
+function makeResizableNavbar(isLogged, initialWidth) {
+    let viewportWidth = initialWidth;
     $(window).resize(function() {
-        if ($('.navbar-toggler').is(':visible')) {
+        if (viewportWidth >= 576 && $(window).width() < 576) {
             $('.navbar').empty();
+            console.log('piccola');
+            console.log(isLogged);
             addNavbar(isLogged, false);
             $(".empty-nav-space").css('width', $(".navbar-toggler").width());
         }
-        else {
+        else if (viewportWidth < 576 && $(window).width() >= 576) {
             $('.navbar').empty();
+            console.log('grande');
+            console.log(isLogged);
             addNavbar(isLogged, true);
         }
 
@@ -206,6 +224,8 @@ function makeResizableNavbar(isLogged) {
             }
         }
         else makeSolidNavbar();
+
+        viewportWidth = $(window).width();
     });
 }
 

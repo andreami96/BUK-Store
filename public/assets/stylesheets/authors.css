@@ -15,7 +15,12 @@ body {
     font-size: larger;
     color: black;
     font-weight: lighter;
-    padding: 0 0.55em;
+    padding: 0.55em 0.7em;
+}
+
+#alphabetContainer .vertical-line {
+    padding: 0;
+    margin-top: 0.7em;
 }
 
 #alphabetContainer a:hover {
@@ -26,19 +31,29 @@ body {
     color: #af825a;
 }
 
-@media(min-width: 768px) {
+@media(min-width: 1200px) {
     #authorList {
-        margin-top: 2em;
+        margin-top: 3.5em;
     }
 }
-@media(max-width: 768px) {
-    #authorList {
-        margin-top: 4em;
-    }
-}
-@media(max-width: 576px) {
+@media(min-width: 768px) and (max-width: 1200px){
     #authorList {
         margin-top: 5em;
+    }
+}
+@media(min-width: 576px) and (max-width: 768px) {
+    #authorList {
+        margin-top: 8em;
+    }
+}
+@media(min-width: 380px) and (max-width: 576px) {
+    #authorList {
+        margin-top: 10em;
+    }
+}
+@media(max-width: 380px) {
+    #authorList {
+        margin-top: 13em;
     }
 }
 
