@@ -1799,19 +1799,19 @@ async function createGenericPages() {
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
             "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/luca2.jpg\" alt=\"Luca Napoletano\">\n" +
             "            <h2 class=\"mt-2\">Luca</h2>\n" +
-            "            Hi! I'm Luca and my favourite book is <a href=\"/books/8845282678\">La verità sul caso Harry Quebert</a>.\n" +
+            "            Hi! I'm Luca, I'm the backend developer, and if you need some help my mail is <a href=\"mailto:luca.napoletano@mail.polimi.it\">luca.napoletano@mail.polimi.it</a>.\n" +
             "        </div>\n" +
             "\n" +
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
             "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/andrea.jpg\" alt=\"Andrea Miotto\">\n" +
             "            <h2 class=\"mt-2\">Andrea</h2>\n" +
-            "            Hi! I'm Andrea and my favourite book is <a href=\"/books/9788804668428\">The Master and Margarita</a>.\n" +
+            "            Hi! I'm Andrea, I'm the frontend developer, and if you need some help my mail is <a href=\"mailto:andrea1.miotto@mail.polimi.it\">andrea1.miotto@mail.polimi.it</a>.\n" +
             "        </div>\n" +
             "\n" +
             "        <div class=\"col-sm-4 team-card mb-4\">\n" +
             "            <img class=\"round-image img-fluid\" src=\"./assets/images/contactUs/claudio.jpeg\" alt=\"Claudio Montanari\">\n" +
             "            <h2 class=\"mt-2\">Claudio</h2>\n" +
-            "            Hi! I'm Claudio and my favourite book is <a href=\"/books/006223790\">Pieces of Light</a>.\n" +
+            "            Hi! I'm Claudio, I'm the frontend developer, and if you need some help my mail is <a href=\"mailto:claudio1.montanari@mail.polimi.it\">claudio1.montanari@mail.polimi.it</a>.\n" +
             "        </div>\n" +
             "\n" +
             "    </div>\n" +

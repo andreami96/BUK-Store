@@ -39,7 +39,7 @@ body {
     }
 }
 
-@media only screen and (max-height: 500px) and (max-width: 576px){
+@media only screen and (max-height: 400px) and (max-width: 576px){
     .navbar-collapse {
         max-height: 40vh;
         overflow-y: auto;

@@ -153,6 +153,9 @@ function createUnPackedMenus(isLogged) {
             "                    <a class=\"nav-link\" href=\"/catalogue/1\">All Books</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
+            "                    <a class=\"nav-link\" href=\"/our-favourites.html\">Our Favourites</a>\n" +
+            "                </li>\n" +
+            "                <li class=\"nav-item\">\n" +
             "                    <a class=\"nav-link\" href=\"/catalogue/genres.html\">Genres</a>\n" +
             "                </li>\n" +
             "                <li class=\"nav-item\">\n" +
@@ -178,6 +181,7 @@ function createDropdownMenus(isLogged) {
                 "                    </a>\n" +
                 "                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n" +
                 "                        <a class=\"dropdown-item\" href=\"/catalogue/1\">All Books</a>\n" +
+                "                        <a class=\"dropdown-item\" href=\"/our-favourites.html\">Our Favourites</a>\n" +
                 "                        <div class=\"dropdown-divider\"></div>\n" +
                 "                        <a class=\"dropdown-item\" href=\"/catalogue/genres.html\">Genres</a>\n" +
                 "                        <a class=\"dropdown-item\" href=\"/catalogue/themes.html\">Themes</a>\n" +
