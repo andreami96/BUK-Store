@@ -11,7 +11,7 @@ router.get('/spec', function (req, res) {
 
 router.get('/code', function (req, res) {
     console.log("Downloading application ZIP");
-    res.download(path.join(__dirname, '../../../public/backend/app.zip'), 'buk_code.zip');
+    res.download(path.join(__dirname, '../../../public/backend/BUK-Store.zip'), 'BUK-Store.zip');
 });
 
 module.exports = router;
