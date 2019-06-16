@@ -133,6 +133,10 @@ a:hover {
     text-decoration: none;
 }
 
+.dropdown-item:hover {
+    color: #e3b178 !important
+}
+
 .link-invisible, label {
     /* Magiku */
     line-height: 0;
