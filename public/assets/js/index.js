@@ -53,8 +53,9 @@ $(document).ready(function() {
                                     "background-position-y":    "0",
                                     "min-height":               "90vh"
                                 }).wrap($('<a>').attr({
-                                    "href":                     "/events/" + results[j].eventID
-                            }));
+                                    "href":                     "/events/" + results[j].eventID,
+                                    "class":                    "link-invisible"
+                            }).text("event"));
                         }
                     })
                 }
