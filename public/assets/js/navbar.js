@@ -1,3 +1,5 @@
+let badgeNumber;
+
 $(document).ready(function () {
 
     $.ajax({
@@ -37,8 +39,9 @@ $(document).ready(function () {
                 for(let i = 0; i < data.books.length; i++)
                     bookInCart += data.books[i].quantity;
 
-                $('.badge').text(bookInCart)
-            })
+                $('.badge').text(bookInCart);
+                badgeNumber = bookInCart;
+            });
 
             makeResizableNavbar(true, $(window).width());
 
@@ -105,7 +108,7 @@ function createToggler() {
 
 function retrieveBadge() {
     return  "<div class=\"nav-item order-md-12 order-sm-1\">\n" +
-            "   <a href='/me'><span class=\"badge badge-primary\"></span></a>\n" +
+            "   <a href='/me'><span class=\"badge badge-primary\">" + badgeNumber + "</span></a>\n" +
             "</div>\n"
 }
 
@@ -201,11 +204,15 @@ function makeResizableNavbar(isLogged, initialWidth) {
     $(window).resize(function() {
         if (viewportWidth >= 576 && $(window).width() < 576) {
             $('.navbar').empty();
+            console.log('piccola');
+            console.log(isLogged);
             addNavbar(isLogged, false);
             $(".empty-nav-space").css('width', $(".navbar-toggler").width());
         }
         else if (viewportWidth < 576 && $(window).width() >= 576) {
             $('.navbar').empty();
+            console.log('grande');
+            console.log(isLogged);
             addNavbar(isLogged, true);
         }
 
