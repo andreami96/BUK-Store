@@ -57,9 +57,14 @@ function addNavbar(isLogged, dropdown) {
     if( !$("#navbarNoHover").length ){
         // Show navbar when scrolling down
         $(window).scroll(function () {
-            if ($(this).scrollTop() <= 60 && !$('#navbarCollapse').is(':visible'))
+            if ($(this).scrollTop() <= 60 && $('.navbar-toggler').is(':visible') && !$('#navbarCollapse').is(':visible'))
                 makeTransparentNavbar();
-            else
+            else if($(this).scrollTop() > 60 && $('.navbar-toggler').is(':visible'))
+                makeSolidNavbar();
+
+            if ($(this).scrollTop() <= 60 && !$('.navbar-toggler').is(':visible'))
+                makeTransparentNavbar();
+            else if($(this).scrollTop() > 60 && !$('.navbar-toggler').is(':visible'))
                 makeSolidNavbar();
         });
 
