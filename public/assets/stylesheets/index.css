@@ -223,7 +223,7 @@
     background-size: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .event-image {
         height: 10em;
     }
@@ -249,7 +249,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
     .event-display:nth-child(odd) .event-container,
     .event-display:nth-child(odd) .event-image{
         order: 1;
