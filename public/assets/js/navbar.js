@@ -29,8 +29,6 @@ $(document).ready(function () {
             else
                 addNavbar(false, false);
 
-            makeTransparentNavbar();
-
             $(".empty-nav-space").css('width', $(".navbar-toggler").width());
 
             makeResizableNavbar(false, $(window).width());
@@ -69,9 +67,17 @@ function addNavbar(isLogged, dropdown) {
 
             if(!$('#navbarCollapse').is(':visible'))
                 makeSolidNavbar();
-            else
+            else if($(window).scrollTop() < 60)
                 setTimeout(makeTransparentNavbar, 300);
-        })
+        });
+
+        $(".navbar").hover(function() {
+            makeSolidNavbar();
+        },function() {
+            if ($(window).scrollTop() < 60 &&
+                !($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
+                makeTransparentNavbar();
+        });
 
     }
     else makeSolidNavbar();
