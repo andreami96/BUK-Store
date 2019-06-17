@@ -21,11 +21,14 @@ $(document).ready(function() {
         })
     ).done(function(){
         let startDateRaw = new Date();
-        let endDateRaw = addDays(startDateRaw, 60);
-        console.log(endDateRaw);
+        let endDateRaw = addDays(startDateRaw, 30);
+        startDateRaw = addDays(startDateRaw, -30);
 
         let startDate = formatDate(startDateRaw);
         let endDate = formatDate(endDateRaw);
+
+        console.log("Searching from: " + startDate);
+        console.log("Searching to: " + endDate);
 
         $.get('/api/v1/events?from=' + startDate + '&to=' + endDate, function (eventsSimple) {
             console.log(eventsSimple);

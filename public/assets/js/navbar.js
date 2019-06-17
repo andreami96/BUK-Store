@@ -229,6 +229,15 @@ function makeResizableNavbar(isLogged, initialWidth) {
         }
         else makeSolidNavbar();
 
+        // Show navbar when hovering over
+        $(".navbar").hover(function() {
+            makeSolidNavbar();
+        },function() {
+            if ($(window).scrollTop() < 60 &&
+                !($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
+                makeTransparentNavbar();
+        });
+
         viewportWidth = $(window).width();
     });
 }

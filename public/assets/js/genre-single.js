@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
     });
 
     /* Books of the genre */
-    $.get("/api/v1/genres/" + genreID + "/books", function(bookIDs){
+    $.get("/api/v1/genres/" + genreID + "/books?limit=100", function(bookIDs){
 
         let bookProcessed = [];
 

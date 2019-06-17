@@ -15,7 +15,7 @@ jQuery(document).ready(function() {
     });
 
     /* Books of the theme */
-    $.get("/api/v1/themes/" + themeID + "/books", function(bookIDs){
+    $.get("/api/v1/themes/" + themeID + "/books?limit=100", function(bookIDs){
 
         let bookProcessed = [];
 

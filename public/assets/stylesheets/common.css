@@ -134,6 +134,11 @@ a:hover {
     text-decoration: none;
 }
 
+.dropdown-item {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
 .dropdown-item:hover {
     color: #e3b178 !important
 }
