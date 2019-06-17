@@ -1,7 +1,4 @@
-/*
-    code by Iatek LLC 2018 - CC 2.0 License - Attribution required
-    code customized by Azmind.com
-*/
+
 @media (min-width: 768px) and (max-width: 991px) {
     /* Show 4th slide on md if col-md-4*/
     .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
@@ -231,6 +228,7 @@
 
 #book-events ul {
     list-style-type: none;
+    padding-top: 1em;
 }
 
 #book-events a {
