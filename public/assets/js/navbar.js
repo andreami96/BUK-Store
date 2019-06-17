@@ -10,29 +10,6 @@ $(document).ready(function () {
             else
                 addNavbar(true, false);
 
-            makeTransparentNavbar();
-
-            if( !$("#navbarNoHover").length ){
-                // Show navbar when scrolling down
-                $(window).scroll(function () {
-                    if ($(this).scrollTop() > 60 ||
-                        ($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
-                        makeSolidNavbar();
-                    else
-                        makeTransparentNavbar();
-                });
-
-                // Show navbar when hovering over
-                $(".navbar").hover(function() {
-                    makeSolidNavbar();
-                },function() {
-                    if ($(window).scrollTop() < 60 &&
-                        !($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
-                        makeTransparentNavbar();
-                })
-            }
-            else makeSolidNavbar();
-
             $.get('/api/v1/me/cart', function (data) {
                 let bookInCart = 0;
 
@@ -53,27 +30,6 @@ $(document).ready(function () {
                 addNavbar(false, false);
 
             makeTransparentNavbar();
-
-            if( !$("#navbarNoHover").length ){
-                // Show navbar when scrolling down
-                $(window).scroll(function () {
-                    if ($(this).scrollTop() > 60 ||
-                            ($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
-                        makeSolidNavbar();
-                    else
-                        makeTransparentNavbar();
-                });
-
-                // Show navbar when hovering over
-                $(".navbar").hover(function() {
-                    makeSolidNavbar();
-                },function() {
-                    if ($(window).scrollTop() < 60 &&
-                        !($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
-                        makeTransparentNavbar();
-                })
-            }
-            else makeSolidNavbar();
 
             $(".empty-nav-space").css('width', $(".navbar-toggler").width());
 
@@ -97,6 +53,28 @@ function addNavbar(isLogged, dropdown) {
         createDropdownMenus(isLogged);
     else
         createUnPackedMenus(isLogged);
+
+    makeTransparentNavbar();
+
+    if( !$("#navbarNoHover").length ){
+        // Show navbar when scrolling down
+        $(window).scroll(function () {
+            if ($(this).scrollTop() <= 60 && !$('#navbarCollapse').is(':visible'))
+                makeTransparentNavbar();
+            else
+                makeSolidNavbar();
+        });
+
+        $(".navbar-toggler").click(function () {
+
+            if(!$('#navbarCollapse').is(':visible'))
+                makeSolidNavbar();
+            else
+                setTimeout(makeTransparentNavbar, 300);
+        })
+
+    }
+    else makeSolidNavbar();
 }
 
 function createToggler() {
@@ -219,25 +197,6 @@ function makeResizableNavbar(isLogged, initialWidth) {
             console.log(isLogged);
             addNavbar(isLogged, true);
         }
-
-        if( !$("#navbarNoHover").length ){
-            if ($(window).scrollTop() > 60) {
-                makeSolidNavbar();
-            } else {
-                makeTransparentNavbar();
-            }
-        }
-        else makeSolidNavbar();
-
-        // Show navbar when hovering over
-        $(".navbar").hover(function() {
-            makeSolidNavbar();
-        },function() {
-            if ($(window).scrollTop() < 60 &&
-                !($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
-                makeTransparentNavbar();
-        });
-
         viewportWidth = $(window).width();
     });
 }
