@@ -62,7 +62,7 @@ function addNavbar(isLogged, dropdown) {
             else if($(this).scrollTop() > 60 && $('.navbar-toggler').is(':visible'))
                 makeSolidNavbar();
 
-            if ($(this).scrollTop() <= 60 && !$('.navbar-toggler').is(':visible'))
+            if ($(this).scrollTop() <= 60 && !$('.navbar-toggler').is(':visible') && !$('#navbarDropdown').is(':focus'))
                 makeTransparentNavbar();
             else if($(this).scrollTop() > 60 && !$('.navbar-toggler').is(':visible'))
                 makeSolidNavbar();

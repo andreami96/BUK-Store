@@ -1,7 +1,4 @@
-/*
-    code by Iatek LLC 2018 - CC 2.0 License - Attribution required
-    code customized by Azmind.com
-*/
+
 @media (min-width: 768px) and (max-width: 991px) {
     /* Show 4th slide on md if col-md-4*/
     .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
@@ -13,7 +10,7 @@
         visibility: visible;
     }
 }
-@media (min-width: 576px) and (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 767px) {
     /* Show 3rd slide on sm if col-sm-6*/
     .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
         position: absolute;
@@ -105,7 +102,7 @@
     }
 }
 /* LG */
-@media (min-width: 991px) {
+@media (min-width: 992px) {
     /* show 4th item */
     .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
         display: block;
@@ -231,6 +228,7 @@
 
 #book-events ul {
     list-style-type: none;
+    padding-top: 1em;
 }
 
 #book-events a {
