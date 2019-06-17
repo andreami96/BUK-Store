@@ -17,6 +17,10 @@
     height: 90vh;
 }
 
+.carousel-item a {
+    display: flex;
+}
+
 #eventCarousel0 {
     background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/bulgakov-event.jpg');
 }
