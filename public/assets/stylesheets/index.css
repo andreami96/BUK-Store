@@ -17,6 +17,10 @@
     height: 90vh;
 }
 
+.carousel-item a {
+    display: flex;
+}
+
 #eventCarousel0 {
     background:linear-gradient(rgba(97, 98 ,116 , .5), rgba(97, 98 ,116 , .5)), url('../images/events/bulgakov-event.jpg');
 }
@@ -219,7 +223,7 @@
     background-size: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .event-image {
         height: 10em;
     }
@@ -245,7 +249,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
     .event-display:nth-child(odd) .event-container,
     .event-display:nth-child(odd) .event-image{
         order: 1;
