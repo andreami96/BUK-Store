@@ -57,12 +57,14 @@ function addNavbar(isLogged, dropdown) {
     if( !$("#navbarNoHover").length ){
         // Show navbar when scrolling down
         $(window).scroll(function () {
+            //  mobile version
             if ($(this).scrollTop() <= 60 && $('.navbar-toggler').is(':visible') && !$('#navbarCollapse').is(':visible'))
                 makeTransparentNavbar();
             else if($(this).scrollTop() > 60 && $('.navbar-toggler').is(':visible'))
                 makeSolidNavbar();
 
-            if ($(this).scrollTop() <= 60 && !$('.navbar-toggler').is(':visible') && !$('#navbarDropdown').is(':focus'))
+            // desktop version
+            if ($(this).scrollTop() <= 60 && !$('.navbar-toggler').is(':visible') && !$('.dropdown-item').is(':visible'))
                 makeTransparentNavbar();
             else if($(this).scrollTop() > 60 && !$('.navbar-toggler').is(':visible'))
                 makeSolidNavbar();
@@ -79,8 +81,12 @@ function addNavbar(isLogged, dropdown) {
         $(".navbar").hover(function() {
             makeSolidNavbar();
         },function() {
+            console.log('toggler: ' + $('.navbar-toggler').is(':visible'));
+            console.log('menu mobile: ' + $('#navbarCollapse').is(':visible'));
+            console.log('dropdown desktop: ' + $('.dropdown-menu').is(':visible'));
             if ($(window).scrollTop() < 60 &&
-                !($('.navbar-toggler').is(':visible') && $('#navbarCollapse').is(':visible')))
+                (($('.navbar-toggler').is(':visible') && !$('#navbarCollapse').is(':visible')) ||
+                    (!$('.navbar-toggler').is(':visible') && !$('.dropdown-menu').is(':visible'))))
                 makeTransparentNavbar();
         });
 
