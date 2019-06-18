@@ -3,6 +3,8 @@
     font-size: 15px;
     background-color: #fff;
     align-items: center;
+    border-bottom: 1px solid rgba(212, 212, 212, 0.7);
+    margin: 0;
 }
 
 body {
