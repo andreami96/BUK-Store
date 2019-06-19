@@ -44,10 +44,10 @@ html,body {
     border: 1px solid rgba(212, 212, 212, 1);
 }
 
-#descriptionCol a {
+/*#descriptionCol a {
     color: black;
     font-style: italic;
-}
+}*/
 
 #mapid {
     margin: 50px;

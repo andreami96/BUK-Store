@@ -53,7 +53,7 @@ a[data-toggle="collapse"] {
     }
 }
 
-#sidebar a, a:hover, a:focus {
+#sidebar a, #sidebar a:hover, #sidebar a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
@@ -313,15 +313,6 @@ ul.rig.columns-1 {
     font-style: italic;
     font-weight: normal;
     text-align: center;
-    color: #2d2d30;
-}
-
-.authorsNameList a {
-    color: black;
-}
-
-.authorsNameList a:hover{
-    color: darkslategrey;
 }
 
 .price {

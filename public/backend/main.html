@@ -68,7 +68,7 @@
                     Here you can find the main information concerning the development of the Backend and the
                     development of the Database used inside the application.
                     <br>
-                    This document is structured into 4 more section:
+                    This document is structured in 4 more section:
                 </p>
                 <div class="row justify-content-center">
                     <ol>
@@ -79,39 +79,38 @@
                     </ol>
                 </div>
                 <p>
-                    In the first section you will find the main information about <i>MiChi-Studios</i> team and how they
-                    split their work in order to be able to complete this project. Moreover here you can find a contact
-                    address for each team member
+                    In the <i>Team</i> section you will find the main information about the <i>MiChi-Studios</i> team and how they
+                    organized their work to complete this project. Moreover, here you can find the contact
+                    addresses of the team members
                 </p>
                 <p>
-                    In the second section are reported the links related to each required deliverable, concerning the
+                    In the <i>Links</i> section are reported the links related to each required deliverable, concerning the
                     Backend part of this project.
                     <br>
-                    Indeed in this section you will find the links for the download of
-                    the <b>YAML</b> specification file, the link to the <b>Swagger<i>UI</i></b> online page in order
-                    to test the BUK Store <i>API</i>, a link used to download our application in a convenient <i>ZIP</i>
-                    file and finally you will find the link of the <i>MiChi-Studios</i> GitHub Repository
+                    You will find the links to download the <b>YAML</b> specification file, the link to the <b>Swagger<i>UI</i></b> page, which is useful
+                    for <i>API</i> testing purposes, a link to download our application in a convenient <i>ZIP</i>
+                    file and, finally, you will find the link to the <i>MiChi-Studios</i> GitHub Repository
                 </p>
                 <p>
-                    In the third section of this document you will find a detailed report of each part of our application.
-                    Here there is a section related to our web architecture, and here you can find how we have decided to
-                    divide our application and how each component interacts with the others.
+                    In the <i>Specification</i> section of this document you will find a detailed report of each part of our application.
+                    The first section presents our web architecture: you will find how we have decided to
+                    structure our application and how components interact with each other.
                     <br>
-                    Then there is a part devoted to the explanation of the Database of our application, so how
+                    Then there is a part devoted to the explanation of the database of our application: how
                     we have developed our relationship inside a real database, what are the entities we have used and
                     how these entities are mapped into the <i>OpenAPI</i> models
                     <br>
-                    This section continues with a part on the tools we have used during the development phase of the
-                    BUK Store application, what kind of languages and frameworks we have adopted in our web app.
+                    This section continues with a part on the tools used during the development phase of the
+                    BUK Store application and the kinds of languages and frameworks we have adopted in our web app.
                     <br>
-                    Finally this part ends with a discussion on our decision, and how the choices we have made adhere to
+                    Finally, we discuss our decisions, how the choices we have made adhere to
                     the <i>OpenAPI</i> specification we have written, how we have partitioned the application data and
                     the static assets and how we have managed the session of the user inside the web application
                 </p>
                 <p>
-                    In the last section of this documentation page you will find a more detailed report concerning
-                    how our team decided to split the work of building this application and what each team member
-                    has learned during this experience
+                    In the <i>Other Information</i> section of this documentation page you will find a more detailed report concerning
+                    how our team decided to split the effort needed to build the application, followed by a brief description of
+                    the learning experience of each team member during the development process.
                 </p>
             </div>
         </div>
@@ -241,15 +240,15 @@
 
         <div class="row justify-content-center">
             <div class="col-10">
-                The BUK Store application was developed during the Hypermedia Application (Web and Multimedia) course
-                of the Politecnico di Milano. The main purpose of this application is to develop a web application
-                for an online book store and its multimedia content about books and authors. In particular the web
+                The BUK Store application has been developed during the Hypermedia Application (Web and Multimedia) course
+                at Politecnico di Milano. The main purpose of this project is to develop a web application
+                for an online book store and its multimedia content about books and authors. In particular, the web
                 application should handle 3 main entities: Books, Authors and Events. Each book can be written by
                 different authors, and of course each author has probably written more than one book.
                 There are also events during which a book is presented.
                 <br>
-                So the user should be able to surf the BUK Store application, finding the useful information about each
-                book, event or author, but also he or she should be able to reserve some books and to see his/hers
+                The user should be able to browse the BUK Store application, find useful information about each
+                book, event or author. Furthermore, he should be able to reserve some books and to see his past
                 purchases.
             </div>
         </div>
@@ -270,9 +269,9 @@
 
         <div class="row justify-content-center">
             <div class="col-10">
-                The BUK Store Web Application is divided into the common Client-Server pattern. The client is represented
+                The BUK Store Web Application follows the common Client-Server pattern. The client is represented
                 by the user's web browser, and for that the frontend part of the application is written with
-                HTML, CSS and JavaScript, in this way the most common browsers can handle and render properly the
+                HTML, CSS and JavaScript. In this way, the most common browsers can handle and render properly the
                 frontend of this application.
                 <div class="row justify-content-center">
                     <img src="../assets/images/backend/html_js_css.png" alt="HTML, CSS, JS" height="100">
@@ -284,14 +283,14 @@
                     <img src="../assets/images/backend/node.png" alt="node.js" height="100">
                 </div>
                 <br>
-                The Server is divided into 4 main component, which are in charge of fulfill a specific function:
+                The Server is divided into 4 main component, which are in charge of fulfilling a specific function:
                 <br><br>
                 <div class="col-8 mx-auto">
                     <img src="../assets/images/backend/server_schema.png" alt="HTML, CSS, JS" class="img-fluid mx-auto">
                 </div>
 
                 <br>
-                As you can notice from the above diagram, the four part are the model, the controller, the route
+                As you can notice from the diagram above, the four parts are the model, the controller, the route
                 handler and a static part, used to serve the HTML, CSS or JavaScript files.
             </div>
         </div>
@@ -308,10 +307,10 @@
         <div class="row justify-content-center">
             <div class="col-10">
                 This is the core part of the data of BUK Store application. This module is in charge of creating the
-                entire structure of the Database, both each one of the tables (which they will be described later
-                in this document) and also the relationship between them.
+                entire structure of the database, the tables (which will be described later
+                in this document) and the relationships between them.
                 In the Model package of the application you can find various folders, each one contains the files
-                which tells how the tables should be stored inside the PostgreSQL database.
+                that tell how the tables should be stored inside the PostgreSQL database.
                 <br>
                 Then you can find a special file called <kbd>sequelize.js</kbd>, which is the main entry point of all
                 the Model. Each table is actually created in this file, and each relation is mapped here, thanks to the
@@ -334,19 +333,19 @@
 
         <div class="row justify-content-center">
             <div class="col-10">
-                The database is nothing without the controller, and the purpose of this module is exactly to fulfill
+                The database is nothing without the controller. The purpose of this module is to fulfill
                 the <i>REST API</i> specification, querying the Database to obtain results and to pack them into
-                nice objects used to be sent to the client.
+                nice objects to be sent to the client.
                 <br>
-                This module is divided into various categories, one for each request the Server can handle. In this
-                files you will find 2 main types code, one used to actually query the Database to retrieve the information
-                requested, and another one used to pack this data into JSON objects, which will be sent to the client
+                This module is divided into various categories, one for each request the Server can handle. In these
+                files you will find 2 main types code: one used to actually query the Database to retrieve the information
+                requested, another one used to pack this data into JSON objects, which will be sent to the client
                 by the Route Handler.
                 <br>
-                The controller is also responsible to check the parameters of the client's requests, in order to avoid
-                some unpleasant behaviours, and is also responsible to check if the user is logged in or not (done
-                inside the <kbd>checkAuthMiddleware</kbd> function), in order to properly handle the user's session,
-                the user's cart and the user's books reservation
+                The controller is also responsible of checking the parameters of the client requests (in order to avoid
+                some unpleasant behaviours) and if the user is logged in or not (done
+                inside the <kbd>checkAuthMiddleware</kbd> function), in order to properly handle the user session,
+                the user cart and the user books reservation.
             </div>
         </div>
 
@@ -363,28 +362,28 @@
 
         <div class="row justify-content-center">
             <div class="col-10">
-                This component is made thanks to the Express Framework, part of the Node.js suite. This part of the
-                web application is the entry point for all the requests which come to the server.
+                This component is made with the Express Framework, part of the Node.js suite. This part of the
+                web application is the entry point for all the requests that come to the server.
                 <br>
-                The route handler component is implemented inside the <i>Route</i> package, which contains the entire
-                set of function used to handle the endpoints of the API. All this function are the common ones
+                The route handler component is implemented inside the <i>Route</i> package and contains the entire
+                set of functions used to handle the endpoints of the API. All these functions are the ones commonly
                 used in the express environment:
                 <br>
                 <kbd>
                     router.get('/', function(req, res, next) { ...code... });
                 </kbd>
                 <br>
-                The Route Handler component, for the sake of maintainability, is splitted into 2 main javascript file,
+                The Route Handler component, for the sake of maintainability, is split into 2 main javascript file,
                 the <kbd>staticRouter.js</kbd> and the <kbd>apiRouter.js</kbd>, which are used to handle, respectively,
                 the static pages and the API endpoints.
-                More specifically, the Static Router is used to handle different URLs, and it only sends to the client
+                Specifically, the Static Router is used to handle different URLs, and it only sends to the client
                 the requested page, without any kind of rendering; while the API Router is used to fulfill the endpoints
                 requests, giving back to the client the JSON object with the data requested.
                 <br>
-                To be more sure that no pages can be rendered from the server, actually there isn't any kind of
-                component installed in our application which can be render a page (I.E. the <i>EJS</i> view engine),
+                To be sure that no pages can be rendered from the server, actually there isn't any kind of
+                component installed in our application which can render a page (I.E. the <i>EJS</i> view engine),
                 so the Server is only able either to retrieve static pages (HTML, CSS and JavaScript client side) or
-                to construct JSON objects to be sent to the client through the API endpoints
+                to construct JSON objects to be sent to the client through the API endpoints.
             </div>
         </div>
 
@@ -403,35 +402,34 @@
 
         <div class="row justify-content-center">
             <div class="col-10">
-                The whole architecture fulfill the <i>REST</i> API specification, indeed, as you can see from the
-                <i>SwaggerUI</i> page, the only accepted request are GET, POST, PUT and DELETE. All the request made
-                to the server will be responded by a JSON object (or an array of JSON objects), which contains
+                The whole architecture fulfills the <i>REST</i> API specification and accepts GET, POST, PUT and DELETE requests.
+                The responses to the requests received by the server are JSON objects (or arrays of JSON objects) that contain
                 either the data requested or an error message, which specifies the HTTP error code and a description
                 of the occurred error. Each response gives one of the following HTTP code:
                 <ul>
                     <li>
-                        <b>200</b>: The request is successful, and the Server return a proper object
+                        <b>200</b>: The request is successful, and the Server returns a proper object
                     </li>
                     <li>
                         <b>201</b>: The request is successful, and a new User is created inside the DB. You should
-                        received a mail by the Server with a activation link for that account
+                        receive a mail by the Server with an activation link for that account
                     </li>
                     <li>
-                        <b>400</b>: The request isn't well written. Probably the parameters you have given either in the
-                        query part or in the body part aren't properly written, or maybe there is a required parameter
+                        <b>400</b>: The request is not well written. Probably the parameters you have given either in the
+                        query part or in the body part are not properly written, or maybe there is a required parameter
                         which is actually missing
                     </li>
                     <li>
-                        <b>401</b>: This endpoint belongs to the protected one, so it is required the login before accessing
-                        this endpoint. If you receive this error, it means that either the login isn't successful or you
-                        are trying to access to a private endpoint without a valid session token
+                        <b>401</b>: This endpoint is protected, so login is required before accessing
+                        this endpoint. If you receive this error, it means that either the login is not successful or you
+                        are trying to access a private endpoint without a valid session token
                     </li>
                     <li>
-                        <b>404</b>: The path specified in the URL doesn't exists
+                        <b>404</b>: The path specified in the URL does not exist
                     </li>
                     <li>
-                        <b>409</b>: There is a conflict inside the Database. This happens when you are trying to
-                        register a user which has the same email address of another user already registered in the
+                        <b>409</b>: There is a conflict inside the database. This happens when you are trying to
+                        register a user with the same email address of another user already registered in the
                         application
                     </li>
                     <li>
@@ -441,40 +439,40 @@
                 To adhere more to the <i>REST API</i> specification, the HTTP verbs used in the BUK Store application
                 have the usual "REST" meanings:
                 <ul>
-                    <li><b>GET</b>: Request used to retrieve information from the Database, it is a Safe call (so it
-                    doesn't change the Data status) and it preserves the Idempotency property (so applied two times
+                    <li><b>GET</b>: retrieve information from the Database, it is a Safe call (so it
+                    doesn't change the Data status) and it preserves the Idempotence property (so applied two times
                     consequently retrieves the same result)</li>
-                    <li><b>POST</b>: Request used to create a new Datum inside the Database. In the BUK web app is used
+                    <li><b>POST</b>: create a new Datum inside the Database. In the BUK web app is used
                     to create new user, to add a new product to the user's cart or to create a reservation for the current
-                    user. It isn't a safe call, since it changes the status of the DB, and of course it isn't idempontent,
+                    user. It isn't a safe call, since it changes the status of the DB, and of course it isn't idempotent,
                     because two consequently call changes two times the status of the Database</li>
-                    <li><b>PUT</b>: Request used to change and update a Datum inside the Database. In our application, is
+                    <li><b>PUT</b>: change and update a Datum inside the Database. In our application, is
                     used only to change a book inside the user's cart, in order to be able to change the quantity of
                     desired books (this request isn't able to delete a book from the cart). The PUT request isn't a
                     Safe call, since its purpose is to update a resource, but it is idempotent, since applied two times,
                     of course with the same parameters, it update the same resource with the same values</li>
-                    <li><b>DELETE</b>: Request used to delete and a resource from the Database. In the app is used only
+                    <li><b>DELETE</b>: delete a resource from the Database. In the app is used only
                     when a user wants to delete a book inside his/hers cart. Of course this isn't a Safe call, as you
-                    can imagine, but it preserves the Idempotency property, since apply two times the DELETE to the same
+                    can imagine, but it preserves the Idempotence property, since apply two times the DELETE to the same
                     object doesn't delete the object twice, obviously</li>
                 </ul>
                 To have a more faithful implementation of the <i>REST</i> APIs, we have decided also to keep, as much
                 as possible, the same name convention used in the <i>REST</i> specification, so a great number of endpoints
                 follows the usual convention, such as <kbd>/api/v1/books</kbd> which retrieves all the books inside the
                 database, or <kbd>/api/v1/authors/1/books</kbd>, which is used to retrieve the books written by the author
-                with identifier 1. But, sometimes, some other endpoints are introduced, to be more specific, for instance
-                there is the <kbd>/api/v1/me</kbd> endpoint used to retrieve the information about the the user which is
-                actually logged in, or the <kbd>api/v1/me/cart</kbd>, which doesn't follow the usual name convention
-                (in that case it should be carts, plural, not singular), but this decision was taken since each user
-                as only one cart, so the singular emphasizes this concept.
+                with identifier 1. In some cases, other endpoints are introduced:
+                the <kbd>/api/v1/me</kbd> endpoint used to retrieve the information about the the user which is
+                actually logged in, or the <kbd>api/v1/me/cart</kbd>, which do not follow the usual name convention
+                (in that case it should be carts, plural, not singular). We took this decision since each user
+                has only one cart, so the singular emphasizes this concept.
                 <br>
-                Finally, the whole API system is designed in order to make the Server able to handle all the possible
+                Finally, the whole API system is designed to make the Server able to handle all the possible
                 requests that a user can do, with the minimum amount of endpoints and the minimum amount of bandwidth
-                wasting, so, for instance, when the books are requested, since the book object is quite large, and inside
-                the database there can be hundreds of them, the decision made was to create the JSON object with the minimum
-                amount of information (so, in this case, only the title and the ISBN), and to shift the responsibility of
-                composing a bigger object to the more soecific endpoint <kbd>/api/v1/book/{ISBN}</kbd>, which is called
-                only when all the book's information are required.
+                wasting. So, for instance, when the books are requested, since the book object is quite large and
+                the database can contain hundreds of them, we create the JSON object with the minimum
+                amount of information (in this case, only the title and the ISBN) and we shift the responsibility of
+                composing a bigger object to the more specific endpoint <kbd>/api/v1/book/{ISBN}</kbd>, which is called
+                only when all the books information are requested.
             </div>
         </div>
 
@@ -503,7 +501,7 @@
                     <li><b>User</b>: Model of an User inside the application</li>
                     <li><b>Cart</b>: Object which handles the books inside a user's cart</li>
                     <li><b>Reservation</b>: Model of a purchase of the user</li>
-                    <li><b>GenericPage</b>: TOBEDONE</li>
+                    <li><b>GenericPage</b>: Model used to store the content of a Generic Page in the database and to send it to the client</li>
                 </ul>
             </div>
         </div>
@@ -521,17 +519,17 @@
 
         <div class="row justify-content-center">
             <div class="col-10">
-                In the BUK Store application, each user can reserve the books he wants. Since we have intended this as a payment,
-                we have chosen to make this reservation possible only if the user is properly registered and logged in.
+                In the BUK Store application each user can reserve the books he wants. Since we consider this as a payment,
+                we have chosen to make the reservation possible only if the user is properly registered and logged in.
                 In order to achieve this goal, the API structure provides some endpoints to handle the signup and the login
-                phases securely. Indeed there is an endpoint, <i>/signup</i>, which handles the registration of the user inside
-                the application, through a POST request with the data the application needs (email, name, surname, password...).
-                Once the user is registered, he should activate the account thanks to a link automatically generated and send to the
-                given email, then, after this operation, the account is fully activated and the user could start use the <i>/login</i> endpoint
+                phases securely. The <i>/signup</i> endpoint handles the registration of the user inside
+                the application through a POST request, with the needed data (email, name, surname, password...).
+                Once the user is registered, he should activate the account by means of an automatically generated link sent to the
+                user's email. After this operation, the account is fully activated and the user can use the <i>/login</i> endpoint
                 to login into the BUK Store website.
-                As soon as the user does the login, the system generates a token and stores it into the database, then it sends the token to
-                the user client through a cookie. At each user's request, the system receives the token from the client, and check if that token
-                actually exists into the database and it is still valid, if so, the system allows the client to access the information, otherwise
+                As soon as the user is logged in, the system generates a token, stores it into the database and sends it to
+                the user's client through a cookie. At each user request, the system receives the token from the client and check if that token
+                actually exists into the database and it is still valid. If so, the system allows the client to access the information, otherwise
                 the application sends a <i>Not Authorized</i> error (HTTP Status Code 401).
             </div>
         </div>
@@ -558,18 +556,16 @@
                 <br>
                 The above diagram is an Entity Relationship (for the sake of brevity ER) Diagram, used to describe more
                 deeply the Database of the BUK application.
-                Diving into this diagram, they can be found various main entities (with a rectangular shape),
-                such as the Book, the Event, the Author or the User, and various relations (with a diamond shape)
-                between this entities, like the Cart, the Reservation or the WrittenBy.Depending on the actual type
-                of relation (if it is 1:1 or 1:N or N:N), some of them will be deployed as a real table, while others
-                will be implemented simply adding a reference inside other tables, already present. To give you an idea,
-                for instance the Cart relation, since it is a relation between Book and User of type N:N, is implemented
-                as a real table inside the Database, while the relation Has between Review and Book, which maps
+                Diving into this diagram, there are the main entities (rectangular shape),
+                such as the Book, the Event, the Author or the User, and various relations between the entities (diamond shape), like the Cart, the Reservation or the WrittenBy. Depending on the actual type
+                of relation (1:1, 1:N or N:N), some of them will be deployed as a real table, while others
+                will be implemented simply adding a reference inside other existing tables. To give an idea,
+                since the <i>Cart</i> relation is a relation between Book and User of type N:N, it is implemented
+                as a real table inside the Database, while the relation <i>Has</i> between Review and Book, which maps
                 N different reviews with only 1 book, will be implemented adding a reference to the ISBN of the book inside
                 the Review table.
                 <br>
-                To have a more depth knowledge about how this ER Diagram is actually implemented in the Database, after this
-                paragraph will be reported the real structure of each table inside the Database.
+                To have a more in-depth knowledge about the implementation of this ER Diagram, we report below the real structure of each table inside the Database.
             </div>
         </div>
 
@@ -602,7 +598,7 @@
                         </tr>
                         <tr>
                             <th scope="row">Title</th>
-                            <td>The title of the Book</td>
+                            <td>The title of the book</td>
                         </tr>
                         <tr>
                             <th scope="row">Picture</th>
@@ -610,15 +606,15 @@
                         </tr>
                         <tr>
                             <th scope="row">Year</th>
-                            <td>The year when the book came out</td>
+                            <td>The year of the first publication of the book</td>
                         </tr>
                         <tr>
                             <th scope="row">PageNumber</th>
-                            <td>The total amount number of pages inside the book</td>
+                            <td>The number of pages inside the book</td>
                         </tr>
                         <tr>
                             <th scope="row">Editor</th>
-                            <td>The book's publishing house</td>
+                            <td>The publishing house of the book</td>
                         </tr>
                         <tr>
                             <th scope="row">OriginalLanguage</th>
@@ -630,15 +626,15 @@
                         </tr>
                         <tr>
                             <th scope="row">Interview</th>
-                            <td>An interview with the book's authors</td>
+                            <td>An interview with the authors of the book</td>
                         </tr>
                         <tr>
                             <th scope="row">AvailableQuantity</th>
-                            <td>How many copy of the book are stocked in the warehouse</td>
+                            <td>The number of copies of the book stocked in the warehouse</td>
                         </tr>
                         <tr>
                             <th scope="row">Price</th>
-                            <td>The price of the book</td>
+                            <td>The price of the book (in euros)</td>
                         </tr>
                         <tr>
                             <th scope="row">GenreID</th>
@@ -678,7 +674,7 @@
                         </tr>
                         <tr>
                             <th scope="row">Address</th>
-                            <td>The location of the event will take place</td>
+                            <td>The location where the event will take place</td>
                         </tr>
                         <tr>
                             <th scope="row">Latitude</th>
@@ -694,15 +690,15 @@
                         </tr>
                         <tr>
                             <th scope="row">Description</th>
-                            <td>A short introduction on the activities proposed during the event</td>
+                            <td>A short introduction of the activities proposed during the event</td>
                         </tr>
                         <tr>
                             <th scope="row">EventDate</th>
-                            <td>Timestamp with the information on both the day and the hour of the event</td>
+                            <td>Timestamp with the information about the day and the hour of the event</td>
                         </tr>
                         <tr>
                             <th scope="row">Picture</th>
-                            <td>A path to the main picture of that event inside the DB</td>
+                            <td>A path to the main picture of the event inside the DB</td>
                         </tr>
                         <tr>
                             <th scope="row">ISBN</th>
@@ -1418,16 +1414,16 @@
         <div class="row justify-content-center">
             <div class="col-10">
                 <p>
-                    Our teams is composed by 3 members, and we have decide to split, in general, the amount of work into
+                    Our team is composed of 3 members and we have decided to divide the amount of work into
                     two main parts: Frontend development and Backend development.
                     <br>
-                    First of all, in order to properly split our work, we have chosen to devote some times to think and
+                    First of all, in order to properly divide our work, we have chosen to devote some time to think and
                     design the <i>REST</i> API of our application all together, in order to have a common reference point.
-                    Then, before starting to work on both the frontend and the backend, we also have decided to firstly
-                    define the user experience of the BUK Store application, spending some times in designing the interfaces
+                    Then, before starting to work on both the frontend and the backend, we have also decided to
+                    define the user experience of the BUK Store application, spending some times in designing the interfaces.
                     <br>
-                    At this point we was ready to start, and since, thanks to Node.js, the Server development is become
-                    easier during the years, we have decide to initially split our group in this way:
+                    At this point we were ready to start. Thanks to Node.js, the Server development has become
+                    easier during the years, so we have decided to initially divide our work in this way:
                 </p>
 
                 <ul class="dashed">
@@ -1437,12 +1433,12 @@
 
                 <p>
                     With this division in mind, we have started to work both on the frontend and on the backend, and this was
-                    possible thanks to development of the API before starting to coding.
+                    possible thanks to development of the API before starting to code.
                     <br>
-                    As soon as the backend development was finished, all the team members started to work on the frontend
+                    As soon as the backend development was finished, all the team members started to work on the frontend,
                     speeding up the implementation of the UI/UX.
                     <br>
-                    To understand more deeply the division of our work, below is reported a table in which is written
+                    To better understand the division of our work, below is reported a table in which is written
                     what was done by each team member
                 </p>
 
@@ -1485,7 +1481,7 @@
                 <br>
 
                 <p>
-                    Finally, here is reported another table which summarize the learning outcome we feel to have
+                    Finally, here is reported another table which summarizes the learning outcome we feel to have
                     reached during the Hypermedia Application course
                 </p>
 
@@ -1541,14 +1537,14 @@
 
         <div class="row justify-content-center">
             <div class="col-10">
-                The <i>API</i>s of the BUK Store application were developed without too much influence of the existing ones.
-                The developers have used other API in some projects done during the academic years (likes the Facebook's API, to develop
-                a scraper, or the Runtastic's API, to integrate an application using their running data), however, no one of the
+                The <i>API</i>s of the BUK Store application were developed without too much influence from existing ones.
+                The developers have used other API in some projects done during the academic years (like the Facebook API to develop
+                a scraper, or the Runtastic API to integrate an application using their running data), however, no one of the
                 existing API system adheres properly to the <i>REST</i> specification, so we have decided to create our own
                 endpoints in order to learn as much as possible about that specification.
-                By the way, to learn what the <i>REST</i> specification tells on creating APIs and how to actually implement
-                them, we have look for the most common guides available online (i.e. Wikipedia).
-                Finally, to implement the security and the session of the BUK Store application, we have followed some guide
+                By the way, to learn the <i>REST</i> specification and how to actually implement
+                it, we have looked for the most common guides available online (i.e. Wikipedia).
+                Finally, to implement the security and the session of the BUK Store application, we have followed some guides
                 directly available on the <i>Node.js</i> website and on the <i>express.js</i> documentation.
             </div>
         </div>

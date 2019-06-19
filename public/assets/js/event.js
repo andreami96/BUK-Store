@@ -3,12 +3,12 @@ jQuery(document).ready(function() {
     let url = window.location.pathname;
     let eventID = url.substr(url.lastIndexOf('/') + 1);
 
-    $.get("/api/v1/events/" + eventID, function(eventInfo, status){
+    $.get("/api/v1/events/" + eventID, function(eventInfo){
         $(".banner-primary").css('background-image',
             'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/images' + eventInfo.picture + '")');
         $("#eventTitle").text(eventInfo.title);
         $("#breadcrumb-title").text(eventInfo.title);
-        $.get("/api/v1/books/" + eventInfo.presentedBook, function (relatedBook, status) {
+        $.get("/api/v1/books/" + eventInfo.presentedBook, function (relatedBook) {
             console.log(relatedBook);
             $('#eventBook').attr(
                 {"src": "../assets/images" + relatedBook.picture,
@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
 
             $('#eventBookLink').attr('href', '/books/' + relatedBook.ISBN);
 
-            $.get("/api/v1/books/" + relatedBook.ISBN + "/authors", function(bookAuthors, status) {
+            $.get("/api/v1/books/" + relatedBook.ISBN + "/authors", function(bookAuthors) {
                 $("#descriptionCol").append(createAuthors(bookAuthors));
             });
 
@@ -58,9 +58,11 @@ function createAuthors(authors) {
     let authorsHTML = [];
 
     for (let j = 0; j < authors.length; j++) {
-        if (j !== authors.length - 1)
+        if (j !== authors.length - 1) {
             authorsHTML.push($('<a>').attr('href', '/authors/' + authors[j].authorID)
-                .text(authors[j].name + ' ' + authors[j].surname + ','));
+                .text(authors[j].name + ' ' + authors[j].surname));
+            authorsHTML.push($('<br>'));
+        }
         else
             authorsHTML.push($('<a>').attr('href', '/authors/' + authors[j].authorID)
                 .text(authors[j].name + ' ' + authors[j].surname));
@@ -102,7 +104,7 @@ function addToCart() {
             }
         });
     } else
-        window.location.href = "/login.html?back=" + window.location.pathname;;
+        window.location.href = "/login.html?back=" + window.location.pathname;
 }
 
 
