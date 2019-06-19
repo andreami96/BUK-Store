@@ -142,6 +142,14 @@
     filter: invert(100%);
 }
 
+.carousel-control-next {
+    width: 5% !important;
+}
+
+.carousel-control-prev {
+    width: 5% !important;
+}
+
 .panel-heading .accordion-toggle [class*="fa"] {
     -webkit-transition-duration: 0.6s;
     -moz-transition-duration: 0.6s;

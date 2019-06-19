@@ -2033,7 +2033,18 @@ async function createEvents() {
         longitude: 9.189870,
         eventDate: new Date(2019, 6, 17, 16, 0, 0, 0),
         title: "The life of Michail Bulgakov",
-        description: "Meet the Author Michail Bulgakov at this event",
+        description: "After his illness, Bulgakov abandoned his medical practice to pursue writing. In his autobiography, he recalled how he began: \"Once in 1919 when I was traveling at night by train I wrote a short story. In the town where the train stopped, I took the story to the publisher of the newspaper who published the story\". His first book was an almanac of feuilletons called Future Perspectives, written and published the same year. In December 1919 Bulgakov moved to Vladikavkaz. He wrote and saw his first two plays, Self Defence and The Turbin Brothers, being produced for the city theater stage with great success.\n" +
+            "\n" +
+            "\n" +
+            "Bulgakov in the 1910s.\n" +
+            "After travelling through the Caucasus, Bulgakov headed for Moscow, intending \"to remain here forever\". It was difficult to find work in the capital, but he was appointed secretary to the literary section of Glavpolitprosvet (Central Committee of the Republic for Political Education). In September 1921 Bulgakov and his wife settled near Patriarch's Ponds, on Bolshaya Sadovaya street, 10 (now close to Mayakovskaya metro station). To make a living, he started working as a correspondent and feuilletons writer for the newspapers Gudok, Krasnaia Panorama and Nakanune, based in Berlin. For the almanac Nedra, he wrote Diaboliad, The Fatal Eggs (1924), and Heart of a Dog (1925), works that combined bitter satire and elements of science fiction and were concerned with the fate of a scientist and the misuse of his discovery. The most significant features of Bulgakov's satire, such as a skillful blending of fantastic and realistic elements, grotesque situations, and a concern with important ethical issues, had already taken shape; these features were developed further in his most famous novel.\n" +
+            "\n" +
+            "Between 1922 and 1926 Bulgakov wrote several plays (including Zoyka's Apartment), none of which were allowed production at the time. The Run, treating the horrors of a fratricidal war, was personally banned by Joseph Stalin after the Glavrepertkom (Department of Repertoire) decided that it \"glorified emigration and White generals\". In 1924 Bulgakov divorced his first wife and next year married Lyubov Belozerskaya.\n" +
+            "\n" +
+            "When one of Moscow's theatre directors severely criticised Bulgakov, Stalin personally protected him, saying that a writer of Bulgakov's quality was above \"party words\" like \"left\" and \"right\". Stalin found work for the playwright at a small Moscow theatre, and next the Moscow Art Theatre (MAT). On 5 October 1926, The Days of the Turbins, the play which continued the theme of The White Guard (the fate of Russian intellectuals and officers of the Tsarist Army caught up in revolution and Civil war) was premiered at the MAT. Stalin liked it very much and reportedly saw it at least 15 times.\n" +
+            "\n" +
+            "Ivan Vasilievich, Last Days (Pushkin), and Don Quixote were banned. The premier of another, Moliėre (also known as The Cabal of Hypocrites), about the French dramatist in which Bulgakov plunged \"into fairy Paris of the XVII century\", received bad reviews in Pravda and the play was withdrawn from the theater repertoire. In 1928, Zoyka's Apartment and The Purple Island were staged in Moscow; both comedies were accepted by public with great enthusiasm, but critics again gave them bad reviews." +
+            "To know further more about Bulgakov life, please meet us in this event",
         ISBN: "9788804668428",
         picture: "/events/bulgakov-event.jpg"
     });
@@ -2045,8 +2056,7 @@ async function createEvents() {
         longitude: 11.973846,
         eventDate: new Date(2019, 6, 15, 20, 0, 0, 0),
         title: "PewDiePie presents his new book",
-        description: "Meet the #1 Youtuber in the world Felix Arvid Ulf Kjelberg, better known as PewDiePie." +
-            "In his home town, Göteborg, he will present his new book",
+        description: "PewdiePie has started a book club. Once a month, the YouTuber sits in his box room studio, bathed in soft pink light, and critiques a set of texts for his audience. The choices so far have tended towards sci-fi – I Am Legend, Brave New World – but also included The Picture of Dorian Gray and American Psycho. “For me to discover how much joy you can get through reading”, the 28-year-old Swede said, “It’s been so much fun.” This month, he wants his viewers to join him in ploughing through Moby Dick.",
         ISBN: "9781405924382",
         picture: "/events/pewdiepie-event.jpg"
     });
@@ -2058,7 +2068,11 @@ async function createEvents() {
         longitude: 2.326291,
         eventDate: new Date(2019, 6, 12, 13, 30, 0, 0),
         title: "The Left for Jean-Claude Michéa",
-        description: "The perfect occasion to understand the thoughts behind Michéa's latest publication.",
+        description: "Rencontre exceptionnelle  avec Jean-Claude Michéa\n" +
+            "philosophe, auteur de Notre ennemi, le capital (Climats, Flammarion, 2017)\n" +
+            "Jean-Claude Michéa, philosophe est notamment l'auteur des Mystères de la gauche (Champs, 2014) et de Notre ennemi, le capital (Climats, 2017).\n" +
+            "\n" +
+            "Le Livre : Si l'on veut réellement rassembler la grande majorité des classes populaires autour d'un programme de déconstruction graduelle du système capitaliste (et non pas simplement accroître ses privilèges électoraux), il faut impérativement commencer par remettre en question ce vieux système de clivages fondé sur la «confiance aveugle dans l'idée de progrès», dont les présupposés philosophiques de plus en plus paralysants (du type \"parti de demain\" - celui de la Silicon Valley - contre \"parti d'hier\" - celui de l'agriculture paysanne ou de la culture du livre) ne cessent d'offrir depuis plus de trente ans à la gauche européenne le moyen idéal de dissimuler sa réconciliation totale avec le capitalisme sous les dehors beaucoup plus séduisants d'une lutte \"citoyenne\" permanente contre toutes les idées «réactionnaires» et \"passéistes\".",
         ISBN: "2081297892",
         picture: "/events/michea-event.jpg"
     });
@@ -2070,7 +2084,8 @@ async function createEvents() {
         longitude: -87.679384,
         eventDate: new Date(2019, 6, 17, 21, 30, 0, 0),
         title: "Joel Dicker in Chicago",
-        description: "Meet the bestselling author at this special event in downtown Chicago. Italian food and beverage will be provided.",
+        description: "Che cosa è successo a Stephanie Mailer? Che cosa aveva scoperto? Se Jesse e Derek si sono sbagliati sul colpevole vent’anni prima, chi è l’autore di quegli omicidi? E cosa è davvero successo la sera del 30 luglio 1994 a Orphea? Derek, Jesse e una nuova collega, la vicecomandante Anna Kanner, dovranno riaprire l’indagine, immergersi nei fantasmi di Orphea. E anche nei propri. \n" +
+            "Torna Joël Dicker – geniale autore di La verità sul caso Harry Quebert e Il libro dei Baltimore – con un romanzo teso, mozzafiato, sorprendente fino all’ultima pagina.",
         ISBN: "8845282678",
         picture: "/events/harry_quebert_event.jpg"
     });
@@ -2082,9 +2097,24 @@ async function createEvents() {
         longitude:  -118.32674,
         eventDate: new Date(2019, 6, 10, 16, 0, 0, 0),
         title: "Catch-22 Event",
-        description: "Meet the actors which are working at Catch-22, the series based on the related book",
+        description: "Catch-22 is a satirical novel by American author Joseph Heller. He began writing it in 1953; the novel was first published in 1961. Often cited as one of the most significant novels of the twentieth century,[2] it uses a distinctive non-chronological third-person omniscient narration, describing events from the points of view of different characters. The separate storylines are out of sequence so the timeline develops along with the plot.\n" +
+            "\n" +
+            "The novel is set during World War II, from 1942 to 1944. It mainly follows the life of Captain John Yossarian, a U.S. Army Air Forces B-25 bombardier. Most of the events in the book occur while the fictional 256th Squadron is based on the island of Pianosa, in the Mediterranean Sea, west of Italy. The novel looks into the experiences of Yossarian and the other airmen in the camp, who attempt to maintain their sanity while fulfilling their service requirements so that they may return home.",
         ISBN: "1451626657",
         picture: "/events/c22_102_ps1150-01013rt.jpg"
+    });
+
+    await Event.create({
+        eventID: 6,
+        address: "100 acre wood forest",
+        latitude: 51.090666304,
+        longitude:  -0.003999984,
+        eventDate: new Date(2019, 6, 18, 20, 0, 0, 0),
+        title: "Winnie The Pooh day",
+        description: "One of the cuddliest holidays around has to be Winnie the Pooh Day, celebrated on the birthday of author A A Milne. It’s one special anniversary fans just can’t bear to miss! Every year, the occasion is marked with events such as teddy bears’ picnics, featuring plenty of honey on the menu.\n" +
+            "Winnie the Pooh first appeared on the printed page in 1926, together with friends Piglet, Tigger and Eeyore. All of them were based on toys owned by the author’s son, who also featured in the famous stories as Christopher Robin. The character later starred in a series of much-loved Disney films. One extra-special way to mark the day is to visit Pooh Corner in Hartfield, East Sussex, where the books were written. You can pick up a map to follow in the characters’ footsteps, and even play a game of Poohsticks on the original bridge.",
+        ISBN: "8852220550",
+        picture: "/events/1077584_111015-cc-Winnie-The-Pooh-Thumb.jpg"
     });
 }
 
