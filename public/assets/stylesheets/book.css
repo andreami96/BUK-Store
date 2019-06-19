@@ -239,23 +239,8 @@
     padding-top: 1em;
 }
 
-#book-events a {
-    text-decoration: none;
-    color: black;
-}
-
-
 .fa-chevron-down {
     margin-right: 1rem;
-}
-
-#author a {
-    color: #2d2d30;
-    text-decoration: none;
-}
-
-#author a:hover {
-    color: #777777;
 }
 
 .similar-books-title {
