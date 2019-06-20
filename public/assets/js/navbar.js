@@ -194,7 +194,7 @@ function createDropdownMenus(isLogged) {
 
 function logout() {
     $.get("/api/v1/logout", function () {
-        window.location.assign("/");
+        window.location.replace("/");
     });
 }
 
