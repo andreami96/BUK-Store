@@ -11,8 +11,8 @@ jQuery(document).ready(function() {
         })
     ).done(function() {
         let startDateRaw = new Date();
-        let endDateRaw = addDays(startDateRaw, 30);
-        startDateRaw = addDays(startDateRaw, -30);
+        let endDateRaw = addDays(startDateRaw, 15);
+        startDateRaw = addDays(startDateRaw, -15);
 
         let startDate = formatDate(startDateRaw);
         let endDate = formatDate(endDateRaw);

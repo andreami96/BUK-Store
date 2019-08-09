@@ -113,7 +113,7 @@ function signUpNewUser() {
                 .on("closed.bs.alert", function () {
                     window.location.href = "/";
                 })
-                .delay(2000)
+                .delay(5000)
                 .fadeOut(500, function () {
                     $(this).alert('close');
                 });
@@ -128,7 +128,7 @@ function signUpNewUser() {
                     "            <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\n" +
                     "            <strong>Alert!</strong><br>" + message +
                     "        </div>");
-            $(".alert").delay(2000).fadeOut(500);
+            $(".alert").delay(5000).fadeOut(500);
         }
     });
 

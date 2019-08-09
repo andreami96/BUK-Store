@@ -2031,7 +2031,7 @@ async function createEvents() {
         address: "Galleria Vittorio Emanuele II, 20121 Milano",
         latitude: 45.466277,
         longitude: 9.189870,
-        eventDate: new Date(2019, 6, 17, 16, 0, 0, 0),
+        eventDate: new Date(2019, (new Date().getMonth()), 3, 16, 0, 0, 0),
         title: "The life of Michail Bulgakov",
         description: "After his illness, Bulgakov abandoned his medical practice to pursue writing. In his autobiography, he recalled how he began: \"Once in 1919 when I was traveling at night by train I wrote a short story. In the town where the train stopped, I took the story to the publisher of the newspaper who published the story\". His first book was an almanac of feuilletons called Future Perspectives, written and published the same year. In December 1919 Bulgakov moved to Vladikavkaz. He wrote and saw his first two plays, Self Defence and The Turbin Brothers, being produced for the city theater stage with great success.\n" +
             "\n" +
@@ -2054,7 +2054,7 @@ async function createEvents() {
         address: "Kungsportsavenyen 12, 41136 Göteborg",
         latitude: 57.701067,
         longitude: 11.973846,
-        eventDate: new Date(2019, 6, 15, 20, 0, 0, 0),
+        eventDate: new Date(2019, (new Date().getMonth()), 10, 20, 0, 0, 0),
         title: "PewDiePie presents his new book",
         description: "PewdiePie has started a book club. Once a month, the YouTuber sits in his box room studio, bathed in soft pink light, and critiques a set of texts for his audience. The choices so far have tended towards sci-fi – I Am Legend, Brave New World – but also included The Picture of Dorian Gray and American Psycho. “For me to discover how much joy you can get through reading”, the 28-year-old Swede said, “It’s been so much fun.” This month, he wants his viewers to join him in ploughing through Moby Dick.",
         ISBN: "9781405924382",
@@ -2066,7 +2066,7 @@ async function createEvents() {
         address: "Boulevard Raspail 15, 75007 Paris",
         latitude: 48.854392,
         longitude: 2.326291,
-        eventDate: new Date(2019, 6, 12, 13, 30, 0, 0),
+        eventDate: new Date(2019, (new Date().getMonth()), 20, 13, 30, 0, 0),
         title: "The Left for Jean-Claude Michéa",
         description: "Rencontre exceptionnelle  avec Jean-Claude Michéa\n" +
             "philosophe, auteur de Notre ennemi, le capital (Climats, Flammarion, 2017)\n" +
@@ -2082,7 +2082,7 @@ async function createEvents() {
         address: "2127 West Bowler Street, 60612 Chicago",
         latitude: 41.871283,
         longitude: -87.679384,
-        eventDate: new Date(2019, 6, 17, 21, 30, 0, 0),
+        eventDate: new Date(2019, (new Date().getMonth()), 17, 21, 30, 0, 0),
         title: "Joel Dicker in Chicago",
         description: "Che cosa è successo a Stephanie Mailer? Che cosa aveva scoperto? Se Jesse e Derek si sono sbagliati sul colpevole vent’anni prima, chi è l’autore di quegli omicidi? E cosa è davvero successo la sera del 30 luglio 1994 a Orphea? Derek, Jesse e una nuova collega, la vicecomandante Anna Kanner, dovranno riaprire l’indagine, immergersi nei fantasmi di Orphea. E anche nei propri. \n" +
             "Torna Joël Dicker – geniale autore di La verità sul caso Harry Quebert e Il libro dei Baltimore – con un romanzo teso, mozzafiato, sorprendente fino all’ultima pagina.",
@@ -2095,7 +2095,7 @@ async function createEvents() {
         address: "1234 Vine Street, 90038 Los Angeles",
         latitude: 34.09834,
         longitude:  -118.32674,
-        eventDate: new Date(2019, 6, 10, 16, 0, 0, 0),
+        eventDate: new Date(2019, (new Date().getMonth()), 7, 16, 0, 0, 0),
         title: "Catch-22 Event",
         description: "Catch-22 is a satirical novel by American author Joseph Heller. He began writing it in 1953; the novel was first published in 1961. Often cited as one of the most significant novels of the twentieth century,[2] it uses a distinctive non-chronological third-person omniscient narration, describing events from the points of view of different characters. The separate storylines are out of sequence so the timeline develops along with the plot.\n" +
             "\n" +
@@ -2103,13 +2103,12 @@ async function createEvents() {
         ISBN: "1451626657",
         picture: "/events/c22_102_ps1150-01013rt.jpg"
     });
-
     await Event.create({
         eventID: 6,
         address: "100 acre wood forest",
         latitude: 51.090666304,
         longitude:  -0.003999984,
-        eventDate: new Date(2019, 6, 18, 20, 0, 0, 0),
+        eventDate: new Date(2019, (new Date().getMonth()), 18, 20, 0, 0, 0),
         title: "Winnie The Pooh day",
         description: "One of the cuddliest holidays around has to be Winnie the Pooh Day, celebrated on the birthday of author A A Milne. It’s one special anniversary fans just can’t bear to miss! Every year, the occasion is marked with events such as teddy bears’ picnics, featuring plenty of honey on the menu.\n" +
             "Winnie the Pooh first appeared on the printed page in 1926, together with friends Piglet, Tigger and Eeyore. All of them were based on toys owned by the author’s son, who also featured in the famous stories as Christopher Robin. The character later starred in a series of much-loved Disney films. One extra-special way to mark the day is to visit Pooh Corner in Hartfield, East Sussex, where the books were written. You can pick up a map to follow in the characters’ footsteps, and even play a game of Poohsticks on the original bridge.",
