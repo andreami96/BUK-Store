@@ -194,7 +194,7 @@ function createDropdownMenus(isLogged) {
 
 function logout() {
     $.get("/api/v1/logout", function () {
-        window.location.replace("/");
+        window.location.replace("https://buk-store.herokuapp.com");
     });
 }
 

@@ -12,7 +12,7 @@ router.get('/', checkAuthMiddleware, function (req, res, next) {
             res.clearCookie("X-API-KEY");
             return res
                 .status(200)
-                .redirect('/');
+                .send(result.toJSON());
         })
         .catch( (error) => {
             next(error);
