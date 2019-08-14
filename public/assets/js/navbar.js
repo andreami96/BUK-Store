@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     $.ajax({
         url: "/api/v1/me",
+        cache: false,
         success: function (result, status, xhr) {
             if($(window).width() >= 576)
                 addNavbar(true, true);
@@ -123,7 +124,7 @@ function retrieveRightMenu(isLogged) {
                     "      <a class=\"nav-link\" href=\"/me\">My Account</a>\n" +
                     "   </li>\n" +
                     "   <li class=\"nav-item\">\n" +
-                    "      <a class=\"nav-link\" href=\"\" onclick=\"logout()\">Logout</a>\n" +
+                    "      <a class=\"nav-link\" onclick=\"logout()\" href=''>Logout</a>\n" +
                     "   </li>\n" +
                     "</ul>\n";
 
@@ -194,7 +195,7 @@ function createDropdownMenus(isLogged) {
 
 function logout() {
     $.get("/api/v1/logout", function () {
-        window.location.replace("https://buk-store.herokuapp.com");
+        document.location.replace('/');
     });
 }
 
